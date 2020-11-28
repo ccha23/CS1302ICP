@@ -1,5 +1,10 @@
 */private
 */.ipynb_checkpoints
+*/.pyc
+*/__pycache__
+*/feedback
+*/media
+*/old
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
