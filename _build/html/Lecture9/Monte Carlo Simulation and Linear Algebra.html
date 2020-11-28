@@ -52,9 +52,9 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -221,7 +221,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Lecture9/Monte Carlo Simulation and Linear Algebra.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/master?urlpath=tree/Lecture9/Monte Carlo Simulation and Linear Algebra.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -229,6 +229,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/master/Lecture9/Monte Carlo Simulation and Linear Algebra.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -339,7 +347,7 @@ generating the <span class="math notranslate nohighlight">\(x\)</span> and <span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate: 3.1412164
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate: 3.14088
 Ground truth: 3.141592653589793
 </pre></div>
 </div>
@@ -365,8 +373,8 @@ Ground truth: 3.141592653589793
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95%-confidence interval: [3.14151782 3.14359418]
-Estimate: 3.1426 ± 0.0010
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95%-confidence interval: [3.1405702 3.1426474]
+Estimate: 3.1416 ± 0.0010
 Ground truth: 3.141592653589793
 </pre></div>
 </div>
@@ -404,7 +412,7 @@ E.g., see the Monte Carlo simulation of a <a class="reference external" href="ht
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "637cba0a00c84989bcd5ad5136f06f07"}
+{"version_major": 2, "version_minor": 0, "model_id": "97eb5dcd19b74235b655718981bd6eb5"}
 </script></div>
 </div>
 <p><strong>How to solve multiple linear equations?</strong></p>
@@ -580,13 +588,13 @@ b_1
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes:
- sort copy
+ copy sort
 
 Array-specific attributes:
- byteswap transpose flatten item cumsum setflags dtype squeeze choose itemsize ndim cumprod T shape tofile argpartition prod partition ravel tostring ptp nbytes size take round data imag conj min trace dumps base ctypes all dump any put setfield clip flat sum diagonal max dot astype swapaxes itemset newbyteorder argmax flags resize std tobytes fill getfield argsort argmin strides reshape tolist real repeat var mean view conjugate searchsorted compress nonzero
+ dtype flatten item byteswap ndim conj argsort itemsize getfield any real nbytes choose searchsorted argmax ptp tolist fill dumps base diagonal round cumprod ravel dump sum all size argpartition trace view repeat put setflags astype tobytes var min clip std flat tofile cumsum argmin T conjugate ctypes compress itemset data prod tostring partition swapaxes mean strides newbyteorder dot max nonzero shape reshape resize transpose flags squeeze setfield imag take
 
 List-specific attributes:
- index extend insert append clear remove reverse pop count
+ pop insert append reverse remove index clear count extend
 </pre></div>
 </div>
 </div>
@@ -1444,7 +1452,7 @@ x=None
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "ccha23/CS1302ICP",
             ref: "master",
         },
         codeMirrorConfig: {
