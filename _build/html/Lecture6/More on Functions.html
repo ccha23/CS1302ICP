@@ -1,0 +1,1744 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More on Functions &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lists and Tuples" href="../Lecture7/Lists%20and%20Tuples.html" />
+    <link rel="prev" title="Objects" href="../Lecture5/Objects.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture6/More on Functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Lecture6/More on Functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursion">
+   Recursion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-variables">
+   Global Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generator">
+   Generator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-arguments">
+   Optional Arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-number-of-arguments">
+   Variable number of arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decorator">
+   Decorator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module">
+   Module
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="more-on-functions">
+<h1>More on Functions<a class="headerlink" href="#more-on-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recursion">
+<h2>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h2>
+<p>Consider computing the <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci number</a> of order <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+F_n := 
+\begin{cases}
+F_{n-1}+F_{n-2} &amp; n&gt;1 \kern1em \text{(recurrence)}\\
+1 &amp; n=1 \kern1em \text{(base case)}\\
+0 &amp; n=0 \kern1em \text{(base case)}.
+\end{cases}\end{split}\]</div>
+<p>Fibonacci numbers have practical applications in generating <a class="reference external" href="https://en.wikipedia.org/wiki/Lagged_Fibonacci_generator">pseudorandom numbers</a>.</p>
+<p><strong>Can we define the function by calling the function itself?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -r -h 450
+def fibonacci(n):
+    if n &gt; 1:
+        return fibonacci(n - 1) + fibonacci(n - 2)  # recursion
+    elif n == 1:
+        return 1
+    else:
+        return 0
+
+fibonacci(2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="450"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20fibonacci%28n%29%3A%0A%20%20%20%20if%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20return%20fibonacci%28n%20-%201%29%20%2B%20fibonacci%28n%20-%202%29%20%20%23%20recursion%0A%20%20%20%20elif%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%200%0A%0Afibonacci%282%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>Recursion</em></a> is a function that calls itself (<em>recurs</em>).</p>
+<p><strong>Exercise</strong> Write a function <code class="docutils literal notranslate"><span class="pre">gcd</span></code> that implements the <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm for the greatest common divisor</a>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\operatorname{gcd}(a,b)=\begin{cases}a &amp; b=0\\ \operatorname{gcd}(b, a\operatorname{mod}b) &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -r -h 550
+def gcd(a, b):
+    ### BEGIN SOLUTION
+    return gcd(b, a % b) if b else a
+    ### END SOLUTION
+
+
+gcd(3 * 5, 5 * 7)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="550"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20gcd%28a%2C%20b%29%3A%0A%20%20%20%20%23%23%23%20BEGIN%20SOLUTION%0A%20%20%20%20return%20gcd%28b%2C%20a%20%25%20b%29%20if%20b%20else%20a%0A%20%20%20%20%23%23%23%20END%20SOLUTION%0A%0A%0Agcd%283%20%2A%205%2C%205%20%2A%207%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Is recursion strictly necessary?</strong></p>
+<p>No. We can always convert a recursion to an iteration.<br />
+E.g., the following computes the Fibonnacci number of order using a while loop instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -r -h 550
+def fibonacci_iteration(n):
+    if n &gt; 1:
+        _, F = 0, 1  # next two Fibonacci numbers
+        while n &gt; 1:
+            _, F, n = F, F + _, n - 1
+        return F
+    elif n == 1:
+        return 1
+    else:
+        return 0
+    
+fibonacci_iteration(3)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="550"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20fibonacci_iteration%28n%29%3A%0A%20%20%20%20if%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20_%2C%20F%20%3D%200%2C%201%20%20%23%20next%20two%20Fibonacci%20numbers%0A%20%20%20%20%20%20%20%20while%20n%20%3E%201%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20_%2C%20F%2C%20n%20%3D%20F%2C%20F%20%2B%20_%2C%20n%20-%201%0A%20%20%20%20%20%20%20%20return%20F%0A%20%20%20%20elif%20n%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20%0Afibonacci_iteration%283%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># more tests</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">fibonacci_iteration</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Implement <code class="docutils literal notranslate"><span class="pre">gcd_iteration</span></code> using a while loop instead of a recursion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -r -h 550
+def gcd_iteration(a, b):
+    ### BEGIN SOLUTION
+    while b:
+        a, b = b, a % b
+    return a
+    ### END SOLUTION
+
+
+gcd_iteration(3 * 5, 5 * 7)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="550"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20gcd_iteration%28a%2C%20b%29%3A%0A%20%20%20%20%23%23%23%20BEGIN%20SOLUTION%0A%20%20%20%20while%20b%3A%0A%20%20%20%20%20%20%20%20a%2C%20b%20%3D%20b%2C%20a%20%25%20b%0A%20%20%20%20return%20a%0A%20%20%20%20%23%23%23%20END%20SOLUTION%0A%0A%0Agcd_iteration%283%20%2A%205%2C%205%20%2A%207%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="n">fibonacci_iteration</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the benefit of recursion?</strong></p>
+<ul class="simple">
+<li><p>Recursion is often shorter and easier to understand.</p></li>
+<li><p>It is also easier to write code by <em>wishful thinking</em> or <em><a class="reference external" href="https://en.wikipedia.org/wiki/Declarative_programming">declarative programming</a></em>.</p></li>
+</ul>
+<p><strong>Is recusion more efficient than iteration?</strong></p>
+<p><strong>Exercise</strong> Find the smallest values of <code class="docutils literal notranslate"><span class="pre">n</span></code> for<code class="docutils literal notranslate"><span class="pre">fibonacci(n)</span></code> and <code class="docutils literal notranslate"><span class="pre">fibonacci_iteration(n)</span></code> respectively to run for more than a second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign n</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="c1">### END SOLUTION</span>
+<span class="n">fib_recursion</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign n</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">300000</span>
+<span class="c1">### END SOLUTION</span>
+<span class="n">fib_iteration</span> <span class="o">=</span> <span class="n">fibonacci_iteration</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see why recursion is slow, we will modify <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> to print each function call as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the Fibonacci number of order n.&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fibonacci(</span><span class="si">{!r}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+
+
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fibonacci(5)
+fibonacci(4)
+fibonacci(3)
+fibonacci(2)
+fibonacci(1)
+fibonacci(0)
+fibonacci(1)
+fibonacci(2)
+fibonacci(1)
+fibonacci(0)
+fibonacci(3)
+fibonacci(2)
+fibonacci(1)
+fibonacci(0)
+fibonacci(1)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fibonacci(5)</span></code> calls <code class="docutils literal notranslate"><span class="pre">fibonacci(3)</span></code> and <code class="docutils literal notranslate"><span class="pre">fibonacci(4)</span></code>, which in turn call <code class="docutils literal notranslate"><span class="pre">fibonacci(2)</span></code> and <code class="docutils literal notranslate"><span class="pre">fibonacci(3)</span></code>. <code class="docutils literal notranslate"><span class="pre">fibonacci(3)</span></code> is called twice.</p>
+</div>
+<div class="section" id="global-variables">
+<h2>Global Variables<a class="headerlink" href="#global-variables" title="Permalink to this headline">¶</a></h2>
+<p>Consider the problem of generating a sequence of Fibonacci numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fibonacci_iteration</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is the above loop efficient?</strong></p>
+<p>No. Each call to <code class="docutils literal notranslate"><span class="pre">fibonacci_iteration(n)</span></code> recomputes the last two Fibonacci numbers <span class="math notranslate nohighlight">\(F_{n-1}\)</span> and <span class="math notranslate nohighlight">\(F_{n-2}\)</span> for <span class="math notranslate nohighlight">\(n\geq 2\)</span>.</p>
+<p><strong>How to avoid redundant computations?</strong></p>
+<p>One way is to store the last two computed Fibonacci numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 600
+def next_fibonacci():
+    &#39;&#39;&#39;Returns the next Fibonacci number.&#39;&#39;&#39;
+    global _Fn, _Fn1, _n  # global declaration
+    value = _Fn
+    _Fn, _Fn1, _n = _Fn1, _Fn + _Fn1, _n + 1
+    return value
+
+def print_fibonacci_state():
+    print(&#39;&#39;&#39;States:
+    _Fn  : Next Fibonacci number      = {}
+    _Fn1 : Next next Fibonacci number = {}
+    _n   : Next order                 = {}&#39;&#39;&#39;.format(_Fn,_Fn1,_n))
+
+# global variables for next_fibonacci and print_fibonacci_state
+_Fn, _Fn1, _n = 0, 1, 0
+
+for n in range(5):
+    print(next_fibonacci())
+print_fibonacci_state()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="600"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20next_fibonacci%28%29%3A%0A%20%20%20%20%27%27%27Returns%20the%20next%20Fibonacci%20number.%27%27%27%0A%20%20%20%20global%20_Fn%2C%20_Fn1%2C%20_n%20%20%23%20global%20declaration%0A%20%20%20%20value%20%3D%20_Fn%0A%20%20%20%20_Fn%2C%20_Fn1%2C%20_n%20%3D%20_Fn1%2C%20_Fn%20%2B%20_Fn1%2C%20_n%20%2B%201%0A%20%20%20%20return%20value%0A%0Adef%20print_fibonacci_state%28%29%3A%0A%20%20%20%20print%28%27%27%27States%3A%0A%20%20%20%20_Fn%20%20%3A%20Next%20Fibonacci%20number%20%20%20%20%20%20%3D%20%7B%7D%0A%20%20%20%20_Fn1%20%3A%20Next%20next%20Fibonacci%20number%20%3D%20%7B%7D%0A%20%20%20%20_n%20%20%20%3A%20Next%20order%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3D%20%7B%7D%27%27%27.format%28_Fn%2C_Fn1%2C_n%29%29%0A%0A%23%20global%20variables%20for%20next_fibonacci%20and%20print_fibonacci_state%0A_Fn%2C%20_Fn1%2C%20_n%20%3D%200%2C%201%2C%200%0A%0Afor%20n%20in%20range%285%29%3A%0A%20%20%20%20print%28next_fibonacci%28%29%29%0Aprint_fibonacci_state%28%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Rules for <a class="reference external" href="https://docs.python.org/3/faq/programming.html#what-are-the-rules-for-local-and-global-variables-in-python"><em>global/local variables</em></a>:</p>
+<ol class="simple">
+<li><p>A local variable must be defined within a function.</p></li>
+<li><p>An assignment defines a local variable except in a <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#the-global-statement"><code class="docutils literal notranslate"><span class="pre">global</span></code> statement</a>.</p></li>
+</ol>
+<p><strong>Why <code class="docutils literal notranslate"><span class="pre">global</span></code> is NOT needed in <code class="docutils literal notranslate"><span class="pre">print_fibonacci_state</span></code>?</strong></p>
+<p>Without ambiguity, <code class="docutils literal notranslate"><span class="pre">_Fn,</span> <span class="pre">_Fn1,</span> <span class="pre">_n</span></code> in <code class="docutils literal notranslate"><span class="pre">print_fibonacci_state</span></code> are not local variables by Rule 1 because they are not defined within the function.</p>
+<p><strong>Why <code class="docutils literal notranslate"><span class="pre">global</span></code> is needed in <code class="docutils literal notranslate"><span class="pre">next_fibonacci</span></code>?</strong></p>
+<p>What happens otherwise:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">next_fibonacci</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Returns the next Fibonacci number.&#39;&#39;&#39;</span>
+    <span class="c1"># global _Fn, _Fn1, _n</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">_Fn</span>
+    <span class="n">_Fn</span><span class="p">,</span> <span class="n">_Fn1</span><span class="p">,</span> <span class="n">_n</span> <span class="o">=</span> <span class="n">_Fn1</span><span class="p">,</span> <span class="n">_Fn</span> <span class="o">+</span> <span class="n">_Fn1</span><span class="p">,</span> <span class="n">_n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+<span class="n">next_fibonacci</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">44</span><span class="n">c8c496bfd8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">value</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">next_fibonacci</span><span class="p">()</span>
+
+<span class="nn">&lt;ipython-input-13-44c8c496bfd8&gt;</span> in <span class="ni">next_fibonacci</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&#39;&#39;&#39;Returns the next Fibonacci number.&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># global _Fn, _Fn1, _n</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">value</span> <span class="o">=</span> <span class="n">_Fn</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">_Fn</span><span class="p">,</span> <span class="n">_Fn1</span><span class="p">,</span> <span class="n">_n</span> <span class="o">=</span> <span class="n">_Fn1</span><span class="p">,</span> <span class="n">_Fn</span> <span class="o">+</span> <span class="n">_Fn1</span><span class="p">,</span> <span class="n">_n</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">value</span>
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;_Fn&#39; referenced before assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why is there an <code class="docutils literal notranslate"><span class="pre">UnboundLocalError</span></code>?</p>
+<ul class="simple">
+<li><p>The assignment defines <code class="docutils literal notranslate"><span class="pre">_Fn</span></code> as a local variable by Rule 2.</p></li>
+<li><p>However, the assignment requires first evaluating <code class="docutils literal notranslate"><span class="pre">_Fn</span></code>, which is not yet defined.</p></li>
+</ul>
+<p><strong>Are global variables preferred over local ones?</strong></p>
+<p>Suppose for aesthetic reasons we remove the underscores in global variable names?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 600
+def next_fibonacci():
+    &#39;&#39;&#39;Returns the next Fibonacci number.&#39;&#39;&#39;
+    global Fn, Fn1, n
+    value = Fn
+    Fn, Fn1, n = Fn1, Fn + Fn1, n + 1
+    return value
+
+def print_fibonacci_state():
+    print(&#39;&#39;&#39;States:
+    Fn  : Next Fibonacci number      = {}
+    Fn1 : Next next Fibonacci number = {}
+    n   : Next order                 = {}&#39;&#39;&#39;.format(Fn,Fn1,n))
+
+# global variables renamed without underscores
+Fn, Fn1, n = 0, 1, 0
+
+n = 0
+while n &lt; 5:
+    print(next_fibonacci())
+    n += 1
+print_fibonacci_state()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="600"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20next_fibonacci%28%29%3A%0A%20%20%20%20%27%27%27Returns%20the%20next%20Fibonacci%20number.%27%27%27%0A%20%20%20%20global%20Fn%2C%20Fn1%2C%20n%0A%20%20%20%20value%20%3D%20Fn%0A%20%20%20%20Fn%2C%20Fn1%2C%20n%20%3D%20Fn1%2C%20Fn%20%2B%20Fn1%2C%20n%20%2B%201%0A%20%20%20%20return%20value%0A%0Adef%20print_fibonacci_state%28%29%3A%0A%20%20%20%20print%28%27%27%27States%3A%0A%20%20%20%20Fn%20%20%3A%20Next%20Fibonacci%20number%20%20%20%20%20%20%3D%20%7B%7D%0A%20%20%20%20Fn1%20%3A%20Next%20next%20Fibonacci%20number%20%3D%20%7B%7D%0A%20%20%20%20n%20%20%20%3A%20Next%20order%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3D%20%7B%7D%27%27%27.format%28Fn%2CFn1%2Cn%29%29%0A%0A%23%20global%20variables%20renamed%20without%20underscores%0AFn%2C%20Fn1%2C%20n%20%3D%200%2C%201%2C%200%0A%0An%20%3D%200%0Awhile%20n%20%3C%205%3A%0A%20%20%20%20print%28next_fibonacci%28%29%29%0A%20%20%20%20n%20%2B%3D%201%0Aprint_fibonacci_state%28%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Exercise</strong> Why does the while loop prints only 3 instead of 5 Fibonacci numbers?</p>
+<p>There is a name collision. <code class="docutils literal notranslate"><span class="pre">n</span></code> is also incremented by <code class="docutils literal notranslate"><span class="pre">next_fibonacci()</span></code>, and so the while loop is only executed 3 times in total.</p>
+<p>With global variables</p>
+<ul class="simple">
+<li><p>codes are less predictable, more difficult to reuse/extend, and</p></li>
+<li><p>tests cannot be isolated, making debugging difficult.</p></li>
+</ul>
+<p><strong>Is it possible to store the function states without using global variables?</strong></p>
+<p>Yes. We can use nested functions and <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#grammar-token-nonlocal-stmt"><code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> variables</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci_closure</span><span class="p">(</span><span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">next_fibonacci</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;Returns the next (generalized) Fibonacci number starting with </span>
+<span class="sd">        Fn and Fn1 as the first two numbers.&#39;&#39;&#39;</span>
+        <span class="k">nonlocal</span> <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">n</span>  <span class="c1"># declare nonlocal variables</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">Fn</span>
+        <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">Fn</span> <span class="o">+</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">print_fibonacci_state</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;States:</span>
+<span class="s1">        Next Fibonacci number      = </span><span class="si">{}</span><span class="s1"></span>
+<span class="s1">        Next next Fibonacci number = </span><span class="si">{}</span><span class="s1"></span>
+<span class="s1">        Next order                 = </span><span class="si">{}</span><span class="s1">&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Fn and Fn1 specified in the function arguments</span>
+    <span class="k">return</span> <span class="n">next_fibonacci</span><span class="p">,</span> <span class="n">print_fibonacci_state</span>
+
+
+<span class="n">next_fibonacci</span><span class="p">,</span> <span class="n">print_fibonacci_state</span> <span class="o">=</span> <span class="n">fibonacci_closure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">next_fibonacci</span><span class="p">())</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">print_fibonacci_state</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+2
+3
+States:
+        Next Fibonacci number      = 5
+        Next next Fibonacci number = 8
+        Next order                 = 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The state variables <code class="docutils literal notranslate"><span class="pre">Fn,</span> <span class="pre">Fn1,</span> <span class="pre">n</span></code> are now <em>encapsulated</em>, and so<br />
+the functions returned by <code class="docutils literal notranslate"><span class="pre">fibonacci_closure</span></code> no longer depends on any global variables.</p>
+<p>Another benefit of using nested functions is that we can also create different Fibonacci sequence with different base cases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_next_fibonacci</span><span class="p">,</span> <span class="n">my_print_fibonacci_state</span> <span class="o">=</span> <span class="n">fibonacci_closure</span><span class="p">(</span><span class="s1">&#39;cs&#39;</span><span class="p">,</span> <span class="s1">&#39;1302&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_next_fibonacci</span><span class="p">())</span>
+<span class="n">my_print_fibonacci_state</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cs
+1302
+cs1302
+1302cs1302
+cs13021302cs1302
+States:
+        Next Fibonacci number      = 1302cs1302cs13021302cs1302
+        Next next Fibonacci number = cs13021302cs13021302cs1302cs13021302cs1302
+        Next order                 = 5
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">next_fibonacci</span></code> and <code class="docutils literal notranslate"><span class="pre">print_fibonacci_state</span></code> are <em>local functions</em> of <code class="docutils literal notranslate"><span class="pre">fibonacci_closure</span></code>.</p>
+<ul class="simple">
+<li><p>They can access (<em>capture</em>) the other local variables of <code class="docutils literal notranslate"><span class="pre">fibonacci_closure</span></code> by forming the so-called <em>closures</em>.</p></li>
+<li><p>Similar to the use of <code class="docutils literal notranslate"><span class="pre">global</span></code> statement, a <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#the-nonlocal-statement"><code class="docutils literal notranslate"><span class="pre">non-local</span></code> statement</a> is needed for assigning nonlocal variables.</p></li>
+</ul>
+<p>Each local function has an attribute named <code class="docutils literal notranslate"><span class="pre">__closure__</span></code> that stores the captured local variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_closure</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Print the closure of a function.&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;closure of &#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    </span><span class="si">{}</span><span class="s1"> content: </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">cell</span><span class="o">.</span><span class="n">cell_contents</span><span class="p">))</span>
+
+
+<span class="n">print_closure</span><span class="p">(</span><span class="n">next_fibonacci</span><span class="p">)</span>
+<span class="n">print_closure</span><span class="p">(</span><span class="n">print_fibonacci_state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>closure of  next_fibonacci
+    &lt;cell at 0x7f8bc06d3b10: int object at 0x5622be35f380&gt; content: 5
+    &lt;cell at 0x7f8bc06d3b90: int object at 0x5622be35f3e0&gt; content: 8
+    &lt;cell at 0x7f8bc06d3c10: int object at 0x5622be35f380&gt; content: 5
+closure of  print_fibonacci_state
+    &lt;cell at 0x7f8bc06d3b10: int object at 0x5622be35f380&gt; content: 5
+    &lt;cell at 0x7f8bc06d3b90: int object at 0x5622be35f3e0&gt; content: 8
+    &lt;cell at 0x7f8bc06d3c10: int object at 0x5622be35f380&gt; content: 5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generator">
+<h2>Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h2>
+<p>Another way to generate a sequence of objects one-by-one is to write a <em>generator</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">fibonacci_iteration</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fibonacci_generator</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f8bc07762d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above uses a <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#grammar-token-generator-expression"><em>generator expression</em></a> to define <code class="docutils literal notranslate"><span class="pre">fibonacci_generator</span></code>.</p>
+<p><strong>How to obtain items from a generator?</strong></p>
+<p>We can use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#next"><code class="docutils literal notranslate"><span class="pre">next</span></code> function</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">fibonacci_generator</span><span class="p">))</span> <span class="c1"># raises StopIterationException eventually</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="n">e6f031ce2829</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">fibonacci_generator</span><span class="p">))</span> <span class="c1"># raises StopIterationException eventually</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>A generator object is <a class="reference external" href="https://www.programiz.com/python-programming/iterator"><em>iterable</em></a>, i.e., it implements both <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> and <code class="docutils literal notranslate"><span class="pre">__next__</span></code> methods that are automatically called in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop as well as the <code class="docutils literal notranslate"><span class="pre">next</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">fibonacci_iteration</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_generator</span><span class="p">:</span>  <span class="c1"># StopIterationException handled by for loop</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is <code class="docutils literal notranslate"><span class="pre">fibonacci_generator</span></code> efficient?</strong></p>
+<p>No again due to redundant computations.<br />
+A better way to define the generator is to use the keyword <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=yield#yield-expressions"><code class="docutils literal notranslate"><span class="pre">yield</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 450
+def fibonacci_sequence(Fn, Fn1, stop):
+    &#39;&#39;&#39;Return a generator that generates Fibonacci numbers
+    starting from Fn and Fn1 until stop (exclusive).&#39;&#39;&#39;
+    while Fn &lt; stop:
+        yield Fn  # return Fn and pause execution
+        Fn, Fn1 = Fn1, Fn1 + Fn
+
+
+for fib in fibonacci_sequence(0, 1, 5):
+    print(fib)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="450"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20fibonacci_sequence%28Fn%2C%20Fn1%2C%20stop%29%3A%0A%20%20%20%20%27%27%27Return%20a%20generator%20that%20generates%20Fibonacci%20numbers%0A%20%20%20%20starting%20from%20Fn%20and%20Fn1%20until%20stop%20%28exclusive%29.%27%27%27%0A%20%20%20%20while%20Fn%20%3C%20stop%3A%0A%20%20%20%20%20%20%20%20yield%20Fn%20%20%23%20return%20Fn%20and%20pause%20execution%0A%20%20%20%20%20%20%20%20Fn%2C%20Fn1%20%3D%20Fn1%2C%20Fn1%20%2B%20Fn%0A%0A%0Afor%20fib%20in%20fibonacci_sequence%280%2C%201%2C%205%29%3A%0A%20%20%20%20print%28fib%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yield</span></code> causes the function to return a <em>generator</em> without executing the function body.</p></li>
+<li><p>Calling <code class="docutils literal notranslate"><span class="pre">__next__</span></code> resumes the execution, which</p>
+<ul class="simple">
+<li><p>pauses at the next <code class="docutils literal notranslate"><span class="pre">yield</span></code> expression, or</p></li>
+<li><p>raises the <code class="docutils literal notranslate"><span class="pre">StopIterationException</span></code> at the end.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Exercise</strong> The yield expression <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">...</span></code> is mistaken in [Halterman17] to be a statement. It is actually an expression because</p>
+<ul class="simple">
+<li><p>The value of a <code class="docutils literal notranslate"><span class="pre">yield</span></code> expression is <code class="docutils literal notranslate"><span class="pre">None</span></code> by default, but</p></li>
+<li><p>it can be set by the <code class="docutils literal notranslate"><span class="pre">generator.send</span></code> method.</p></li>
+</ul>
+<p>Add the document string to the following function. In particular, explain the effect of calling the method <code class="docutils literal notranslate"><span class="pre">send</span></code> on the returned generator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -r -h 500
+def fibonacci_sequence(Fn, Fn1, stop):
+    ### BEGIN SOLUTION
+    &#39;&#39;&#39;Return a generator that generates Fibonacci numbers
+    starting from Fn and Fn1 to stop (exclusive). 
+    generator.send(value) sets next number to value.&#39;&#39;&#39;
+    ### END SOLUTION
+    while Fn &lt; stop:
+        value = yield Fn
+        if value is not None: 
+            Fn1 = value  # set next number to the value of yield expression
+        Fn, Fn1 = Fn1, Fn1 + Fn 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="500"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20fibonacci_sequence%28Fn%2C%20Fn1%2C%20stop%29%3A%0A%20%20%20%20%23%23%23%20BEGIN%20SOLUTION%0A%20%20%20%20%27%27%27Return%20a%20generator%20that%20generates%20Fibonacci%20numbers%0A%20%20%20%20starting%20from%20Fn%20and%20Fn1%20to%20stop%20%28exclusive%29.%20%0A%20%20%20%20generator.send%28value%29%20sets%20next%20number%20to%20value.%27%27%27%0A%20%20%20%20%23%23%23%20END%20SOLUTION%0A%20%20%20%20while%20Fn%20%3C%20stop%3A%0A%20%20%20%20%20%20%20%20value%20%3D%20yield%20Fn%0A%20%20%20%20%20%20%20%20if%20value%20is%20not%20None%3A%20%0A%20%20%20%20%20%20%20%20%20%20%20%20Fn1%20%3D%20value%20%20%23%20set%20next%20number%20to%20the%20value%20of%20yield%20expression%0A%20%20%20%20%20%20%20%20Fn%2C%20Fn1%20%3D%20Fn1%2C%20Fn1%20%2B%20Fn%20%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="optional-arguments">
+<h2>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to make function arguments optional?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci_sequence</span><span class="p">(</span><span class="n">Fn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Fn1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">Fn</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">Fn</span>
+        <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">=</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">+</span> <span class="n">Fn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>  <span class="c1"># with all arguments specified</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>  <span class="c1"># with default Fn=0, Fn1=1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">stop=5</span></code> is called a <a class="reference external" href="https://docs.python.org/3/glossary.html#term-keyword-argument">keyword argument</a>. Unlike <code class="docutils literal notranslate"><span class="pre">positional</span> <span class="pre">arguments</span></code>, it specifies the name of the argument explicitly.</p>
+<p><strong>Exercise</strong> <code class="docutils literal notranslate"><span class="pre">stop</span></code> is an <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#default-argument-values">optional argument</a> with the <em>default value</em> <code class="docutils literal notranslate"><span class="pre">None</span></code>. What is the behavior of the following code?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fib</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>  
+        <span class="k">break</span>  <span class="c1"># Will this be executed?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+1
+6
+7
+13
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the default value of <code class="docutils literal notranslate"><span class="pre">None</span></code>, the while loop becomes an infinite loop. The generator will keep generating the next Fibonacci number without any bound on the order. In particular, <code class="docutils literal notranslate"><span class="pre">fibonacci_sequence(5)</span></code> creates an unstoppable (default) generator with base case <code class="docutils literal notranslate"><span class="pre">Fn=5</span></code> (specified) and <code class="docutils literal notranslate"><span class="pre">Fn1=1</span></code> (default).</p>
+<p>Rules for specifying arguments:</p>
+<ol class="simple">
+<li><p>Keyword arguments must be after all positional arguments.</p></li>
+<li><p>Duplicate assignments to an argument are not allowed.</p></li>
+</ol>
+<p>E.g., the following results in error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci_sequence</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-29-c4b4809b18c1&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: positional argument follows keyword argument
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci_sequence</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Fn</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following shows that the behavior of <code class="docutils literal notranslate"><span class="pre">range</span></code> is different.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># counts from 1 to 10 in steps of 2</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># default step=1</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># default start=0, step=1</span>
+<span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># fails</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3 5 7 9 
+1 2 3 4 5 6 7 8 9 
+0 1 2 3 4 5 6 7 8 9 
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="n">f3395132058b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># default start=0, step=1</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># fails</span>
+
+<span class="ne">TypeError</span>: range() takes no keyword arguments
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">range</span></code> takes only positional arguments.<br />
+However, the first positional argument has different intepretations (<code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">stop</span></code>) depending on the number of arguments (2 or 1).</p>
+<p><code class="docutils literal notranslate"><span class="pre">range</span></code> is indeed NOT a generator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">range</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;type&#39;&gt; &lt;class &#39;range&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-number-of-arguments">
+<h2>Variable number of arguments<a class="headerlink" href="#variable-number-of-arguments" title="Permalink to this headline">¶</a></h2>
+<p>We can simulate the behavior of range by having a <a class="reference external" href="https://docs.python.org/3.4/tutorial/controlflow.html#arbitrary-argument-lists">variable number of arguments</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_arguments</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Take any number of arguments and prints them&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;args (</span><span class="si">{}</span><span class="s1">): </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">args</span><span class="p">),</span><span class="n">args</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;kwargs (</span><span class="si">{}</span><span class="s1">): </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">),</span><span class="n">kwargs</span><span class="p">))</span>
+
+<span class="n">print_arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{k}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span><span class="s2">&quot;*&quot;</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>args (&lt;class &#39;tuple&#39;&gt;): (0, 10, 2)
+kwargs (&lt;class &#39;dict&#39;&gt;): {&#39;start&#39;: 1, &#39;stop&#39;: 2}
+8 *
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> is a tuple of positional arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> is a dictionary of keyword arguments.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> are <em>unpacking operators</em> for tuple/list and dictionary respectively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;stop&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">print_arguments</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>args (&lt;class &#39;tuple&#39;&gt;): (0, 10, 2)
+kwargs (&lt;class &#39;dict&#39;&gt;): {&#39;start&#39;: 1, &#39;stop&#39;: 2}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following function converts all the arguments to a string.<br />
+It will be useful later on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">argument_string</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return the string representation of the list of arguments.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;(</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="o">*</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="p">],</span>  <span class="c1"># arguments</span>
+        <span class="o">*</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">=</span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>  <span class="c1"># keyword arguments</span>
+    <span class="p">]))</span>
+
+<span class="n">argument_string</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;(0, 10, 2, start=1, stop=2)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Redefine <code class="docutils literal notranslate"><span class="pre">fibonacci_sequence</span></code> so that the positional arguments depend on the number of arguments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci_sequence</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return a generator that generates Fibonacci numbers</span>
+<span class="sd">    starting from Fn and Fn1 to stop (exclusive). </span>
+<span class="sd">    generator.send(value) sets next number to value.</span>
+<span class="sd">    </span>
+<span class="sd">    fibonacci_sequence(stop)</span>
+<span class="sd">    fibonacci_sequence(Fn,Fn1)</span>
+<span class="sd">    fibonacci_sequence(Fn,Fn1,stop)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span>  <span class="c1"># default values</span>
+
+    <span class="c1"># handle different number of arguments</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1">### BEGIN SOLUTION</span>
+        <span class="n">stop</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1">### END SOLUTION</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="k">while</span> <span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">Fn</span> <span class="o">&lt;</span> <span class="n">stop</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">Fn</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
+            <span class="n">Fn1</span> <span class="o">=</span> <span class="n">value</span>  <span class="c1"># set next number to the value of yield expression</span>
+        <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">=</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">+</span> <span class="n">Fn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># default Fn=0, Fn=1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1"># default stop=None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>  
+    <span class="k">if</span> <span class="n">fib</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+5
+8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">fibonacci_sequence</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span> <span class="c1"># default stop=None</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="decorator">
+<h2>Decorator<a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
+<p><strong>What is function decoration?</strong><br />
+<strong>Why decorate a function?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the Fibonacci number of order n.&#39;&#39;&#39;</span>
+    <span class="k">global</span> <span class="n">count</span><span class="p">,</span> <span class="n">depth</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">depth</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;3}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">fibonacci(</span><span class="si">{!r}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    
+    <span class="n">value</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+    
+    <span class="n">depth</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="ow">is</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># recursion done</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># reset count for subsequent recursions</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="n">count</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1: fibonacci(0)
+Done
+0
+  1: fibonacci(1)
+Done
+1
+  1: fibonacci(2)
+  2: |fibonacci(1)
+  3: |fibonacci(0)
+Done
+1
+  1: fibonacci(3)
+  2: |fibonacci(2)
+  3: ||fibonacci(1)
+  4: ||fibonacci(0)
+  5: |fibonacci(1)
+Done
+2
+  1: fibonacci(4)
+  2: |fibonacci(3)
+  3: ||fibonacci(2)
+  4: |||fibonacci(1)
+  5: |||fibonacci(0)
+  6: ||fibonacci(1)
+  7: |fibonacci(2)
+  8: ||fibonacci(1)
+  9: ||fibonacci(0)
+Done
+3
+  1: fibonacci(5)
+  2: |fibonacci(4)
+  3: ||fibonacci(3)
+  4: |||fibonacci(2)
+  5: ||||fibonacci(1)
+  6: ||||fibonacci(0)
+  7: |||fibonacci(1)
+  8: ||fibonacci(2)
+  9: |||fibonacci(1)
+ 10: |||fibonacci(0)
+ 11: |fibonacci(3)
+ 12: ||fibonacci(2)
+ 13: |||fibonacci(1)
+ 14: |||fibonacci(0)
+ 15: ||fibonacci(1)
+Done
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code decorates the <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> function by printing each recursive call and the depth of the call stack.<br />
+The decoration is useful in showing the efficiency of the function, but it rewrites the function definition.</p>
+<p><strong>How to decorate a function without changing its code?</strong></p>
+<ul class="simple">
+<li><p>What if the decorations are temporary and should be removed later?</p></li>
+<li><p>Go through the source codes of all decorated functions to remove the decorations?</p></li>
+<li><p>When updating a piece of code, switch back and forth between original and decorated codes?</p></li>
+</ul>
+<p>What about defining a new function that calls and decorates the original function?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the Fibonacci number of order n.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">fibonacci_decorated</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the Fibonacci number of order n.&#39;&#39;&#39;</span>
+    <span class="k">global</span> <span class="n">count</span><span class="p">,</span> <span class="n">depth</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">depth</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;3}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">fibonacci(</span><span class="si">{!r}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    
+    <span class="n">value</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="n">depth</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">depth</span> <span class="ow">is</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># recursion done</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># reset count for subsequent recursions</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="n">count</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fibonacci_decorated</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1: fibonacci(0)
+Done
+0
+  1: fibonacci(1)
+Done
+1
+  1: fibonacci(2)
+Done
+1
+  1: fibonacci(3)
+Done
+2
+  1: fibonacci(4)
+Done
+3
+  1: fibonacci(5)
+Done
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> to call <code class="docutils literal notranslate"><span class="pre">fibonacci_decorated</span></code> instead.<br />
+What about renaming <code class="docutils literal notranslate"><span class="pre">fibonacci_decorated</span></code> to <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code>?</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span> <span class="o">=</span> <span class="n">fibonacci_decorated</span>
+<span class="n">count</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">fibonacci_decorated</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(If you are faint-hearted, don’t run the above code.)</p>
+<p>We want <code class="docutils literal notranslate"><span class="pre">fibonacci_decorated</span></code> to call the original <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code>.</p>
+<p>The solution is to capture the original <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> in a closure:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+
+
+<span class="k">def</span> <span class="nf">print_function_call</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return a decorator that prints function calls.&#39;&#39;&#39;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># give wrapper the identity of f and more</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">nonlocal</span> <span class="n">count</span><span class="p">,</span> <span class="n">depth</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">depth</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">call</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">argument_string</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:&gt;3}</span><span class="s1">:</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">call</span><span class="p">))</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># wrapper calls f</span>
+
+        <span class="n">depth</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">depth</span> <span class="ow">is</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="n">count</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">wrapper</span>  <span class="c1"># return the decorated function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">print_function_call</span></code> takes in <code class="docutils literal notranslate"><span class="pre">f</span></code> and returns <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>, which captures and decorates <code class="docutils literal notranslate"><span class="pre">f</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wrapper</span></code> expects the same set of arguments for <code class="docutils literal notranslate"><span class="pre">f</span></code>,</p></li>
+<li><p>returns the same value returned by <code class="docutils literal notranslate"><span class="pre">f</span></code> on the arguments, but</p></li>
+<li><p>can execute additional codes before and after calling <code class="docutils literal notranslate"><span class="pre">f</span></code> to print the function call.</p></li>
+</ul>
+<p>By redefining <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> as the returned <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>, the original <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> captured by <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> calls <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> as desired.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+
+
+<span class="n">fibonacci</span> <span class="o">=</span> <span class="n">print_function_call</span><span class="p">(</span>
+    <span class="n">fibonacci</span><span class="p">)</span>  <span class="c1"># so original fibonnacci calls wrapper</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1:fibonacci(5)
+  2:|fibonacci(4)
+  3:||fibonacci(3)
+  4:|||fibonacci(2)
+  5:||||fibonacci(1)
+  6:||||fibonacci(0)
+  7:|||fibonacci(1)
+  8:||fibonacci(2)
+  9:|||fibonacci(1)
+ 10:|||fibonacci(0)
+ 11:|fibonacci(3)
+ 12:||fibonacci(2)
+ 13:|||fibonacci(1)
+ 14:|||fibonacci(0)
+ 15:||fibonacci(1)
+Done
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The redefinition does not change the original <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> captured by <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+<span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">fibonacci</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">cell_contents</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">cell_contents</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>def fibonacci(n):
+    return fibonacci(n - 1) + fibonacci(n - 2) if n &gt; 1 else 1 if n is 1 else 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python provides the syntatic sugar below to simplify the redefinition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@print_function_call</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+
+
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1:fibonacci(5)
+  2:|fibonacci(4)
+  3:||fibonacci(3)
+  4:|||fibonacci(2)
+  5:||||fibonacci(1)
+  6:||||fibonacci(0)
+  7:|||fibonacci(1)
+  8:||fibonacci(2)
+  9:|||fibonacci(1)
+ 10:|||fibonacci(0)
+ 11:|fibonacci(3)
+ 12:||fibonacci(2)
+ 13:|||fibonacci(1)
+ 14:|||fibonacci(0)
+ 15:||fibonacci(1)
+Done
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many techniques used in the above decorator.</p>
+<p><strong>Why use a variable number of arguments in <code class="docutils literal notranslate"><span class="pre">wrapper</span></code></strong></p>
+<p>To decorate any function with possibly different number of arguments.</p>
+<p><strong>Why decorate the wrapper with <code class="docutils literal notranslate"><span class="pre">&#64;functools.wraps(f)</span></code>?</strong></p>
+<ul class="simple">
+<li><p>Ensures some attributes (such as <code class="docutils literal notranslate"><span class="pre">__name__</span></code>) of the wrapper function is the same as those of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
+<li><p>Add useful attributes. E.g., <code class="docutils literal notranslate"><span class="pre">__wrapped__</span></code> stores the original function so we can undo the decoration.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">,</span> <span class="n">fibonacci_decorated</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">__wrapped__</span><span class="p">,</span> <span class="n">fibonacci</span>  <span class="c1"># recover</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;original fibonacci:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">fibonacci</span> <span class="o">=</span> <span class="n">fibonacci_decorated</span>  <span class="c1"># decorate</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;decorated fibonacci:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>original fibonacci:
+5
+decorated fibonacci:
+  1:fibonacci(5)
+  2:|fibonacci(4)
+  3:||fibonacci(3)
+  4:|||fibonacci(2)
+  5:||||fibonacci(1)
+  6:||||fibonacci(0)
+  7:|||fibonacci(1)
+  8:||fibonacci(2)
+  9:|||fibonacci(1)
+ 10:|||fibonacci(0)
+ 11:|fibonacci(3)
+ 12:||fibonacci(2)
+ 13:|||fibonacci(1)
+ 14:|||fibonacci(0)
+ 15:||fibonacci(1)
+Done
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to use decorator to improve recursion?</strong></p>
+<p>We can also use a decorator to make recursion more efficient by caching the return values.<br />
+<code class="docutils literal notranslate"><span class="pre">cache</span></code> is a dictionary where <code class="docutils literal notranslate"><span class="pre">cache[n]</span></code> stores the computed value of <span class="math notranslate nohighlight">\(F_n\)</span> to avoid redundant computations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">caching</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return a decorator that caches a function with a single argument.&#39;&#39;&#39;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read from cache&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">wrapper</span><span class="o">.</span><span class="n">clear_cache</span> <span class="o">=</span> <span class="k">lambda</span> <span class="p">:</span> <span class="n">cache</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># add method to clear cache</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="nd">@print_function_call</span>
+<span class="nd">@caching</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fibonacci</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1:fibonacci(5)
+  2:|fibonacci(4)
+  3:||fibonacci(3)
+  4:|||fibonacci(2)
+  5:||||fibonacci(1)
+  6:||||fibonacci(0)
+  7:|||fibonacci(1)
+read from cache
+  8:||fibonacci(2)
+read from cache
+  9:|fibonacci(3)
+read from cache
+Done
+  1:fibonacci(5)
+read from cache
+Done
+  1:fibonacci(5)
+  2:|fibonacci(4)
+  3:||fibonacci(3)
+  4:|||fibonacci(2)
+  5:||||fibonacci(1)
+  6:||||fibonacci(0)
+  7:|||fibonacci(1)
+read from cache
+  8:||fibonacci(2)
+read from cache
+  9:|fibonacci(3)
+read from cache
+Done
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>A method <code class="docutils literal notranslate"><span class="pre">clear_cache</span></code> is added to the wrapper to clear the cache.<br />
+<code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">&lt;argument</span> <span class="pre">list&gt;</span> <span class="pre">:</span> <span class="pre">&lt;expression&gt;</span></code>is called a <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#lambda"><em>lambda</em> expression</a>, which conveniently defines an <em>anonymous function</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">fibonacci</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">),</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">clear_cache</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(function, &#39;&lt;lambda&gt;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="module">
+<h2>Module<a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to create a module?</strong></p>
+<p>To create a module, simply put the code in a python source file <code class="docutils literal notranslate"><span class="pre">&lt;module</span> <span class="pre">name&gt;.py</span></code> in</p>
+<ul class="simple">
+<li><p>the current directory, or</p></li>
+<li><p>a python <em>site-packages</em> directory in system path.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/home/course/cs1302/.github/nbgrader/source/Lecture6&#39;, &#39;/opt/anaconda/lib/python37.zip&#39;, &#39;/opt/anaconda/lib/python3.7&#39;, &#39;/opt/anaconda/lib/python3.7/lib-dynload&#39;, &#39;&#39;, &#39;/home/course/cs1302/.local/lib/python3.7/site-packages&#39;, &#39;/opt/anaconda/lib/python3.7/site-packages&#39;, &#39;/opt/anaconda/lib/python3.7/site-packages/IPython/extensions&#39;, &#39;/home/course/cs1302/.ipython&#39;, &#39;/home/course/cs1302/site-packages&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, to create a module for generating Fibonacci numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">more</span> fibonacci.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fibonacci</span> <span class="k">as</span> <span class="nn">fib</span> <span class="c1"># as statement shortens name</span>
+<span class="n">help</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module fibonacci:
+
+NAME
+    fibonacci - Contain functions for generating fibonacci numbers.
+
+FUNCTIONS
+    fibonacci(n)
+        Returns the Fibonacci number of order n.
+    
+    fibonacci_iteration(n)
+        Returns the Fibonacci number of order n but without recursion.
+
+FILE
+    /home/course/cs1302/.github/nbgrader/source/Lecture6/fibonacci.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="o">.</span><span class="n">fibonacci_iteration</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture5/Objects.html" title="previous page">Objects</a>
+    <a class='right-next' id="next-link" href="../Lecture7/Lists%20and%20Tuples.html" title="next page">Lists and Tuples</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

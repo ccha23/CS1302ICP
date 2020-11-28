@@ -1,0 +1,1229 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionaries and Sets &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Monte Carlo Simulation and Linear Algebra" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html" />
+    <link rel="prev" title="Lists and Tuples" href="../Lecture7/Lists%20and%20Tuples.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture8/Dictionaries and Sets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Lecture8/Dictionaries and Sets.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation-for-associative-container">
+   Motivation for associative container
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constructing-associative-containers">
+   Constructing associative containers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hashability">
+   Hashability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-keys-values">
+   Accessing keys/values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-operators-and-methods">
+   Other operators and methods
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dictionaries-and-sets">
+<h1>Dictionaries and Sets<a class="headerlink" href="#dictionaries-and-sets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation-for-associative-container">
+<h2>Motivation for associative container<a class="headerlink" href="#motivation-for-associative-container" title="Permalink to this headline">¶</a></h2>
+<p>The following code simulates the outcomes from rolling a dice multiple times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">dice_rolls</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">dice_rolls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 5 1 4 5 5 3 5 5 1
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the distribution, i.e., fractional counts?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">dice_rolls</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">distribution</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Outcomes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 1.0)
+</pre></div>
+</div>
+<img alt="../_images/Dictionaries and Sets_7_1.png" src="../_images/Dictionaries and Sets_7_1.png" />
+</div>
+</div>
+<p>In the above code, <code class="docutils literal notranslate"><span class="pre">distribution[i]</span></code> stores the fractional count of outcome <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<p>However, <code class="docutils literal notranslate"><span class="pre">distribution[0]</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> because a dice does not have outcome <code class="docutils literal notranslate"><span class="pre">0</span></code>. Can we avoid such redundancy?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distinct_outcomes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">outcome</span> <span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="n">dice_rolls</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">outcome</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="p">]</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">dice_rolls</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">distinct_outcomes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">distinct_outcomes</span><span class="p">))</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">distinct_outcomes</span><span class="p">,</span> <span class="n">distribution</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Outcomes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 1.0)
+</pre></div>
+</div>
+<img alt="../_images/Dictionaries and Sets_10_1.png" src="../_images/Dictionaries and Sets_10_1.png" />
+</div>
+</div>
+<p>In the above code,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">distinct_outcomes</span></code> stores the list of distinct outcomes, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distribution[distinct_outcomes[i]]</span></code> stores the fractional count of the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th distinct outcome.</p></li>
+</ul>
+<p>What about finding the distribution of characters in an article?<br />
+There are 1,112,064 unicode characters.</p>
+<ul class="simple">
+<li><p>How obtain the distribution efficiently without creating an entry for each unicode character?</p></li>
+<li><p>How to compute the set of distinct characters efficiently without iterating over the set of all unicode characters?</p></li>
+<li><p>Can we index <code class="docutils literal notranslate"><span class="pre">distribution</span></code> directly by the set of distinct characters?</p></li>
+</ul>
+<p>What we need is a composite data type that</p>
+<ul class="simple">
+<li><p>can keep a set of <em>unique keys of different types</em> (such as the characters in our example), and</p></li>
+<li><p>associate to different keys possibly different <em>values of any types</em> such as (the fractional counts of the characters).</p></li>
+</ul>
+<p>Such data structure is called an <a class="reference external" href="https://en.wikipedia.org/wiki/Associative_containers">associative container</a>.</p>
+<p><strong>How to use associative containers in Python?</strong></p>
+<p>There are two built-in classes for associative containers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code> can store a set of unique keys of possibly different types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>ionary can store a set of key-value pairs.</p></li>
+</ul>
+<p>We have already used sets and dictionaries before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 400
+a = (lambda **kwargs: kwargs)(start=0, stop=5, step=1)
+b = set([1,1,2,3,3,3])
+assert len(a) == len(b)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="400"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20%28lambda%20%2A%2Akwargs%3A%20kwargs%29%28start%3D0%2C%20stop%3D5%2C%20step%3D1%29%0Ab%20%3D%20set%28%5B1%2C1%2C2%2C3%2C3%2C3%5D%29%0Aassert%20len%28a%29%20%3D%3D%20len%28b%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Both <code class="docutils literal notranslate"><span class="pre">set</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+<ul class="simple">
+<li><p>implement <code class="docutils literal notranslate"><span class="pre">len</span></code> method that returns the number of keys, and</p></li>
+<li><p>are mutable, so we can mutate their keys and values.</p></li>
+</ul>
+</div>
+<div class="section" id="constructing-associative-containers">
+<h2>Constructing associative containers<a class="headerlink" href="#constructing-associative-containers" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to create set/dictionary?</strong></p>
+<p>Similar to tuple/list, we can use enclosure, constructors, and comprehension.</p>
+<p><strong>How to create a set/dict by enumerating its keys/values?</strong></p>
+<p>For <code class="docutils literal notranslate"><span class="pre">dict</span></code>, enclose a comma-separated sequence of <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">:</span> <span class="pre">value</span></code> pairs by braces <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 350
+empty_dictionary = {}
+a = {&#39;a&#39;: 0, &#39;b&#39;: 1}
+b = {**a, &#39;c&#39;: 0, &#39;d&#39;: 1}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="350"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=empty_dictionary%20%3D%20%7B%7D%0Aa%20%3D%20%7B%27a%27%3A%200%2C%20%27b%27%3A%201%7D%0Ab%20%3D%20%7B%2A%2Aa%2C%20%27c%27%3A%200%2C%20%27d%27%3A%201%7D%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">set</span></code>, omit <code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">value</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 300
+a = {(1, 2.0), print, *range(2), *&#39;23&#39;}
+empty_set = {*()}  # Why not use {}?
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="300"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20%7B%281%2C%202.0%29%2C%20print%2C%20%2Arange%282%29%2C%20%2A%2723%27%7D%0Aempty_set%20%3D%20%7B%2A%28%29%7D%20%20%23%20Why%20not%20use%20%7B%7D%3F%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>We can also create a set/dictionary from other objects using their constructors <code class="docutils literal notranslate"><span class="pre">set</span></code>/<code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 550
+empty_set = set()
+string2set = set(&#39;abc&#39;)
+range2set = set(range(2))
+list2set = set([&#39;abc&#39;,range(2)])
+set2set = set(list2set)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="550"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=empty_set%20%3D%20set%28%29%0Astring2set%20%3D%20set%28%27abc%27%29%0Arange2set%20%3D%20set%28range%282%29%29%0Alist2set%20%3D%20set%28%5B%27abc%27%2Crange%282%29%5D%29%0Aset2set%20%3D%20set%28list2set%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 650
+empty_dict = dict()
+enumerate2dict = dict(enumerate(&#39;abc&#39;))
+zip2dict = dict(zip(&#39;abc&#39;,&#39;123&#39;))
+kwargs2dict = dict(one=1,two=2)
+dict2dict = dict(kwargs2dict)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="650"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=empty_dict%20%3D%20dict%28%29%0Aenumerate2dict%20%3D%20dict%28enumerate%28%27abc%27%29%29%0Azip2dict%20%3D%20dict%28zip%28%27abc%27%2C%27123%27%29%29%0Akwargs2dict%20%3D%20dict%28one%3D1%2Ctwo%3D2%29%0Adict2dict%20%3D%20dict%28kwargs2dict%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Exercise</strong> <code class="docutils literal notranslate"><span class="pre">dict</span></code> also has a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict.fromkeys"><em>class method</em> <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code></a> to construct a dictionary with keys from iterable pointing to a default value. Create a dictionary using <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> with keys being the non-negative integers smaller than <code class="docutils literal notranslate"><span class="pre">100</span></code> and values being <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p><em>Hint:</em> Use <code class="docutils literal notranslate"><span class="pre">dict.fromkeys</span></code> since a class method is bound to the class rather than an object of the class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dict.fromkeys<span class="o">?</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">fromkeys_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+
+<span class="c1"># test</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">fromkeys_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fromkeys_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to use a rule to construct a set/dictionary?</strong></p>
+<p>The following function uses a one-line dictionary comprehension to return the distribution of items in a sequence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distribute</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span> <span class="p">:</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">seq</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">distribute</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>   <span class="c1"># set-like view of the keys</span>
+             <span class="n">dist</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="c1"># view of the values</span>
+             <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Items&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">plot_distribution</span><span class="p">(</span><span class="s1">&#39;What is the distribution of different characters?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Dictionaries and Sets_35_0.png" src="../_images/Dictionaries and Sets_35_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>The object methods <code class="docutils literal notranslate"><span class="pre">keys</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> provide a dynamic <a class="reference external" href="https://docs.python.org/3/glossary.html#term-dictionary-view">view</a> of the keys.</p></li>
+<li><p>Unlike a copy, subsequent changes to the dictionary are also reflected in a previously returned view.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code> provides a set-like view of the key-value pairs.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 500
+a = dict(enumerate(&#39;abc&#39;))
+views = a.keys(), a.values(), a.items()
+a.pop(1)    # remove the key 1 and its associated value
+a.popitem() # remove and return a key-value pair
+a.clear()   # clear the dictionary
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="500"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20dict%28enumerate%28%27abc%27%29%29%0Aviews%20%3D%20a.keys%28%29%2C%20a.values%28%29%2C%20a.items%28%29%0Aa.pop%281%29%20%20%20%20%23%20remove%20the%20key%201%20and%20its%20associated%20value%0Aa.popitem%28%29%20%23%20remove%20and%20return%20a%20key-value%20pair%0Aa.clear%28%29%20%20%20%23%20clear%20the%20dictionary%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set</span></code> has <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">clear</span></code> but not <code class="docutils literal notranslate"><span class="pre">popitem</span></code>. However, <code class="docutils literal notranslate"><span class="pre">set.pop</span></code> behaves like <code class="docutils literal notranslate"><span class="pre">dict.popitem</span></code> instead of <code class="docutils literal notranslate"><span class="pre">dict.pop</span></code>. (Why?)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 250
+a = set(&#39;abc&#39;)
+a.pop()     # remove and return an element
+a.clear()   # clear the set
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="250"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20set%28%27abc%27%29%0Aa.pop%28%29%20%20%20%20%20%23%20remove%20and%20return%20an%20element%0Aa.clear%28%29%20%20%20%23%20clear%20the%20set%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Exercise</strong> Use one-line comprehension to return a set of composite numbers smaller than <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p>
+<p><em>Hint:</em> You do not need to worry about duplicate elements for <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">composite_set</span><span class="p">(</span><span class="n">stop</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">factor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">stop</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">factor</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">stop</span><span class="p">,</span><span class="n">factor</span><span class="p">)}</span>
+    <span class="c1">### END SOLUTION</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="n">composite_set</span><span class="p">(</span><span class="mi">100</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 6 8 9 10 12 14 15 16 18 20 21 22 24 25 26 27 28 30 32 33 34 35 36 38 39 40 42 44 45 46 48 49 50 51 52 54 55 56 57 58 60 62 63 64 65 66 68 69 70 72 74 75 76 77 78 80 81 82 84 85 86 87 88 90 91 92 93 94 95 96 98 99
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hashability">
+<h2>Hashability<a class="headerlink" href="#hashability" title="Permalink to this headline">¶</a></h2>
+<p>For <code class="docutils literal notranslate"><span class="pre">set</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code>,</p>
+<ul class="simple">
+<li><p>identical keys are merged to the same entry even though</p></li>
+<li><p>values associated with different keys can be the same.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 350
+a = {0: &#39;a&#39;, 0.0: &#39;b&#39;, 2: &#39;b&#39;}
+b = {0j, 0, 0.0, &#39;&#39;, False}
+assert 0 == 0.0 == 0j == False != &#39;&#39;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="350"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20%7B0%3A%20%27a%27%2C%200.0%3A%20%27b%27%2C%202%3A%20%27b%27%7D%0Ab%20%3D%20%7B0j%2C%200%2C%200.0%2C%20%27%27%2C%20False%7D%0Aassert%200%20%3D%3D%200.0%20%3D%3D%200j%20%3D%3D%20False%20%21%3D%20%27%27%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>This is implemented efficiently by <a class="reference external" href="https://docs.python.org/3/glossary.html#term-hashable"><em>hashing</em></a>. A key must be a hashable object which:</p>
+<ul class="simple">
+<li><p>has a hash value (returned by <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> method) that never changes during its lifetime, and</p></li>
+<li><p>can be compared (using <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> method) to other objects.<br />
+<em>Hashable objects which compare equal must have the same hash value.</em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">(),</span> <span class="p">[],</span> <span class="p">{},</span> <span class="nb">set</span><span class="p">(),</span> <span class="nb">frozenset</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Hashable</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is hashable. E.g., hash(</span><span class="si">{!r}</span><span class="s1">) == </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">i</span><span class="p">,</span><span class="nb">hash</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is NOT hashable.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt; is hashable. E.g., hash(0) == 0
+&lt;class &#39;float&#39;&gt; is hashable. E.g., hash(0.0) == 0
+&lt;class &#39;complex&#39;&gt; is hashable. E.g., hash(0j) == 0
+&lt;class &#39;str&#39;&gt; is hashable. E.g., hash(&#39;&#39;) == 0
+&lt;class &#39;bool&#39;&gt; is hashable. E.g., hash(False) == 0
+&lt;class &#39;tuple&#39;&gt; is hashable. E.g., hash(()) == 3527539
+&lt;class &#39;list&#39;&gt; is NOT hashable.
+&lt;class &#39;dict&#39;&gt; is NOT hashable.
+&lt;class &#39;set&#39;&gt; is NOT hashable.
+&lt;class &#39;frozenset&#39;&gt; is hashable. E.g., hash(frozenset()) == 133146708735736
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why the key should be hashable?</strong><br />
+<strong>What is the use of a hash value?</strong></p>
+<p>Associative containers are implemented as <em>hash tables</em> for efficient lookup of key values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/LPzN8jgbnvA&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="912" height="513" src="https://www.youtube.com/embed/LPzN8jgbnvA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></div>
+</div>
+<p>Most mutable objects are not hashable. Why?<br />
+Mutating a key makes it a different key, which is <a class="reference external" href="https://hynek.me/articles/hashes-and-equality/">hard to track</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">set</span></code> has an immutable counterpart called <code class="docutils literal notranslate"><span class="pre">frozenset</span></code>, but <code class="docutils literal notranslate"><span class="pre">dict</span></code> does not have any immutable counterpart. Why?<br />
+While elements of a set must be hashable and therefore mostly immutable, dictionary values may be of mutable types.</p>
+<p>Python also uses dictionary for its global/local frames.<br />
+Indeed, <a class="reference external" href="https://stackoverflow.com/questions/8271139/why-is-early-return-slower-than-else">hash collisions can slow down the lookup process</a>.</p>
+<p><strong>Exercise</strong> Why equal objects must have the same hash but different objects may have the same hash? An example is given below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">hash</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="kc">False</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>To avoid duplicate keys occupying different entries in a hash table.</p></li>
+<li><p>Hash collision can be detected by <code class="docutils literal notranslate"><span class="pre">==</span></code> and handled by <a class="reference external" href="https://en.wikipedia.org/wiki/Hash_table#Collision_resolution">collision resolution</a> techniques. To keep the hash table small, hash collision is unavoidable.</p></li>
+</ol>
+</div>
+<div class="section" id="accessing-keys-values">
+<h2>Accessing keys/values<a class="headerlink" href="#accessing-keys-values" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to traverse a set/dictionary?</strong></p>
+<p>Set and dictionaries are iterable.<br />
+The for loop iterates over the keys.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">key</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">b</span><span class="p">))</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># TypeError</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b e a c d
+(0, &#39;a&#39;) (1, &#39;b&#39;) (2, &#39;c&#39;) (3, &#39;d&#39;) (4, &#39;e&#39;)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">6702302</span><span class="n">c4a5e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">a</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">key</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">b</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># TypeError</span>
+
+<span class="ne">TypeError</span>: &#39;set&#39; object is not subscriptable
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>For the dictionary <code class="docutils literal notranslate"><span class="pre">b</span></code>, we used subscription <code class="docutils literal notranslate"><span class="pre">b[key]</span></code> to access the value associated with <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p></li>
+<li><p>Unlike dictionary, set does not implement <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__getitem__"><code class="docutils literal notranslate"><span class="pre">__getitem__</span></code></a> and is therefore not subscriptable.</p></li>
+</ul>
+<p>Unlike tuple/list, <code class="docutils literal notranslate"><span class="pre">b[-1]</span></code> does not refer to the value of the last entry. (Dictionary is not ordered.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># KeyError</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mi">784624678</span><span class="n">be8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># KeyError</span>
+
+<span class="ne">KeyError</span>: -1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above raises a key error because <code class="docutils literal notranslate"><span class="pre">-1</span></code> is not a key in the dictionary <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>Dictionary implements the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#assignment-statements"><code class="docutils literal notranslate"><span class="pre">__setitem__</span></code></a> method so we can enter a key value pair to a dictionary using the assignment operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
+<span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;f&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To delete a key, we can use the function <code class="docutils literal notranslate"><span class="pre">del</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="n">a57f788767eb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: -1
+</pre></div>
+</div>
+</div>
+</div>
+<p>To avoid key error, we can check if a key is in a dictionary efficiently (due to hashing) using the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator.<br />
+The following is a different implementation of <code class="docutils literal notranslate"><span class="pre">distribute</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distribute</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span> 
+        <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dist</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dist</span>
+
+<span class="n">plot_distribution</span><span class="p">(</span><span class="s1">&#39;What is the distribution of different characters?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Dictionaries and Sets_69_0.png" src="../_images/Dictionaries and Sets_69_0.png" />
+</div>
+</div>
+<p><strong>Exercise</strong> Unlike the previous implementation using one-line dictionary comprehension, the above alternative implementation uses multiple lines of code to build the dictionary incrementally starting from an empty dictionary.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span> <span class="p">:</span> <span class="n">seq</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">seq</span><span class="p">)}</span>
+</pre></div>
+</div>
+<p>Explain whether the alternative is more efficient.</p>
+<p>It is more efficient because</p>
+<ul class="simple">
+<li><p>the alternative implementation traverses <code class="docutils literal notranslate"><span class="pre">seq</span></code> once with near constant time lookup of the key, but</p></li>
+<li><p>the list comprehension can traverse <code class="docutils literal notranslate"><span class="pre">seq</span></code> a multiple times linear in <code class="docutils literal notranslate"><span class="pre">len(seq)</span></code>, since every call to <code class="docutils literal notranslate"><span class="pre">seq.count</span></code> has to traverse <code class="docutils literal notranslate"><span class="pre">seq</span></code> once.</p></li>
+</ul>
+<p>Shorter code needs not be more efficient.</p>
+<p><strong>Exercise</strong> <code class="docutils literal notranslate"><span class="pre">dict</span></code> also has a getter method <code class="docutils literal notranslate"><span class="pre">get</span></code> that conveniently returns a default value if the key does not exist. Rewrite the alternative implementation of <code class="docutils literal notranslate"><span class="pre">distribute</span></code> to use <code class="docutils literal notranslate"><span class="pre">get</span></code> instead of <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dict.get<span class="o">?</span>
+<span class="k">def</span> <span class="nf">distribute</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span> 
+        <span class="c1">### BEGIN SOLUTION</span>
+        <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+        <span class="c1">### END SOLUTION</span>
+    <span class="k">return</span> <span class="n">dist</span>
+
+<span class="n">plot_distribution</span><span class="p">(</span><span class="s1">&#39;What is the distribution of different characters?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Dictionaries and Sets_73_0.png" src="../_images/Dictionaries and Sets_73_0.png" />
+</div>
+</div>
+<p><strong>How to traverse in ascending order of the keys?</strong></p>
+<p>We can apply the function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> to a set/dictionary to return a sorted list of the keys.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 600
+a = set(reversed(&#39;abcde&#39;))
+b = dict(reversed([*enumerate(&#39;abcde&#39;)]))
+sorted_elements = sorted(a)
+sorted_keys = sorted(b)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="600"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20set%28reversed%28%27abcde%27%29%29%0Ab%20%3D%20dict%28reversed%28%5B%2Aenumerate%28%27abcde%27%29%5D%29%29%0Asorted_elements%20%3D%20sorted%28a%29%0Asorted_keys%20%3D%20sorted%28b%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Exercise</strong> Re-implement <code class="docutils literal notranslate"><span class="pre">plot_distribution</span></code> to plot the distribution in ascending order of the keys.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="c1"># pyplot.stem(dist.keys(), dist.values(), use_line_collection=True)</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">dist_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">stem</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">dist_list</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">dist_list</span><span class="p">],</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Items&#39;</span><span class="p">)</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution&#39;</span><span class="p">)</span>
+    <span class="n">pyplot</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">plot_distribution</span><span class="p">(</span><span class="s1">&#39;What is the distribution of different characters?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="mi">7</span><span class="n">ea0ff37fbdc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">pyplot</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">plot_distribution</span><span class="p">(</span><span class="s1">&#39;What is the distribution of different characters?&#39;</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-29-7ea0ff37fbdc&gt;</span> in <span class="ni">plot_distribution</span><span class="nt">(seq)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># pyplot.stem(dist.keys(), dist.values(), use_line_collection=True)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">### BEGIN SOLUTION</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">dist_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="ne">TypeError</span>: &#39;list&#39; object is not callable
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to add an element to a set and remove an element from it?</strong></p>
+<p>Instead of subscription, <code class="docutils literal notranslate"><span class="pre">set</span></code> has the <code class="docutils literal notranslate"><span class="pre">add</span></code>/<code class="docutils literal notranslate"><span class="pre">discard</span></code>/<code class="docutils literal notranslate"><span class="pre">remove</span></code> methods for adding/removing elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 400
+a = set(&#39;abc&#39;)
+a.add(&#39;d&#39;)      
+a.discard(&#39;a&#39;)  
+a.remove(&#39;b&#39;)
+a.clear()
+a.discard(&#39;a&#39;)  # no error
+a.remove(&#39;b&#39;)   # KeyError
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="400"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20set%28%27abc%27%29%0Aa.add%28%27d%27%29%20%20%20%20%20%20%0Aa.discard%28%27a%27%29%20%20%0Aa.remove%28%27b%27%29%0Aa.clear%28%29%0Aa.discard%28%27a%27%29%20%20%23%20no%20error%0Aa.remove%28%27b%27%29%20%20%20%23%20KeyError%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="other-operators-and-methods">
+<h2>Other operators and methods<a class="headerlink" href="#other-operators-and-methods" title="Permalink to this headline">¶</a></h2>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">str</span></code>/<code class="docutils literal notranslate"><span class="pre">tuple</span></code>/<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code> do not implement addition <code class="docutils literal notranslate"><span class="pre">+</span></code> and multiplication <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;__add__&#39;</span><span class="p">,</span> <span class="s1">&#39;__mult__&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Use the unpacking operators <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> to concatenate two sets/dictionaries below into a new set/dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;cde&#39;</span><span class="p">)</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">concatenated_set</span> <span class="o">=</span> <span class="p">{</span><span class="o">*</span><span class="n">set1</span><span class="p">,</span><span class="o">*</span><span class="n">set2</span><span class="p">}</span>
+<span class="c1">### END SOLUTION</span>
+<span class="n">concatenated_set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">))</span>
+<span class="n">dict2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">concatenated_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">dict1</span><span class="p">,</span><span class="o">**</span><span class="n">dict2</span><span class="p">}</span>
+<span class="c1">### END SOLUTION</span>
+<span class="n">concatenated_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: &#39;a&#39;, 1: &#39;b&#39;, 2: &#39;d&#39;, 3: &#39;e&#39;, 4: &#39;f&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set</span></code> overloads many other operators:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 550
+a, b = {1,2}, {2,3}
+
+union = a | b
+assert all(i in union for i in a) and all(i in union for i in b)
+
+intersection = a &amp; b
+assert all(i in a and i in b for i in intersection)
+
+assert intersection &lt;= a &lt;= union  # subset
+assert union &gt; b &gt; intersection    # proper superset
+assert len(a) + len(b) == len(intersection) + len(union) 
+
+symmetric_difference = a ^ b
+assert all((i in a or i in b) and not (i in a and i in b) 
+           for i in symmetric_difference)
+assert symmetric_difference == union - intersection
+assert set.isdisjoint(intersection, symmetric_difference)
+assert len(union) == len(intersection) + len(symmetric_difference)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="550"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%2C%20b%20%3D%20%7B1%2C2%7D%2C%20%7B2%2C3%7D%0A%0Aunion%20%3D%20a%20%7C%20b%0Aassert%20all%28i%20in%20union%20for%20i%20in%20a%29%20and%20all%28i%20in%20union%20for%20i%20in%20b%29%0A%0Aintersection%20%3D%20a%20%26%20b%0Aassert%20all%28i%20in%20a%20and%20i%20in%20b%20for%20i%20in%20intersection%29%0A%0Aassert%20intersection%20%3C%3D%20a%20%3C%3D%20union%20%20%23%20subset%0Aassert%20union%20%3E%20b%20%3E%20intersection%20%20%20%20%23%20proper%20superset%0Aassert%20len%28a%29%20%2B%20len%28b%29%20%3D%3D%20len%28intersection%29%20%2B%20len%28union%29%20%0A%0Asymmetric_difference%20%3D%20a%20%5E%20b%0Aassert%20all%28%28i%20in%20a%20or%20i%20in%20b%29%20and%20not%20%28i%20in%20a%20and%20i%20in%20b%29%20%0A%20%20%20%20%20%20%20%20%20%20%20for%20i%20in%20symmetric_difference%29%0Aassert%20symmetric_difference%20%3D%3D%20union%20-%20intersection%0Aassert%20set.isdisjoint%28intersection%2C%20symmetric_difference%29%0Aassert%20len%28union%29%20%3D%3D%20len%28intersection%29%20%2B%20len%28symmetric_difference%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The following uses <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> to compare the sets of public attributes for <code class="docutils literal notranslate"><span class="pre">set</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span> <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span><span class="p">}</span>
+<span class="n">dict_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span> <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Common attributes:&#39;</span><span class="p">,</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">set_attributes</span> <span class="o">&amp;</span> <span class="n">dict_attributes</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dict-specific attributes:&#39;</span><span class="p">,</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dict_attributes</span> <span class="o">-</span> <span class="n">set_attributes</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;set-specific attributes:&#39;</span><span class="p">,</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">set_attributes</span> <span class="o">-</span> <span class="n">dict_attributes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: copy, update, clear, pop
+dict-specific attributes: values, get, fromkeys, popitem, setdefault, items, keys
+set-specific attributes: difference_update, discard, intersection, symmetric_difference_update, difference, add, isdisjoint, intersection_update, issuperset, symmetric_difference, union, issubset, remove
+</pre></div>
+</div>
+</div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">set</span></code>, the intersection operation <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> can also be performed by</p>
+<ul class="simple">
+<li><p>the class method <code class="docutils literal notranslate"><span class="pre">intersection</span></code> which returns the intersection of its arguments, and</p></li>
+<li><p>the object method <code class="docutils literal notranslate"><span class="pre">intersection_update</span></code> which mutates a set object by intersecting the set with the arguments.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 300
+a = {0,1,2}
+b = {1,2,3}
+c = set.intersection(a,b,{2,3,4})
+a.intersection_update(b,c)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="300"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20%7B0%2C1%2C2%7D%0Ab%20%3D%20%7B1%2C2%2C3%7D%0Ac%20%3D%20set.intersection%28a%2Cb%2C%7B2%2C3%2C4%7D%29%0Aa.intersection_update%28b%2Cc%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<ul class="simple">
+<li><p>All other set-specific methods have an associated operator except <code class="docutils literal notranslate"><span class="pre">isdisjoint</span></code> as shown below.</p></li>
+<li><p>The object method for <code class="docutils literal notranslate"><span class="pre">union</span></code> is <code class="docutils literal notranslate"><span class="pre">update</span></code> not <code class="docutils literal notranslate"><span class="pre">union_update</span></code>.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>class method</p></th>
+<th class="head"><p>object method</p></th>
+<th class="head"><p>operator</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">union</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\|</span> </code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">intersection</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">intersection_update</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">symmetric_difference</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">symmetric_difference_update</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">issubset</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issuperset</span></code></p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isdisjoint</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">dict</span></code> also has an <code class="docutils literal notranslate"><span class="pre">update</span></code> method that can update a dictionary using dictionary, iterables and keyword arguments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 300
+a = {}
+a.update(enumerate(&#39;a&#39;),b=2)
+b = a.copy()
+a.update(b,c=3)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="300"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=a%20%3D%20%7B%7D%0Aa.update%28enumerate%28%27a%27%29%2Cb%3D2%29%0Ab%20%3D%20a.copy%28%29%0Aa.update%28b%2Cc%3D3%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Exercise</strong> For <code class="docutils literal notranslate"><span class="pre">dict</span></code>, there is also a method called <a class="reference external" href="https://stackoverflow.com/questions/3483520/use-cases-for-the-setdefault-dict-method"><code class="docutils literal notranslate"><span class="pre">setdefault</span></code></a>. Use it to define a function <code class="docutils literal notranslate"><span class="pre">group_by_type</span></code> that</p>
+<ul class="simple">
+<li><p>takes a sequence <code class="docutils literal notranslate"><span class="pre">seq</span></code> of objects and</p></li>
+<li><p>returns a dictionary <code class="docutils literal notranslate"><span class="pre">d</span></code> such that <code class="docutils literal notranslate"><span class="pre">d[repr(t)]</span></code> returns the list of objects in <code class="docutils literal notranslate"><span class="pre">seq</span></code> of type <code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+</ul>
+<p>If there is no objects of type <code class="docutils literal notranslate"><span class="pre">t</span></code>, raise a key error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">group_by_type</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="c1">### BEGIN SOLUTION</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">)),[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="c1">### END SOLUTION</span>
+    <span class="k">return</span> <span class="n">group</span>
+
+<span class="n">group_by_type</span><span class="p">([</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+               <span class="o">*</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span>
+               <span class="o">*</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+               <span class="o">*</span><span class="p">[(</span><span class="n">i</span><span class="p">,)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+               <span class="o">*</span><span class="p">[[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+               <span class="o">*</span><span class="p">[{</span><span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+               <span class="o">*</span><span class="p">[{</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+               <span class="nb">print</span><span class="p">,</span><span class="nb">hash</span><span class="p">,</span>
+               <span class="nb">int</span><span class="p">,</span><span class="nb">str</span><span class="p">,</span><span class="nb">float</span><span class="p">,</span><span class="nb">set</span><span class="p">,</span><span class="nb">dict</span><span class="p">,</span>
+               <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> 
+               <span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span> 
+               <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+               <span class="nb">zip</span><span class="p">(),</span>
+               <span class="nb">set</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+               <span class="nb">dict</span><span class="o">.</span><span class="n">copy</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;&lt;class &#39;int&#39;&gt;&quot;: [0, 1, 2],
+ &quot;&lt;class &#39;str&#39;&gt;&quot;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],
+ &quot;&lt;class &#39;float&#39;&gt;&quot;: [0.0, 0.5, 1.0],
+ &quot;&lt;class &#39;tuple&#39;&gt;&quot;: [(0,), (1,), (2,)],
+ &quot;&lt;class &#39;list&#39;&gt;&quot;: [[0], [1], [2]],
+ &quot;&lt;class &#39;set&#39;&gt;&quot;: [{0}, {1}, {2}],
+ &quot;&lt;class &#39;dict&#39;&gt;&quot;: [{0: 0}, {1: 1}, {2: 2}],
+ &quot;&lt;class &#39;builtin_function_or_method&#39;&gt;&quot;: [&lt;function print&gt;,
+  &lt;function hash(obj, /)&gt;],
+ &quot;&lt;class &#39;type&#39;&gt;&quot;: [int, str, float, set, dict],
+ &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7f854fa99e50&gt;],
+ &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7f854f9311e0&gt;],
+ &quot;&lt;class &#39;range&#39;&gt;&quot;: [range(0, 3)],
+ &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7f854f9330a0&gt;],
+ &quot;&lt;class &#39;method_descriptor&#39;&gt;&quot;: [&lt;method &#39;add&#39; of &#39;set&#39; objects&gt;,
+  &lt;method &#39;copy&#39; of &#39;dict&#39; objects&gt;]}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture7/Lists%20and%20Tuples.html" title="previous page">Lists and Tuples</a>
+    <a class='right-next' id="next-link" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html" title="next page">Monte Carlo Simulation and Linear Algebra</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

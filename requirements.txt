@@ -1,0 +1,8 @@
+IPython
+manimlib
+mytutor
+pycairo==1.11.1
+numpy
+ipywidgets
+jupyter-manim
+jupytext>=0.16

@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Computer Programming &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Values and Variables" href="../Lecture2/Values%20and%20Variables.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture1/Introduction to Computer Programming.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Lecture1/Introduction to Computer Programming.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computer">
+   Computer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-computer">
+     What is a computer?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-architecture-of-a-computer">
+     What is the architecture of a computer?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#peripherals">
+       Peripherals
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#central-processing-unit">
+       Central Processing Unit
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming">
+   Programming
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-programming">
+     What is programming?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-computer-uses-binary-representation">
+     Why computer uses binary representation?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#different-generations-of-programming-languages">
+   Different generations of programming languages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#high-level-language">
+   High-level Language
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-high-level-language">
+     What is a high-level language?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-programming-language-will-you-learn">
+     What programming language will you learn?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-computer-programming">
+<h1>Introduction to Computer Programming<a class="headerlink" href="#introduction-to-computer-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="computer">
+<h2>Computer<a class="headerlink" href="#computer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-a-computer">
+<h3>What is a computer?<a class="headerlink" href="#what-is-a-computer" title="Permalink to this headline">¶</a></h3>
+<p>Is computer a calculator that is bigger and more advanced?</p>
+<center><figure>
+<a title="Ccha23 / CC BY-SA (https://creativecommons.org/licenses/by-sa/4.0)" href="https://commons.wikimedia.org/wiki/File:Calculator_app.png"><img width="400" alt="Calculator app" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Calculator_app.png/512px-Calculator_app.png"></a>
+  <figcaption>A calculator on a computer.</figcaption>
+</figure>
+</center><p>If computer is a calculator, then, is <a class="reference external" href="https://en.wikipedia.org/wiki/Abacus">abacus</a> the first computer invented?</p>
+<center><figure>
+<a title="Encyclopædia Britannica / Public domain" href="https://commons.wikimedia.org/wiki/File:Abacus_6.png"><img width="400" alt="Abacus 6" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Abacus_6.png"></a>
+  <figcaption>Abacus - an ancient mechanical computing device.</figcaption>
+</figure>
+</center><p>Is your <a class="reference external" href="https://en.wikipedia.org/wiki/Samsung_DeX">smartphone</a> a computer?<br />
+What defines a computer?</p>
+<ul class="simple">
+<li><p>In addition to performing arithmetic calculations, a computer is designed in such a way that</p></li>
+<li><p>we can write different programs (in a process called <strong>programming</strong> or <strong>software development</strong>)</p></li>
+<li><p>for the computer to execute to perform different tasks.</p></li>
+</ul>
+</div>
+<div class="section" id="what-is-the-architecture-of-a-computer">
+<h3>What is the architecture of a computer?<a class="headerlink" href="#what-is-the-architecture-of-a-computer" title="Permalink to this headline">¶</a></h3>
+<p>A computer contains three main hardware components:</p>
+<ul class="simple">
+<li><p>Input device</p></li>
+<li><p>Processing unit</p></li>
+<li><p>Output device</p></li>
+</ul>
+<div class="section" id="peripherals">
+<h4>Peripherals<a class="headerlink" href="#peripherals" title="Permalink to this headline">¶</a></h4>
+<center><figure>
+<a title="Unsplash" href="https://unsplash.com/photos/gyRa86ExKTw"><img width="600" alt="Computer peripherals" src="https://images.unsplash.com/flagged/photo-1551954810-43cd6aef5b1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3580&q=80"></a>
+  <figcaption>Computer Peripherals.</figcaption>
+</figure>
+</center><p>Input and output devices connected to a computer are called <em>peripherals</em>.<br />
+They allow users to interact with the computer in different ways.</p>
+<p><strong>Exercise</strong> Some examples of output devices are:</p>
+<ul class="simple">
+<li><p>Monitor</p></li>
+<li><p>Speaker</p></li>
+</ul>
+<p>Can you give an awesome example in the following box?</p>
+<ul class="simple">
+<li><p>3D printer available at <a class="reference external" href="https://www.cityu.edu.hk/lib/create/3dprint.htm">CityU</a></p></li>
+</ul>
+<p><strong>Exercise</strong> Some examples of input devices are:</p>
+<ul class="simple">
+<li><p>Keyboard</p></li>
+<li><p>Mouse</p></li>
+</ul>
+<p>Can you give an awesome example?</p>
+<ul class="simple">
+<li><p>3D scanner available at <a class="reference external" href="https://www.cityu.edu.hk/lib/create/3dscan.htm">CityU</a></p></li>
+</ul>
+<p><strong>Exercise</strong> Many devices are both input and output device. Can you give at least 3 examples?</p>
+<ul class="simple">
+<li><p>hard disk</p></li>
+<li><p>CD/DVD Rom (writable)</p></li>
+<li><p>touch screen</p></li>
+</ul>
+</div>
+<div class="section" id="central-processing-unit">
+<h4>Central Processing Unit<a class="headerlink" href="#central-processing-unit" title="Permalink to this headline">¶</a></h4>
+<center><figure>
+<a title="Unsplash" href="https://unsplash.com/photos/CKpBhTXvLis"><img width="600" alt="CPU" src="https://images.unsplash.com/photo-1555617981-dac3880eac6e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></a>
+  <figcaption>An Intel CPU.</figcaption>
+</figure>
+</center><p>The brain of a computer is its processor unit, or the <a class="reference external" href="https://en.wikipedia.org/wiki/Central_processing_unit"><strong>C</strong>entral <strong>P</strong>rocesisng <strong>U</strong>nit (CPU)</a>.<br />
+It is located on the <a class="reference external" href="https://en.wikipedia.org/wiki/Motherboard"><em>motherboard</em></a> and connects to different peripherals using different <a class="reference external" href="https://en.wikipedia.org/wiki/Category:Computer_connectors"><em>connectors</em></a>.</p>
+<p>Two important components in the CPU are:</p>
+<ul class="simple">
+<li><p><strong>A</strong>rithmetic and <strong>L</strong>ogic <strong>U</strong>nit (<strong>ALU</strong>): Performs arithmetics like a calculator (but for binary numbers)</p></li>
+<li><p><strong>C</strong>ontrol <strong>U</strong>nit (<strong>CU</strong>): Directs the operations of the processor in executing a program.</p></li>
+</ul>
+<p>Let’s run a CPU Simulator below from a <a class="reference external" href="https://github.com/pddring/cpu-simulator">GitHub project</a>.</p>
+<ul class="simple">
+<li><p>Note that all values are zeros in the RAM (<strong>R</strong>andom <strong>A</strong>cess <strong>M</strong>emory) initially.</p></li>
+<li><p>Under Settings, click <code class="docutils literal notranslate"><span class="pre">Examples-&gt;Add</span> <span class="pre">two</span> <span class="pre">numbers</span></code>. Observe that the values in the RAM have changed.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Run</span></code> at the bottom right-hand corner.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://tools.withcode.uk/cpu&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;800&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;800&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe src="https://tools.withcode.uk/cpu" width="800" height="800">
+</iframe>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="programming">
+<h2>Programming<a class="headerlink" href="#programming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-programming">
+<h3>What is programming?<a class="headerlink" href="#what-is-programming" title="Permalink to this headline">¶</a></h3>
+<p>Programming is the process of writing programs.<br />
+But what is a program?</p>
+<p><strong>Exercise</strong> You have just seen a program written in <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">machine language</a>. Where is it?</p>
+<p>The first six lines of binary sequences in the RAM. The last line <code class="docutils literal notranslate"><span class="pre">Ends</span></code> the program.</p>
+<ul class="simple">
+<li><p>The CPU is capable of carrying out</p>
+<ul>
+<li><p>a set of instructions such as <em>addition</em>, <em>negation</em>, <em>Copy</em>, etc.</p></li>
+<li><p>some numbers stored in the RAM.</p></li>
+</ul>
+</li>
+<li><p>Both the instructions and the numbers are represented as binary sequences.</p></li>
+<li><p>E.g., in Intel-based CPU, the command for addition is like <strong>00000011 00000100</strong></p></li>
+</ul>
+</div>
+<div class="section" id="why-computer-uses-binary-representation">
+<h3>Why computer uses binary representation?<a class="headerlink" href="#why-computer-uses-binary-representation" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/Xpk67YzOn5w&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="912" height="513" src="https://www.youtube.com/embed/Xpk67YzOn5w" allowfullscreen></iframe>
+</div></div>
+</div>
+<p><strong>Exercise</strong> The first electronic computer, called <a class="reference external" href="https://en.wikipedia.org/wiki/ENIAC">Electronic Numerical Integrator and Computer (ENIAC)</a>, was programmed using binary circuitries, namely <em>switches</em> that can be either <code class="docutils literal notranslate"><span class="pre">On</span></code> or <code class="docutils literal notranslate"><span class="pre">Off</span></code>.</p>
+<center>
+    <figure>
+<a title="United States Army / Public domain" href="https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC.gif"><img width="512" alt="Two women operating ENIAC" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Two_women_operating_ENIAC_%28full_resolution%29.jpg"></a>
+        <figcaption>Programmers controlling the switches of ENIAC.</figcaption>
+    </figure>
+</center>
+<p>However, it did not represent values efficiently in binary. 10 binary digits (bits) was used to represent a decimal number 0 to 9.<br />
+Indeed, how many decimals can be represented by 10 bits?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">10</span> <span class="c1"># because there are that many binary sequences of length 10.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1024
+</pre></div>
+</div>
+</div>
+</div>
+<p>As mentioned in the video, there are <em>International Standards</em> for representing characters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> (American Standard Code for Information Interchange) maps English letters and some other symbols to 8-bits (8 binary digits, also called a byte). E.g., <code class="docutils literal notranslate"><span class="pre">A</span></code> is <code class="docutils literal notranslate"><span class="pre">01000001</span></code>.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> can also represent characters in different languages such as Chinese, Japanese…etc.</p></li>
+</ul>
+<p>There are additional standards to represent numbers other than non-negative integers:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Two%27s_complement">2’s complement format</a> for negative integers (e.g. -123)</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE floating point format</a> for floating point numbers such as <span class="math notranslate nohighlight">\(1.23 x 10^{-4}\)</span>.</p></li>
+</ul>
+<p><strong>Why define different standards?</strong></p>
+<ul class="simple">
+<li><p>Different standards have different benefits. ASCII requires less storage for a character, but it represents less characters.</p></li>
+<li><p>Although digits are also represented in ASCII, the 2’s complement format is designed for arithmetic operations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="different-generations-of-programming-languages">
+<h2>Different generations of programming languages<a class="headerlink" href="#different-generations-of-programming-languages" title="Permalink to this headline">¶</a></h2>
+<p>Machine language is known as the <strong>1st Generation Programming Language</strong>.</p>
+<p><strong>Are we going to start with machine language?</strong>
+Start with learning 2’s complement and the binary codes for different instructions?</p>
+<p>No. Programmers do not write machine codes directly because it is too hard to think in binary representations.</p>
+<p>Instead, programmers write human-readable <strong>mnemonics</strong> such as <strong>ADD</strong>, <strong>SUB</strong>…,<br />
+called <strong>Assembly language</strong>, or the <strong>2nd Generation Programming Language</strong>.</p>
+<center>
+    <figure>
+<a title="Swtpc6800 en:User:Swtpc6800 Michael Holley / Public domain" href="https://commons.wikimedia.org/wiki/File:Motorola_6800_Assembly_Language.png"><img width="600" alt="Motorola 6800 Assembly Language" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Motorola_6800_Assembly_Language.png"></a>
+        <figcaption>
+            A Code written in an assembly language.
+        </figcaption>
+    </figure>
+ </center><p><strong>Are you going to learn an assembly language?</strong></p>
+<p>Both machine language and assembly language are low-level language which</p>
+<ul class="simple">
+<li><p>are difficult to write for complicated tasks (requiring many lines of code), and</p></li>
+<li><p>are platform specific:</p>
+<ul>
+<li><p>the sets of instructions and their binary codes can be different for different <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_CPU_microarchitectures">types of CPUs</a>, and</p></li>
+<li><p>different operating systems use <a class="reference external" href="https://en.wikipedia.org/wiki/X86_assembly_language">different assembly languages/styles</a>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Anyone want to learn assembly languages, and write a program in many versions to support different platforms?</p>
+<p>Probably for programmers who need to write fast or energy-efficient code such as</p>
+<ul class="simple">
+<li><p>a driver that controls a 3D graphics card, and</p></li>
+<li><p>a program that control a microprocessor with limited power supply.</p></li>
+</ul>
+<p>But even in the above cases, there are often better alternatives. Play with the following microprocessor simulator:</p>
+<ul class="simple">
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">CHOOSE</span> <span class="pre">A</span> <span class="pre">DEMO-&gt;LED</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">RUN</span> <span class="pre">SCRIPT</span></code> and observes the LED of the board.</p></li>
+<li><p>Run the demos <code class="docutils literal notranslate"><span class="pre">ASSEMBLY</span></code> and <code class="docutils literal notranslate"><span class="pre">MATH</span></code> respectively and compare their capabilities.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%html
+&lt;iframe width=&quot;900&quot;, height=&quot;1000&quot; src=&quot;https://micropython.org/unicorn/&quot;&gt;&lt;/iframe&gt;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="900", height="1000" src="https://micropython.org/unicorn/"></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="high-level-language">
+<h2>High-level Language<a class="headerlink" href="#high-level-language" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/QdVFvsCWXrA&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="912" height="513" src="https://www.youtube.com/embed/QdVFvsCWXrA" allowfullscreen></iframe>
+</div></div>
+</div>
+<p>Programmer nowadays use human-readable language known as the <strong>3rd generation language (3GL)</strong> or <strong>high-level language.</strong></p>
+<ul class="simple">
+<li><p>Examples includes: C, C++, Java, JavaScript, Basic, Python, PHP, …</p></li>
+</ul>
+<div class="section" id="what-is-a-high-level-language">
+<h3>What is a high-level language?<a class="headerlink" href="#what-is-a-high-level-language" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A code written in high-level language gets converted automatically to a low-level machine code for the desired platform.</p></li>
+<li><p>Hence, it <em>abstracts</em> away details that can be handled by the computer (low-level code) itself.</p></li>
+</ul>
+<p>For instance, a programmer needs not care where a value should be physically stored if the computer can find a free location automatically to store the value.</p>
+<p>Different high-level languages can have different implementations of the conversion processes:</p>
+<ul class="simple">
+<li><p><strong>Compilation</strong> means converting a program well before executing of the program. E.g., C++ and Java programs are compiled.</p></li>
+<li><p><strong>Interpretation</strong> means converting a program on-the-fly during the execution of a program. E.g., JavaScript and Python programs are often interpreted.</p></li>
+</ul>
+<p>Roughly speaking, compiled programs run faster but interpreted programs are more flexible and can be modified at run time.<br />
+(The <a class="reference external" href="https://finematics.com/compiled-vs-interpreted-programming-languages/">truth</a> is indeed more complicated than required for this course.)</p>
+</div>
+<div class="section" id="what-programming-language-will-you-learn">
+<h3>What programming language will you learn?<a class="headerlink" href="#what-programming-language-will-you-learn" title="Permalink to this headline">¶</a></h3>
+<p>You will learn to program using <strong>Python</strong>. The course covers:</p>
+<ul class="simple">
+<li><p>Basic topics including <em>values</em>, <em>variables</em>, <em>conditional</em>, <em>iterations</em>, <em>functions</em>, <em>composite data types</em>.</p></li>
+<li><p>Advanced topics that touch on functional and object-oriented programming.</p></li>
+<li><p>Engineering topics such as <em>numerical methods</em>, <em>optimizations</em>, and <em>machine learning</em>.</p></li>
+</ul>
+<p>See the <a class="reference external" href="https://canvas.cityu.edu.hk/courses/36768">course homepage</a> for details.</p>
+<p><strong>Why Python?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/Y8Tko2YC5hA?end=200&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="912" height="513" src="https://www.youtube.com/embed/Y8Tko2YC5hA?end=200" allowfullscreen></iframe>
+</div></div>
+</div>
+<p>In summary:</p>
+<ul class="simple">
+<li><p>Python is expressive and can get things done with fewer lines of code as compared to other languages.</p></li>
+<li><p>Python is one of the most commonly used languages. It has an extensive set of libraries for Mathematics, graphics, AI, Machine Learning, etc.</p></li>
+<li><p>Python is Free and Open Source, so you get to see everything and use it without restrictions.</p></li>
+<li><p>Python is portable. The same code runs in different platforms without modifications.</p></li>
+</ul>
+<p><strong>How does a Python program look like?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reload_ext</span> mytutor
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 400
+# The program here reads the cohort and reports which year the user is in
+# Assumption: Input is integer no greater than 2020
+import datetime  # load a library to tell the current year
+cohort = input(&quot;In which year did you join CityU? &quot;)
+year = datetime.datetime.now().year - int(cohort) + 1
+print(&quot;So you are a year&quot;, year, &quot;student.&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="400"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=%23%20The%20program%20here%20reads%20the%20cohort%20and%20reports%20which%20year%20the%20user%20is%20in%0A%23%20Assumption%3A%20Input%20is%20integer%20no%20greater%20than%202020%0Aimport%20datetime%20%20%23%20load%20a%20library%20to%20tell%20the%20current%20year%0Acohort%20%3D%20input%28%22In%20which%20year%20did%20you%20join%20CityU%3F%20%22%29%0Ayear%20%3D%20datetime.datetime.now%28%29.year%20-%20int%28cohort%29%20%2B%201%0Aprint%28%22So%20you%20are%20a%20year%22%2C%20year%2C%20%22student.%22%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>A Python program contains <em>statements</em> just like sentences in natural languages.<br />
+E.g., <code class="docutils literal notranslate"><span class="pre">cohort</span> <span class="pre">=</span> <span class="pre">input(&quot;In</span> <span class="pre">which</span> <span class="pre">year</span> <span class="pre">did</span> <span class="pre">you</span> <span class="pre">join</span> <span class="pre">CityU?</span> <span class="pre">&quot;)</span></code> is a statement that gives some value a name called <code class="docutils literal notranslate"><span class="pre">cohort</span></code>.</p>
+<p>For the purpose of computations, a statement often contains <em>expressions</em> that evaluate to certain values.<br />
+E.g., <code class="docutils literal notranslate"><span class="pre">input(&quot;In</span> <span class="pre">which</span> <span class="pre">year</span> <span class="pre">did</span> <span class="pre">you</span> <span class="pre">join</span> <span class="pre">CityU?</span> <span class="pre">&quot;)</span></code> is an expression with the value equal to what you input to the prompt.<br />
+That value is then given the name <code class="docutils literal notranslate"><span class="pre">cohort</span></code>.</p>
+<p>Expressions can be composed of:</p>
+<ul class="simple">
+<li><p><em>Functions</em> such as <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">now</span></code>, and <code class="docutils literal notranslate"><span class="pre">int</span></code>, etc., which are like math functions the return some values based on its arguments, if any.</p></li>
+<li><p><em>Literals</em> such as the string <code class="docutils literal notranslate"><span class="pre">&quot;In</span> <span class="pre">which</span> <span class="pre">year</span> <span class="pre">did</span> <span class="pre">you</span> <span class="pre">join</span> <span class="pre">CityU?</span> <span class="pre">&quot;</span></code> and the integer <code class="docutils literal notranslate"><span class="pre">1</span></code>. They are values you type out literally.</p></li>
+<li><p><em>Variables</em> such as <code class="docutils literal notranslate"><span class="pre">cohort</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>, which are meaningful names to values.</p></li>
+</ul>
+<p>To help others understand the code, there are also <em>comments</em> that start with <code class="docutils literal notranslate"><span class="pre">#</span></code>.<br />
+These are descriptions meant for human to read but not to be executed by the computer.</p>
+<p><strong>Exercise</strong> What do you think the next generation programmimng should be?</p>
+<p>Perhaps programming using natural languages. Write programs that people enjoy reading, like <a class="reference external" href="https://www.youtube.com/watch?v=bTkXg2LZIMQ">literate programming</a>.<br />
+Indeed, Jupyter notebook is arguably a step towards this direction. See <a class="reference external" href="https://github.com/fastai/nbdev">nbdev</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/bTkXg2LZIMQ&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="912" height="513" src="https://www.youtube.com/embed/bTkXg2LZIMQ" allowfullscreen></iframe>
+</div></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="../Lecture2/Values%20and%20Variables.html" title="next page">Values and Variables</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

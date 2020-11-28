@@ -1,0 +1,1550 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Functions &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Writing Function" href="Writing%20Functions.html" />
+    <link rel="prev" title="Iteration" href="../Lecture3/Iteration.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture4/Using Functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Lecture4/Using Functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-functions-from-modules">
+   Import Functions from Modules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#built-in-functions">
+   Built-in Functions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="using-functions">
+<h1>Using Functions<a class="headerlink" href="#using-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to reuse code so we can write less?</strong></p>
+<p>When we write a loop, the code is executed multiple times, once for each iteration.</p>
+<p>This is a simple form of <em>code reuse</em> that</p>
+<ul class="simple">
+<li><p>gives your code an elegant <em>structure</em> that</p></li>
+<li><p>can be executed efficiently by a computer, and</p></li>
+<li><p><em>interpreted</em> easily by a programmer.</p></li>
+</ul>
+<p><strong>How to repeat execution at different times, in different programs, and in slightly different ways?</strong></p>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to calculate the logarithm?</strong></p>
+<p>There is no arithmetic operator for logarithm.<br />
+Do we have to implement it ourselves?</p>
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">log</span></code> from the <a class="reference external" href="https://docs.python.org/3/library/math.html"><code class="docutils literal notranslate"><span class="pre">math</span></code> <em>module</em></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="n">log</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># log base 2 of 256</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above computes the base-<span class="math notranslate nohighlight">\(2\)</span> logarithm, <span class="math notranslate nohighlight">\(\log_2(256)\)</span>. Like functions in mathematics, a computer function <code class="docutils literal notranslate"><span class="pre">log</span></code></p>
+<ul class="simple">
+<li><p>is <em>called/invoked</em> with some input <em>arguments</em> <code class="docutils literal notranslate"><span class="pre">(256,</span> <span class="pre">2)</span></code> following the function, and</p></li>
+<li><p><em>returns</em> an output value computed from the input arguments.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function is callable while an integer is not</span>
+<span class="n">callable</span><span class="p">(</span><span class="n">log</span><span class="p">),</span> <span class="n">callable</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unlike mathematical functions:</p>
+<ul class="simple">
+<li><p>A computer function may require no arguments, but we still need to call it with <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">9</span><span class="n">c8b639daf2f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">858</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>A computer function may have side effects and return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;of type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None of type &lt;class &#39;NoneType&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>An argument of a function call can be any expression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st input:&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">(),</span> <span class="s1">&#39;2nd input&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abc
+def
+1st input: abc 2nd input def
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note also that</p>
+<ul class="simple">
+<li><p>the argument can also be a function call like function composition in mathematics.</p></li>
+<li><p>Before a function call is executed, its arguments are evaluated first from left to right.</p></li>
+</ul>
+<p><strong>Why not implement logarithm yourself?</strong></p>
+<ul class="simple">
+<li><p>The function from standard library is efficiently implemented and thoroughly tested/documented.</p></li>
+<li><p>Knowing what a function does is often insufficient for an efficient implementation.<br />
+(See <a class="reference external" href="https://en.wikipedia.org/wiki/Logarithm#Calculation">how to calculate logarithm</a> as an example.)</p></li>
+</ul>
+<p>Indeed, the <code class="docutils literal notranslate"><span class="pre">math</span></code> library does not implement <code class="docutils literal notranslate"><span class="pre">log</span></code> itself:</p>
+<blockquote>
+<div><p><strong>CPython implementation detail:</strong> The <code class="docutils literal notranslate"><span class="pre">math</span></code> module consists mostly of thin <em>wrappers</em> around the platform C math library functions. - <a class="reference external" href="https://docs.python.org/3/library/math.html">pydoc last paragraph</a></p>
+</div></blockquote>
+<p>(See the <a class="reference external" href="https://github.com/python/cpython/blob/457d4e97de0369bc786e363cb53c7ef3276fdfcd/Modules/mathmodule.c#L731">source code wrapper for <code class="docutils literal notranslate"><span class="pre">log</span></code></a>.)</p>
+<p><strong>Exercise</strong> What is a function in programming?</p>
+<ul class="simple">
+<li><p>A function is a structure that allows a piece of code to be reused in a program.</p></li>
+<li><p>A function can adapt its computations to different situations using input arguments.</p></li>
+</ul>
+</div>
+<div class="section" id="import-functions-from-modules">
+<h2>Import Functions from Modules<a class="headerlink" href="#import-functions-from-modules" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to import functions?</strong></p>
+<p>We can use the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import"><code class="docutils literal notranslate"><span class="pre">import</span></code> statement</a> to import multiple functions into the program <em>global frame</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 300
+from math import log10, ceil
+x = 1234
+print(&#39;Number of digits of x:&#39;, ceil(log10(x)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="300"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=from%20math%20import%20log10%2C%20ceil%0Ax%20%3D%201234%0Aprint%28%27Number%20of%20digits%20of%20x%3A%27%2C%20ceil%28log10%28x%29%29%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The above import both the functions <code class="docutils literal notranslate"><span class="pre">log10</span></code> and <code class="docutils literal notranslate"><span class="pre">ceil</span></code> from <code class="docutils literal notranslate"><span class="pre">math</span></code> to compute the number <span class="math notranslate nohighlight">\(\lceil \log_{10}(x)\rceil\)</span> of digits of a <em>strictly positive</em> integer <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p><strong>How to import all functions from a library?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 300
+from math import *  # import all except names starting with an underscore
+print(&#39;{:.2f}, {:.2f}, {:.2f}&#39;.format(sin(pi / 6), cos(pi / 3), tan(pi / 4)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="300"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=from%20math%20import%20%2A%20%20%23%20import%20all%20except%20names%20starting%20with%20an%20underscore%0Aprint%28%27%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%27.format%28sin%28pi%2F6%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cos%28pi%2F3%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tan%28pi%2F4%29%29%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The above uses the wildcard <code class="docutils literal notranslate"><span class="pre">*</span></code> to import (<a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#more-on-modules">nearly</a>) all the functions/variables provided in <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
+<p><strong>What if different packages define the same function?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 300
+print(&#39;{}&#39;.format(pow(-1, 2)))
+print(&#39;{:.2f}&#39;.format(pow(-1, 1 / 2)))
+from math import *
+print(&#39;{}&#39;.format(pow(-1, 2)))
+print(&#39;{:.2f}&#39;.format(pow(-1, 1 / 2)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="300"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=print%28%27%7B%7D%27.format%28pow%28-1%2C2%29%29%29%0Aprint%28%27%7B%3A.2f%7D%27.format%28pow%28-1%2C1%2F2%29%29%29%0Afrom%20math%20import%20%2A%0Aprint%28%27%7B%7D%27.format%28pow%28-1%2C2%29%29%29%0Aprint%28%27%7B%3A.2f%7D%27.format%28pow%28-1%2C1%2F2%29%29%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<ul class="simple">
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">pow</span></code> imported from <code class="docutils literal notranslate"><span class="pre">math</span></code> overwrites the built-in function <code class="docutils literal notranslate"><span class="pre">pow</span></code>.</p></li>
+<li><p>Unlike the built-in function, <code class="docutils literal notranslate"><span class="pre">pow</span></code> from <code class="docutils literal notranslate"><span class="pre">math</span></code> returns only floats but not integers nor complex numbers.</p></li>
+<li><p>We say that the import statement <em>polluted the namespace of the global frame</em> and caused a <em>name collision</em>.</p></li>
+</ul>
+<p><strong>How to avoid name collisions?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 250
+import math
+print(&#39;{:.2f}, {:.2f}&#39;.format(math.pow(-1, 2), pow(-1, 1 / 2)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="250"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=import%20math%0Aprint%28%27%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%27.format%28math.pow%28-1%2C2%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pow%28-1%2C1%2F2%29%29%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>We can use the full name (<em>fully-qualified name</em>) <code class="docutils literal notranslate"><span class="pre">math.pow</span></code> prefixed with the module name (and possibly package names containing the module).</p>
+<p><strong>Can we shorten a name?</strong></p>
+<p>The name of a library can be very long and there can be a hierarchical structure as well.<br />
+E.g., to plot a sequence using <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> package:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">stem</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_n$&#39;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A sequence of numbers&#39;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Using Functions_43_0.png" src="../_images/Using Functions_43_0.png" />
+</div>
+</div>
+<p>It is common to rename <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> as <code class="docutils literal notranslate"><span class="pre">plt</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_n$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A sequence of numbers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Using Functions_45_0.png" src="../_images/Using Functions_45_0.png" />
+</div>
+</div>
+<p>We can also rename a function as we import it to avoid name collision:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="nb">pow</span> <span class="k">as</span> <span class="n">fpow</span>
+<span class="n">fpow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4.0, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> What is wrong with the following code?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="n">m</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">ac8a1bbb324c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">m</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;int&#39; object has no attribute &#39;pow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a name collision: <code class="docutils literal notranslate"><span class="pre">m</span></code> is assigned to an integer in the for loop and so it is no longer the module <code class="docutils literal notranslate"><span class="pre">math</span></code> when calling <code class="docutils literal notranslate"><span class="pre">m.pow</span></code>.</p>
+<p><strong>Exercise</strong> Use the <code class="docutils literal notranslate"><span class="pre">randint</span></code> function from <code class="docutils literal notranslate"><span class="pre">random</span></code> to simulate the rolling of a die, by printing a random integer from 1 to 6.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="built-in-functions">
+<h2>Built-in Functions<a class="headerlink" href="#built-in-functions" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to learn more about a function such as <code class="docutils literal notranslate"><span class="pre">randint</span></code>?</strong></p>
+<p>There is a built-in function <code class="docutils literal notranslate"><span class="pre">help</span></code> for showing the <em>docstring</em> (documentation string).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">)</span>  <span class="c1"># random must be imported before</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method randint in module random:
+
+randint(a, b) method of random.Random instance
+    Return random integer in range [a, b], including both end points.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>  <span class="c1"># can also show the docstring of a module</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on module random:
+
+NAME
+    random - Random variable generators.
+
+MODULE REFERENCE
+    https://docs.python.org/3.7/library/random
+    
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+
+DESCRIPTION
+        integers
+        --------
+               uniform within range
+    
+        sequences
+        ---------
+               pick random element
+               pick random sample
+               pick weighted random sample
+               generate random permutation
+    
+        distributions on the real line:
+        ------------------------------
+               uniform
+               triangular
+               normal (Gaussian)
+               lognormal
+               negative exponential
+               gamma
+               beta
+               pareto
+               Weibull
+    
+        distributions on the circle (angles 0 to 2pi)
+        ---------------------------------------------
+               circular uniform
+               von Mises
+    
+    General notes on the underlying Mersenne Twister core generator:
+    
+    * The period is 2**19937-1.
+    * It is one of the most extensively tested generators in existence.
+    * The random() method is implemented in C, executes in a single Python step,
+      and is, therefore, threadsafe.
+
+CLASSES
+    _random.Random(builtins.object)
+        Random
+            SystemRandom
+    
+    class Random(_random.Random)
+     |  Random(x=None)
+     |  
+     |  Random number generator base class used by bound module functions.
+     |  
+     |  Used to instantiate instances of Random to get generators that don&#39;t
+     |  share state.
+     |  
+     |  Class Random can also be subclassed if you want to use a different basic
+     |  generator of your own devising: in that case, override the following
+     |  methods:  random(), seed(), getstate(), and setstate().
+     |  Optionally, implement a getrandbits() method so that randrange()
+     |  can cover arbitrarily large ranges.
+     |  
+     |  Method resolution order:
+     |      Random
+     |      _random.Random
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __getstate__(self)
+     |      # Issue 17489: Since __reduce__ was defined to fix #759889 this is no
+     |      # longer called; we leave it here because it has been here since random was
+     |      # rewritten back in 2001 and why risk breaking something.
+     |  
+     |  __init__(self, x=None)
+     |      Initialize an instance.
+     |      
+     |      Optional argument x controls seeding, as for Random.seed().
+     |  
+     |  __reduce__(self)
+     |      Helper for pickle.
+     |  
+     |  __setstate__(self, state)
+     |  
+     |  betavariate(self, alpha, beta)
+     |      Beta distribution.
+     |      
+     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+     |      Returned values range between 0 and 1.
+     |  
+     |  choice(self, seq)
+     |      Choose a random element from a non-empty sequence.
+     |  
+     |  choices(self, population, weights=None, *, cum_weights=None, k=1)
+     |      Return a k sized list of population elements chosen with replacement.
+     |      
+     |      If the relative weights or cumulative weights are not specified,
+     |      the selections are made with equal probability.
+     |  
+     |  expovariate(self, lambd)
+     |      Exponential distribution.
+     |      
+     |      lambd is 1.0 divided by the desired mean.  It should be
+     |      nonzero.  (The parameter would be called &quot;lambda&quot;, but that is
+     |      a reserved word in Python.)  Returned values range from 0 to
+     |      positive infinity if lambd is positive, and from negative
+     |      infinity to 0 if lambd is negative.
+     |  
+     |  gammavariate(self, alpha, beta)
+     |      Gamma distribution.  Not the gamma function!
+     |      
+     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+     |      
+     |      The probability distribution function is:
+     |      
+     |                  x ** (alpha - 1) * math.exp(-x / beta)
+     |        pdf(x) =  --------------------------------------
+     |                    math.gamma(alpha) * beta ** alpha
+     |  
+     |  gauss(self, mu, sigma)
+     |      Gaussian distribution.
+     |      
+     |      mu is the mean, and sigma is the standard deviation.  This is
+     |      slightly faster than the normalvariate() function.
+     |      
+     |      Not thread-safe without a lock around calls.
+     |  
+     |  getstate(self)
+     |      Return internal state; can be passed to setstate() later.
+     |  
+     |  lognormvariate(self, mu, sigma)
+     |      Log normal distribution.
+     |      
+     |      If you take the natural logarithm of this distribution, you&#39;ll get a
+     |      normal distribution with mean mu and standard deviation sigma.
+     |      mu can have any value, and sigma must be greater than zero.
+     |  
+     |  normalvariate(self, mu, sigma)
+     |      Normal distribution.
+     |      
+     |      mu is the mean, and sigma is the standard deviation.
+     |  
+     |  paretovariate(self, alpha)
+     |      Pareto distribution.  alpha is the shape parameter.
+     |  
+     |  randint(self, a, b)
+     |      Return random integer in range [a, b], including both end points.
+     |  
+     |  randrange(self, start, stop=None, step=1, _int=&lt;class &#39;int&#39;&gt;)
+     |      Choose a random item from range(start, stop[, step]).
+     |      
+     |      This fixes the problem with randint() which includes the
+     |      endpoint; in Python this is usually not what you want.
+     |  
+     |  sample(self, population, k)
+     |      Chooses k unique random elements from a population sequence or set.
+     |      
+     |      Returns a new list containing elements from the population while
+     |      leaving the original population unchanged.  The resulting list is
+     |      in selection order so that all sub-slices will also be valid random
+     |      samples.  This allows raffle winners (the sample) to be partitioned
+     |      into grand prize and second place winners (the subslices).
+     |      
+     |      Members of the population need not be hashable or unique.  If the
+     |      population contains repeats, then each occurrence is a possible
+     |      selection in the sample.
+     |      
+     |      To choose a sample in a range of integers, use range as an argument.
+     |      This is especially fast and space efficient for sampling from a
+     |      large population:   sample(range(10000000), 60)
+     |  
+     |  seed(self, a=None, version=2)
+     |      Initialize internal state from hashable object.
+     |      
+     |      None or no argument seeds from current time or from an operating
+     |      system specific randomness source if available.
+     |      
+     |      If *a* is an int, all bits are used.
+     |      
+     |      For version 2 (the default), all of the bits are used if *a* is a str,
+     |      bytes, or bytearray.  For version 1 (provided for reproducing random
+     |      sequences from older versions of Python), the algorithm for str and
+     |      bytes generates a narrower range of seeds.
+     |  
+     |  setstate(self, state)
+     |      Restore internal state from object returned by getstate().
+     |  
+     |  shuffle(self, x, random=None)
+     |      Shuffle list x in place, and return None.
+     |      
+     |      Optional argument random is a 0-argument function returning a
+     |      random float in [0.0, 1.0); if it is the default None, the
+     |      standard random.random will be used.
+     |  
+     |  triangular(self, low=0.0, high=1.0, mode=None)
+     |      Triangular distribution.
+     |      
+     |      Continuous distribution bounded by given lower and upper limits,
+     |      and having a given mode value in-between.
+     |      
+     |      http://en.wikipedia.org/wiki/Triangular_distribution
+     |  
+     |  uniform(self, a, b)
+     |      Get a random number in the range [a, b) or [a, b] depending on rounding.
+     |  
+     |  vonmisesvariate(self, mu, kappa)
+     |      Circular data distribution.
+     |      
+     |      mu is the mean angle, expressed in radians between 0 and 2*pi, and
+     |      kappa is the concentration parameter, which must be greater than or
+     |      equal to zero.  If kappa is equal to zero, this distribution reduces
+     |      to a uniform random angle over the range 0 to 2*pi.
+     |  
+     |  weibullvariate(self, alpha, beta)
+     |      Weibull distribution.
+     |      
+     |      alpha is the scale parameter and beta is the shape parameter.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  VERSION = 3
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _random.Random:
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  getrandbits(...)
+     |      getrandbits(k) -&gt; x.  Generates an int with k random bits.
+     |  
+     |  random(...)
+     |      random() -&gt; x in the interval [0, 1).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from _random.Random:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+    
+    class SystemRandom(Random)
+     |  SystemRandom(x=None)
+     |  
+     |  Alternate random number generator using sources provided
+     |  by the operating system (such as /dev/urandom on Unix or
+     |  CryptGenRandom on Windows).
+     |  
+     |   Not available on all systems (see os.urandom() for details).
+     |  
+     |  Method resolution order:
+     |      SystemRandom
+     |      Random
+     |      _random.Random
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  getrandbits(self, k)
+     |      getrandbits(k) -&gt; x.  Generates an int with k random bits.
+     |  
+     |  getstate = _notimplemented(self, *args, **kwds)
+     |  
+     |  random(self)
+     |      Get the next random number in the range [0.0, 1.0).
+     |  
+     |  seed(self, *args, **kwds)
+     |      Stub method.  Not used for a system random number generator.
+     |  
+     |  setstate = _notimplemented(self, *args, **kwds)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from Random:
+     |  
+     |  __getstate__(self)
+     |      # Issue 17489: Since __reduce__ was defined to fix #759889 this is no
+     |      # longer called; we leave it here because it has been here since random was
+     |      # rewritten back in 2001 and why risk breaking something.
+     |  
+     |  __init__(self, x=None)
+     |      Initialize an instance.
+     |      
+     |      Optional argument x controls seeding, as for Random.seed().
+     |  
+     |  __reduce__(self)
+     |      Helper for pickle.
+     |  
+     |  __setstate__(self, state)
+     |  
+     |  betavariate(self, alpha, beta)
+     |      Beta distribution.
+     |      
+     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+     |      Returned values range between 0 and 1.
+     |  
+     |  choice(self, seq)
+     |      Choose a random element from a non-empty sequence.
+     |  
+     |  choices(self, population, weights=None, *, cum_weights=None, k=1)
+     |      Return a k sized list of population elements chosen with replacement.
+     |      
+     |      If the relative weights or cumulative weights are not specified,
+     |      the selections are made with equal probability.
+     |  
+     |  expovariate(self, lambd)
+     |      Exponential distribution.
+     |      
+     |      lambd is 1.0 divided by the desired mean.  It should be
+     |      nonzero.  (The parameter would be called &quot;lambda&quot;, but that is
+     |      a reserved word in Python.)  Returned values range from 0 to
+     |      positive infinity if lambd is positive, and from negative
+     |      infinity to 0 if lambd is negative.
+     |  
+     |  gammavariate(self, alpha, beta)
+     |      Gamma distribution.  Not the gamma function!
+     |      
+     |      Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+     |      
+     |      The probability distribution function is:
+     |      
+     |                  x ** (alpha - 1) * math.exp(-x / beta)
+     |        pdf(x) =  --------------------------------------
+     |                    math.gamma(alpha) * beta ** alpha
+     |  
+     |  gauss(self, mu, sigma)
+     |      Gaussian distribution.
+     |      
+     |      mu is the mean, and sigma is the standard deviation.  This is
+     |      slightly faster than the normalvariate() function.
+     |      
+     |      Not thread-safe without a lock around calls.
+     |  
+     |  lognormvariate(self, mu, sigma)
+     |      Log normal distribution.
+     |      
+     |      If you take the natural logarithm of this distribution, you&#39;ll get a
+     |      normal distribution with mean mu and standard deviation sigma.
+     |      mu can have any value, and sigma must be greater than zero.
+     |  
+     |  normalvariate(self, mu, sigma)
+     |      Normal distribution.
+     |      
+     |      mu is the mean, and sigma is the standard deviation.
+     |  
+     |  paretovariate(self, alpha)
+     |      Pareto distribution.  alpha is the shape parameter.
+     |  
+     |  randint(self, a, b)
+     |      Return random integer in range [a, b], including both end points.
+     |  
+     |  randrange(self, start, stop=None, step=1, _int=&lt;class &#39;int&#39;&gt;)
+     |      Choose a random item from range(start, stop[, step]).
+     |      
+     |      This fixes the problem with randint() which includes the
+     |      endpoint; in Python this is usually not what you want.
+     |  
+     |  sample(self, population, k)
+     |      Chooses k unique random elements from a population sequence or set.
+     |      
+     |      Returns a new list containing elements from the population while
+     |      leaving the original population unchanged.  The resulting list is
+     |      in selection order so that all sub-slices will also be valid random
+     |      samples.  This allows raffle winners (the sample) to be partitioned
+     |      into grand prize and second place winners (the subslices).
+     |      
+     |      Members of the population need not be hashable or unique.  If the
+     |      population contains repeats, then each occurrence is a possible
+     |      selection in the sample.
+     |      
+     |      To choose a sample in a range of integers, use range as an argument.
+     |      This is especially fast and space efficient for sampling from a
+     |      large population:   sample(range(10000000), 60)
+     |  
+     |  shuffle(self, x, random=None)
+     |      Shuffle list x in place, and return None.
+     |      
+     |      Optional argument random is a 0-argument function returning a
+     |      random float in [0.0, 1.0); if it is the default None, the
+     |      standard random.random will be used.
+     |  
+     |  triangular(self, low=0.0, high=1.0, mode=None)
+     |      Triangular distribution.
+     |      
+     |      Continuous distribution bounded by given lower and upper limits,
+     |      and having a given mode value in-between.
+     |      
+     |      http://en.wikipedia.org/wiki/Triangular_distribution
+     |  
+     |  uniform(self, a, b)
+     |      Get a random number in the range [a, b) or [a, b] depending on rounding.
+     |  
+     |  vonmisesvariate(self, mu, kappa)
+     |      Circular data distribution.
+     |      
+     |      mu is the mean angle, expressed in radians between 0 and 2*pi, and
+     |      kappa is the concentration parameter, which must be greater than or
+     |      equal to zero.  If kappa is equal to zero, this distribution reduces
+     |      to a uniform random angle over the range 0 to 2*pi.
+     |  
+     |  weibullvariate(self, alpha, beta)
+     |      Weibull distribution.
+     |      
+     |      alpha is the scale parameter and beta is the shape parameter.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from Random:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from Random:
+     |  
+     |  VERSION = 3
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _random.Random:
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from _random.Random:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+
+FUNCTIONS
+    betavariate(alpha, beta) method of Random instance
+        Beta distribution.
+        
+        Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+        Returned values range between 0 and 1.
+    
+    choice(seq) method of Random instance
+        Choose a random element from a non-empty sequence.
+    
+    choices(population, weights=None, *, cum_weights=None, k=1) method of Random instance
+        Return a k sized list of population elements chosen with replacement.
+        
+        If the relative weights or cumulative weights are not specified,
+        the selections are made with equal probability.
+    
+    expovariate(lambd) method of Random instance
+        Exponential distribution.
+        
+        lambd is 1.0 divided by the desired mean.  It should be
+        nonzero.  (The parameter would be called &quot;lambda&quot;, but that is
+        a reserved word in Python.)  Returned values range from 0 to
+        positive infinity if lambd is positive, and from negative
+        infinity to 0 if lambd is negative.
+    
+    gammavariate(alpha, beta) method of Random instance
+        Gamma distribution.  Not the gamma function!
+        
+        Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+        
+        The probability distribution function is:
+        
+                    x ** (alpha - 1) * math.exp(-x / beta)
+          pdf(x) =  --------------------------------------
+                      math.gamma(alpha) * beta ** alpha
+    
+    gauss(mu, sigma) method of Random instance
+        Gaussian distribution.
+        
+        mu is the mean, and sigma is the standard deviation.  This is
+        slightly faster than the normalvariate() function.
+        
+        Not thread-safe without a lock around calls.
+    
+    getrandbits(...) method of Random instance
+        getrandbits(k) -&gt; x.  Generates an int with k random bits.
+    
+    getstate() method of Random instance
+        Return internal state; can be passed to setstate() later.
+    
+    lognormvariate(mu, sigma) method of Random instance
+        Log normal distribution.
+        
+        If you take the natural logarithm of this distribution, you&#39;ll get a
+        normal distribution with mean mu and standard deviation sigma.
+        mu can have any value, and sigma must be greater than zero.
+    
+    normalvariate(mu, sigma) method of Random instance
+        Normal distribution.
+        
+        mu is the mean, and sigma is the standard deviation.
+    
+    paretovariate(alpha) method of Random instance
+        Pareto distribution.  alpha is the shape parameter.
+    
+    randint(a, b) method of Random instance
+        Return random integer in range [a, b], including both end points.
+    
+    random(...) method of Random instance
+        random() -&gt; x in the interval [0, 1).
+    
+    randrange(start, stop=None, step=1, _int=&lt;class &#39;int&#39;&gt;) method of Random instance
+        Choose a random item from range(start, stop[, step]).
+        
+        This fixes the problem with randint() which includes the
+        endpoint; in Python this is usually not what you want.
+    
+    sample(population, k) method of Random instance
+        Chooses k unique random elements from a population sequence or set.
+        
+        Returns a new list containing elements from the population while
+        leaving the original population unchanged.  The resulting list is
+        in selection order so that all sub-slices will also be valid random
+        samples.  This allows raffle winners (the sample) to be partitioned
+        into grand prize and second place winners (the subslices).
+        
+        Members of the population need not be hashable or unique.  If the
+        population contains repeats, then each occurrence is a possible
+        selection in the sample.
+        
+        To choose a sample in a range of integers, use range as an argument.
+        This is especially fast and space efficient for sampling from a
+        large population:   sample(range(10000000), 60)
+    
+    seed(a=None, version=2) method of Random instance
+        Initialize internal state from hashable object.
+        
+        None or no argument seeds from current time or from an operating
+        system specific randomness source if available.
+        
+        If *a* is an int, all bits are used.
+        
+        For version 2 (the default), all of the bits are used if *a* is a str,
+        bytes, or bytearray.  For version 1 (provided for reproducing random
+        sequences from older versions of Python), the algorithm for str and
+        bytes generates a narrower range of seeds.
+    
+    setstate(state) method of Random instance
+        Restore internal state from object returned by getstate().
+    
+    shuffle(x, random=None) method of Random instance
+        Shuffle list x in place, and return None.
+        
+        Optional argument random is a 0-argument function returning a
+        random float in [0.0, 1.0); if it is the default None, the
+        standard random.random will be used.
+    
+    triangular(low=0.0, high=1.0, mode=None) method of Random instance
+        Triangular distribution.
+        
+        Continuous distribution bounded by given lower and upper limits,
+        and having a given mode value in-between.
+        
+        http://en.wikipedia.org/wiki/Triangular_distribution
+    
+    uniform(a, b) method of Random instance
+        Get a random number in the range [a, b) or [a, b] depending on rounding.
+    
+    vonmisesvariate(mu, kappa) method of Random instance
+        Circular data distribution.
+        
+        mu is the mean angle, expressed in radians between 0 and 2*pi, and
+        kappa is the concentration parameter, which must be greater than or
+        equal to zero.  If kappa is equal to zero, this distribution reduces
+        to a uniform random angle over the range 0 to 2*pi.
+    
+    weibullvariate(alpha, beta) method of Random instance
+        Weibull distribution.
+        
+        alpha is the scale parameter and beta is the shape parameter.
+
+DATA
+    __all__ = [&#39;Random&#39;, &#39;seed&#39;, &#39;random&#39;, &#39;uniform&#39;, &#39;randint&#39;, &#39;choice&#39;,...
+
+FILE
+    /opt/anaconda/lib/python3.7/random.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">help</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on _Helper in module _sitebuiltins object:
+
+class _Helper(builtins.object)
+ |  Define the builtin &#39;help&#39;.
+ |  
+ |  This is a wrapper around pydoc.help that provides a helpful message
+ |  when &#39;help&#39; is typed at the Python interactive prompt.
+ |  
+ |  Calling help() at the Python prompt starts an interactive help session.
+ |  Calling help(thing) prints help for the python object &#39;thing&#39;.
+ |  
+ |  Methods defined here:
+ |  
+ |  __call__(self, *args, **kwds)
+ |      Call self as a function.
+ |  
+ |  __repr__(self)
+ |      Return repr(self).
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Does built-in functions belong to a module?</strong></p>
+<p>Indeed, every function must come from a module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">__builtin__</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;I am from the __builtin__ module.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am from the __builtin__ module.
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">__builtin__</span></code> module is automatically loaded because it provides functions that are commonly use for all programs.</p>
+<p><strong>How to list everything in a module?</strong></p>
+<p>We can use the built-in function <code class="docutils literal notranslate"><span class="pre">dir</span></code> (<em>directory</em>).</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtin__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ArithmeticError&#39;,
+ &#39;AssertionError&#39;,
+ &#39;AttributeError&#39;,
+ &#39;BaseException&#39;,
+ &#39;BlockingIOError&#39;,
+ &#39;BrokenPipeError&#39;,
+ &#39;BufferError&#39;,
+ &#39;BytesWarning&#39;,
+ &#39;ChildProcessError&#39;,
+ &#39;ConnectionAbortedError&#39;,
+ &#39;ConnectionError&#39;,
+ &#39;ConnectionRefusedError&#39;,
+ &#39;ConnectionResetError&#39;,
+ &#39;DeprecationWarning&#39;,
+ &#39;EOFError&#39;,
+ &#39;Ellipsis&#39;,
+ &#39;EnvironmentError&#39;,
+ &#39;Exception&#39;,
+ &#39;False&#39;,
+ &#39;FileExistsError&#39;,
+ &#39;FileNotFoundError&#39;,
+ &#39;FloatingPointError&#39;,
+ &#39;FutureWarning&#39;,
+ &#39;GeneratorExit&#39;,
+ &#39;IOError&#39;,
+ &#39;ImportError&#39;,
+ &#39;ImportWarning&#39;,
+ &#39;IndentationError&#39;,
+ &#39;IndexError&#39;,
+ &#39;InterruptedError&#39;,
+ &#39;IsADirectoryError&#39;,
+ &#39;KeyError&#39;,
+ &#39;KeyboardInterrupt&#39;,
+ &#39;LookupError&#39;,
+ &#39;MemoryError&#39;,
+ &#39;ModuleNotFoundError&#39;,
+ &#39;NameError&#39;,
+ &#39;None&#39;,
+ &#39;NotADirectoryError&#39;,
+ &#39;NotImplemented&#39;,
+ &#39;NotImplementedError&#39;,
+ &#39;OSError&#39;,
+ &#39;OverflowError&#39;,
+ &#39;PendingDeprecationWarning&#39;,
+ &#39;PermissionError&#39;,
+ &#39;ProcessLookupError&#39;,
+ &#39;RecursionError&#39;,
+ &#39;ReferenceError&#39;,
+ &#39;ResourceWarning&#39;,
+ &#39;RuntimeError&#39;,
+ &#39;RuntimeWarning&#39;,
+ &#39;StopAsyncIteration&#39;,
+ &#39;StopIteration&#39;,
+ &#39;SyntaxError&#39;,
+ &#39;SyntaxWarning&#39;,
+ &#39;SystemError&#39;,
+ &#39;SystemExit&#39;,
+ &#39;TabError&#39;,
+ &#39;TimeoutError&#39;,
+ &#39;True&#39;,
+ &#39;TypeError&#39;,
+ &#39;UnboundLocalError&#39;,
+ &#39;UnicodeDecodeError&#39;,
+ &#39;UnicodeEncodeError&#39;,
+ &#39;UnicodeError&#39;,
+ &#39;UnicodeTranslateError&#39;,
+ &#39;UnicodeWarning&#39;,
+ &#39;UserWarning&#39;,
+ &#39;ValueError&#39;,
+ &#39;Warning&#39;,
+ &#39;ZeroDivisionError&#39;,
+ &#39;__IPYTHON__&#39;,
+ &#39;__build_class__&#39;,
+ &#39;__debug__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__import__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;abs&#39;,
+ &#39;all&#39;,
+ &#39;any&#39;,
+ &#39;ascii&#39;,
+ &#39;bin&#39;,
+ &#39;bool&#39;,
+ &#39;breakpoint&#39;,
+ &#39;bytearray&#39;,
+ &#39;bytes&#39;,
+ &#39;callable&#39;,
+ &#39;chr&#39;,
+ &#39;classmethod&#39;,
+ &#39;compile&#39;,
+ &#39;complex&#39;,
+ &#39;copyright&#39;,
+ &#39;credits&#39;,
+ &#39;delattr&#39;,
+ &#39;dict&#39;,
+ &#39;dir&#39;,
+ &#39;display&#39;,
+ &#39;divmod&#39;,
+ &#39;enumerate&#39;,
+ &#39;eval&#39;,
+ &#39;exec&#39;,
+ &#39;filter&#39;,
+ &#39;float&#39;,
+ &#39;format&#39;,
+ &#39;frozenset&#39;,
+ &#39;get_ipython&#39;,
+ &#39;getattr&#39;,
+ &#39;globals&#39;,
+ &#39;hasattr&#39;,
+ &#39;hash&#39;,
+ &#39;help&#39;,
+ &#39;hex&#39;,
+ &#39;id&#39;,
+ &#39;input&#39;,
+ &#39;int&#39;,
+ &#39;isinstance&#39;,
+ &#39;issubclass&#39;,
+ &#39;iter&#39;,
+ &#39;len&#39;,
+ &#39;license&#39;,
+ &#39;list&#39;,
+ &#39;locals&#39;,
+ &#39;map&#39;,
+ &#39;max&#39;,
+ &#39;memoryview&#39;,
+ &#39;min&#39;,
+ &#39;next&#39;,
+ &#39;object&#39;,
+ &#39;oct&#39;,
+ &#39;open&#39;,
+ &#39;ord&#39;,
+ &#39;pow&#39;,
+ &#39;print&#39;,
+ &#39;property&#39;,
+ &#39;range&#39;,
+ &#39;repr&#39;,
+ &#39;reversed&#39;,
+ &#39;round&#39;,
+ &#39;set&#39;,
+ &#39;setattr&#39;,
+ &#39;slice&#39;,
+ &#39;sorted&#39;,
+ &#39;staticmethod&#39;,
+ &#39;str&#39;,
+ &#39;sum&#39;,
+ &#39;super&#39;,
+ &#39;tuple&#39;,
+ &#39;type&#39;,
+ &#39;vars&#39;,
+ &#39;zip&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also call <code class="docutils literal notranslate"><span class="pre">dir</span></code> without arguments.<br />
+What does it print?</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;,
+ &#39;Out&#39;,
+ &#39;_&#39;,
+ &#39;_10&#39;,
+ &#39;_23&#39;,
+ &#39;_8&#39;,
+ &#39;_9&#39;,
+ &#39;__&#39;,
+ &#39;___&#39;,
+ &#39;__builtin__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__name__&#39;,
+ &#39;_dh&#39;,
+ &#39;_i&#39;,
+ &#39;_i10&#39;,
+ &#39;_i11&#39;,
+ &#39;_i12&#39;,
+ &#39;_i13&#39;,
+ &#39;_i14&#39;,
+ &#39;_i15&#39;,
+ &#39;_i16&#39;,
+ &#39;_i17&#39;,
+ &#39;_i18&#39;,
+ &#39;_i19&#39;,
+ &#39;_i20&#39;,
+ &#39;_i21&#39;,
+ &#39;_i22&#39;,
+ &#39;_i23&#39;,
+ &#39;_i24&#39;,
+ &#39;_i8&#39;,
+ &#39;_i9&#39;,
+ &#39;_ih&#39;,
+ &#39;_ii&#39;,
+ &#39;_iii&#39;,
+ &#39;_oh&#39;,
+ &#39;cs1302_site_packages&#39;,
+ &#39;exit&#39;,
+ &#39;get_ipython&#39;,
+ &#39;interact&#39;,
+ &#39;json&#39;,
+ &#39;log&#39;,
+ &#39;m&#39;,
+ &#39;quit&#39;,
+ &#39;random&#39;,
+ &#39;sys&#39;,
+ &#39;x&#39;,
+ &#39;yapf_reformat&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture3/Iteration.html" title="previous page">Iteration</a>
+    <a class='right-next' id="next-link" href="Writing%20Functions.html" title="next page">Writing Function</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
