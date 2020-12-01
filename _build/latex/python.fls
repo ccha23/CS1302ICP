@@ -234,3 +234,31 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT python.toc
+INPUT Using Functions_43_0.png
+INPUT Using Functions_43_0.png
+INPUT Using Functions_45_0.png
+INPUT Using Functions_45_0.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT Dictionaries and Sets_7_1.png
+INPUT Dictionaries and Sets_7_1.png
+INPUT Dictionaries and Sets_10_1.png
+INPUT Dictionaries and Sets_10_1.png
+INPUT Dictionaries and Sets_35_0.png
+INPUT Dictionaries and Sets_35_0.png
+INPUT Dictionaries and Sets_69_0.png
+INPUT Dictionaries and Sets_69_0.png
+INPUT Dictionaries and Sets_73_0.png
+INPUT Dictionaries and Sets_73_0.png
+INPUT python.ind
+INPUT python.ind
+INPUT python.aux
+INPUT ./python.out
+INPUT ./python.out

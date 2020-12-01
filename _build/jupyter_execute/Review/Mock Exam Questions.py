@@ -133,7 +133,7 @@ assert count_non_fibs({0.1, 0}) == 1
 # ```Python
 # {'emp1': 300000, 'emp2': 208000, 'emp3': 232500}.
 # ```
-# where the total salary of `emp1` is 15000 \\(\times\\) 20 = 300000.
+# where the total salary of `emp1` is $15000 \times 20 = 300000$.
 
 # In[8]:
 

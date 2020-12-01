@@ -613,6 +613,7 @@ x
 
 
 # This gives the desired solution $x_0=0$ and $x_1=0.5$ for
+# 
 # $$ \begin{aligned}
 # 2x_0 + 2x_1 &= 1\\
 # \hphantom{2x_0 +}  2x_1 &= 1\\

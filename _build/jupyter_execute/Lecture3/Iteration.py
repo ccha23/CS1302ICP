@@ -10,6 +10,7 @@
 
 
 get_ipython().run_line_magic('reload_ext', 'mytutor')
+from ipywidgets import interact
 
 
 # ## Motivation

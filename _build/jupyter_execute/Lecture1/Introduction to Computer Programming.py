@@ -255,6 +255,7 @@ get_ipython().run_cell_magic('html', '', '<iframe width="912" height="513" src="
 # In[7]:
 
 
+# for step-by-step execution using mytutor
 get_ipython().run_line_magic('reload_ext', 'mytutor')
 
 

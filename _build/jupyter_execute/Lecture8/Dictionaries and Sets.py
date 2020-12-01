@@ -336,7 +336,7 @@ plot_distribution('What is the distribution of different characters?')
 
 # **Exercise** Unlike the previous implementation using one-line dictionary comprehension, the above alternative implementation uses multiple lines of code to build the dictionary incrementally starting from an empty dictionary.
 # ```Python
-# def distribution(seq):
+# def distribute(seq):
 #     return {k : seq.count(k)/len(seq) for k in set(seq)}
 # ```
 # Explain whether the alternative is more efficient.
@@ -380,7 +380,7 @@ get_ipython().run_cell_magic('mytutor', '-h 600', "a = set(reversed('abcde'))\nb
 
 
 def plot_distribution(seq):
-    dist = distribution(seq)
+    dist = distribute(seq)
     # pyplot.stem(dist.keys(), dist.values(), use_line_collection=True)
     ### BEGIN SOLUTION
     dist_list = sorted(dist.items(), key = lambda p: p[0])

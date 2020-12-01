@@ -1,0 +1,96 @@
+\selectlanguage *{english}
+\contentsline {chapter}{\numberline {1}Introduction to Computer Programming}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Computer}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}What is a computer?}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}What is the architecture of a computer?}{3}{subsection.1.1.2}%
+\contentsline {subsubsection}{Peripherals}{3}{subsubsection*.3}%
+\contentsline {subsubsection}{Central Processing Unit}{4}{subsubsection*.4}%
+\contentsline {section}{\numberline {1.2}Programming}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}What is programming?}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Why computer uses binary representation?}{5}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Different generations of programming languages}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}High\sphinxhyphen {}level Language}{6}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}What is a high\sphinxhyphen {}level language?}{6}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}What programming language will you learn?}{7}{subsection.1.4.2}%
+\contentsline {chapter}{\numberline {2}Values and Variables}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Integers}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Strings}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Variables and Assignment}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Identifiers}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}User Input}{13}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Type Conversion}{14}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Error}{15}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Floating Point Numbers}{16}{section.2.8}%
+\contentsline {section}{\numberline {2.9}String Formatting}{18}{section.2.9}%
+\contentsline {chapter}{\numberline {3}Expressions and Arithmetic}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Operators}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Operator Precedence and Associativity}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Augmented Assignment Operators}{23}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Conditional Execution}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Motivation}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Boolean expressions}{26}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Comparison Operators}{26}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Boolean Operations}{29}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Conditional Constructs}{32}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}If\sphinxhyphen {}Then Construct}{32}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}If\sphinxhyphen {}Then\sphinxhyphen {}Else Construct}{33}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Nested Conditionals}{34}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}Iteration}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Motivation}{37}{section.5.1}%
+\contentsline {section}{\numberline {5.2}For Loop}{37}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Iterate over a sequence}{37}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Iterate over a range}{38}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Iterate over a string}{39}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}While Loop}{40}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Break/Continue/Else Constructs of a Loop}{41}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Breaking out of a loop}{41}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Continue to Next Iteration}{42}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Else construct for a loop}{43}{subsection.5.4.3}%
+\contentsline {chapter}{\numberline {6}Using Functions}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Motivation}{45}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Functions}{45}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Import Functions from Modules}{46}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Built\sphinxhyphen {}in Functions}{50}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Writing Function}{51}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Function Definition}{51}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Documentation}{52}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Parameter Passing}{53}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Objects}{55}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Object\sphinxhyphen {}Oriented Programming}{55}{section.8.1}%
+\contentsline {section}{\numberline {8.2}File Objects}{57}{section.8.2}%
+\contentsline {section}{\numberline {8.3}String Objects}{60}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Operator Overloading}{61}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}What is overloading?}{61}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}How to dispatch on type?}{62}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}How to have data\sphinxhyphen {}directed programming?}{63}{subsection.8.4.3}%
+\contentsline {section}{\numberline {8.5}Object Aliasing}{64}{section.8.5}%
+\contentsline {chapter}{\numberline {9}More on Functions}{67}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Recursion}{67}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Global Variables}{70}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Generator}{73}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Optional Arguments}{75}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Variable number of arguments}{77}{section.9.5}%
+\contentsline {section}{\numberline {9.6}Decorator}{79}{section.9.6}%
+\contentsline {section}{\numberline {9.7}Module}{85}{section.9.7}%
+\contentsline {chapter}{\numberline {10}Lists and Tuples}{87}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Motivation of composite data type}{87}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Constructing sequences}{88}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Selecting items in a sequence}{92}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Mutating a list}{95}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Different methods to operate on a sequence}{97}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Dictionaries and Sets}{101}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Motivation for associative container}{101}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Constructing associative containers}{104}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Hashability}{106}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Accessing keys/values}{108}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Other operators and methods}{111}{section.11.5}%
+\contentsline {chapter}{\numberline {12}Monte Carlo Simulation and Linear Algebra}{115}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Monte Carlo simulation}{115}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Linear Algebra}{116}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Creating \sphinxstyleliteralintitle {\sphinxupquote {numpy}} arrays}{118}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Operating on \sphinxstyleliteralintitle {\sphinxupquote {numpy}} arrays}{124}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Universal functions}{128}{subsection.12.2.3}%
+\contentsline {chapter}{\numberline {13}Review Questions}{131}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Dictionaries and Sets}{131}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Lists and Tuples}{137}{section.13.2}%
+\contentsline {section}{\numberline {13.3}More Functions}{140}{section.13.3}%

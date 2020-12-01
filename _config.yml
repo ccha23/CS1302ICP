@@ -1,6 +1,7 @@
 #######################################################################################
 # Book settings
-title                       : CS1302  # The title of the book. Will be placed in the left navbar.
+# title                       : CS1302 Introduction to Computer Programming # The title of the book. Will be placed in the left navbar.
+title: CS1302
 author                      : Chung Chan  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
@@ -66,6 +67,7 @@ repository:
 sphinx:
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    latex_toplevel_sectioning: 'part'
   extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
