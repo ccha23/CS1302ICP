@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -48,8 +49,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -370,7 +369,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 2 5 4 4 6 4 3 1 2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 2 6 1 5 1 3 4 3 6
 </pre></div>
 </div>
 </div>
@@ -787,7 +786,7 @@ The for loop iterates over the keys.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b d e c
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e b d c a
 (0, &#39;a&#39;) (1, &#39;b&#39;) (2, &#39;c&#39;) (3, &#39;d&#39;) (4, &#39;e&#39;)
 </pre></div>
 </div>
@@ -1097,9 +1096,9 @@ assert len(union) == len(intersection) + len(symmetric_difference)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: clear, copy, pop, update
-dict-specific attributes: keys, popitem, get, items, setdefault, fromkeys, values
-set-specific attributes: symmetric_difference, issuperset, intersection, add, remove, isdisjoint, issubset, intersection_update, symmetric_difference_update, difference, difference_update, discard, union
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: update, clear, copy, pop
+dict-specific attributes: keys, get, setdefault, values, fromkeys, popitem, items
+set-specific attributes: symmetric_difference_update, difference, isdisjoint, add, difference_update, intersection, issubset, union, remove, intersection_update, issuperset, symmetric_difference, discard
 </pre></div>
 </div>
 </div>
@@ -1235,10 +1234,10 @@ a.update(b,c=3)
  &quot;&lt;class &#39;builtin_function_or_method&#39;&gt;&quot;: [&lt;function print&gt;,
   &lt;function hash(obj, /)&gt;],
  &quot;&lt;class &#39;type&#39;&gt;&quot;: [int, str, float, set, dict],
- &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7fac321928b8&gt;],
- &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7fac320a3bd0&gt;],
+ &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7fbdd8a848b8&gt;],
+ &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7fbdd89959d8&gt;],
  &quot;&lt;class &#39;range&#39;&gt;&quot;: [range(0, 3)],
- &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7fac3209aac8&gt;],
+ &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7fbdd8986a48&gt;],
  &quot;&lt;class &#39;method_descriptor&#39;&gt;&quot;: [&lt;method &#39;add&#39; of &#39;set&#39; objects&gt;,
   &lt;method &#39;copy&#39; of &#39;dict&#39; objects&gt;]}
 </pre></div>
