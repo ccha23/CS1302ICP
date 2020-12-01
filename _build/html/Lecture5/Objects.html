@@ -1,0 +1,1187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="More on Functions" href="../Lecture6/More%20on%20Functions.html" />
+    <link rel="prev" title="Writing Function" href="../Lecture4/Writing%20Functions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture5/Objects.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Lecture5/Objects.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lecture5/Objects.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-oriented-programming">
+   Object-Oriented Programming
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-objects">
+   File Objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-objects">
+   String Objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operator-overloading">
+   Operator Overloading
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-overloading">
+     What is overloading?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-dispatch-on-type">
+     How to dispatch on type?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-have-data-directed-programming">
+     How to have data-directed programming?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#object-aliasing">
+   Object Aliasing
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="objects">
+<h1>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="object-oriented-programming">
+<h2>Object-Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h2>
+<p><strong>Why object-oriented programming?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jupyter_manim</span>
+<span class="kn">from</span> <span class="nn">manimlib.imports</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">manim</span> HelloWorld -l
+class HelloWorld(Scene):
+    def construct(self):
+        self.play(Write(TextMobject(&#39;Hello, World!&#39;)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<video
+  width="854"
+  height="480"
+  autoplay="autoplay"
+  controls
+>
+    <source src="media/videos/tmpe39ajrd_/480p15/HelloWorld.mp4" type="video/mp4">
+</video>
+</div></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> is a specific <code class="docutils literal notranslate"><span class="pre">Scene</span></code> that is</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">construct</span></code>ed by <code class="docutils literal notranslate"><span class="pre">play</span></code>ing an animation that <code class="docutils literal notranslate"><span class="pre">Write</span></code></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">TextMobject</span></code> of the message <code class="docutils literal notranslate"><span class="pre">'Hello,</span> <span class="pre">World!'</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> Try changing</p>
+<ul class="simple">
+<li><p>Mobjects: <code class="docutils literal notranslate"><span class="pre">TextMobject('Hello,</span> <span class="pre">World!')</span></code> to <code class="docutils literal notranslate"><span class="pre">TexMobject(r'E=mc^2')</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle()</span></code> or <code class="docutils literal notranslate"><span class="pre">Square()</span></code>.</p></li>
+<li><p>Animation objects: <code class="docutils literal notranslate"><span class="pre">Write</span></code> to <code class="docutils literal notranslate"><span class="pre">FadeIn</span></code> or <code class="docutils literal notranslate"><span class="pre">GrowFromCenter</span></code>.</p></li>
+</ul>
+<p>See the <a class="reference external" href="https://eulertour.com/docs/">documentation</a> for other choices.</p>
+<p>More complicated behavior can be achieved by using different objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/ENMyFGmq5OA&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="912" height="513" src="https://www.youtube.com/embed/ENMyFGmq5OA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></div>
+</div>
+<p><strong>What is an object?</strong></p>
+<p>Almost everything is an <a class="reference external" href="https://docs.python.org/3/library/functions.html?highlight=object#object"><code class="docutils literal notranslate"><span class="pre">object</span></code></a> in Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>isinstance<span class="o">?</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">object</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">object</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, True, True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A function is also a <a class="reference external" href="https://en.wikipedia.org/wiki/First-class_function">first-class</a> object object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="nb">object</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A data type is also an object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chicken and egg relationship</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">object</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="nb">type</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, True, True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python is a <a class="reference external" href="https://en.wikipedia.org/wiki/Object-oriented_programming#Class-based_vs_prototype-based"><em>class-based</em> object-oriented programming</a> language:</p>
+<ul class="simple">
+<li><p>Each object is an instance of a <em>class</em> (also called type in Python).</p></li>
+<li><p>An object is a collection of <em>members/attributes</em>, each of which is an object.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hasattr<span class="o">?</span>
+<span class="nb">hasattr</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;isdigit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Different objects of a class</p>
+<ul class="simple">
+<li><p>have the same set of attributes as that of the class, but</p></li>
+<li><p>the attribute values can be different.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dir<span class="o">?</span>
+<span class="nb">dir</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="nb">dir</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span> <span class="o">!=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, True)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to operate on an object?</strong></p>
+<ul class="simple">
+<li><p>A class can define a function as an attribute for all its instances.</p></li>
+<li><p>Such a function is called a <em>method</em> or <em>member function</em>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">complex</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">complex</span><span class="o">.</span><span class="n">conjugate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1-2j), method_descriptor)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#method-objects">method</a> can be accessed by objects of the class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1-2j), builtin_function_or_method)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">complex(1,2).conjugate</span></code> is a <em>callable</em> object:</p>
+<ul class="simple">
+<li><p>Its attribute <code class="docutils literal notranslate"><span class="pre">__self__</span></code> is assigned to <code class="docutils literal notranslate"><span class="pre">complex(1,2)</span></code>.</p></li>
+<li><p>When called, it passes <code class="docutils literal notranslate"><span class="pre">__self__</span></code> as the first argument to <code class="docutils literal notranslate"><span class="pre">complex.conjugate</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callable</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">),</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="o">.</span><span class="vm">__self__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, (1+2j))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="file-objects">
+<h2>File Objects<a class="headerlink" href="#file-objects" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to read a text file?</strong></p>
+<p>Consider reading a csv (comma separated value) file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>more <span class="s1">&#39;contact.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+Clayton Atkins,vape@nig.eh,(762) 271-7090
+Hallie Day,kozzazazi@ozakewje.am,(872) 949-5878
+Lida Matthews,joobu@pabnesis.kg,(213) 486-8330
+Amelia Pittman,nulif@uposzag.au,(800) 303-3234
+</pre></div>
+</div>
+</div>
+</div>
+<p>To read the file by a Python program:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span>  <span class="c1"># create a file object for reading</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># return the entire content</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>         <span class="c1"># close the file</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+Clayton Atkins,vape@nig.eh,(762) 271-7090
+Hallie Day,kozzazazi@ozakewje.am,(872) 949-5878
+Lida Matthews,joobu@pabnesis.kg,(213) 486-8330
+Amelia Pittman,nulif@uposzag.au,(800) 303-3234
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html?highlight=open#open"><code class="docutils literal notranslate"><span class="pre">open</span></code></a> is a function that creates a file object and assigns it to <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
+<li><p>Associated with the file object,</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase.read"><code class="docutils literal notranslate"><span class="pre">read</span></code></a> returns the entire content of the file as a string.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/io.html#io.IOBase.close"><code class="docutils literal notranslate"><span class="pre">close</span></code></a> flushes and closes the file.</p></li>
+</ul>
+<p><strong>Why close a file?</strong></p>
+<p>If not, depending on the operating system,</p>
+<ul class="simple">
+<li><p>other programs may not be able to access the file, and</p></li>
+<li><p>changes may not be written to the file.</p></li>
+</ul>
+<p>To ensure a file is closed properly, we can use the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#with"><code class="docutils literal notranslate"><span class="pre">with</span></code> statement</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+Clayton Atkins,vape@nig.eh,(762) 271-7090
+Hallie Day,kozzazazi@ozakewje.am,(872) 949-5878
+Lida Matthews,joobu@pabnesis.kg,(213) 486-8330
+Amelia Pittman,nulif@uposzag.au,(800) 303-3234
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">with</span></code> statement applies to any <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#context-managers">context manager</a> that provides the methods</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__enter__</span></code> for initialization, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__exit__</span></code> for finalization.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;__enter__&#39;</span><span class="p">),</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;__exit__&#39;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;contact.csv&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f.__enter__</span></code> is called after the file object is successfully created and assigned to <code class="docutils literal notranslate"><span class="pre">f</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f.__exit__</span></code> is called at the end, which closes the file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f.closed</span></code> indicates whether the file is closed.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can iterate a file object in a for loop,<br />
+which implicitly call the method <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> to read a file line by line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;__iter__&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+Clayton Atkins,vape@nig.eh,(762) 271-7090
+Hallie Day,kozzazazi@ozakewje.am,(872) 949-5878
+Lida Matthews,joobu@pabnesis.kg,(213) 486-8330
+Amelia Pittman,nulif@uposzag.au,(800) 303-3234
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Print only the first 5 lines of the file <code class="docutils literal notranslate"><span class="pre">contact.csv</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span> <span class="k">break</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to write to a text file?</strong></p>
+<p>Consider backing up <code class="docutils literal notranslate"><span class="pre">contact.csv</span></code> to a new file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">destination</span> <span class="o">=</span> <span class="s1">&#39;private/new_contact.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The directory has to be created first if it does not exist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">destination</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>os.makedirs<span class="o">?</span>
+<span class="o">!</span>ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Objects.ipynb  contact.csv  media  private
+</pre></div>
+</div>
+</div>
+</div>
+<p>To write to the destination file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source_file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">destination_file</span><span class="p">:</span>
+        <span class="n">destination_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">source_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>destination_file.write<span class="o">?</span>
+<span class="o">!</span>more <span class="o">{</span>destination<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+Clayton Atkins,vape@nig.eh,(762) 271-7090
+Hallie Day,kozzazazi@ozakewje.am,(872) 949-5878
+Lida Matthews,joobu@pabnesis.kg,(213) 486-8330
+Amelia Pittman,nulif@uposzag.au,(800) 303-3234
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">'w'</span></code> to <code class="docutils literal notranslate"><span class="pre">open</span></code> sets the file object to write mode.</p></li>
+<li><p>The method <code class="docutils literal notranslate"><span class="pre">write</span></code> writes the input strings to the file.</p></li>
+</ul>
+<p><strong>Exercise</strong> We can also use <code class="docutils literal notranslate"><span class="pre">a</span></code> mode to <em>append</em> new content to a file.<br />
+Complete the following code to append <code class="docutils literal notranslate"><span class="pre">new_data</span></code> to the file <code class="docutils literal notranslate"><span class="pre">destination</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="s1">&#39;Effie, Douglas,galnec@naowdu.tc, (888) 311-9512&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+<span class="o">!</span>more <span class="o">{</span>destination<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name, email, phone
+Amelia Hawkins,dugorre@lufu.cg,(414) 524-6465
+Alta Perez,bos@fiur.sc,(385) 247-9001
+Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+Annie Zimmerman,okodag@saswuf.mn,(259) 862-1082
+Eula Crawford,ve@rorohte.mx,(635) 827-9819
+Clayton Atkins,vape@nig.eh,(762) 271-7090
+Hallie Day,kozzazazi@ozakewje.am,(872) 949-5878
+Lida Matthews,joobu@pabnesis.kg,(213) 486-8330
+Amelia Pittman,nulif@uposzag.au,(800) 303-3234
+Effie, Douglas,galnec@naowdu.tc, (888) 311-9512
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to delete a file?</strong></p>
+<p>Note that the file object does not provide any method to delete the file.<br />
+Instead, we should use the function <code class="docutils literal notranslate"><span class="pre">remove</span></code> of the <code class="docutils literal notranslate"><span class="pre">os</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">destination</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="string-objects">
+<h2>String Objects<a class="headerlink" href="#string-objects" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to search for a substring in a string?</strong></p>
+<p>A string object has the method <code class="docutils literal notranslate"><span class="pre">find</span></code> to search for a substring.<br />
+E.g., to find the contact information of Tai Ming:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>str.find<span class="o">?</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;contact.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Tai Ming&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">record</span> <span class="o">=</span> <span class="n">line</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tai Ming Chan,tmchan@cityu.edu.hk,(634) 234-7294
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to split and join strings?</strong></p>
+<p>A string can be split according to a delimiter using the <code class="docutils literal notranslate"><span class="pre">split</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Tai Ming Chan&#39;, &#39;tmchan@cityu.edu.hk&#39;, &#39;(634) 234-7294\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list of substrings can be joined back together using the <code class="docutils literal notranslate"><span class="pre">join</span></code> methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tai Ming Chan
+tmchan@cityu.edu.hk
+(634) 234-7294
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Print only the phone number (last item) in <code class="docutils literal notranslate"><span class="pre">record</span></code>. Use the method <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> or  <code class="docutils literal notranslate"><span class="pre">strip</span></code> to remove unnecessary white spaces at the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>str.rstrip<span class="o">?</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(634) 234-7294
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Print only the name (first item) in <code class="docutils literal notranslate"><span class="pre">record</span></code> but with</p>
+<ul class="simple">
+<li><p>surname printed first with all letters in upper case</p></li>
+<li><p>followed by a comma, a space, and</p></li>
+<li><p>the first name as it is in <code class="docutils literal notranslate"><span class="pre">record</span></code>.</p></li>
+</ul>
+<p>E.g., <code class="docutils literal notranslate"><span class="pre">Tai</span> <span class="pre">Ming</span> <span class="pre">Chan</span></code> should be printed as <code class="docutils literal notranslate"><span class="pre">CHAN,</span> <span class="pre">Tai</span> <span class="pre">Ming</span></code>.</p>
+<p><em>Hint</em>: Use the methods <code class="docutils literal notranslate"><span class="pre">upper</span></code> and <code class="docutils literal notranslate"><span class="pre">rsplit</span></code> (with the parameter <code class="docutils literal notranslate"><span class="pre">maxsplit=1</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>str.rsplit<span class="o">?</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">last</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span><span class="n">first</span><span class="p">))</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CHAN, Tai Ming
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operator-overloading">
+<h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-overloading">
+<h3>What is overloading?<a class="headerlink" href="#what-is-overloading" title="Permalink to this headline">¶</a></h3>
+<p>Recall that the addition operation <code class="docutils literal notranslate"><span class="pre">+</span></code> behaves differently for different types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">!r:</span><span class="s1">^5</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">!r:</span><span class="s1">^5</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1   +   1   = 2
+ &#39;1&#39;  +  &#39;1&#39;  = &#39;11&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="mi">297</span><span class="n">be71279db</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">!r:</span><span class="s1">^5</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">!r:</span><span class="s1">^5</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Having an operator perform differently based on its argument types is called <a class="reference external" href="https://en.wikipedia.org/wiki/Operator_overloading">operator <em>overloading</em></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> is called a <em>generic</em> operator.</p></li>
+<li><p>We can also have function overloading to create generic functions.</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-dispatch-on-type">
+<h3>How to dispatch on type?<a class="headerlink" href="#how-to-dispatch-on-type" title="Permalink to this headline">¶</a></h3>
+<p>The strategy of checking the type for the appropriate implementation is called <em>dispatching on type</em>.</p>
+<p>A naive idea is to put all different implementations together with case-by-case checks of operand types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_case_by_case</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Do integer summation...&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Do string concatenation...&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Return a TypeError...&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1"># replaced by internal implementations</span>
+
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">!r:</span><span class="s1">^10</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">!r:</span><span class="s1">^10</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">add_case_by_case</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Do integer summation...
+    1      +     1      = 2
+Do string concatenation...
+   &#39;1&#39;     +    &#39;1&#39;     = &#39;11&#39;
+Return a TypeError...
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="mi">940</span><span class="n">c4779bed4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">!r:</span><span class="s1">^10</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">!r:</span><span class="s1">^10</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">add_case_by_case</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-24-940c4779bed4&gt;</span> in <span class="ni">add_case_by_case</span><span class="nt">(x, y)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Return a TypeError...&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1"># replaced by internal implementations</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">):</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It can get quite messy with all possible types and combinations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">!r:</span><span class="s1">^10</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">!r:</span><span class="s1">^10</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1      +    1.1     = 2.1
+    1      +   (1+2j)   = (2+2j)
+  (1, 2)   +   (1, 2)   = (1, 2, 1, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What about new data types?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>  <span class="c1"># non-built-in type for fractions</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">((</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/2 + 1 = 3/2
+1 + 1/2 = 3/2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Weaknesses of the naive approach:</p>
+<ol class="simple">
+<li><p>New data types require rewriting the addition operation.</p></li>
+<li><p>A programmer may not know all other types and combinations to rewrite the code properly.</p></li>
+</ol>
+</div>
+<div class="section" id="how-to-have-data-directed-programming">
+<h3>How to have data-directed programming?<a class="headerlink" href="#how-to-have-data-directed-programming" title="Permalink to this headline">¶</a></h3>
+<p>The idea is to treat an implementation as a datum that can be returned by the operand types.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Syntactic_sugar"><em>syntactic sugar</em></a> that</p></li>
+<li><p>invokes the method <code class="docutils literal notranslate"><span class="pre">type(x).__add__(x,y)</span></code> of <code class="docutils literal notranslate"><span class="pre">type(x)</span></code> to do the addition.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># instead of x + y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/2 + 1 = 3/2
+1 + 1/2 = NotImplemented
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The first case calls <code class="docutils literal notranslate"><span class="pre">Fraction.__add__</span></code>, which provides a way to add <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">Fraction</span></code>.</p></li>
+<li><p>The second case calls <code class="docutils literal notranslate"><span class="pre">int.__add__</span></code>, which cannot provide any way of adding <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> to <code class="docutils literal notranslate"><span class="pre">int</span></code>. (Why not?)</p></li>
+</ul>
+<p><strong>Why return a <a class="reference external" href="https://docs.python.org/3.6/library/constants.html#NotImplemented"><code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> object</a> instead of raising an error/exception?</strong></p>
+<ul class="simple">
+<li><p>This allows <code class="docutils literal notranslate"><span class="pre">+</span></code> to continue to handle the addition by</p></li>
+<li><p>dispatching on <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> to call its reverse addition method <a class="reference external" href="https://docs.python.org/3.6/library/numbers.html#implementing-the-arithmetic-operations"><code class="docutils literal notranslate"><span class="pre">__radd__</span></code></a>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 500
+from fractions import Fraction
+def add(x, y):
+    &#39;&#39;&#39;Simulate the + operator.&#39;&#39;&#39;
+    sum = x.__add__(y)
+    if sum is NotImplemented:
+        sum = y.__radd__(x)
+    return sum
+
+
+for x, y in (Fraction(1, 2), 1), (1, Fraction(1, 2)):
+    print(f&#39;{x} + {y} = {add(x,y)}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="500"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=from%20fractions%20import%20Fraction%0Adef%20add%28x%2C%20y%29%3A%0A%20%20%20%20%27%27%27Simulate%20the%20%2B%20operator.%27%27%27%0A%20%20%20%20sum%20%3D%20x.__add__%28y%29%0A%20%20%20%20if%20sum%20is%20NotImplemented%3A%0A%20%20%20%20%20%20%20%20sum%20%3D%20y.__radd__%28x%29%0A%20%20%20%20return%20sum%0A%0A%0Afor%20x%2C%20y%20in%20%28Fraction%281%2C%202%29%2C%201%29%2C%20%281%2C%20Fraction%281%2C%202%29%29%3A%0A%20%20%20%20print%28f%27%7Bx%7D%20%2B%20%7By%7D%20%3D%20%7Badd%28x%2Cy%29%7D%27%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The object-oriented programming techniques involved are formally called:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)"><em>Polymorphism</em></a>: Different types can have different implementations of the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> method.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic_dispatch"><em>Single dispatch</em></a>: The implementation is chosen based on one single type at a time.</p></li>
+</ul>
+<p>Remarks:</p>
+<ul class="simple">
+<li><p>A method with starting and trailing double underscores in its name is called a <a class="reference external" href="https://dbader.org/blog/meaning-of-underscores-in-python"><em>dunder method</em></a>.</p></li>
+<li><p>Dunder methods are not intended to be called directly. E.g., we normally use <code class="docutils literal notranslate"><span class="pre">+</span></code> instead of <code class="docutils literal notranslate"><span class="pre">__add__</span></code>.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html?highlight=operator">Other operators</a> have their corresponding dunder methods that overloads the operator.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="object-aliasing">
+<h2>Object Aliasing<a class="headerlink" href="#object-aliasing" title="Permalink to this headline">¶</a></h2>
+<p><strong>When are two objects identical?</strong></p>
+<ul class="simple">
+<li><p>Two objects are the same if they occupy the same memory.</p></li>
+<li><p>The keyword <code class="docutils literal notranslate"><span class="pre">is</span></code> checks whether two objects are the same object.</p></li>
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">id</span></code> returns a unique id number for each object.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 400
+x, y = complex(1,2), complex(1,2)
+z = x
+
+for expr in &#39;id(x)&#39;, &#39;id(y)&#39;, &#39;id(z)&#39;, &#39;x == y == z&#39;, &#39;x is y&#39;, &#39;x is z&#39;:
+    print(expr,eval(expr))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="400"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=x%2C%20y%20%3D%20complex%281%2C2%29%2C%20complex%281%2C2%29%0Az%20%3D%20x%0A%0Afor%20expr%20in%20%27id%28x%29%27%2C%20%27id%28y%29%27%2C%20%27id%28z%29%27%2C%20%27x%20%3D%3D%20y%20%3D%3D%20z%27%2C%20%27x%20is%20y%27%2C%20%27x%20is%20z%27%3A%0A%20%20%20%20print%28expr%2Ceval%28expr%29%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>As the box-pointer diagram shows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> is not <code class="docutils literal notranslate"><span class="pre">y</span></code> because they point to objects at different memory locations,<br />
+even though the objects have the same type and value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">z</span></code> because the assignment <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">x</span></code> binds <code class="docutils literal notranslate"><span class="pre">z</span></code> to the same memory location <code class="docutils literal notranslate"><span class="pre">x</span></code> points to.<br />
+<code class="docutils literal notranslate"><span class="pre">z</span></code> is said to be an <em>alias</em> (another name) of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<p><strong>Should we use <code class="docutils literal notranslate"><span class="pre">is</span></code> or <code class="docutils literal notranslate"><span class="pre">==</span></code>?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">is</span></code> is faster but:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="ow">is</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="ow">is</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">1</span> <span class="o">==</span> <span class="mf">1.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False, True)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">is</span> <span class="pre">1.</span></code> returns false because <code class="docutils literal notranslate"><span class="pre">1</span></code> is <code class="docutils literal notranslate"><span class="pre">int</span></code> but <code class="docutils literal notranslate"><span class="pre">1.</span></code> is <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> calls the method <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> of <code class="docutils literal notranslate"><span class="pre">float</span></code> which returns mathematical equivalence.</p></li>
+</ul>
+<p><em>Can we use <code class="docutils literal notranslate"><span class="pre">is</span></code> for integer comparison?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">,</span> <span class="mi">1234</span>
+<span class="mi">1234</span> <span class="ow">is</span> <span class="mi">1234</span><span class="p">,</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>No. The behavior of <code class="docutils literal notranslate"><span class="pre">is</span></code> is not entirely predictable.</p>
+<p><strong>When should we use <code class="docutils literal notranslate"><span class="pre">is</span></code>?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">is</span></code> can be used for <a class="reference external" href="https://docs.python.org/3/library/constants.html#built-in-constants">built-in constants</a> such as <code class="docutils literal notranslate"><span class="pre">None</span></code> and  <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code><br />
+because there can only be one instance of each of them.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture4/Writing%20Functions.html" title="previous page">Writing Function</a>
+    <a class='right-next' id="next-link" href="../Lecture6/More%20on%20Functions.html" title="next page">More on Functions</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

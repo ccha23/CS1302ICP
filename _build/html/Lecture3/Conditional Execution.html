@@ -1,0 +1,1241 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional Execution &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Iteration" href="Iteration.html" />
+    <link rel="prev" title="Expressions and Arithmetic" href="../Lecture2/Expressions%20and%20Arithmetic.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture3/Conditional Execution.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Lecture3/Conditional Execution.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lecture3/Conditional Execution.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-expressions">
+   Boolean expressions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-operators">
+     Comparison Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-operations">
+     Boolean Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-constructs">
+   Conditional Constructs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-then-construct">
+     If-Then Construct
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-then-else-construct">
+     If-Then-Else Construct
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nested-conditionals">
+     Nested Conditionals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="conditional-execution">
+<h1>Conditional Execution<a class="headerlink" href="#conditional-execution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Conditional execution means running different pieces of code based on different conditions. Why?</p>
+<p>For instance, when trying to compute <code class="docutils literal notranslate"><span class="pre">a/b</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> may be <code class="docutils literal notranslate"><span class="pre">0</span></code> and division by <code class="docutils literal notranslate"><span class="pre">0</span></code> is invalid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_or_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="si">{}</span><span class="s1">, b:</span><span class="si">{}</span><span class="s1">, a*b:</span><span class="si">{}</span><span class="s1">, a/b:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+
+
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># multiplication is valid but not shown</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a:1, b:2, a*b:2, a/b:0.5
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">c6f0ad2b2b09</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># multiplication is valid but not shown</span>
+
+<span class="nn">&lt;ipython-input-2-c6f0ad2b2b09&gt;</span> in <span class="ni">multiply_or_divide</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">multiply_or_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="si">{}</span><span class="s1">, b:</span><span class="si">{}</span><span class="s1">, a*b:</span><span class="si">{}</span><span class="s1">, a/b:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can we skip only the division but not multiplication when <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_or_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">fix</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="s1">&#39;undefined&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="si">{}</span><span class="s1">, b:</span><span class="si">{}</span><span class="s1">, a*b:</span><span class="si">{}</span><span class="s1">, a/b:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">fix</span><span class="p">))</span>
+
+
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># multiplication is valid but not shown</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a:1, b:2, a*b:2, a/b:0.5
+a:1, b:0, a*b:0, a/b:undefined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above solution involve:</p>
+<ul class="simple">
+<li><p>a <em>boolean expression</em> <code class="docutils literal notranslate"><span class="pre">fix</span></code> that checks whether a condition holds, and</p></li>
+<li><p>a <em>conditional construct</em> <code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> that specify which code block should be executed under what condition.</p></li>
+</ul>
+</div>
+<div class="section" id="boolean-expressions">
+<h2>Boolean expressions<a class="headerlink" href="#boolean-expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comparison-operators">
+<h3>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
+<p><strong>How to compare different values?</strong></p>
+<p>Like the equality and inequality relationships in mathematics,<br />
+Python also have binary <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#comparisons"><em>comparison/relational operators</em></a>:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Expression</p></th>
+<th class="text-align:left head"><p>True iff</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x=y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x&lt;y\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x\leq y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x&gt;y\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x\geq y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x\neq y\)</span>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Explore these operators using the widgets below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparisons</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="n">comparison_operators</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;==&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;=&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;=&#39;</span><span class="p">,</span><span class="s1">&#39;!=&#39;</span><span class="p">]</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">operand1</span><span class="o">=</span><span class="s1">&#39;10&#39;</span><span class="p">,</span>
+          <span class="n">operator</span><span class="o">=</span><span class="n">comparison_operators</span><span class="p">,</span>
+          <span class="n">operand2</span><span class="o">=</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">comparison</span><span class="p">(</span><span class="n">operand1</span><span class="p">,</span><span class="n">operator</span><span class="p">,</span><span class="n">operand2</span><span class="p">):</span>
+    <span class="n">expression</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">operand1</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">operator</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">operand2</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{</span><span class="s1">&#39;Expression:&#39;</span><span class="si">:</span><span class="s2">&gt;11</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">expression</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;Value:&#39;</span><span class="si">:</span><span class="s2">&gt;11</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;Type:&#39;</span><span class="si">:</span><span class="s2">&gt;11</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "fb1f197d0c1345d28b9e352fab5153af", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<ul class="simple">
+<li><p>These operators return either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, which are <code class="docutils literal notranslate"><span class="pre">keywords</span></code> of type <em>boolean</em>.</p></li>
+<li><p>The expressions are called <em>boolean expressions</em> or <em>predicates</em>, named after <a class="reference external" href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>.</p></li>
+<li><p>N.b., the equality operator <code class="docutils literal notranslate"><span class="pre">==</span></code> consists of <em>two equal signs</em>, different from the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p></li>
+</ul>
+<p><strong>What is the precedence of comparison operators?</strong></p>
+<p>All the comparison operators have the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence">same precedence</a> lower than that of <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">3</span>  <span class="c1"># (1 + 2) &gt;= 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python allows multiple comparison operations to be chained together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2.0</span> <span class="o">==</span> <span class="mi">2</span><span class="o">&gt;</span><span class="mi">1</span> <span class="c1">#equivalent to (2.0 ==2) and (2&gt;1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the associativity?</strong></p>
+<p>Comparison operations are <a class="reference external" href="https://en.wikipedia.org/wiki/Operator_associativity#Non-associative_operators"><em>non-associative</em></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">2.0</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># not the same as 2.0 == 2 &gt; 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(False, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Errorata</strong> in [Halterman17] due to a misunderstanding of non-associativity vs left-to-right evaluation order:</p>
+<ul>
+<li><p><a class="reference external" href="https://archive.org/stream/2018Fundamentals.ofPython?ref=ol#page/n79/mode/1up">Halterman17, p.69</a>:</p>
+<blockquote>
+<div><p>The relational operators are binary operators and are all ~left associative~ <strong>non-associative</strong>.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://archive.org/stream/2018Fundamentals.ofPython?ref=ol#page/n60/mode/1up">Halterman17, p.50, Table 3.2</a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> should be non-associative instead of right-associative.</p></li>
+<li><p>The corresponding table in <code class="docutils literal notranslate"><span class="pre">Lecture2/Expressions</span> <span class="pre">and</span> <span class="pre">Arithmetic.ipynb</span></code> should also be corrected accordingly.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Exercise</strong> Explain why the following boolean expressions have different values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second expression is not a chained comparison:</p>
+<ul class="simple">
+<li><p>The expressions in the parentheses are evaluated to boolean values first to <code class="docutils literal notranslate"><span class="pre">True</span></code>, and so</p></li>
+<li><p>the overall expression <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">&lt;</span> <span class="pre">True</span></code> is evaluated to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> The comparison operators can be applied to different data types, as illustrated below.<br />
+Explain the meaning of the operators in each of the following expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparisons beyond numbers</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">expression</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;10 == 10.&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; == &quot;A&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; == &quot;A &quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; != &quot;a&quot;&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;&quot;A&quot; &gt; &quot;a&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;aBcd&quot; &lt; &quot;abd&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; != 64&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; &lt; 64&#39;</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">relational_expression</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "758c1d4e819e4014817ad3f6903ba143", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<ol class="simple">
+<li><p>Checks whether an integer is equal to a floating point number.</p></li>
+<li><p>Checks whether two characters are the same.</p></li>
+<li><p>Checks whether two strings are the same. Note the space character.</p></li>
+<li><p>Checks whether a character is larger than the order character according to their unicodes.</p></li>
+<li><p>Checks whether a string is lexicographically smaller than the other string.</p></li>
+<li><p>Checks whether a character is not equal to an integer.</p></li>
+<li><p>TypeError because there is no implementation that evaluates whether a string is smaller than an integer.</p></li>
+</ol>
+<p><strong>Is <code class="docutils literal notranslate"><span class="pre">!</span></code> the same as the <code class="docutils literal notranslate"><span class="pre">not</span></code> operator?</strong></p>
+<p><strong>Errata</strong> There is an error in <a class="reference external" href="https://archive.org/stream/2018Fundamentals.ofPython?ref=ol#page/n79/mode/1up">Halterman17, p.69</a> due to confusion with C language:</p>
+<blockquote>
+<div><p>… <code class="docutils literal notranslate"><span class="pre">!(x</span> <span class="pre">&gt;=</span> <span class="pre">10)</span></code> and <code class="docutils literal notranslate"><span class="pre">!(10</span> <span class="pre">&lt;=</span> <span class="pre">x)</span></code> are ~equivalent~ <strong>invalid</strong>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>We can write <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">2</span></code> but not <code class="docutils literal notranslate"><span class="pre">!(1</span> <span class="pre">==</span> <span class="pre">2)</span></code> because</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!</span></code> is not a logical operator. It is used to call a <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/tutorial.html?highlight=system%20call#system-shell-commands">system shell command</a> in IPython.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!(</span><span class="nv">1</span> <span class="o">==</span> <span class="m">2</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls  # a bash <span class="nb">command</span> that lists files in the current directory
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to compare floating point numbers?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why False? Shouldn’t <span class="math notranslate nohighlight">\((x^{\frac13})^3=x\)</span>?</p>
+<ul class="simple">
+<li><p>Floating point numbers have finite precisions and so</p></li>
+<li><p>we should instead check whether the numbers are close enough.</p></li>
+</ul>
+<p>One method of comparing floating point numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">abs</span></code> is a function that returns the absolute value of its argument. Hence, the above translates to</p>
+<div class="math notranslate nohighlight">
+\[|x - y| \leq \delta_{\text{abs}}\]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight">
+\[y-\delta_{\text{abs}} \leq x \leq y+\delta_{\text{abs}} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{\text{abs}}\)</span> is called the <em>absolute tolerance</em>.</p>
+<p><strong>Is an absolute tolerance of <code class="docutils literal notranslate"><span class="pre">1e-9</span></code> good enough?</strong></p>
+<p>What if we want to compare <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1e10</span></code> instead of <code class="docutils literal notranslate"><span class="pre">10</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1e10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Floating point numbers “float” at different scales.<br />
+A better way to use the <a class="reference external" href="https://docs.python.org/3/library/math.html#math.isclose"><code class="docutils literal notranslate"><span class="pre">isclose</span></code></a> function from <code class="docutils literal notranslate"><span class="pre">math</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How does it work?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">math.isclose(x,y)</span></code> implements</p>
+<div class="math notranslate nohighlight">
+\[ |x - y| \leq \max\{\delta_{\text{rel}} \max\{|x|,|y|\},\delta_{\text{abs}}\}\]</div>
+<p>with the default</p>
+<ul class="simple">
+<li><p><em>relative tolerance</em> <span class="math notranslate nohighlight">\(\delta_{\text{rel}}\)</span> equal to <code class="docutils literal notranslate"><span class="pre">1e-9</span></code>, and</p></li>
+<li><p>absolute tolerance <span class="math notranslate nohighlight">\(\delta_{\text{abs}}\)</span> equal to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> Write the boolean expression implemented by <code class="docutils literal notranslate"><span class="pre">isclose</span></code>. You can use the function <code class="docutils literal notranslate"><span class="pre">max(a,b)</span></code> to find the maximum of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_tol</span><span class="p">,</span> <span class="n">abs_tol</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">1e-100</span><span class="p">,</span> <span class="mf">2e-100</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">max</span><span class="p">(</span><span class="n">rel_tol</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">abs_tol</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-operations">
+<h3>Boolean Operations<a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h3>
+<p>Since chained comparisons are non-associative. It follows a different evaluation rule than arithmetical operators.</p>
+<p>E.g., <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">3</span> <span class="pre">!=</span> <span class="pre">4</span></code> is evaluated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above is called a <em>compound boolean expression</em>, which is formed using the <em>boolean/logical operator</em> <code class="docutils literal notranslate"><span class="pre">and</span></code>.</p>
+<p><strong>Why use boolean operators?</strong></p>
+<p>What if we want to check whether a number is either <span class="math notranslate nohighlight">\(&lt; 0\)</span> or <span class="math notranslate nohighlight">\(\geq 100\)</span>?<br />
+Can we achieve this only by chaining the comparison operators or applying the logical <code class="docutils literal notranslate"><span class="pre">and</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if a number is outside a range.</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">check_out_of_range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x_</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">is_out_of_range</span> <span class="o">=</span> <span class="n">x_</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">x_</span><span class="o">&gt;=</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Out of range [0,100):&#39;</span><span class="p">,</span> <span class="n">is_out_of_range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "0a66a27abf4444e0a9a118cceb2a77e7", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> alone is not <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_completeness">functionally complete</a>,  i.e., not enough to give all possible boolean functions.</p></li>
+<li><p>In addition to <code class="docutils literal notranslate"><span class="pre">and</span></code>, we can also use <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The above table is called a <em>truth table</em>. It enumerates all possible input and output combinations for each boolean operator.</p>
+<p><strong>How are chained logical operators evaluated?<br />
+What are the precedence and associativity for the logical operators?</strong></p>
+<ul class="simple">
+<li><p>All binary boolean operators are left associative.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence">Precedence</a>: <code class="docutils literal notranslate"><span class="pre">comparison</span> <span class="pre">operators</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">not</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">and</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+</ul>
+<p><strong>Exercise</strong> Explain what the values of the following two compound boolean expressions are:</p>
+<ul class="simple">
+<li><p>Expression A: <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">False</span> <span class="pre">and</span> <span class="pre">True</span></code></p></li>
+<li><p>Expression B: <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span> <span class="pre">and</span> <span class="pre">True</span></code></p></li>
+<li><p>Expression C: <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span></code></p></li>
+</ul>
+<ul class="simple">
+<li><p>Expression A evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> because <code class="docutils literal notranslate"><span class="pre">and</span></code> has higher precedence and so the expression has the same value as <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">(False</span> <span class="pre">and</span> <span class="pre">True)</span></code>.</p></li>
+<li><p>Expression B evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code> because <code class="docutils literal notranslate"><span class="pre">and</span></code> is left associative and so the expression has the same value as <code class="docutils literal notranslate"><span class="pre">(True</span> <span class="pre">and</span> <span class="pre">False)</span> <span class="pre">and</span> <span class="pre">True</span></code>.</p></li>
+<li><p>Expression C evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> because <code class="docutils literal notranslate"><span class="pre">and</span></code> has a higher precedence and so the expression has the same value as <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">(True</span> <span class="pre">and</span> <span class="pre">False)</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">(True</span> <span class="pre">or</span> <span class="pre">True)</span> <span class="pre">and</span> <span class="pre">False</span></code> evaluates to something <code class="docutils literal notranslate"><span class="pre">False</span></code> instead, so precedence matters.</p></li>
+</ul>
+<p>Instead of following the precedence and associativity, however, a compound boolean expression uses a <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#boolean-operations">short-circuit evaluation</a>.</p>
+<p>To understand this, we will use the following function to evaluate a boolean expression verbosely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">boolean</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Identify evaluated boolean expressions.&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="s1">&#39;evaluated:&#39;</span><span class="p">,</span><span class="n">boolean</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">boolean</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># True or (False and True)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 : True
+A : True
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why expression 2 and 3 are not evaluated?</strong></p>
+<p>Because True or … must be True (Why?) so Python does not look further. From the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#boolean-operations">documentation</a>:</p>
+<blockquote>
+<div><p>The expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code> first evaluates <code class="docutils literal notranslate"><span class="pre">x</span></code>; if <code class="docutils literal notranslate"><span class="pre">x</span></code> is true, its value is returned; otherwise, <code class="docutils literal notranslate"><span class="pre">y</span></code> is evaluated and the resulting value is returned.</p>
+</div></blockquote>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>Even though <code class="docutils literal notranslate"><span class="pre">or</span></code> has lower precedence than <code class="docutils literal notranslate"><span class="pre">and</span></code>, it is still evaluated first.</p></li>
+<li><p>The evaluation order for logical operators is left-to-right.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># (True and False) and True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 evaluated: True
+5 evaluated: False
+B evaluated: False
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why expression 6 is not evaluated?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span> <span class="pre">and</span> <span class="pre">...</span></code> must be <code class="docutils literal notranslate"><span class="pre">False</span></code> so Python does not look further.</p>
+<blockquote>
+<div><p>The expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code> first evaluates <code class="docutils literal notranslate"><span class="pre">x</span></code>; if <code class="docutils literal notranslate"><span class="pre">x</span></code> is false, its value is returned; otherwise, <code class="docutils literal notranslate"><span class="pre">y</span></code> is evaluated and the resulting value is returned.</p>
+</div></blockquote>
+<p>Indeed, logical operators can even be applied to non-boolean operands. From the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#boolean-operations">documentation</a>:</p>
+<blockquote>
+<div><p>In the context of Boolean operations, and also when expressions are used by control flow statements, the following values are interpreted as false: <code class="docutils literal notranslate"><span class="pre">False</span></code>, None, numeric zero of all types, and empty strings and containers (including strings, tuples, lists, dictionaries, sets and frozensets). All other values are interpreted as true.</p>
+</div></blockquote>
+<p><strong>Exercise</strong> How does the following code work?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You have entered&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;nothing&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abc
+You have entered abc
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The code replaces empty user input by the default string <code class="docutils literal notranslate"><span class="pre">nothing</span></code> because empty string is regarded as False in a boolean operation.</p></li>
+<li><p>If user input is non-empty, it is regarded as True in the boolean expression and returned immediately as the value of the boolean operation.</p></li>
+</ul>
+<p><strong>Is empty string equal to False?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is empty string equal False?&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="o">==</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is empty string equal False? False
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>An empty string is regarded as False in a boolean operation but</p></li>
+<li><p>a <em>comparison operation is not a boolean operation</em>, even though it forms a boolean expression.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="conditional-constructs">
+<h2>Conditional Constructs<a class="headerlink" href="#conditional-constructs" title="Permalink to this headline">¶</a></h2>
+<p>Consider writing a program that sorts values in <em>ascending</em> order.<br />
+A <em>sorting algorithm</em> refers to the procedure of sorting values in order.</p>
+<div class="section" id="if-then-construct">
+<h3>If-Then Construct<a class="headerlink" href="#if-then-construct" title="Permalink to this headline">¶</a></h3>
+<p><strong>How to sort two values?</strong></p>
+<p>Given two values are stored as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we want to</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(x,y)</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(y,x)</span></code> if <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">x</span></code>.</p></li>
+</ul>
+<p>Such a program flow is often represented by a flowchart like the following:</p>
+<p><img src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Lecture3/sort_two_values1.svg" style="max-width:300px;" alt="sort_two_values(x,y);
+if(x<=y) {
+  print(x, y)
+}
+if (y<x) {
+  print(y, x)
+}"></p>
+<p>Python provides the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-if-statement"><code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a> to implement the above <a class="reference external" href="https://en.wikipedia.org/wiki/Control_flow"><em>control flow</em></a> specified by the diamonds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort two values using if statement</span>
+<span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sort_two_values_app</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">sort_two_values</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">eval</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f25cc703e6dc4bddb74b46ad4b61d9e8", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>We can visualize the execution as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 350
+def sort_two_values(x, y):
+    if x &lt;= y:
+        print(x, y)
+    if y &lt; x: print(y, x)
+        
+sort_two_values(1,0)
+sort_two_values(1,2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1
+1 2
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="350"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20sort_two_values%28x%2C%20y%29%3A%0A%20%20%20%20if%20x%20%3C%3D%20y%3A%0A%20%20%20%20%20%20%20%20print%28x%2C%20y%29%0A%20%20%20%20if%20y%20%3C%20x%3A%20print%28y%2C%20x%29%0A%20%20%20%20%20%20%20%20%0Asort_two_values%281%2C0%29%0Asort_two_values%281%2C2%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Python use indentation to indicate code blocks or <em>suite</em>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(x,</span> <span class="pre">y)</span></code> (Line 5) is indented to the right of <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y:</span></code> (Line 4) to indicate it is the body of the if statement.</p></li>
+<li><p>For convenience, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">x:</span> <span class="pre">print(y,</span> <span class="pre">x)</span></code> (Line 6) is a one-liner for an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that only has one line in its block.</p></li>
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">if</span></code> statements (Line 4-6) are indented to the right of <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">sort_two_values(x,y):</span></code> (Line 3) to indicate that they are part of the body of the function <code class="docutils literal notranslate"><span class="pre">sort_two_values</span></code>.</p></li>
+</ul>
+<p><strong>How to indent?</strong></p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#indentation">style guide</a> recommends using 4 spaces for each indentation.</p></li>
+<li><p>In IPython, you can simply type the <code class="docutils literal notranslate"><span class="pre">tab</span></code> key and IPython will likely enter the correct number of spaces for you.</p></li>
+</ul>
+<p><strong>What if you want to leave a block empty?</strong></p>
+<p>In programming, it is often useful to delay detailed implementations until we have written an overall skeleton.<br />
+To leave a block empty, Python uses the keyword <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements"><code class="docutils literal notranslate"><span class="pre">pass</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a code skeleton</span>
+<span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+    <span class="c1"># print the smaller value first followed by the larger one</span>
+    
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Without <code class="docutils literal notranslate"><span class="pre">pass</span></code>, the code will fail to run, preventing you from checking other parts of the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can add more details to the skeleton step-by-step</span>
+<span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">pass</span>  
+        <span class="c1"># print x before y</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span> <span class="k">pass</span>  <span class="c1"># print y before x</span>
+
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-then-else-construct">
+<h3>If-Then-Else Construct<a class="headerlink" href="#if-then-else-construct" title="Permalink to this headline">¶</a></h3>
+<p>The sorting algorithm is not efficient enough. Why not?<br />
+Hint: <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">&lt;=</span> <span class="pre">y)</span> <span class="pre">and</span> <span class="pre">not</span> <span class="pre">(y</span> <span class="pre">&lt;</span> <span class="pre">x)</span></code> is a <em>tautology</em>, i.e., always true.</p>
+<p>To improve the efficient, we should implement the following program flow.</p>
+<p><img src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Lecture3/sort_two_values2.svg" style="max-width:300px;" alt="sort_two_values(x,y);
+if(x<=y) {
+  print(x, y)
+}
+else {
+  print(y, x)
+}"></p>
+<p>This can be down by the <code class="docutils literal notranslate"><span class="pre">else</span></code> clause of the <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements"><code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 350
+def sort_two_values(x, y):
+    if x &lt;= y:
+        print(x, y)
+    else:
+        print(y,x)
+        
+sort_two_values(1,0)
+sort_two_values(1,2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1
+1 2
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="350"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20sort_two_values%28x%2C%20y%29%3A%0A%20%20%20%20if%20x%20%3C%3D%20y%3A%0A%20%20%20%20%20%20%20%20print%28x%2C%20y%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28y%2Cx%29%0A%20%20%20%20%20%20%20%20%0Asort_two_values%281%2C0%29%0Asort_two_values%281%2C2%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>We can also use a <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#conditional-expressions"><em>conditional expression</em></a> to shorten the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="si">{1}</span><span class="s1"> </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sort_two_values_app</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">sort_two_values</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">eval</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f59bbbbfbd1b41f5bd614f465004cc4a", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p><strong>Exercise</strong> Explain why the followings have syntax errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="k">if</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="kc">True</span> <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>A conditional expression must be an expression:</p>
+<ol class="simple">
+<li><p>It must give a value under all cases. To enforce that, <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword must be provided.</p></li>
+<li><p>An assignment statement does not return any value and therefore cannot be used for the conditional expression.<br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">if</span> <span class="pre">True</span> <span class="pre">else</span> <span class="pre">0</span></code> is valid because <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span></code> is not part of the conditional expression.</p></li>
+</ol>
+</div>
+<div class="section" id="nested-conditionals">
+<h3>Nested Conditionals<a class="headerlink" href="#nested-conditionals" title="Permalink to this headline">¶</a></h3>
+<p>Consider sorting three values instead of two. A feasible algorithm is as follows:</p>
+<p><img src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Lecture3/sort_three_values1.svg" style="max-width:800px;" alt="sort_three_values(x,y,z);
+if(x<=y<=z) {
+  print(x, y, z)
+} else
+if (x<=z<=y) {
+  print(x, z, y)
+} else
+if (y<=x<=z) {
+  print(y, x, z)
+} else
+if (y<=z<=x) {
+  print(y, z, x)
+} else
+if (z<=x<=y) {
+  print(z, x, y)
+} else {
+  print(z, y, x)
+}"></p>
+<p>We can implement the flow using <em>nested conditional constructs</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_three_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_sort_three_values</span><span class="p">():</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">test_sort_three_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Imagine what would happen if we have to sort many values.<br />
+To avoid an excessively long line due to the indentation, Python provides the <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword that combines <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_three_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">test_sort_three_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> The above sorting algorithm is inefficient because some conditions may be checked more than once.<br />
+Improve the program to eliminate duplicate checks.<br />
+<em>Hint:</em> Do not use chained comparison operators or compound boolean expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_three_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+        
+<span class="n">sort_three_values</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 14 17
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"00f7f418096045d5bcc6a1fb20dac435": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_dc3bc979762f45d1864d8bea9650f582", "style": "IPY_MODEL_cdc02aa201074bf7bc4af14f1925ba3c", "value": "1"}}, "0220895ea44c41f3aaa68957afa55929": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_35b2180ef28b413799cdec27ccf62445", "IPY_MODEL_ce19eb24ea7e45519ac932d5b42d4d03", "IPY_MODEL_c99af5a8886e4da789f0f2a7b89301d8"], "layout": "IPY_MODEL_f0881fc370024b7cb97717dacea6e019"}}, "02d10108231c4b38a6a9e91146d48343": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "04ed87d1596d4a028e27c032e8d44481": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "04f9a1a9b47b43a6aabe78b439799560": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "05764090ef224611a31e4734556a5091": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_ee81c34680a04dbfbe2c593ef70bb1b3", "style": "IPY_MODEL_5755aa1589cf47bc84f1efcac649b75b", "value": "1"}}, "05dded0ccf92468da56ace121d255567": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "05f56bb2aedc46359c43ddf71ef3d398": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "operand2", "layout": "IPY_MODEL_811146ea67634cd1875dbadcc37c489c", "style": "IPY_MODEL_3847654b0794480eb2697e44381998b6", "value": "3"}}, "07bb11f560b24556a07f945eb683104f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "090942a62bda4fb7bc8fa01635fc6f8d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "0b5b6a098d384fedbd8716cbc6641363": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "0c32f95a88ae441fa5fd5a236c505589": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_920323a16f4a47ceb9daebfd99cac04b", "style": "IPY_MODEL_b9ff96700402412d86294b57b0d1e59a", "value": "0"}}, "0c52762f09754b5ab98a3bcc48f77b6e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "0c9164f152fc47cdaef60925f4021b76": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_f411d93ed4ae402c9f10db199e7fa601", "style": "IPY_MODEL_2d088b2ad82f4f0f8ac6e2d9a5ad58bf", "value": "0"}}, "0f22b2dda6bf457d829d55f1cd93aea5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_e67f7761144f4a50b963a65a54f202f9", "IPY_MODEL_24a2c1a44f184a898e686ee199e701e0"], "layout": "IPY_MODEL_f433017728ee4f788d742ce5d6834757"}}, "10c4cad57bb14a81a8d6ee4e4bbcddbc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "113a9891c0cc4483b784f57f71f196ff": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_47446f880b9a4a49a420e27002f36f36", "outputs": [{"name": "stdout", "output_type": "stream", "text": "False\n"}]}}, "1369084b185c478488d6f70686bb5928": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_52deb11c7fe34b309d09cba8f53386c3", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "144954cd34ad42579330d671a5ada048": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_a9dedffe384c4635a09860c09ca45d2a", "style": "IPY_MODEL_478e285ab23c4c1db29bc1b30f17e3e8", "value": "1"}}, "14c7a8d3cc8f413784f6d56b7c27d23c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_4d3261ea94fd4361b6703da670564c63", "outputs": [{"name": "stdout", "output_type": "stream", "text": "Out of range [0,100]: False\n"}]}}, "153baa7cb4e24b54979139db20f2a191": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1604fe0b9b2a4f00a7da41e090aa96e4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_aebda2ea9d29496ab947b28d9fb66283", "style": "IPY_MODEL_9cb2cff40b8a4173bdbf98507c6c1254", "value": "0"}}, "18833d3751b8403599b2e435125baa9d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_94560e70052846898c7fc0175e1f13ea", "style": "IPY_MODEL_04ed87d1596d4a028e27c032e8d44481", "value": "15"}}, "189d2eb3afce4f0fb4e3a402371a4811": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_3816c20723d64eb8bde7cb9792c009af", "outputs": [{"name": "stdout", "output_type": "stream", "text": "Out of range [0,100]: False\n"}]}}, "1b69393e277a4454aa7dcfab4e55ded8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1cc4849f61374042b1d3122ecf799670": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_df32b79986c64d12a6ebcd5a81306d66", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "1dbbbd5d34084ea19ed81e7e31a79609": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1e6a9689718d4970bfa8427a21d66f76": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1e70b43730434b29bc796b17bb0e55f1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_f2c21e0d409947f3a2344c17d742a5d8", "style": "IPY_MODEL_3b0c8bbf113b4b8a9bf8aafeead2002e", "value": "1"}}, "1ef99e537543462085ed78a2ed732a5e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_a323f18c17354f04a9616ca554587ce5", "style": "IPY_MODEL_ec01e8c7aa234cdea9f99361dad77948", "value": "15"}}, "1f020dfe891248d181a221681c712a3d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1f8509589ac848809803dc616e6745fa": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_07bb11f560b24556a07f945eb683104f", "outputs": [{"name": "stdout", "output_type": "stream", "text": "True\n"}]}}, "24a2c1a44f184a898e686ee199e701e0": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5788d697e3914e8fb561441871bd20c3", "outputs": [{"name": "stdout", "output_type": "stream", "text": "Out of range [0,100]: False\n"}]}}, "25aebbddfdee49c68041ebcf1a0060ab": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2605999a81784a0dbdc9d5860a45e629": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_50877d34820e4e2488ba6b66e9f12164", "style": "IPY_MODEL_c2d6c652167743cdb6e6b81bd174a326", "value": "0"}}, "26a71da71b774898a286799d15cdf3d0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "299bb020e4674f678ebec985dcf4300e": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_92cde27369a74c4fab8e129b37b32129", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1 2\n"}]}}, "2a1161cdef9741bcb2dd4171f08bb8ed": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_4557857f87f7462b9b8376f328d989d0", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "2ad6d4abf0fe4e75a0e4f62a8558f77b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2b5fb63847c04042b1eaf7b71142d56c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2b94061d0d96434790e2a2f3169d70b4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2c7bf4d0d6604755802103f233b1bfc3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_b25510e80a0542339bf7d0edff1591d8", "style": "IPY_MODEL_463a11c5a1424ba39b6073537b8d34dc", "value": "1"}}, "2d088b2ad82f4f0f8ac6e2d9a5ad58bf": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "2ef1fa59b0bc414fb6e9a337005a8745": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2f10347f412441d397c56408466430cf": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_1e70b43730434b29bc796b17bb0e55f1", "IPY_MODEL_55281b35f181435fb68177a5dd7f984f", "IPY_MODEL_824a2a00cd9a4caf90941894f3ee3a37", "IPY_MODEL_80aaf24c2e1544e6a1b8b59720ad0f5c"], "layout": "IPY_MODEL_b8d036bea4f6476cb96058b2a1976216"}}, "31cd59f2d3c8409c829765f0a887ffc6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "32acb7a37f5d4b3ebb26bc740af78ff0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "35b2180ef28b413799cdec27ccf62445": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"description": "x", "layout": "IPY_MODEL_b2c072cea6c04fa7826df2ac64b40b6c", "max": 3, "min": -1, "style": "IPY_MODEL_b1cd7167f31f4323b2c81e2dca24c643", "value": 1}}, "364bb1e80426404990189d29c9ee752e": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_31cd59f2d3c8409c829765f0a887ffc6", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "3816c20723d64eb8bde7cb9792c009af": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3847654b0794480eb2697e44381998b6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "39e000a47a6f4bbb9a84284e6a7cf5f2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3b0c8bbf113b4b8a9bf8aafeead2002e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "3b3e4c7cb9ed4ec79bd30e9422c25b97": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_ac71017d772d40cabafb44e78819430c", "IPY_MODEL_189d2eb3afce4f0fb4e3a402371a4811"], "layout": "IPY_MODEL_39e000a47a6f4bbb9a84284e6a7cf5f2"}}, "3b85de4612c84da59b72532536be810e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"description_width": ""}}, "40a62b5f5633475ea157665ac24dc2f8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "43723cefa7034b449e50d6c06d874980": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "452cfab91f694a9792da5d2c0d20daab": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "4557857f87f7462b9b8376f328d989d0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "462b8574964641e8832853de111e8709": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_144954cd34ad42579330d671a5ada048", "IPY_MODEL_6a3e9a60c8f54c248b2030c95fee933e", "IPY_MODEL_e919b59f6f374a82ae0cdd2645c4390c"], "layout": "IPY_MODEL_e96103a8d03f43519a508b3fe4061ba4"}}, "463a11c5a1424ba39b6073537b8d34dc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "47446f880b9a4a49a420e27002f36f36": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "478e285ab23c4c1db29bc1b30f17e3e8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "484e2651875447efaf782fefbb9387be": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "49165e84dd6a402b8aa0442bffd5dae0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_7213a384f3c946ac8642e3a9f481ae24", "IPY_MODEL_0c9164f152fc47cdaef60925f4021b76", "IPY_MODEL_77419309aff94b63b9090bd3d6e385eb", "IPY_MODEL_c441111d79cb4b0eba59b6c4568f8c71"], "layout": "IPY_MODEL_10c4cad57bb14a81a8d6ee4e4bbcddbc"}}, "49655d8f528a4ae8b84d4666b720cdb2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "4d3261ea94fd4361b6703da670564c63": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "50877d34820e4e2488ba6b66e9f12164": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5187a05286db43889743f99ab0ab6f6a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "526b53d400874743aadf60117955d948": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "527c9fbd49814561b9457295ae4c30a3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_5ea102ea090c4ad280620dc89d7c5e1c", "style": "IPY_MODEL_87434d22e279484b825d00e7061b58d0", "value": "15"}}, "52d86baaf64d472ab7e2bb96812f03f4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_bf70bb4a41274e7ea62922784b35f38f", "style": "IPY_MODEL_9f215b6476124680b62d48ddde571859", "value": "0"}}, "52deb11c7fe34b309d09cba8f53386c3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5474ee56bfe7407f8144a89bd3fd8e9a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "55281b35f181435fb68177a5dd7f984f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_e6ade68e292c44f0a514aa8eb2564bb7", "style": "IPY_MODEL_1f020dfe891248d181a221681c712a3d", "value": "0"}}, "5755aa1589cf47bc84f1efcac649b75b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5788d697e3914e8fb561441871bd20c3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "584b07e871254841b0adf45edb68fc93": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_f9b94e2fe7d941988d6a4f785579e141", "IPY_MODEL_0c32f95a88ae441fa5fd5a236c505589", "IPY_MODEL_d71586bd6b0c4168b2cfa6afaa45cb79"], "layout": "IPY_MODEL_04f9a1a9b47b43a6aabe78b439799560"}}, "58646502a1c8405d98ff4481f27a889e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "592be15d26544e00bab245eec425b892": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5a15629870434a209d1da99d3789c0db": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5a785a0c0b33492d8cbd5a99e5bd3d88": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5b1d3c1f4a004852b6fdb8b4526e8ac7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5e7301c3e412479daa265bb9a988cac7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_a6b68e35626745a8a6b57343a9a4c8b3", "IPY_MODEL_9af24efc35ac4ce1a7a2fd82b6c89f95", "IPY_MODEL_2a1161cdef9741bcb2dd4171f08bb8ed"], "layout": "IPY_MODEL_8307d917664f493ba427a8c71deaf499"}}, "5ea102ea090c4ad280620dc89d7c5e1c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5ee7d213ae8940b28fe07f7664a73f52": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5f5c5bc45bcc43db9b0894e631ed05d6": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_bfa927cd70ae478bb0117ee4dfc6b2f3", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "6361c7230d3247e4b7e072de63710e84": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "64fdf9f71f3b4485b0b02c6af14faacc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "66451af5f3ab478f9987d29c2c645f50": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "66aa8a5dde6d485890d3f93c466e70ff": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "689e83dc01894443bb11ee8cc70d645e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "6935aa845443429f8d3f01993c0b69f7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DropdownModel", "state": {"_options_labels": ["==", "<", "<=", ">", ">=", "!="], "description": "operator", "index": 0, "layout": "IPY_MODEL_72cf2ad3139c44b49417e871ece1ae8a", "style": "IPY_MODEL_fff555a96c1b444ea0f11a2b80dedde5"}}, "6a3e9a60c8f54c248b2030c95fee933e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_8b468b90f1b941d496aeab56019c1cb1", "style": "IPY_MODEL_9f7f4afab953482b8efeec77459fed3a", "value": "0"}}, "6b3b10ed14a441918db3fe3782cc61ee": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6db8640b24fb4c9fb7206c0d663b1399": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6e02608ae2f14e0c8320644055f5f39f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_e9b0fc88106c4971b59e67d130af846c", "IPY_MODEL_eb62963d9a704986bda78125f655e159"], "layout": "IPY_MODEL_5a785a0c0b33492d8cbd5a99e5bd3d88"}}, "6f75230c04bd4666a9a76b663bce0cb3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7213a384f3c946ac8642e3a9f481ae24": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_66451af5f3ab478f9987d29c2c645f50", "style": "IPY_MODEL_1e6a9689718d4970bfa8427a21d66f76", "value": "1"}}, "72cf2ad3139c44b49417e871ece1ae8a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "73dbfb9009ef41fa87e5fff9c0fa2d64": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_f8ad0a11598c4e0c9220b964985b221d", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1 2\n"}]}}, "7597713060dc4651ab263b3bb6e4d720": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_592be15d26544e00bab245eec425b892", "outputs": [{"name": "stdout", "output_type": "stream", "text": "Out of range [0,100]: False\n"}]}}, "77419309aff94b63b9090bd3d6e385eb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "z", "layout": "IPY_MODEL_cf3c45048dea4a688971fe917b7f769e", "style": "IPY_MODEL_7b6794c7cb4a4061902dab8b3081a489", "value": "2"}}, "781bac17a1d34ad4823cebb8ec1365c1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_527c9fbd49814561b9457295ae4c30a3", "IPY_MODEL_7597713060dc4651ab263b3bb6e4d720"], "layout": "IPY_MODEL_e8947359aa7d4e14aff8c9bb37ec1f20"}}, "79f8adb44d3c4ea78651ce604e83289f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_dee5880b80724f969f0deae73bd9d5cb", "style": "IPY_MODEL_5b1d3c1f4a004852b6fdb8b4526e8ac7", "value": "0"}}, "7ab26fc1a6b947a3985cbe31a8cde92d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "7b6794c7cb4a4061902dab8b3081a489": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "7bce87a8d8a3442f8fd57fa947bd5a7f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7bda870d40264f5098dedf366e7b5f61": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7c2410b705ee4145b18a53e57f555bd7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7c99a118feca4886a9b222ea446c6aef": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "80aaf24c2e1544e6a1b8b59720ad0f5c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_cffa0933614f48919e4506633035ff4b", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1 2\n"}]}}, "811146ea67634cd1875dbadcc37c489c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "815a929b2a7c4016a7943319403172ce": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_2b5fb63847c04042b1eaf7b71142d56c", "style": "IPY_MODEL_64fdf9f71f3b4485b0b02c6af14faacc", "value": "1"}}, "824a2a00cd9a4caf90941894f3ee3a37": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "z", "layout": "IPY_MODEL_d755cfda428148eda3d3f955bc479221", "style": "IPY_MODEL_526b53d400874743aadf60117955d948", "value": "2"}}, "8307d917664f493ba427a8c71deaf499": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "838cabbef4a64b4d94723195bca87be9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_d9d6e16976a1401fb57fc16273c5ddf1", "IPY_MODEL_8d678c97747d44acac333fb81952b60c", "IPY_MODEL_bd84f88c98094d3ca02c3eeb7c134592", "IPY_MODEL_299bb020e4674f678ebec985dcf4300e"], "layout": "IPY_MODEL_5474ee56bfe7407f8144a89bd3fd8e9a"}}, "86d71125ef70419f98fe0d1bc6cbe1a9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "87434d22e279484b825d00e7061b58d0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "885a8e607597415190be541274ae847a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_90d7ee496f7e4ca7b89ac258f0155b52", "IPY_MODEL_c28469dbf12a4c1fa4dff90e918927a2"], "layout": "IPY_MODEL_a986befa7f30402f92a53cd92c76fe60"}}, "88c598675ddd4d318ea7afdc2a3ffd27": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "894a399f74fc4833a5d4ee36451aef08": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_0c52762f09754b5ab98a3bcc48f77b6e", "outputs": [{"ename": "TypeError", "evalue": "'<=' not supported between instances of 'str' and 'int'", "output_type": "error", "traceback": ["\u001b[0;31m---------------------------------------------------------------------------\u001b[0m", "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)", "\u001b[0;32m/opt/anaconda/lib/python3.7/site-packages/ipywidgets/widgets/interaction.py\u001b[0m in \u001b[0;36mupdate\u001b[0;34m(self, *args)\u001b[0m\n\u001b[1;32m    254\u001b[0m                     \u001b[0mvalue\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mwidget\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_interact_value\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    255\u001b[0m                     \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mwidget\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_kwarg\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mvalue\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 256\u001b[0;31m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mresult\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m**\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    257\u001b[0m                 \u001b[0mshow_inline_matplotlib_plots\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    258\u001b[0m                 \u001b[0;32mif\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mauto_display\u001b[0m \u001b[0;32mand\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mresult\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n", "\u001b[0;32m<ipython-input-22-e87af0e82b83>\u001b[0m in \u001b[0;36mcheck_out_of_range\u001b[0;34m(x)\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;34m@\u001b[0m\u001b[0minteract\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34mr'15'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0mcheck_out_of_range\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m<=\u001b[0m\u001b[0;36m0\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m>=\u001b[0m\u001b[0;36m100\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m", "\u001b[0;31mTypeError\u001b[0m: '<=' not supported between instances of 'str' and 'int'"]}]}}, "8b468b90f1b941d496aeab56019c1cb1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8bedc5fcbf124c5ab22c9afb213e79d8": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_43723cefa7034b449e50d6c06d874980", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "8cdb3a29bd0946258190e99d3fbe3303": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_e3d8b3ddc33b47d5b970823e22692ea7", "style": "IPY_MODEL_f92c23012982403aa2b2991933b69fb2", "value": "1"}}, "8d678c97747d44acac333fb81952b60c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_bcd32c3981f444db8a680e72c0df4713", "style": "IPY_MODEL_cf7f5f8410264d4ebfc29b7605d95884", "value": "0"}}, "8ecdb1cd62f043b1a14f2ddce5b12291": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8f8d3bc325984d53b6f02754b08c514c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_adf2e92a7095469bb26df590f4c25bf7", "style": "IPY_MODEL_a1859215b7174e729fe0971192677859", "value": "0"}}, "90d7ee496f7e4ca7b89ac258f0155b52": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DropdownModel", "state": {"_options_labels": ["10 == 10.", "\"A\" == \"A\"", "\"A\" == \"A \"", "\"A\" != 64", "\"A\" != \"a\"", "\"A\" > \"a\"", "\"aBcd\" < \"abd\"", "\"A\" < 64", "0 == False", "\"\" == True"], "description": "expression", "index": 0, "layout": "IPY_MODEL_5187a05286db43889743f99ab0ab6f6a", "style": "IPY_MODEL_f6b0429ee8bf43a1a03de45cb56b1ee2"}}, "920323a16f4a47ceb9daebfd99cac04b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "92cde27369a74c4fab8e129b37b32129": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "94560e70052846898c7fc0175e1f13ea": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "94b389ef4a7c45509c6e9213c82457a9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "z", "layout": "IPY_MODEL_6b3b10ed14a441918db3fe3782cc61ee", "style": "IPY_MODEL_7ab26fc1a6b947a3985cbe31a8cde92d", "value": "2"}}, "95c4df2e8ffd4c8ca18ae2a1e307eeca": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_2c7bf4d0d6604755802103f233b1bfc3", "IPY_MODEL_79f8adb44d3c4ea78651ce604e83289f", "IPY_MODEL_364bb1e80426404990189d29c9ee752e"], "layout": "IPY_MODEL_6361c7230d3247e4b7e072de63710e84"}}, "9af24efc35ac4ce1a7a2fd82b6c89f95": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_5ee7d213ae8940b28fe07f7664a73f52", "style": "IPY_MODEL_452cfab91f694a9792da5d2c0d20daab", "value": "0"}}, "9cb2cff40b8a4173bdbf98507c6c1254": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "9e96d0894e8d4508b14829abb9417a0f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "9f215b6476124680b62d48ddde571859": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "9f7f4afab953482b8efeec77459fed3a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "a090367e3ca7495fab7bd20481936e24": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_7bda870d40264f5098dedf366e7b5f61", "style": "IPY_MODEL_66aa8a5dde6d485890d3f93c466e70ff", "value": "1"}}, "a10544720b624194b1b948f103702ce7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DropdownModel", "state": {"_options_labels": ["10 == 10.", "\"A\" == \"A\"", "\"A\" == \"A \"", "\"A\" != 64", "\"A\" != \"a\"", "\"A\" > \"a\"", "\"aBcd\" < \"abd\"", "\"A\" < 64"], "description": "expression", "index": 0, "layout": "IPY_MODEL_e96d143a2c5744dbb4414d05936dcdf3", "style": "IPY_MODEL_86d71125ef70419f98fe0d1bc6cbe1a9"}}, "a1859215b7174e729fe0971192677859": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "a323f18c17354f04a9616ca554587ce5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a3b0e1fdd9e84400a04f425fdb6309bf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a67f5a4d8bad46aea3f9e18c868a8e2c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_b7c4a8da408440b3b297a0628cc2d5c9", "IPY_MODEL_113a9891c0cc4483b784f57f71f196ff"], "layout": "IPY_MODEL_40a62b5f5633475ea157665ac24dc2f8"}}, "a6b68e35626745a8a6b57343a9a4c8b3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_2ef1fa59b0bc414fb6e9a337005a8745", "style": "IPY_MODEL_88c598675ddd4d318ea7afdc2a3ffd27", "value": "1"}}, "a8eb3efa594c4d02aa55f25e622f9c98": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_815a929b2a7c4016a7943319403172ce", "IPY_MODEL_1604fe0b9b2a4f00a7da41e090aa96e4", "IPY_MODEL_8bedc5fcbf124c5ab22c9afb213e79d8"], "layout": "IPY_MODEL_7bce87a8d8a3442f8fd57fa947bd5a7f"}}, "a8ec807850f94c228f83f38be6b08e30": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a986befa7f30402f92a53cd92c76fe60": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a9dedffe384c4635a09860c09ca45d2a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ac2cae15bbbd47b78e3345e591c99d45": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ac71017d772d40cabafb44e78819430c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_ebad6344229645fd94e008a4b489256e", "style": "IPY_MODEL_0b5b6a098d384fedbd8716cbc6641363", "value": "15"}}, "adf2e92a7095469bb26df590f4c25bf7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "aebda2ea9d29496ab947b28d9fb66283": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b1cd7167f31f4323b2c81e2dca24c643": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "SliderStyleModel", "state": {"description_width": ""}}, "b25510e80a0542339bf7d0edff1591d8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b2c072cea6c04fa7826df2ac64b40b6c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b57fa82d9dd4468795c86e90b441222b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b75f023f64c447d7b65b3c7ccbf0e3b8": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_8ecdb1cd62f043b1a14f2ddce5b12291", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "b76846a0a1f44f259c6bc704abe807ef": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_18833d3751b8403599b2e435125baa9d", "IPY_MODEL_894a399f74fc4833a5d4ee36451aef08"], "layout": "IPY_MODEL_484e2651875447efaf782fefbb9387be"}}, "b7c4a8da408440b3b297a0628cc2d5c9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_c52518a1e3054080b45102ec96f25f78", "style": "IPY_MODEL_bb295388be54499e980fe53fc9263eee", "value": "15"}}, "b8d036bea4f6476cb96058b2a1976216": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b9ff96700402412d86294b57b0d1e59a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "bae2fd1eafd5406db4acd04f00dd4e67": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_a090367e3ca7495fab7bd20481936e24", "IPY_MODEL_e106c6892599449595420c411fdd0cbc", "IPY_MODEL_1cc4849f61374042b1d3122ecf799670"], "layout": "IPY_MODEL_a8ec807850f94c228f83f38be6b08e30"}}, "bb295388be54499e980fe53fc9263eee": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "bcd32c3981f444db8a680e72c0df4713": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "bd84f88c98094d3ca02c3eeb7c134592": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "z", "layout": "IPY_MODEL_7c99a118feca4886a9b222ea446c6aef", "style": "IPY_MODEL_1dbbbd5d34084ea19ed81e7e31a79609", "value": "2"}}, "bd859c20d9754c6b923f4c0fec9e6181": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "bf70bb4a41274e7ea62922784b35f38f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "bfa927cd70ae478bb0117ee4dfc6b2f3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c28469dbf12a4c1fa4dff90e918927a2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_fc7f8ccb651a4bc2b4c765ecab80de9b", "outputs": [{"name": "stdout", "output_type": "stream", "text": "True\n"}]}}, "c2ce0b7f1e9549009b68b477b4cbac19": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_153baa7cb4e24b54979139db20f2a191", "style": "IPY_MODEL_f9d34f89a7af4a208ef8c8ee110f42fe", "value": "1"}}, "c2d6c652167743cdb6e6b81bd174a326": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "c441111d79cb4b0eba59b6c4568f8c71": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_da311155ea3a4b83a2e0ee681686720a", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1 2\n"}]}}, "c44e98c78724452e8ade2dcd7f1cdb49": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "c52518a1e3054080b45102ec96f25f78": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c5cbb0aeeffe486faabfec4324e5ed20": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "operand1", "layout": "IPY_MODEL_05dded0ccf92468da56ace121d255567", "style": "IPY_MODEL_49655d8f528a4ae8b84d4666b720cdb2", "value": "10"}}, "c99af5a8886e4da789f0f2a7b89301d8": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d237bd456fb848699fd8092ec82a0c59", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "cd711d8dd9d04b2aa7a48b48c7ad054f": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_7c2410b705ee4145b18a53e57f555bd7", "outputs": [{"name": "stdout", "output_type": "stream", "text": "Expression: 10 == 3\n     Value: False\n      Type: <class 'bool'>\n"}]}}, "cdc02aa201074bf7bc4af14f1925ba3c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "ce19eb24ea7e45519ac932d5b42d4d03": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "IntSliderModel", "state": {"description": "y", "layout": "IPY_MODEL_ceaf38ad9ba94084a82110c24dd9b91a", "max": 1, "style": "IPY_MODEL_3b85de4612c84da59b72532536be810e"}}, "ceaf38ad9ba94084a82110c24dd9b91a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "cf3c45048dea4a688971fe917b7f769e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "cf7f5f8410264d4ebfc29b7605d95884": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "cffa0933614f48919e4506633035ff4b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d237bd456fb848699fd8092ec82a0c59": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d3d798efd52a463abf72c7aa17b43319": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_05764090ef224611a31e4734556a5091", "IPY_MODEL_52d86baaf64d472ab7e2bb96812f03f4", "IPY_MODEL_b75f023f64c447d7b65b3c7ccbf0e3b8"], "layout": "IPY_MODEL_b57fa82d9dd4468795c86e90b441222b"}}, "d71586bd6b0c4168b2cfa6afaa45cb79": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_2b94061d0d96434790e2a2f3169d70b4", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "d755cfda428148eda3d3f955bc479221": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d7f751637d364a8ab1ca276bd29ea76b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_c5cbb0aeeffe486faabfec4324e5ed20", "IPY_MODEL_6935aa845443429f8d3f01993c0b69f7", "IPY_MODEL_05f56bb2aedc46359c43ddf71ef3d398", "IPY_MODEL_cd711d8dd9d04b2aa7a48b48c7ad054f"], "layout": "IPY_MODEL_ed0a7ceaec694774980a56acbab8f041"}}, "d8fbb66016f0452e95a87b8a34b3e669": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_c2ce0b7f1e9549009b68b477b4cbac19", "IPY_MODEL_2605999a81784a0dbdc9d5860a45e629", "IPY_MODEL_94b389ef4a7c45509c6e9213c82457a9", "IPY_MODEL_73dbfb9009ef41fa87e5fff9c0fa2d64"], "layout": "IPY_MODEL_2ad6d4abf0fe4e75a0e4f62a8558f77b"}}, "d9d6e16976a1401fb57fc16273c5ddf1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_9e96d0894e8d4508b14829abb9417a0f", "style": "IPY_MODEL_5a15629870434a209d1da99d3789c0db", "value": "1"}}, "da311155ea3a4b83a2e0ee681686720a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "dc1d0c1ea7994587a7e6e2b4c7a982b5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "dc3bc979762f45d1864d8bea9650f582": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "dc8c52d10ff848a28d619b8650dda018": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_e98bbe62fd394fee905fad0b76df4e8b", "style": "IPY_MODEL_02d10108231c4b38a6a9e91146d48343", "value": "0"}}, "dee5880b80724f969f0deae73bd9d5cb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "df32b79986c64d12a6ebcd5a81306d66": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e106c6892599449595420c411fdd0cbc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "y", "layout": "IPY_MODEL_1b69393e277a4454aa7dcfab4e55ded8", "style": "IPY_MODEL_689e83dc01894443bb11ee8cc70d645e", "value": "0"}}, "e38cb58d89864209b88b8b5d0c5dc176": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_a10544720b624194b1b948f103702ce7", "IPY_MODEL_1f8509589ac848809803dc616e6745fa"], "layout": "IPY_MODEL_a3b0e1fdd9e84400a04f425fdb6309bf"}}, "e3d8b3ddc33b47d5b970823e22692ea7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e67f7761144f4a50b963a65a54f202f9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_bd859c20d9754c6b923f4c0fec9e6181", "style": "IPY_MODEL_c44e98c78724452e8ade2dcd7f1cdb49", "value": "15"}}, "e6ade68e292c44f0a514aa8eb2564bb7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e79ee4308c9247de9aec6fcaee196bd4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_1ef99e537543462085ed78a2ed732a5e", "IPY_MODEL_14c7a8d3cc8f413784f6d56b7c27d23c"], "layout": "IPY_MODEL_ac2cae15bbbd47b78e3345e591c99d45"}}, "e8947359aa7d4e14aff8c9bb37ec1f20": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e919b59f6f374a82ae0cdd2645c4390c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6db8640b24fb4c9fb7206c0d663b1399", "outputs": [{"name": "stdout", "output_type": "stream", "text": "0 1\n"}]}}, "e96103a8d03f43519a508b3fe4061ba4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e96d143a2c5744dbb4414d05936dcdf3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e98bbe62fd394fee905fad0b76df4e8b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e9b0fc88106c4971b59e67d130af846c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_32acb7a37f5d4b3ebb26bc740af78ff0", "style": "IPY_MODEL_090942a62bda4fb7bc8fa01635fc6f8d", "value": "15"}}, "eb62963d9a704986bda78125f655e159": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_25aebbddfdee49c68041ebcf1a0060ab", "outputs": [{"name": "stdout", "output_type": "stream", "text": "False\n"}]}}, "ebad6344229645fd94e008a4b489256e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ec01e8c7aa234cdea9f99361dad77948": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "ed0a7ceaec694774980a56acbab8f041": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ee81c34680a04dbfbe2c593ef70bb1b3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f0881fc370024b7cb97717dacea6e019": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f2c21e0d409947f3a2344c17d742a5d8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f3eb3c7a3e1f44488cd9834e75433f37": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_00f7f418096045d5bcc6a1fb20dac435", "IPY_MODEL_dc8c52d10ff848a28d619b8650dda018", "IPY_MODEL_1369084b185c478488d6f70686bb5928"], "layout": "IPY_MODEL_26a71da71b774898a286799d15cdf3d0"}}, "f411d93ed4ae402c9f10db199e7fa601": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f433017728ee4f788d742ce5d6834757": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f6b0429ee8bf43a1a03de45cb56b1ee2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "f8ad0a11598c4e0c9220b964985b221d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f92c23012982403aa2b2991933b69fb2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "f9b94e2fe7d941988d6a4f785579e141": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "TextModel", "state": {"description": "x", "layout": "IPY_MODEL_58646502a1c8405d98ff4481f27a889e", "style": "IPY_MODEL_dc1d0c1ea7994587a7e6e2b4c7a982b5", "value": "1"}}, "f9d34f89a7af4a208ef8c8ee110f42fe": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "fbab1de2384f40d780d20a0d59d186cd": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "children": ["IPY_MODEL_8cdb3a29bd0946258190e99d3fbe3303", "IPY_MODEL_8f8d3bc325984d53b6f02754b08c514c", "IPY_MODEL_5f5c5bc45bcc43db9b0894e631ed05d6"], "layout": "IPY_MODEL_6f75230c04bd4666a9a76b663bce0cb3"}}, "fc7f8ccb651a4bc2b4c765ecab80de9b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fff555a96c1b444ea0f11a2b80dedde5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture2/Expressions%20and%20Arithmetic.html" title="previous page">Expressions and Arithmetic</a>
+    <a class='right-next' id="next-link" href="Iteration.html" title="next page">Iteration</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

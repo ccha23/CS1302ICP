@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Exam Questions &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Monte Carlo Simulation and Linear Algebra" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Review/Mock Exam Questions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Review/Mock Exam Questions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Review/Mock Exam Questions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries-and-sets">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists-and-tuples">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-functions">
+   More Functions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mock-exam-questions">
+<h1>Mock Exam Questions<a class="headerlink" href="#mock-exam-questions" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Access the mock exam here: https://eq1302.cs.cityu.edu.hk/mod/quiz/view.php?id=226</p></li>
+<li><p>The questions are slightly modified from E-Quiz exercises.</p></li>
+<li><p>You may use this notebook to get additional hints, take notes, and record your answers.</p></li>
+<li><p>This notebook does not contain all the questions, but you can see model answers to all the questions after attempting the mock exam.</p></li>
+</ul>
+<div class="section" id="dictionaries-and-sets">
+<h2>Dictionaries and Sets<a class="headerlink" href="#dictionaries-and-sets" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise (Concatenate two dictionaries with precedence)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">concat_two_dicts</span></code> that accepts two arguments of type <code class="docutils literal notranslate"><span class="pre">dict</span></code> such that <code class="docutils literal notranslate"><span class="pre">concat_two_dicts(a,</span> <span class="pre">b)</span></code> will return a new dictionary containing all the items in <code class="docutils literal notranslate"><span class="pre">a</span></code> and the items in <code class="docutils literal notranslate"><span class="pre">b</span></code> that have different keys than those in <code class="docutils literal notranslate"><span class="pre">a</span></code>.  The input dictionaries should not be mutated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">concat_two_dicts</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">a</span><span class="p">}</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#tests</span>
+<span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">};</span> <span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">40</span><span class="p">}</span>
+<span class="n">a_copy</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">b_copy</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">concat_two_dicts</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">concat_two_dicts</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">a</span> <span class="o">==</span> <span class="n">a_copy</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b_copy</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">};</span> <span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">}</span>
+<span class="n">a_copy</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">b_copy</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">concat_two_dicts</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">concat_two_dicts</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">a</span> <span class="o">==</span> <span class="n">a_copy</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b_copy</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{**dict1,**dict2}</span></code> creates a new dictionary by unpacking the dictionaries <code class="docutils literal notranslate"><span class="pre">dict1</span></code> and <code class="docutils literal notranslate"><span class="pre">dict2</span></code>.</p></li>
+<li><p>By default, <code class="docutils literal notranslate"><span class="pre">dict2</span></code> overwrites <code class="docutils literal notranslate"><span class="pre">dict1</span></code> if they have identical keys.</p></li>
+</ul>
+<p><strong>Exercise (Count characters)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">count_characters</span></code> which</p>
+<ul class="simple">
+<li><p>accepts a string and counts the numbers of each character in the string, and</p></li>
+<li><p>returns a dictionary that stores the results.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_characters</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counts</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">count_characters</span><span class="p">(</span><span class="s1">&#39;abcbabc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">count_characters</span><span class="p">(</span><span class="s1">&#39;aababcccabc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="k">assert</span> <span class="n">count_characters</span><span class="p">(</span><span class="s1">&#39;abcdefgabc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">count_characters</span><span class="p">(</span><span class="s1">&#39;ab43cb324abc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create an empty dictionary <code class="docutils literal notranslate"><span class="pre">counts</span></code>.</p></li>
+<li><p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate over each character of <code class="docutils literal notranslate"><span class="pre">string</span></code> to count their numbers of occurrences.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">get</span></code> method of <code class="docutils literal notranslate"><span class="pre">dict</span></code> can initialize the count of a new character before incrementing it.</p></li>
+</ul>
+<p><strong>Exercise (Count non-Fibonacci numbers)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">count_non_fibs</span></code> that</p>
+<ul class="simple">
+<li><p>accepts a container as an argument, and</p></li>
+<li><p>returns the number of items in the container that are not <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">fibonacci numbers</a>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_non_fibs</span><span class="p">(</span><span class="n">container</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">def</span> <span class="nf">fib_sequence_inclusive</span><span class="p">(</span><span class="n">stop</span><span class="p">):</span>
+        <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">Fn</span> <span class="o">&lt;=</span> <span class="n">stop</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">Fn</span>
+            <span class="n">Fn</span><span class="p">,</span> <span class="n">Fn1</span> <span class="o">=</span> <span class="n">Fn1</span><span class="p">,</span> <span class="n">Fn</span> <span class="o">+</span> <span class="n">Fn1</span>
+
+    <span class="n">non_fibs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+    <span class="n">non_fibs</span><span class="o">.</span><span class="n">difference_update</span><span class="p">(</span><span class="n">fib_sequence_inclusive</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">container</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_fibs</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">count_non_fibs</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">count_non_fibs</span><span class="p">({</span><span class="mi">13</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">1000</span><span class="p">})</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="k">assert</span> <span class="n">count_non_fibs</span><span class="p">({</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">100</span><span class="p">})</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">count_non_fibs</span><span class="p">({</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">})</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create a set of Fibonacci numbers up to the maximum of the items in the container.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">difference_update</span></code> method of <code class="docutils literal notranslate"><span class="pre">set</span></code> to create a set of items in the container but not in the set of Fibonacci numbers.</p></li>
+</ul>
+<p><strong>Exercise (Calculate total salaries)</strong> Suppose <code class="docutils literal notranslate"><span class="pre">salary_dict</span></code> contains information about the name, salary, and working time about employees in a company. An example of <code class="docutils literal notranslate"><span class="pre">salary_dict</span></code> is as follows:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">salary_dict</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="s1">&#39;emp1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
+     <span class="s1">&#39;emp2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">},</span>
+     <span class="s1">&#39;emp3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">15500</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">calculate_total</span></code> that accepts <code class="docutils literal notranslate"><span class="pre">salary_dict</span></code> as an argument, and returns a <code class="docutils literal notranslate"><span class="pre">dict</span></code> that uses the same keys in <code class="docutils literal notranslate"><span class="pre">salary_dict</span></code> but the total salaries as their values.  The total salary of an employee is obtained by multiplying his/her salary and his/her working_time.
+E.g.,, for the <code class="docutils literal notranslate"><span class="pre">salary_dict</span></code> example above, <code class="docutils literal notranslate"><span class="pre">calculate_total(salary_dict)</span></code> should return</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;emp1&#39;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="s1">&#39;emp2&#39;</span><span class="p">:</span> <span class="mi">208000</span><span class="p">,</span> <span class="s1">&#39;emp3&#39;</span><span class="p">:</span> <span class="mi">232500</span><span class="p">}</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>where the total salary of <code class="docutils literal notranslate"><span class="pre">emp1</span></code> is 15000 \(\times\) 20 = 300000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_total</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="n">emp</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;salary&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;working_time&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">emp</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">salary_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">salary_dict</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="s1">&#39;emp1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
+     <span class="s1">&#39;emp2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">},</span>
+     <span class="s1">&#39;emp3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">15500</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">},</span>
+<span class="p">}</span>
+<span class="k">assert</span> <span class="n">calculate_total</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;emp1&#39;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="s1">&#39;emp2&#39;</span><span class="p">:</span> <span class="mi">208000</span><span class="p">,</span> <span class="s1">&#39;emp3&#39;</span><span class="p">:</span> <span class="mi">232500</span><span class="p">}</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">salary_dict</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="s1">&#39;emp1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
+     <span class="s1">&#39;emp2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">},</span>
+     <span class="s1">&#39;emp3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">15500</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">},</span>
+     <span class="s1">&#39;emp4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="mi">20000</span><span class="p">,</span> <span class="s1">&#39;working_time&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="k">assert</span> <span class="n">calculate_total</span><span class="p">(</span><span class="n">salary_dict</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;emp1&#39;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">,</span> <span class="s1">&#39;emp2&#39;</span><span class="p">:</span> <span class="mi">208000</span><span class="p">,</span> <span class="s1">&#39;emp3&#39;</span><span class="p">:</span> <span class="mi">232500</span><span class="p">,</span> <span class="s1">&#39;emp4&#39;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">}</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">items</span></code> method of <code class="docutils literal notranslate"><span class="pre">dict</span></code> to return the list of key values pairs, and</p></li>
+<li><p>use a dictionary comprehension to create the desired dictionary by iterating through the list of items.</p></li>
+</ul>
+<p><strong>Exercise (Delete items with value 0 in dictionary)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">zeros_removed</span></code> that</p>
+<ul class="simple">
+<li><p>takes a dictionary as an argument,</p></li>
+<li><p>mutates the dictionary to remove all the keys associated with values equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>,</p></li>
+<li><p>and return <code class="docutils literal notranslate"><span class="pre">True</span></code> if at least one key is removed else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zeros_removed</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">to_delete</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">to_delete</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_delete</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+
+<span class="c1">## Memory-efficient but not computationally efficient</span>
+<span class="c1"># def zeros_removed(d):</span>
+<span class="c1">#     has_deleted = False</span>
+<span class="c1">#     while True:</span>
+<span class="c1">#         for k in d:</span>
+<span class="c1">#             if d[k] == 0:</span>
+<span class="c1">#                 del d[k]</span>
+<span class="c1">#                 has_deleted = True</span>
+<span class="c1">#                 break</span>
+<span class="c1">#         else: return has_deleted</span>
+
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">zeros_removed</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">zeros_removed</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">d</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="s1">&#39;0&#39;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">zeros_removed</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">zeros_removed</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">d</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="s1">&#39;0&#39;</span><span class="p">}</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The main issue is that, for any dicionary <code class="docutils literal notranslate"><span class="pre">d</span></code>,</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>raises the <a class="reference external" href="https://www.geeksforgeeks.org/python-delete-items-from-dictionary-while-iterating/"><code class="docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">dictionary</span> <span class="pre">changed</span> <span class="pre">size</span> <span class="pre">during</span> <span class="pre">iteration</span></code></a>.</p>
+<ul class="simple">
+<li><p>One solution is to duplicate the list of keys, but this is memory inefficient especially when the list of keys is large.</p></li>
+<li><p>Another solution is to record the list of keys to delete before the actual deletion. This is memory efficient if the list of keys to delete is small.</p></li>
+</ul>
+<p><strong>Exercise (Fuzzy search a set)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">search_fuzzy</span></code> that accepts two arguments <code class="docutils literal notranslate"><span class="pre">myset</span></code> and <code class="docutils literal notranslate"><span class="pre">word</span></code> such that</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">myset</span></code> is a <code class="docutils literal notranslate"><span class="pre">set</span></code> of <code class="docutils literal notranslate"><span class="pre">str</span></code>s;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">word</span></code> is a <code class="docutils literal notranslate"><span class="pre">str</span></code>; and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">search_fuzzy(myset,</span> <span class="pre">word)</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">word</span></code> is in <code class="docutils literal notranslate"><span class="pre">myset</span></code> by changing at most one character in <code class="docutils literal notranslate"><span class="pre">word</span></code>, and returns <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">search_fuzzy</span><span class="p">(</span><span class="n">myset</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">for</span> <span class="n">myword</span> <span class="ow">in</span> <span class="n">myset</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">myword</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="p">[</span><span class="kc">True</span>
+             <span class="k">for</span> <span class="n">mychar</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">myword</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span> <span class="k">if</span> <span class="n">mychar</span> <span class="o">!=</span> <span class="n">char</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">({</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">},</span> <span class="s1">&#39;car&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">({</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">},</span> <span class="s1">&#39;fox&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">myset</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;dolphin&#39;</span><span class="p">,</span> <span class="s1">&#39;rabbit&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">,</span> <span class="s1">&#39;tiger&#39;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">(</span><span class="n">myset</span><span class="p">,</span> <span class="s1">&#39;lion&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">(</span><span class="n">myset</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">(</span><span class="n">myset</span><span class="p">,</span> <span class="s1">&#39;cat &#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">(</span><span class="n">myset</span><span class="p">,</span> <span class="s1">&#39;fox&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">search_fuzzy</span><span class="p">(</span><span class="n">myset</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Iterate over each word in <code class="docutils literal notranslate"><span class="pre">myset</span></code>.</p></li>
+<li><p>Check whether the length of the word is the same as that of the word in the arguments.</p></li>
+<li><p>If the above check passes, use a list comprehension check if the words differ by at most one character.</p></li>
+</ul>
+<p><strong>Exercise (Get keys by value)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">get_keys_by_value</span></code> that accepts two arguments <code class="docutils literal notranslate"><span class="pre">d</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> where <code class="docutils literal notranslate"><span class="pre">d</span></code> is a dictionary, and returns a set containing all the keys in <code class="docutils literal notranslate"><span class="pre">d</span></code> that have <code class="docutils literal notranslate"><span class="pre">value</span></code> as its value. If no key has the query value <code class="docutils literal notranslate"><span class="pre">value</span></code>, then return an empty set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_keys_by_value</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">}</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tom&#39;</span><span class="p">:</span><span class="s1">&#39;99&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">:</span><span class="s1">&#39;88&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucy&#39;</span><span class="p">:</span><span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="s1">&#39;Lily&#39;</span><span class="p">:</span><span class="s1">&#39;90&#39;</span><span class="p">,</span> <span class="s1">&#39;Jason&#39;</span><span class="p">:</span><span class="s1">&#39;89&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">:</span><span class="s1">&#39;100&#39;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">get_keys_by_value</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;99&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;Tom&#39;</span><span class="p">}</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tom&#39;</span><span class="p">:</span><span class="s1">&#39;99&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">:</span><span class="s1">&#39;88&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucy&#39;</span><span class="p">:</span><span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="s1">&#39;Lily&#39;</span><span class="p">:</span><span class="s1">&#39;90&#39;</span><span class="p">,</span> <span class="s1">&#39;Jason&#39;</span><span class="p">:</span><span class="s1">&#39;89&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">:</span><span class="s1">&#39;100&#39;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">get_keys_by_value</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;100&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucy&#39;</span><span class="p">}</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tom&#39;</span><span class="p">:</span><span class="s1">&#39;99&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">:</span><span class="s1">&#39;88&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucy&#39;</span><span class="p">:</span><span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="s1">&#39;Lily&#39;</span><span class="p">:</span><span class="s1">&#39;90&#39;</span><span class="p">,</span> <span class="s1">&#39;Jason&#39;</span><span class="p">:</span><span class="s1">&#39;89&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">:</span><span class="s1">&#39;100&#39;</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">get_keys_by_value</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">()</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use set comprehension to create the set of keys whose associated values is <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p></li>
+</ul>
+<p><strong>Exercise (Count letters and digits)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">count_letters_and_digits</span></code> which</p>
+<ul class="simple">
+<li><p>take a string as an argument,</p></li>
+<li><p>returns a dictionary that stores the number of letters and digits in the string using the keys ‘LETTERS’ and ‘DIGITS’ respectively.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_letters_and_digits</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">check</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;LETTERS&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="o">.</span><span class="n">isalpha</span><span class="p">,</span> <span class="s1">&#39;DIGITS&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="o">.</span><span class="n">isdigit</span><span class="p">}</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">check</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">check</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">check</span><span class="p">[</span><span class="n">t</span><span class="p">](</span><span class="n">char</span><span class="p">):</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counts</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">count_letters_and_digits</span><span class="p">(</span><span class="s1">&#39;hello world! 2020&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;DIGITS&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;LETTERS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">count_letters_and_digits</span><span class="p">(</span><span class="s1">&#39;I love CS1302&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;DIGITS&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;LETTERS&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="k">assert</span> <span class="n">count_letters_and_digits</span><span class="p">(</span><span class="s1">&#39;Hi CityU see you in 2021&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;DIGITS&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;LETTERS&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">count_letters_and_digits</span><span class="p">(</span><span class="s1">&#39;When a dog runs at you, whistle for him. (Philosopher Henry David Thoreau, 1817-1862)&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;DIGITS&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;LETTERS&#39;</span><span class="p">:</span> <span class="mi">58</span><span class="p">}</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use the class method <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> of <code class="docutils literal notranslate"><span class="pre">dict</span></code> to initial the dictionary of counts.</p></li>
+</ul>
+<p><strong>Exercise (Dealers with lowest price)</strong> Suppose <code class="docutils literal notranslate"><span class="pre">apple_price</span></code> is a list in which each element is a <code class="docutils literal notranslate"><span class="pre">dict</span></code> recording the dealer and the corresponding price, e.g.,</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">apple_price</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_A&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6799</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_B&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6749</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_C&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6798</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_D&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6749</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">dealers_with_lowest_price</span></code> that takes <code class="docutils literal notranslate"><span class="pre">apple_price</span></code> as an argument, and returns the <code class="docutils literal notranslate"><span class="pre">set</span></code> of dealers providing the lowest price.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dealers_with_lowest_price</span><span class="p">(</span><span class="n">apple_price</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">dealers</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">lowest_price</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">pricing</span> <span class="ow">in</span> <span class="n">apple_price</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lowest_price</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">lowest_price</span> <span class="o">&gt;</span> <span class="n">pricing</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]:</span>
+            <span class="n">lowest_price</span> <span class="o">=</span> <span class="n">pricing</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+        <span class="n">dealers</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">pricing</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pricing</span><span class="p">[</span><span class="s1">&#39;dealer&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dealers</span><span class="p">[</span><span class="n">lowest_price</span><span class="p">]</span>
+
+<span class="c1">## Shorter code that uses comprehension</span>
+<span class="c1"># def dealers_with_lowest_price(apple_price):</span>
+<span class="c1">#     lowest_price = min(pricing[&#39;price&#39;] for pricing in apple_price)</span>
+<span class="c1">#     return set(pricing[&#39;dealer&#39;] for pricing in apple_price</span>
+<span class="c1">#                if pricing[&#39;price&#39;] == lowest_price)</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">apple_price</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_A&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6799</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_B&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6749</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_C&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6798</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_D&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6749</span><span class="p">}]</span>
+<span class="k">assert</span> <span class="n">dealers_with_lowest_price</span><span class="p">(</span><span class="n">apple_price</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;dealer_B&#39;</span><span class="p">,</span> <span class="s1">&#39;dealer_D&#39;</span><span class="p">}</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">apple_price</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_A&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6799</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_B&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6799</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_C&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6799</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;dealer&#39;</span><span class="p">:</span> <span class="s1">&#39;dealer_D&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="mi">6799</span><span class="p">}]</span>
+<span class="k">assert</span> <span class="n">dealers_with_lowest_price</span><span class="p">(</span><span class="n">apple_price</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;dealer_A&#39;</span><span class="p">,</span> <span class="s1">&#39;dealer_B&#39;</span><span class="p">,</span> <span class="s1">&#39;dealer_C&#39;</span><span class="p">,</span> <span class="s1">&#39;dealer_D&#39;</span><span class="p">}</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use the class method <code class="docutils literal notranslate"><span class="pre">setdefault</span></code> of <code class="docutils literal notranslate"><span class="pre">dict</span></code> to create a dictionary that maps different prices to different sets of dealers.</p></li>
+<li><p>Compute the lowest price at the same time.</p></li>
+<li><p>Alternatively, use comprehension to find lowest price and then create the desired set of dealers with the lowest price.</p></li>
+</ul>
+</div>
+<div class="section" id="lists-and-tuples">
+<h2>Lists and Tuples<a class="headerlink" href="#lists-and-tuples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise</strong> (Binary addition) Define a function <code class="docutils literal notranslate"><span class="pre">add_binary</span></code> that</p>
+<ul class="simple">
+<li><p>accepts two arguments of type <code class="docutils literal notranslate"><span class="pre">str</span></code> which represent two non-negative binary numbers, and</p></li>
+<li><p>returns the binary number in <code class="docutils literal notranslate"><span class="pre">str</span></code> equal to the sum of the two given binary numbers.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_binary</span><span class="p">(</span><span class="o">*</span><span class="n">binaries</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">def</span> <span class="nf">binary_to_decimal</span><span class="p">(</span><span class="n">binary</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">binary</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">decimal_to_binary</span><span class="p">(</span><span class="n">decimal</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">decimal_to_binary</span><span class="p">(</span><span class="n">decimal</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="k">if</span> <span class="n">decimal</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">decimal</span> <span class="o">%</span> <span class="mi">2</span><span class="p">))</span> <span class="k">if</span> <span class="n">decimal</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span>
+    
+    <span class="k">return</span> <span class="n">decimal_to_binary</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">binary_to_decimal</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span> <span class="k">for</span> <span class="n">binary</span> <span class="ow">in</span> <span class="n">binaries</span><span class="p">))</span>
+
+<span class="c1">## Alternative 1 using recursion</span>
+<span class="c1"># def add_binary(bin1, bin2, carry=False):</span>
+<span class="c1">#     if len(bin1) &gt; len(bin2):</span>
+<span class="c1">#         return add_binary(bin2, bin1)</span>
+<span class="c1">#     if bin1 == &#39;&#39;:</span>
+<span class="c1">#         return add_binary(&#39;1&#39;, bin2, False) if carry else bin2</span>
+<span class="c1">#     s = int(bin1[-1]) + int(bin2[-1]) + carry</span>
+<span class="c1">#     return add_binary(bin1[:-1], bin2[:-1], s &gt; 1) + str(s % 2)</span>
+
+<span class="c1">## Alternatve 2 using iteration</span>
+<span class="c1"># def add_binary(a, b):</span>
+<span class="c1">#     answer = []</span>
+<span class="c1">#     n = max(len(a), len(b))</span>
+<span class="c1">#     # fill necessary &#39;0&#39; to the beginning to make a and b have the same length</span>
+<span class="c1">#     if len(a) &lt; n: a = str(&#39;0&#39; * (n -len(a))) + a </span>
+<span class="c1">#     if len(b) &lt; n: b = str(&#39;0&#39; * (n -len(b))) + b</span>
+<span class="c1">#     carry = 0</span>
+<span class="c1">#     for i in range(n-1, -1, -1):</span>
+<span class="c1">#         if a[i] == &#39;1&#39;: carry += 1</span>
+<span class="c1">#         if b[i] == &#39;1&#39;: carry += 1</span>
+<span class="c1">#         answer.insert(0, &#39;1&#39;) if carry % 2 == 1 else answer.insert(0, &#39;0&#39;)</span>
+<span class="c1">#         carry //= 2</span>
+<span class="c1">#     if carry == 1: answer.insert(0, &#39;1&#39;)</span>
+<span class="c1">#     answer_str = &#39;&#39;.join(answer) # you can also use &quot;answer_str = &#39;&#39;;  for x in answer: answer_str += x&quot;</span>
+<span class="c1">#     return answerastr</span>
+
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">add_binary</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span>
+<span class="k">assert</span> <span class="n">add_binary</span><span class="p">(</span><span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">)</span>  <span class="o">==</span> <span class="s1">&#39;110&#39;</span>
+<span class="k">assert</span> <span class="n">add_binary</span><span class="p">(</span><span class="s1">&#39;101&#39;</span><span class="p">,</span> <span class="s1">&#39;101&#39;</span><span class="p">)</span>  <span class="o">==</span> <span class="s1">&#39;1010&#39;</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="k">assert</span> <span class="n">add_binary</span><span class="p">(</span><span class="s1">&#39;1111&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">)</span>  <span class="o">==</span> <span class="s1">&#39;10001&#39;</span>
+<span class="k">assert</span> <span class="n">add_binary</span><span class="p">(</span><span class="s1">&#39;111110000011&#39;</span><span class="p">,</span><span class="s1">&#39;110000111&#39;</span><span class="p">)</span>  <span class="o">==</span> <span class="s1">&#39;1000100001010&#39;</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use comprehension to convert the binary numbers to decimal numbers.</p></li>
+<li><p>Use comprehension to convert the sum of the decimal numbers to a binary number.</p></li>
+<li><p>Alternatively, perform bitwise addition using a recursion or iteration.</p></li>
+</ul>
+<p><strong>Exercise (Even-digit numbers)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">even_digit_numbers</span></code>, which finds all numbers between <code class="docutils literal notranslate"><span class="pre">lower_bound</span></code> and <code class="docutils literal notranslate"><span class="pre">upper_bound</span></code> such that each digit of the number is an even number. Please return the numbers as a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">even_digit_numbers</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">]</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">even_digit_numbers</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2000</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">even_digit_numbers</span><span class="p">(</span><span class="mi">2805</span><span class="p">,</span> <span class="mi">2821</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2806</span><span class="p">,</span><span class="mi">2808</span><span class="p">,</span><span class="mi">2820</span><span class="p">]</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="k">assert</span> <span class="n">even_digit_numbers</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span> <span class="mi">2300</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2004</span><span class="p">,</span><span class="mi">2006</span><span class="p">,</span><span class="mi">2008</span><span class="p">,</span><span class="mi">2020</span><span class="p">,</span><span class="mi">2022</span><span class="p">,</span><span class="mi">2024</span><span class="p">,</span><span class="mi">2026</span><span class="p">,</span><span class="mi">2028</span><span class="p">,</span><span class="mi">2040</span><span class="p">,</span><span class="mi">2042</span><span class="p">,</span><span class="mi">2044</span><span class="p">,</span><span class="mi">2046</span><span class="p">,</span><span class="mi">2048</span><span class="p">,</span><span class="mi">2060</span><span class="p">,</span><span class="mi">2062</span><span class="p">,</span><span class="mi">2064</span><span class="p">,</span><span class="mi">2066</span><span class="p">,</span><span class="mi">2068</span><span class="p">,</span><span class="mi">2080</span><span class="p">,</span><span class="mi">2082</span><span class="p">,</span><span class="mi">2084</span><span class="p">,</span><span class="mi">2086</span><span class="p">,</span><span class="mi">2088</span><span class="p">,</span><span class="mi">2200</span><span class="p">,</span><span class="mi">2202</span><span class="p">,</span><span class="mi">2204</span><span class="p">,</span><span class="mi">2206</span><span class="p">,</span><span class="mi">2208</span><span class="p">,</span><span class="mi">2220</span><span class="p">,</span><span class="mi">2222</span><span class="p">,</span><span class="mi">2224</span><span class="p">,</span><span class="mi">2226</span><span class="p">,</span><span class="mi">2228</span><span class="p">,</span><span class="mi">2240</span><span class="p">,</span><span class="mi">2242</span><span class="p">,</span><span class="mi">2244</span><span class="p">,</span><span class="mi">2246</span><span class="p">,</span><span class="mi">2248</span><span class="p">,</span><span class="mi">2260</span><span class="p">,</span><span class="mi">2262</span><span class="p">,</span><span class="mi">2264</span><span class="p">,</span><span class="mi">2266</span><span class="p">,</span><span class="mi">2268</span><span class="p">,</span><span class="mi">2280</span><span class="p">,</span><span class="mi">2282</span><span class="p">,</span><span class="mi">2284</span><span class="p">,</span><span class="mi">2286</span><span class="p">,</span><span class="mi">2288</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">even_digit_numbers</span><span class="p">(</span><span class="mi">8801</span><span class="p">,</span> <span class="mi">8833</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">8802</span><span class="p">,</span><span class="mi">8804</span><span class="p">,</span><span class="mi">8806</span><span class="p">,</span><span class="mi">8808</span><span class="p">,</span><span class="mi">8820</span><span class="p">,</span><span class="mi">8822</span><span class="p">,</span><span class="mi">8824</span><span class="p">,</span><span class="mi">8826</span><span class="p">,</span><span class="mi">8828</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">even_digit_numbers</span><span class="p">(</span><span class="mi">3662</span><span class="p">,</span> <span class="mi">4001</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4000</span><span class="p">]</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use list comprehension to generate numbers between the bounds, and</p></li>
+<li><p>use comprehension and the <code class="docutils literal notranslate"><span class="pre">any</span></code> function to filter out those numbers containing odd digits.</p></li>
+</ul>
+<p><strong>Exercise (Maximum subsequence sum)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">max_subsequence_sum</span></code> that</p>
+<ul class="simple">
+<li><p>accepts as an argument a sequence of numbers, and</p></li>
+<li><p>returns the maximum sum over nonempty contiguous subsequences.</p></li>
+</ul>
+<p>E.g., when <code class="docutils literal notranslate"><span class="pre">[-6,</span> <span class="pre">-4,</span> <span class="pre">4,</span> <span class="pre">1,</span> <span class="pre">-2,</span> <span class="pre">2]</span></code> is given as the argument, the function returns <code class="docutils literal notranslate"><span class="pre">5</span></code> because the nonempty subsequence <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">1]</span></code> has the maximum sum <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_subsequence_sum</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="c1">## see https://en.wikipedia.org/wiki/Maximum_subarray_problem</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="c1">## Alternative (less efficient) solution using list comprehension</span>
+<span class="c1"># def max_subsequence_sum(a):</span>
+<span class="c1">#     return max(sum(a[i:j]) for i in range(len(a)) for j in range(i,len(a)+1))</span>
+
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">max_subsequence_sum</span><span class="p">([</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">max_subsequence_sum</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">])</span> <span class="o">==</span> <span class="mf">5.9</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">24.81</span><span class="p">,</span> <span class="mf">25.74</span><span class="p">,</span> <span class="mf">37.29</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.77</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">,</span> <span class="o">-</span><span class="mf">15.33</span><span class="p">,</span> <span class="mf">30.21</span><span class="p">,</span> <span class="mf">34.94</span><span class="p">,</span> <span class="o">-</span><span class="mf">40.64</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.06</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">max_subsequence_sum</span><span class="p">(</span><span class="n">seq</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">104.86</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test of efficiency</span>
+<span class="k">assert</span> <span class="n">max_subsequence_sum</span><span class="p">([</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">1234567</span><span class="p">)])</span> <span class="o">==</span> <span class="mi">762077221461</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>For a list <span class="math notranslate nohighlight">\([a_0,a_1,\dots]\)</span>, let</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+t_k:=\max_{j&lt;k} \sum_{i=j}^{k-1} a_i = \max\{t_{k-1}+a_{k-1},0\},
+\]</div>
+<p>namely the maximum tail sum of <span class="math notranslate nohighlight">\([a_0,\dots,a_{k-1}]\)</span>.</p>
+<ul class="simple">
+<li><p>Then, the maximum subsequence sum of <span class="math notranslate nohighlight">\([a_0,\dots,a_{k-1}]\)</span> is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+s_k:=\max_{j\leq k} t_j.
+\]</div>
+<p><strong>Exercise (Mergesort)</strong> <em>For this question, do not use the <code class="docutils literal notranslate"><span class="pre">sort</span></code> method or <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function.</em></p>
+<p>Define a function called <code class="docutils literal notranslate"><span class="pre">merge</span></code> that</p>
+<ul class="simple">
+<li><p>takes two sequences sorted in ascending orders, and</p></li>
+<li><p>returns a sorted list of items from the two sequences.</p></li>
+</ul>
+<p>Then, define a function called <code class="docutils literal notranslate"><span class="pre">mergesort</span></code> that</p>
+<ul class="simple">
+<li><p>takes a sequence, and</p></li>
+<li><p>return a list of items from the sequence sorted in ascending order.</p></li>
+</ul>
+<p>The list should be constructed by</p>
+<ul class="simple">
+<li><p>recursive calls to <code class="docutils literal notranslate"><span class="pre">mergesort</span></code> the first and second halves of the sequence individually, and</p></li>
+<li><p>merge the sorted halves.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="ow">and</span> <span class="n">right</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="p">,</span> <span class="n">left</span>
+        <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">[</span><span class="n">right</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">left</span> <span class="ow">or</span> <span class="n">right</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mergesort</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">mergesort</span><span class="p">(</span><span class="n">seq</span><span class="p">[:</span><span class="n">i</span><span class="p">]),</span><span class="n">mergesort</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:]))</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">merge</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">mergesort</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="k">assert</span> <span class="n">mergesort</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-functions">
+<h2>More Functions<a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise (Arithmetic geometric mean)</strong> Define a function <code class="docutils literal notranslate"><span class="pre">arithmetic_geometric_mean_sequence</span></code> which</p>
+<ul class="simple">
+<li><p>takes two floating point numbers  <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> and</p></li>
+<li><p>returns a generator that generates the tuple \((a_n, g_n)\) where</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+a_0 &amp;= x, g_0 = y \\
+a_n &amp;= \frac{a_{n-1} + g_{n-1}}2 \quad \text{for }n&gt;0\\
+g_n &amp;= \sqrt{a_{n-1} g_{n-1}}
+\end{aligned}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arithmetic_geometric_mean_sequence</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">a</span><span class="p">,</span> <span class="n">g</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">g</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">agm</span> <span class="o">=</span> <span class="n">arithmetic_geometric_mean_sequence</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">24</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">agm</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span> <span class="o">==</span> <span class="p">[(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="mf">15.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">)]</span>
+<span class="c1">### BEGIN HIDDEN TESTS</span>
+<span class="n">agm</span> <span class="o">=</span> <span class="n">arithmetic_geometric_mean_sequence</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">sol</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">agm</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)],</span> <span class="p">[(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mf">250.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">225.0</span><span class="p">,</span> <span class="mf">223.60679774997897</span><span class="p">),</span> <span class="p">(</span><span class="mf">224.30339887498948</span><span class="p">,</span> <span class="mf">224.30231718318308</span><span class="p">),</span> <span class="p">(</span><span class="mf">224.30285802908628</span><span class="p">,</span> <span class="mf">224.30285802843423</span><span class="p">)]):</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">### END HIDDEN TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">yield</span></code> expression to return each tuple of <span class="math notranslate nohighlight">\((a_n,g_n)\)</span> efficiently without redundant computations.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Review"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html" title="previous page">Monte Carlo Simulation and Linear Algebra</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

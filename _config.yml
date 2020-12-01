@@ -1,0 +1,22 @@
+title : CS1302 Introduction to Computer Programming
+author: Chung Chan
+
+# execute:
+#   execute_notebooks: "force"
+
+parse:
+  myst_extended_syntax: true
+
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/ccha23/CS1302ICP  # Online location of your book
+  branch: main
+
+launch_buttons:
+  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  colab_url: "https://colab.research.google.com"
+  thebe: true

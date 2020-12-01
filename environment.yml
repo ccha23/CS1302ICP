@@ -1,0 +1,20 @@
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - notebook
+  - jupyterlab
+  - jupyter_contrib_nbextensions
+  - ipywidgets
+  - jupytext>=0.16
+  - manimlib
+  - jupyter-manim
+  - python=3.7
+  - cairo
+  - ffmpeg
+  - colour==0.1.5
+  - numpy
+  - pycairo==1.11.1
+  - ffmpeg
+  - pip:
+    - mytutor
