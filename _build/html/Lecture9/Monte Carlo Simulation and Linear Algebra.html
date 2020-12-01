@@ -48,6 +48,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -345,7 +347,7 @@ generating the <span class="math notranslate nohighlight">\(x\)</span> and <span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate: 3.14088
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate: 3.1416852
 Ground truth: 3.141592653589793
 </pre></div>
 </div>
@@ -371,8 +373,8 @@ Ground truth: 3.141592653589793
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95%-confidence interval: [3.1405702 3.1426474]
-Estimate: 3.1416 ± 0.0010
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95%-confidence interval: [3.14137735 3.14345385]
+Estimate: 3.1424 ± 0.0010
 Ground truth: 3.141592653589793
 </pre></div>
 </div>
@@ -410,7 +412,7 @@ E.g., see the Monte Carlo simulation of a <a class="reference external" href="ht
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "97eb5dcd19b74235b655718981bd6eb5"}
+{"version_major": 2, "version_minor": 0, "model_id": "4b97e019a4b6480d91d783efe7c00623"}
 </script></div>
 </div>
 <p><strong>How to solve multiple linear equations?</strong></p>
@@ -589,10 +591,10 @@ b_1
  copy sort
 
 Array-specific attributes:
- dtype flatten item byteswap ndim conj argsort itemsize getfield any real nbytes choose searchsorted argmax ptp tolist fill dumps base diagonal round cumprod ravel dump sum all size argpartition trace view repeat put setflags astype tobytes var min clip std flat tofile cumsum argmin T conjugate ctypes compress itemset data prod tostring partition swapaxes mean strides newbyteorder dot max nonzero shape reshape resize transpose flags squeeze setfield imag take
+ imag flags getfield max argpartition view real itemset swapaxes fill diagonal any partition prod ravel data size dtype all item take std conj squeeze sum put min setfield repeat round reshape nbytes T searchsorted mean setflags clip strides trace base dumps argsort var itemsize cumsum flatten compress conjugate nonzero byteswap tostring ndim tofile newbyteorder tolist transpose astype flat resize dot shape tobytes choose dump argmin ctypes ptp cumprod argmax
 
 List-specific attributes:
- pop insert append reverse remove index clear count extend
+ count reverse append remove clear insert extend pop index
 </pre></div>
 </div>
 </div>

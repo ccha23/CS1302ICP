@@ -48,6 +48,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -555,7 +557,7 @@ E.g., the following is a python one-liner that returns a generator for prime num
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f6eb56a3408&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f3cfc7e8408&gt;
 (0, 1, 4, 9, 16, 25, 36, 49, 64, 81)
 </pre></div>
 </div>
@@ -576,7 +578,7 @@ There must be a comma after the generator since there is only one enclosed term,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-[&lt;generator object &lt;genexpr&gt; at 0x7f6eb56a34f8&gt;]
+[&lt;generator object &lt;genexpr&gt; at 0x7f3cfc7e84f8&gt;]
 </pre></div>
 </div>
 </div>
@@ -598,14 +600,11 @@ which is returned by the anonymous function and enclosed to form the singleton l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance of head: 0.6720642029385416
-Coin flips: T H T H T H H H T H T H H H T H T H H H T H H T H T T H H T H H H T H H H H H T T H T H H H H H H T T T H T T H T H H H H T H H T H T H T H H H H T H H H T T T T H T H H H T H H T H T H H T T H H T T H T H H T H H H H H H H H H H H T H T T T T T H H H H H T H H H T H H H T H T H T T H H H T H T T T H H H H T H T H H T H T H H H T H H T H T H H H T T T H H T H H H H H H H H H H H H H T T H H H H H H H H H T H T T H H T T T H H H H H H H H T H H H T H H H T H T H H T T H T T T H H H H H H H H T T H H T H H H H T T T H H T T H H T H T H H T H H H H H H H T T H H T H T H H T T T H H H H H T H T H T T T T H H H H H H H T H H H T H T T H T T H H T H H T H T H H T H H H H T H H H H H H T T H T T T T H H H T H T H H H H H H T T T T H H H H T T T H H H H H H H H T H H H H H H T H T H T H H H H T T H H H H H T H H T H H H H H H H H T H T H H H H T H T T T H H H H T H H T H T H T H H H H H H T T T H H H T H H H H H T H T H H H H H T H H H H T T H H H H T T H T H H T T H H H H T H T H H H H H H H H H T T H T T T T H H H H H T H H H T T H H T H H H H H H H H H H T H H H H H T T T H T H T H H T H T H T T T T H H H T H H H H T H H T T H H H H H H H H H H T T T H T T H H T T T T T H H H H H H H H T H H T H H H T H H H H H T T H H H H H H T H H T T T H H T T T T T T H H H T T T H T H H T H H T H H H H H T H T T T H T H H H T H H H H T H T H T H H H H T H H H H T H T H H H H H H T T H H T T T H H H H T H H H H H T H T H H H H H H T T T H H H H H T T H H H T H H T T H T H T T H H T T H T H T H H H T T T H T H H H H H H H H H T H H H H T H H H T H T H H H H H T H H H H H H H H H H H H T H H H T H H H T H T H H H H H H T H H T H T H H H H H H H H H T H H T T H H H H H H H T T H H H
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance of head: 0.37516105683910694
+Coin flips: H T H H T H H T T H T H T T T H H T T H H H T T T T H T T T T T H H T T T T T H T T H T T H T H T T T T T T T H T T T H H T T T T T T H T T H T H T T H H T T T T H H T T T T H T T T H T T T H T H H T T T T H T T T T H H T T T T T H T H H T T T T T T T H T T T T T T T T T T T H T T T T H T T H T T H H T H H H T H T T H T H T H T H H T T H T T T H T T T H T H T H T T H H T T T T T T T T H T T H H T H T T T T H H H H H H T H H H T T T H T H T T T T T H T T H T T T T H T T T T T T T H T T T T T T H T H T T T T H T T H H T H H H T H T H T H H H T H T H H T H T H H H H T H T H T T H T T T T H T T T H H H T T H T H T H T H H T H T T T T H T H T H H T H T T H T T T H H T H T H T H T H T T H H H T T H H T T H H T T T T H H H T H T T T T T T H T H H H T T T T T T T H H T T T T T H T H T T T H T T T H T H H H H T T H H H T H T H H T H T T H T T T T T T T T T T H H T H H H T H T T H T T T H H H H H T T T H H H T T T H T T H T T H T T H T T T H T T H T T T H T T T T H T T T T H T T T T T T T T H T T T T T T H H T T T T T T H T T T H T H T T H T T T H T H H T T H T T H H T H H T T T H T H T T T T T T H H T H H H T T T T H T H T T T T T H H H T H T T T T H H T H T H T H H H H T H H T H T T T T T H T H T H H H T H T H H H T T H T T T H T H H T T T H H H T T H H H T T T H H T T T H T T H T T H T T H T H T H T H T T T T T T T H T T H T T T T T H T T H H H T T H H T H T T H H T T T H T H T T T T H T T H T T H T T T H T T H T H T H H T T H T T H T T H T T T H T T T H T T T T T T T H T T H T H H T T H H H T H H H T T T T T T H H T H T T H H H H H H T H H T T T T H H H H H H T H T T H T T H T T H T T T H T T H T T T H H T T H T T T T T H T T T T T T T T H H H H H T T T H T
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> H T H H T T H H H T T H H H H H T T T H H H H H T T T H H H T T H T H T T H H H H H T T H H H H H H T T H H H T H H T H T H H T H T T H T T H T H H T H T H H H H H H T T H T H H H H T T H T H H T H H H T T T T H H H H H H H H T H T H H H T H T H T H T H H H H H T H H T H T T T H H H H T H T 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H H H T H H H H H
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> T H H H H T T T T H T H H T H T H T T H T H H T H T H H H H T T T T H H H T T T T T T T H H H T H T T T H H T H T T H H T T H T T T T T T H H H H T H T T T T T T T T T T T T T T H T T T H H H T T T H H T T H T H H T H T H H T H T T H T T T T H T H T H H H H H T T H T T T H T T T T T T T H H T H T T T H T H T T H H H H
 </pre></div>
 </div>
 </div>
@@ -623,7 +622,7 @@ Coin flips: T H T H T H H H T H T H H H T H T H H H T H H T H T T H H T H H H T 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fraction of heads: 0.662
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fraction of heads: 0.387
 </pre></div>
 </div>
 </div>
@@ -643,7 +642,7 @@ Coin flips: T H T H T H H H T H T H H H T H T H H H T H H T H T T H H T H H H T 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95% confidence interval: [0.64,0.70]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95% confidence interval: [0.34,0.41]
 </pre></div>
 </div>
 </div>
@@ -695,9 +694,7 @@ Coin flips: T H T H T H H H T H T H H H T H T H H H T H H T H T T H H T H H H T 
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 4
 1 3
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 2
+2 2
 3 1
 4 0
 </pre></div>
@@ -729,7 +726,10 @@ Coin flips: T H T H T H H H T H T H H H T H T H H H T H H T H T T H H T H H H T 
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 Length: 10
-First element: 0
+First element:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0
 Second element: 1
 Last element: 9
 </pre></div>

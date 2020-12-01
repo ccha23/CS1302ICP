@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setup &#8212; CS1302 Introduction to Computer Programming</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab1/Setup.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Lab1/Setup.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab1/Setup.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyterhub">
+   JupyterHub
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-access-the-jupyterhub-server">
+     How to access the JupyterHub Server?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-access-course-materials">
+     How to access course materials?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-notebook">
+   Jupyter Notebook
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-complete-a-lab-assignment">
+     How to complete a lab assignment?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-submit-a-notebook">
+     How to submit a notebook
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-print-or-backup-a-notebook">
+     How to print or backup a notebook?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>CS1302 Introduction to Computer Programming</p>
+<hr class="docutils" />
+<div class="section" id="jupyterhub">
+<h2>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h2>
+<p><strong>What is JupyterHub?</strong></p>
+<div class="section" id="how-to-access-the-jupyterhub-server">
+<h3>How to access the JupyterHub Server?<a class="headerlink" href="#how-to-access-the-jupyterhub-server" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Enter the url <a class="reference external" href="https://ltjh.cs.cityu.edu.hk">ltjh.cs.cityu.edu.hk</a> in a web browser.</p></li>
+<li><p>Enter your <a class="reference external" href="https://www.cityu.edu.hk/esu/eid.htm">EID</a> and Password in the fields <code class="docutils literal notranslate"><span class="pre">Username</span></code> and <code class="docutils literal notranslate"><span class="pre">Password</span></code> respectively.</p></li>
+<li><p>Click the <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span></code> button.</p></li>
+</ol>
+<img alt="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Login.gif" src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Login.gif" />
+<p><strong>Tips</strong></p>
+<ul class="simple">
+<li><p>If the browser is stuck at the following page loading the server, <code class="docutils literal notranslate"><span class="pre">refresh</span></code> your browser.<br />
+<img alt="server stuck" src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/server_stuck.png" /></p></li>
+<li><p>If you see the following page with <code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">Server</span></code> button, click on that button.<br />
+<img alt="server start" src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/server_start.png" /></p></li>
+<li><p>If you see the <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">My</span> <span class="pre">Server</span></code> button instead, click on that button to start your server.<br />
+<img alt="server stopped" src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/server_stopped.png" /></p></li>
+<li><p>For other issues, try logging out using the <code class="docutils literal notranslate"><span class="pre">Logout</span></code> button at the top right-hand corner, and then logging in again. You may also click the <code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">Panel</span></code> button and restarting your server.</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-access-course-materials">
+<h3>How to access course materials?<a class="headerlink" href="#how-to-access-course-materials" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Assignments</span></code> tab, and ensure <code class="docutils literal notranslate"><span class="pre">cs1302</span></code> is chosen in the drop down list.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">Released</span> <span class="pre">assignments</span> <span class="pre">panel</span></code>, click the button <code class="docutils literal notranslate"><span class="pre">Fetch</span></code> to download <code class="docutils literal notranslate"><span class="pre">Lab1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Lab1</span></code> should appear in the <code class="docutils literal notranslate"><span class="pre">Downloaded</span> <span class="pre">assignments</span> <span class="pre">panel</span></code>.</p></li>
+<li><p>Click on the little arrow next to <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> to shows its content.</p></li>
+<li><p>Ctrl-Click on <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> to open the assignment folder on a new browser tab.</p></li>
+<li><p>On the new browser, click the folder <code class="docutils literal notranslate"><span class="pre">cs1302</span></code> to navigate to the notebook <code class="docutils literal notranslate"><span class="pre">Setup.ipynb</span></code>.</p></li>
+<li><p>Click on <code class="docutils literal notranslate"><span class="pre">Setup.ipynb</span></code> to open the notebook.</p></li>
+</ol>
+<img alt="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Fetch.gif" src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Fetch.gif" />
+<p><strong>Tips</strong></p>
+<ol class="simple">
+<li><p>Note that all the downloaded course materials will be placed under the <code class="docutils literal notranslate"><span class="pre">cs1302</span></code> folder of your home directory by default, so you need not go to the <code class="docutils literal notranslate"><span class="pre">Assignments</span></code> tab again to open the downloaded materials.
+E.g., you can access the <code class="docutils literal notranslate"><span class="pre">Setup.ipynb</span></code> notebook as follows:</p>
+<ol class="simple">
+<li><p>Going to the <code class="docutils literal notranslate"><span class="pre">File</span></code> tab, which is the default JupyterHub homepage after login or when you click the logo on the top left-hand corner.</p></li>
+<li><p>Enter the notebook URL https://ltjh.cs.cityu.edu.hk/user-redirect/tree/cs1302/Lab1/Setup.ipynb. (See the <a class="reference external" href="https://jupyterhub.readthedocs.io/en/stable/reference/urls.html">documentation</a> for details.)</p></li>
+</ol>
+</li>
+<li><p>If for any reason you want to Fetch <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> again, you have to first rename your <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> folder to a different name such as <code class="docutils literal notranslate"><span class="pre">Lab1_orig</span></code>. You can do so by selecting the folder and click rename. You can also remove the folder by evaluating <code class="docutils literal notranslate"><span class="pre">!rm</span> <span class="pre">-rf</span> <span class="pre">~/cs1302/Lab1</span></code> in a code cell. (Be very cautious as removed folders cannot be recovered.)</p></li>
+<li><p>You may also play with the new interface called JupyterLab https://ltjh.cs.cityu.edu.hk/user-redirect/lab/.
+However, the new interface does not support all the tools we need for lectures/labs. It is currently under <a class="reference external" href="https://github.com/jupyterlab/jupyterlab">active development on GitHub</a>, so be prepared to see <a class="reference external" href="https://en.wikipedia.org/wiki/Software_bug">bugs</a>.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="jupyter-notebook">
+<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-complete-a-lab-assignment">
+<h3>How to complete a lab assignment?<a class="headerlink" href="#how-to-complete-a-lab-assignment" title="Permalink to this headline">¶</a></h3>
+<p>After opening the <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> notebook <code class="docutils literal notranslate"><span class="pre">Setup.ipynb</span></code>:</p>
+<ol class="simple">
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Help-&gt;User</span> <span class="pre">Interface</span> <span class="pre">Tour</span></code> to learn the jupyter notebook interface.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Help-&gt;Notebook</span> <span class="pre">Help</span></code> and skim through the tutorials on <code class="docutils literal notranslate"><span class="pre">Running</span> <span class="pre">Code</span></code> and <code class="docutils literal notranslate"><span class="pre">Working</span> <span class="pre">with</span> <span class="pre">Markdown</span> <span class="pre">Cells</span></code>.</p></li>
+</ol>
+<p>Note that the tutorial page is static but you can copy to this notebook to run them. Let’s run some code in this notebook.</p>
+<p><strong>Exercise</strong> Run the following cell to enable and configure the notebook extensions for this course.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%javascript</span>
+<span class="nx">IPython</span><span class="p">.</span><span class="nx">notebook</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+  <span class="s2">&quot;load_extensions&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;validate_assignment/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;execute_time/ExecuteTime&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;init_cell/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;printview/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;skip-traceback/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;hide_input/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;codefolding/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;scratchpad/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;spellchecker/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;create_assignment/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;ruler/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;collapsible_headings/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;latex_envs/latex_envs&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;exercise/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;select_keymap/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;toc2/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;code_prettify/code_prettify&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;rise&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;scroll&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;toc&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;skip_h1_title&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">IPython.notebook.config.update({
+  "load_extensions": {
+    "validate_assignment/main": true,
+    "execute_time/ExecuteTime": true,
+    "init_cell/main": true,
+    "printview/main": true,
+    "skip-traceback/main": true,
+    "hide_input/main": true,
+    "codefolding/main": true,
+    "scratchpad/main": true,
+    "spellchecker/main": true,
+    "create_assignment/main": true,
+    "ruler/main": true,
+    "collapsible_headings/main": true,
+    "latex_envs/latex_envs": true,
+    "exercise/main": true,
+    "select_keymap/main": true,
+    "toc2/main": true,
+    "code_prettify/code_prettify": true
+  },
+  "rise": {
+    "scroll": true
+  },
+  "toc": {
+    "skip_h1_title": true
+  }
+})
+</script></div>
+</div>
+<ul class="simple">
+<li><p>Refresh the page for the notebook extensions to take effect.</p></li>
+<li><p>You can learn more about the extensions from the <span class="xref myst">nbextensions page</span>.</p></li>
+</ul>
+<p>Instead of evaluation a code cell, we often ask you to write a code in a particular cell. Make sure you fill in any place that says <code class="docutils literal notranslate"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR ANSWER HERE”.</p>
+<p><strong>Exercise</strong> In learning a new computer language, the first program to write is often the <a class="reference external" href="https://en.wikipedia.org/wiki/%22Hello,_World%21%22_program">“Hello, World!”</a> program, which says Hello to the world. Type the program <code class="docutils literal notranslate"><span class="pre">print('Hello,</span> <span class="pre">World!')</span></code> below and run it with <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">15</span><span class="n">b94d1fa268</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># YOUR CODE HERE</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="ne">NotImplementedError</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to check your work thoroughly, there will visible and hidden test cases. The following is a visible test you can run to check your answer: The test returns an assertion error only if your program does not print the correct message.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this test cell right after running your &quot;Hello, World!&quot; program.</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">io</span>
+<span class="n">old_stdout</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">In</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Hello, World!</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">old_stdout</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Tips</strong></p>
+<ol class="simple">
+<li><p>You can repeatedly modify your solution and run the test cell your solution passes the test. You are not required to know how the test cell is written.</p></li>
+<li><p>To assess your solution thoroughly, we often run new tests hidden from you after you have submitted your notebook. There is no partial credit for a partially correct solution that works for the visible test but fails for the hidden test. Therefore, <em>you should ensure your solution works in general rather than just the visible tests</em>.</p></li>
+<li><p>You can click the <code class="docutils literal notranslate"><span class="pre">Validate</span></code> button to run all the visible tests.</p></li>
+<li><p>If you open the same notebook multiple times in different browser windows, be careful in making changes in different windows. Inconsistent changes may lead to conflicts or loss of your data.</p></li>
+<li><p>If your notebook fails to run any code, the Kernel might have died. You can restart the kernel with <code class="docutils literal notranslate"><span class="pre">Kernel-&gt;Restart</span></code>. If restarting fails, check your code cells to see if there are unsafe code that breaks the kernel.</p></li>
+</ol>
+</div>
+<div class="section" id="how-to-submit-a-notebook">
+<h3>How to submit a notebook<a class="headerlink" href="#how-to-submit-a-notebook" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Although this Lab is not graded, you are required to submit it, to get familiar with the procedure.</p></li>
+<li><p>Before you submit, however, make sure everything runs as expected:</p>
+<ol class="simple">
+<li><p><strong>Restart the kernel</strong>: <code class="docutils literal notranslate"><span class="pre">Kernel-&gt;Restart</span></code></p></li>
+<li><p><strong>run all cells</strong>: <code class="docutils literal notranslate"><span class="pre">Cell-&gt;Run</span> <span class="pre">All</span></code></p></li>
+</ol>
+</li>
+</ul>
+<p>To submit your notebook:</p>
+<ol class="simple">
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">Assignment</span></code> tab of JupyterHub where you fetched the Lab assignment.</p></li>
+<li><p>Expand the Lab folder and click the <code class="docutils literal notranslate"><span class="pre">validate</span></code> button next to the notebook(s) to check if all visible tests pass.</p></li>
+<li><p>Click the <code class="docutils literal notranslate"><span class="pre">Submit</span></code> to submit your notebook.</p></li>
+<li><p>You may submit as many time as your wish but we will only collect your latest submission before the <a class="reference external" href="https://canvas.cityu.edu.hk/courses/36768/assignments/128315?return_to=https%3A%2F%2Fcanvas.cityu.edu.hk%2Fcalendar%3Finclude_contexts%3Dcourse_36768%23view_name%3Dmonth%26view_start%3D2020-09-01">Lab 1 due date</a> for grading.</p></li>
+</ol>
+<p><strong>Tips</strong></p>
+<ol class="simple">
+<li><p>You normally have at least 5 days to work on the lab after your lab session.</p></li>
+<li><p>You can check the due dates of all the labs from the <a class="reference external" href="https://canvas.cityu.edu.hk/courses/36768">course homepage</a> or <a class="reference external" href="https://canvas.cityu.edu.hk/calendar?include_contexts=course_36768">course calendar</a>.</p></li>
+<li><p>You may seek help from us or your classmates. However, you must write your own solution and indicate who your collaborators are using the code <code class="docutils literal notranslate"><span class="pre">COLLABORATORS</span> <span class="pre">=</span> <span class="pre">'WONG</span> <span class="pre">Xiu</span> <span class="pre">Fong,</span> <span class="pre">LEE</span> <span class="pre">Man</span> <span class="pre">Kit'</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="how-to-print-or-backup-a-notebook">
+<h3>How to print or backup a notebook?<a class="headerlink" href="#how-to-print-or-backup-a-notebook" title="Permalink to this headline">¶</a></h3>
+<p>To convert a notebook to pdf, we can print it to pdf instead:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">File-&gt;Print</span> <span class="pre">Preview</span></code></p></li>
+</ul>
+<p>However, animation and video cannot be properly printed. You are highly recommended to takes notes on the dynamic notebook instead on the hard copy.</p>
+<p>To download a copy of your notebook:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">File-&gt;Download</span> <span class="pre">as-&gt;Notebook</span> <span class="pre">(.ipynb)</span></code></p></li>
+</ul>
+<p>You can run the notebook</p>
+<ul class="simple">
+<li><p>locally using <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a>, or</p></li>
+<li><p>remotely on other JupyHub services such as <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>.</p></li>
+</ul>
+<p>However, you would need to learn how to manage and install any additional packages required.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
