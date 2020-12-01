@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information Theory &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Monte Carlo and Root Finding" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html" />
+    <link rel="prev" title="Cybersecurity" href="../Lab7/Cybersecurity.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab8/Information Theory.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab8/Information Theory.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entropy">
+   Entropy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uniform-distribution-maximizes-entropy">
+   Uniform distribution maximizes entropy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-distribution-and-its-entropy">
+   Joint distribution and its entropy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-distribution-and-entropy">
+   Conditional distribution and entropy
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="information-theory">
+<h1>Information Theory<a class="headerlink" href="#information-theory" title="Permalink to this headline">¶</a></h1>
+<p>As mentioned in previous lectures, the following two lists <code class="docutils literal notranslate"><span class="pre">coin_flips</span></code> and <code class="docutils literal notranslate"><span class="pre">dice_rolls</span></code> simulate the random coin flips and rollings of a dice:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do NOT modify any variables defined here because some tests rely on them</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># for reproducible results.</span>
+<span class="n">num_trials</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">coin_flips</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span> <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="k">else</span> <span class="s1">&#39;T&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trials</span><span class="p">)]</span>
+<span class="n">dice_rolls</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trials</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;coin flips: &#39;</span><span class="p">,</span><span class="o">*</span><span class="n">coin_flips</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dice rolls: &#39;</span><span class="p">,</span><span class="o">*</span><span class="n">dice_rolls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the difference of the two random processes?<br />
+Can we say one process has more information content than the other?</strong></p>
+<p>In this Lab, we will use dictionaries to store their distributions and then compute their information content using information theory, which was introduced by <em>Claude E. Shannon</em>. It has <a class="reference external" href="https://www.khanacademy.org/computing/computer-science/informationtheory">numerous applications</a>:</p>
+<ul class="simple">
+<li><p><em>compression</em> (to keep files small)</p></li>
+<li><p><em>communications</em> (to send data mobile phones), and</p></li>
+<li><p><em>machine learning</em> (to identify relevant features to learn from).</p></li>
+</ul>
+<div class="section" id="entropy">
+<h2>Entropy<a class="headerlink" href="#entropy" title="Permalink to this headline">¶</a></h2>
+<p>Mathematically, we denote a distribution as <span class="math notranslate nohighlight">\(\mathbf{p}=[p_i]_{i\in \mathcal{S}}\)</span>, where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{S}\)</span> is the set of distinct outcomes, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> denotes the probability (chance) of seeing outcome <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+</ul>
+<p>The following code shown in the lecture uses a dictionary to store the distribution for a sequence efficiently without storing outcomes with zero counts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do NOT modify any variables defined here because some tests rely on them</span>
+<span class="k">def</span> <span class="nf">distribute</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns a dictionary where each value in a key-value pair is </span>
+<span class="sd">    the probability of the associated key occuring in the sequence.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+            <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="c1"># tests</span>
+<span class="n">coin_flips_dist</span> <span class="o">=</span> <span class="n">distribute</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">)</span>
+<span class="n">dice_rolls_dist</span> <span class="o">=</span> <span class="n">distribute</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distribution of coin flips:&#39;</span><span class="p">,</span> <span class="n">coin_flips_dist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distribution of dice rolls:&#39;</span><span class="p">,</span> <span class="n">dice_rolls_dist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> to be a valid distribution, the probabilities <span class="math notranslate nohighlight">\(p_i\)</span>’s have to sum to <span class="math notranslate nohighlight">\(1\)</span>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i\in \mathcal{S}} p_i = 1, \]</div>
+<p>which can be verified as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">coin_flips_dist</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span><span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">dice_rolls_dist</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to measure the information content?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/2s3aJfRr9gE&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In information theory, the information content of a distribution is measured by its <a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_(information_theory)"><em>entropy</em></a> defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{aligned} H(\mathbf{p}) &amp;:= \sum_{i\in \mathcal{S}} p_i \overbrace{\log_2 \tfrac{1}{p_i}}^{\text{called surprise} } \\ &amp;= - \sum_{i\in \mathcal{S}} p_i \log_2 p_i \kern1em \text{(bits)} \end{aligned}  \end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(p_i \log_2 \frac{1}{p_i} = 0\)</span> if <span class="math notranslate nohighlight">\(p_i = 0\)</span> because <span class="math notranslate nohighlight">\(\lim_{x\downarrow 0} x \log_2 \frac1x = 0\)</span>.</p>
+<p>For instance, if <span class="math notranslate nohighlight">\(\mathbf{p}=(p_{H},p_{T})=(0.5,0.5)\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} H(\mathbf{p}) &amp;= 0.5 \log_2 \frac{1}{0.5} + 0.5 \log_2 \frac{1}{0.5} \\ &amp;= 0.5 + 0.5 = 1  \text{ bit,}\end{aligned} \end{split}\]</div>
+<p>i.e., an outcome of a fair coin flip has one bit of information content, as expected.</p>
+<p>On the other hand, if <span class="math notranslate nohighlight">\(\mathbf{p}=(p_{H},p_{T})=(1,0)\)</span>, then
+$<span class="math notranslate nohighlight">\(\begin{aligned} H(\mathbf{p}) &amp;= 1 \log_2 \frac{1}{1} + 0 \log_2 \frac{1}{0} \\ &amp;= 0 + 0 = 0  \text{ bits,}\end{aligned} \)</span>$
+i.e., an outcome of a biased coin flip that always comes up head has no information content, again as expected.</p>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">entropy</span></code> that</p>
+<ul class="simple">
+<li><p>takes a distribution <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> as its argument, and</p></li>
+<li><p>returns the entropy <span class="math notranslate nohighlight">\(H(\mathbf{p})\)</span>.</p></li>
+</ul>
+<p>Handle the case when <span class="math notranslate nohighlight">\(p_i=0\)</span>, e.g., using the short-circuit evaluation of logical <code class="docutils literal notranslate"><span class="pre">and</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">dist</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">entropy</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">entropy</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">entropy</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)),</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uniform-distribution-maximizes-entropy">
+<h2>Uniform distribution maximizes entropy<a class="headerlink" href="#uniform-distribution-maximizes-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Intuitively,</p>
+<ul class="simple">
+<li><p>for large enough numbers of fair coin flips, we should have <span class="math notranslate nohighlight">\(\mathcal{S}=\{H,T\}\)</span> and <span class="math notranslate nohighlight">\(p_H=p_T=0.5\)</span>, i.e., equal chance for head and tail.</p></li>
+<li><p>for large enough numbers of fair dice rolls, we should have <span class="math notranslate nohighlight">\(p_i=\frac16\)</span> for all <span class="math notranslate nohighlight">\(i\in \mathcal{S}=\{1,2,3,4,5,6\}\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">distribute</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>   <span class="c1"># set-like view of the keys</span>
+             <span class="n">dist</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="c1"># view of the values</span>
+             <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Outcomes&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="n">n_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nb">max</span><span class="o">=</span><span class="n">num_trials</span><span class="p">,</span>
+    <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;n:&#39;</span><span class="p">,</span>
+    <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">widgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">plot_distribution</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">[:</span><span class="n">n</span><span class="p">]),</span><span class="n">n</span><span class="o">=</span><span class="n">n_widget</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">plot_distribution</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">[:</span><span class="n">n</span><span class="p">]),</span><span class="n">n</span><span class="o">=</span><span class="n">n_widget</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A distribution is called a <em>uniform distribution</em> if all its distinct outcomes have the same probability of occuring, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[ p_i = \frac{1}{|\mathcal{S}|}\kern1em  \text{for all }i\in \mathcal{S},  \]</div>
+<p>where <span class="math notranslate nohighlight">\(|\mathcal{S}|\)</span> is the mathematical notation to denote the size of the set <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>.</p>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">uniform</span></code> that</p>
+<ul class="simple">
+<li><p>takes a sequence of possibly duplicate outcomes, and</p></li>
+<li><p>returns a uniform distribution on the distinct outcomes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uniform</span><span class="p">(</span><span class="n">outcomes</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the uniform distribution (dict) over distinct items in outcomes.&#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;HT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;HTH&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+<span class="n">fair_dice_dist</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+    <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">fair_dice_dist</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="mf">0.16666666666666666</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="mf">0.16666666666666666</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="mf">0.16666666666666666</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="mf">0.16666666666666666</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="mf">0.16666666666666666</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="mf">0.16666666666666666</span>
+    <span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the entropy for uniform distributions?</strong></p>
+<p>By definition,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{aligned} H(\mathbf{p}) &amp;:= \sum_{i\in \mathcal{S}} p_i \log_2 \tfrac{1}{p_i} \\ &amp;= \sum_{i\in \mathcal{S}} \frac{1}{|\mathcal{S}|} \log_2 |\mathcal{S}| = \log_2 |\mathcal{S}|  \kern1em \text{(bits)} \end{aligned}  \end{split}\]</div>
+<p>This reduces to the formula you learned in Lecture 1 and Lab 1 regarding the number of bits required to represent a set. This is the maximum possible entropy for a given finite set of possible outcomes.</p>
+<p>You can use this result to test whether you have implemented both <code class="docutils literal notranslate"><span class="pre">entropy</span></code> and <code class="docutils literal notranslate"><span class="pre">uniform</span></code> correctly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">entropy</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))),</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="joint-distribution-and-its-entropy">
+<h2>Joint distribution and its entropy<a class="headerlink" href="#joint-distribution-and-its-entropy" title="Permalink to this headline">¶</a></h2>
+<p>If we duplicate a sequence of outcomes multiple times, the total information content should remain unchanged, NOT doubled, because the duplicate contain the same information as the original. We will verify this fact by creating a <a class="reference external" href="https://en.wikipedia.org/wiki/Joint_probability_distribution">joint distribution</a></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p}=[p_{ij}]_{i\in \mathcal{S},j\in \mathcal{T}}\]</div>
+<ul class="simple">
+<li><p>where <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> are sets of outcomes; and</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_{ij}\)</span> is the chance we see outcomes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> simultaneously.</p></li>
+</ul>
+<p>The subscript <span class="math notranslate nohighlight">\(ij\)</span> in <span class="math notranslate nohighlight">\(p_{ij}\)</span> denotes a tuple <span class="math notranslate nohighlight">\((i,j)\)</span>, NOT the multiplication <span class="math notranslate nohighlight">\(i\times j\)</span>. We also have</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{T}} p_{ij} = 1.\]</div>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">jointly_distribute</span></code> that</p>
+<ul class="simple">
+<li><p>takes two sequences <code class="docutils literal notranslate"><span class="pre">seq1</span></code> and <code class="docutils literal notranslate"><span class="pre">seq2</span></code> of outcomes with the same length, and</p></li>
+<li><p>returns the joint distribution represented as a dictionary where each key-value pair has the key being a tuple <code class="docutils literal notranslate"><span class="pre">(i,j)</span></code> associated with the probability <span class="math notranslate nohighlight">\(p_{ij}\)</span> of seeing <code class="docutils literal notranslate"><span class="pre">(i,j)</span></code> in <code class="docutils literal notranslate"><span class="pre">zip(seq1,seq2)</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jointly_distribute</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the joint distribution of the tuple (i,j) of outcomes from zip(seq1,seq2).&#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">jointly_distribute</span><span class="p">(</span><span class="s1">&#39;HT&#39;</span><span class="p">,</span> <span class="s1">&#39;HT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.5</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">jointly_distribute</span><span class="p">(</span><span class="s1">&#39;HHTT&#39;</span><span class="p">,</span> <span class="s1">&#39;HTHT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span>
+    <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.25</span>
+<span class="p">}</span>
+<span class="n">coin_flips_duplicate_dist</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.5350000000000004</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.4650000000000003</span>
+<span class="p">}</span>
+<span class="n">coin_flips_duplicate_ans</span> <span class="o">=</span> <span class="n">jointly_distribute</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">,</span> <span class="n">coin_flips</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+    <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">coin_flips_duplicate_ans</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pi</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">coin_flips_duplicate_dist</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you have implemented <code class="docutils literal notranslate"><span class="pre">entropy</span></code> and <code class="docutils literal notranslate"><span class="pre">jointly_distribute</span></code> correctly, you can verify that duplicating a sequence will give the same entropy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">entropy</span><span class="p">(</span><span class="n">jointly_distribute</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">,</span><span class="n">coin_flips</span><span class="p">)),</span> <span class="n">entropy</span><span class="p">(</span><span class="n">distribute</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">)))</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">entropy</span><span class="p">(</span><span class="n">jointly_distribute</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">,</span><span class="n">dice_rolls</span><span class="p">)),</span> <span class="n">entropy</span><span class="p">(</span><span class="n">distribute</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, for two sequences generated independently, the joint entropy is roughly the sum of the individual entropies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coin_flips_entropy</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">distribute</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">))</span>
+<span class="n">dice_rolls_entropy</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">distribute</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">))</span>
+<span class="n">cf_dr_entropy</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">jointly_distribute</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">,</span> <span class="n">dice_rolls</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;Entropy of coin flip: </span><span class="si">{</span><span class="n">coin_flips_entropy</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">Entropy of dice roll: </span><span class="si">{</span><span class="n">dice_rolls_entropy</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">Sum of the above entropies: </span><span class="si">{</span><span class="n">coin_flips_entropy</span> <span class="o">+</span> <span class="n">dice_rolls_entropy</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">Joint entropy: </span><span class="si">{</span><span class="n">cf_dr_entropy</span><span class="si">}</span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conditional-distribution-and-entropy">
+<h2>Conditional distribution and entropy<a class="headerlink" href="#conditional-distribution-and-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Mathematically, we denote a <a class="reference external" href="https://en.wikipedia.org/wiki/Conditional_probability_distribution">conditional distribution</a> as <span class="math notranslate nohighlight">\(\mathbf{q}:=[q_{j|i}]_{i\in \mathcal{S}, j\in \mathcal{T}}\)</span>, where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{S}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> are two sets of distinct outcomes, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(q_{j|i}\)</span> denotes the probability (chance) of seeing outcome <span class="math notranslate nohighlight">\(j\)</span> given the condition that outcome <span class="math notranslate nohighlight">\(i\)</span> is observed.</p></li>
+</ul>
+<p>For <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> to be a valid distribution, the probabilities <span class="math notranslate nohighlight">\(q_{j|i}\)</span>’s have to sum to <span class="math notranslate nohighlight">\(1\)</span> for every <span class="math notranslate nohighlight">\(i\)</span>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j\in \mathcal{T}} q_{j|i} = 1 \kern1em \text{for all }i\in \mathcal{S} \]</div>
+<p>For example, suppose we want to compute the distribution of coin flips given dice rolls, then the following assign <code class="docutils literal notranslate"><span class="pre">q_H_1</span></code> and <code class="docutils literal notranslate"><span class="pre">q_T_1</span></code> to the values <span class="math notranslate nohighlight">\(q_{H|1}\)</span> and <span class="math notranslate nohighlight">\(q_{T|1}\)</span> respectively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coin_flips_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">,</span> <span class="n">coin_flips</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">q_H_1</span> <span class="o">=</span> <span class="n">coin_flips_1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">coin_flips_1</span><span class="p">)</span>
+<span class="n">q_T_1</span> <span class="o">=</span> <span class="n">coin_flips_1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">coin_flips_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coin flips given dice roll is 1:&#39;</span><span class="p">,</span> <span class="n">coin_flips_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distribution of coin flip given dice roll is 1: {{ &quot;H&quot;: </span><span class="si">{}</span><span class="s1">, &quot;T&quot;: </span><span class="si">{}</span><span class="s1">}}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q_H_1</span><span class="p">,</span> <span class="n">q_T_1</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">q_H_1</span> <span class="o">+</span> <span class="n">q_T_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">q_H_1</span> <span class="pre">+</span> <span class="pre">q_T_1</span></code> is 1 as expected. Similarly, we can assign <code class="docutils literal notranslate"><span class="pre">q_H_2</span></code> and <code class="docutils literal notranslate"><span class="pre">q_T_2</span></code> to the values <span class="math notranslate nohighlight">\(q_{H|2}\)</span> and <span class="math notranslate nohighlight">\(q_{T|2}\)</span> respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coin_flips_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">,</span> <span class="n">coin_flips</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">q_H_2</span> <span class="o">=</span> <span class="n">coin_flips_2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">coin_flips_2</span><span class="p">)</span>
+<span class="n">q_T_2</span> <span class="o">=</span> <span class="n">coin_flips_2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">coin_flips_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coin flips given dice roll is 2:&#39;</span><span class="p">,</span> <span class="n">coin_flips_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distribution of coin flip given dice roll is 2: {{ &quot;H&quot;: </span><span class="si">{}</span><span class="s1">, &quot;T&quot;: </span><span class="si">{}</span><span class="s1">}}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q_H_2</span><span class="p">,</span> <span class="n">q_T_2</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">q_H_2</span> <span class="o">+</span> <span class="n">q_T_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we want to store the conditional distribution as a nested dictionary so that <code class="docutils literal notranslate"><span class="pre">q[i]</span></code> points to the distribution</p>
+<div class="math notranslate nohighlight">
+\[[q_{j|i}]_{j\in \mathcal{T}} \kern1em \text{for }i\in \mathcal{S}.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;HT&#39;</span><span class="p">,(</span><span class="n">q_H_1</span><span class="p">,</span> <span class="n">q_T_1</span><span class="p">)))</span>
+<span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;HT&#39;</span><span class="p">,(</span><span class="n">q_H_2</span><span class="p">,</span> <span class="n">q_T_2</span><span class="p">)))</span>
+<span class="n">q</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course, the above dictionary is missing the entries for other possible outcomes of the dice rolls.</p>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">conditionally_distribute</span></code> that</p>
+<ul class="simple">
+<li><p>takes two sequences <code class="docutils literal notranslate"><span class="pre">seq1</span></code> and <code class="docutils literal notranslate"><span class="pre">seq2</span></code> of outcomes of the same length, and</p></li>
+<li><p>returns the conditional distribution of <code class="docutils literal notranslate"><span class="pre">seq2</span></code> given <code class="docutils literal notranslate"><span class="pre">seq1</span></code> in the form of a nested dictionary efficiently without storing the unobserved outcomes.</p></li>
+</ul>
+<p>In the above example, <code class="docutils literal notranslate"><span class="pre">seq1</span></code> is <code class="docutils literal notranslate"><span class="pre">dice_rolls</span></code> while <code class="docutils literal notranslate"><span class="pre">seq2</span></code> is <code class="docutils literal notranslate"><span class="pre">coin_flips</span></code>.</p>
+<p><em>Hint:</em> For an efficient implementation without traversing the input sequences too many times, consider using the following solution template and the <code class="docutils literal notranslate"><span class="pre">setdefault</span></code> method.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conditionally_distribute</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+    <span class="n">q</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>  <span class="c1"># NOT q = count = {}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq1</span><span class="p">:</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+        <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">____________________________________________________</span>
+    <span class="k">return</span> <span class="n">q</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conditionally_distribute</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the conditional distribution q of seq2 given seq1 such that</span>
+<span class="sd">    q[i] is a dictionary for observed outcome i in seq1 and</span>
+<span class="sd">    q[i][j] is the probability of observing j in seq2 given the </span>
+<span class="sd">    corresponding outcome in seq1 is i.&#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">cf_given_dr_dist</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5588235294117647</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.4411764705882353</span>
+    <span class="p">},</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.46511627906976744</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5348837209302325</span>
+    <span class="p">},</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5135135135135135</span><span class="p">,</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.4864864864864865</span>
+    <span class="p">},</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5454545454545454</span><span class="p">,</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.45454545454545453</span>
+    <span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.7586206896551724</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.2413793103448276</span>
+    <span class="p">},</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5416666666666666</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.4583333333333333</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">cf_given_dr_ans</span> <span class="o">=</span> <span class="n">conditionally_distribute</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">,</span> <span class="n">coin_flips</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span>
+    <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">cf_given_dr_ans</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">cf_given_dr_dist</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Conditional_entropy"><em>conditional entropy</em></a> is defined for a conditional distribution <span class="math notranslate nohighlight">\(\mathbf{q}=[q_{j|i}]_{i\in \mathcal{S},j\in\mathcal{T}}\)</span> and a distribution <span class="math notranslate nohighlight">\(\mathbf{p}=[p_i]_{i\in \mathcal{S}}\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[ H(\mathbf{q}|\mathbf{p}) = \sum_{i\in \mathcal{S}} p_i \sum_{j\in \mathcal{T}} q_{j|i} \log_2 \frac{1}{q_{j|i}}, \]</div>
+<p>where, by convention,</p>
+<ul class="simple">
+<li><p>the summand of the outer sum is 0 if <span class="math notranslate nohighlight">\(p_i=0\)</span> (regardless of the values of <span class="math notranslate nohighlight">\(q_{j|i}\)</span>), and</p></li>
+<li><p>the summand of the inner sum is 0 if <span class="math notranslate nohighlight">\(q_{j|i}=0\)</span>.</p></li>
+</ul>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">conditional_entropy</span></code> that</p>
+<ul class="simple">
+<li><p>takes</p>
+<ul>
+<li><p>a distribution p as its first argument,</p></li>
+<li><p>a conditional distribution q as its second argument, and</p></li>
+</ul>
+</li>
+<li><p>returns the conditional entropy <span class="math notranslate nohighlight">\(H(\mathbf{q}|\mathbf{p})\)</span>.</p></li>
+</ul>
+<p>Handle the cases when <span class="math notranslate nohighlight">\(p_i=0\)</span> and <span class="math notranslate nohighlight">\(q_{j|i}=0\)</span> as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">cf_given_dr_dist</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5588235294117647</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.4411764705882353</span>
+    <span class="p">},</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.46511627906976744</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5348837209302325</span>
+    <span class="p">},</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5135135135135135</span><span class="p">,</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.4864864864864865</span>
+    <span class="p">},</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5454545454545454</span><span class="p">,</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.45454545454545453</span>
+    <span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.7586206896551724</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.2413793103448276</span>
+    <span class="p">},</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5416666666666666</span><span class="p">,</span>
+        <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.4583333333333333</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">assert</span> <span class="n">conditional_entropy</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}})</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">conditional_entropy</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}})</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">conditional_entropy</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}})</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">conditional_entropy</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}})</span> <span class="o">==</span> <span class="mf">0.5</span>
+<span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">conditional_entropy</span><span class="p">(</span><span class="n">dice_rolls_dist</span><span class="p">,</span> <span class="n">cf_given_dr_dist</span><span class="p">),</span> <span class="mf">0.9664712793722372</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The joint probability <span class="math notranslate nohighlight">\(p_{ij}\)</span> over <span class="math notranslate nohighlight">\(i\in \mathcal{S}\)</span> and <span class="math notranslate nohighlight">\(j\in \mathcal{T}\)</span> can be calculated as follows</p>
+<div class="math notranslate nohighlight">
+\[p_{ij} = p_{i} q_{j|i}\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_i\)</span> is the probability of <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(q_{j|i}\)</span> is the conditional probability of <span class="math notranslate nohighlight">\(j\)</span> given <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">joint_distribution</span></code> that</p>
+<ul class="simple">
+<li><p>takes the distribution <span class="math notranslate nohighlight">\(p\)</span> and conditional distribution <span class="math notranslate nohighlight">\(q\)</span> as arguments, and</p></li>
+<li><p>returns their joint distribution.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">joint_distribution</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">joint_distribution</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}})</span> <span class="o">==</span> <span class="p">{(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.25</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">joint_distribution</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}})</span> <span class="o">==</span> <span class="p">{(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.5</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">joint_distribution</span><span class="p">({</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}})</span> <span class="o">==</span> <span class="p">{(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">):</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="mf">0.5</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, a fundamental information identity, called the <a class="reference external" href="https://en.wikipedia.org/wiki/Conditional_entropy#Chain_rule"><em>chain rule</em></a>, is that the joint entropy is equal to</p>
+<div class="math notranslate nohighlight">
+\[ H(\mathbf{p}) + H(\mathbf{q}|\mathbf{p})\]</div>
+<p>for any distribution <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> over outcome <span class="math notranslate nohighlight">\(i\in \mathcal{S}\)</span> and conditional distribution <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> over outcome <span class="math notranslate nohighlight">\(j\in \mathcal{T}\)</span> given outcome <span class="math notranslate nohighlight">\(i \in \mathcal{S}\)</span>.</p>
+<p>If you have implemented <code class="docutils literal notranslate"><span class="pre">jointly_distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">conditionally_distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">entropy</span></code>, and <code class="docutils literal notranslate"><span class="pre">conditional_entropy</span></code> correctly, we can verify the identity as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_chain_rule</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">distribute</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">conditionally_distribute</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">)</span>
+    <span class="n">pq</span> <span class="o">=</span> <span class="n">jointly_distribute</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span><span class="n">seq2</span><span class="p">)</span>
+    <span class="n">H_pq</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+    <span class="n">H_p</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">H_q_p</span> <span class="o">=</span> <span class="n">conditional_entropy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;Entropy of seq1: </span><span class="si">{</span><span class="n">H_p</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">Conditional entropy of seq2 given seq1: </span><span class="si">{</span><span class="n">H_q_p</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">Sum of the above entropies: </span><span class="si">{</span><span class="n">H_p</span> <span class="o">+</span> <span class="n">H_q_p</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">Joint entropy: </span><span class="si">{</span><span class="n">H_pq</span><span class="si">}</span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">H_pq</span><span class="p">,</span><span class="n">H_p</span> <span class="o">+</span> <span class="n">H_q_p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validate_chain_rule</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">,</span><span class="n">coin_flips</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validate_chain_rule</span><span class="p">(</span><span class="n">dice_rolls</span><span class="p">,</span><span class="n">coin_flips</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lab7/Cybersecurity.html" title="previous page">Cybersecurity</a>
+    <a class='right-next' id="next-link" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html" title="next page">Monte Carlo and Root Finding</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -326,7 +326,7 @@ np.int64(2**63)   # overflow error
 
 # We can use the `astype` method to convert the data type:
 
-# In[17]:
+# In[10]:
 
 
 A_int64 = A.astype(int)       # converts to int64 by default
@@ -337,7 +337,7 @@ for array in A_int64, A_float32:
 
 # We have to be careful about assigning items of different types to an array.
 
-# In[18]:
+# In[11]:
 
 
 A_int64[0,0] = 1
@@ -353,7 +353,7 @@ np.array([int(1), float(1)])  # will be all floating point numbers
 # ```
 # *Hint:* There is an numpy data type called `object`.
 
-# In[19]:
+# In[12]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.object')
@@ -365,7 +365,7 @@ heterogeneous_np_array
 
 # Be careful when creating arrays of `tuple`/`list`:
 
-# In[20]:
+# In[13]:
 
 
 for array in (np.array([(1,2),[3,4,5]],dtype=object),
@@ -375,35 +375,35 @@ for array in (np.array([(1,2),[3,4,5]],dtype=object),
 
 # `numpy` provides many functions to create an array:
 
-# In[21]:
+# In[14]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.zeros')
 np.zeros(0), np.zeros(1), np.zeros((2,3,4))  # Dimension can be higher than 2
 
 
-# In[22]:
+# In[15]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.ones')
 np.ones(0, dtype=int), np.ones((2,3,4), dtype=int)  # initialize values to int 1
 
 
-# In[23]:
+# In[16]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.eye')
 np.eye(0), np.eye(1), np.eye(2), np.eye(3)  # identity matrices
 
 
-# In[24]:
+# In[17]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.diag')
 np.diag(range(1)), np.diag(range(2)), np.diag(np.ones(3),k=1)  # diagonal matrices
 
 
-# In[25]:
+# In[18]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.empty')
@@ -412,21 +412,21 @@ np.empty(0), np.empty((2,3,4), dtype=int)  # create array faster without initial
 
 # `numpy` also provides functions to build an array using rules.
 
-# In[26]:
+# In[19]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.arange')
 np.arange(5), np.arange(4,5), np.arange(4.5,5.5,0.5)  # like range but allow non-integer parameters
 
 
-# In[27]:
+# In[20]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.linspace')
 np.linspace(4,5), np.linspace(4,5,11), np.linspace(4,5,11)  # can specify number of points instead of step
 
 
-# In[28]:
+# In[21]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.fromfunction')
@@ -435,7 +435,7 @@ np.fromfunction(lambda i, j: i * j, (3,4))  # can initialize using a function
 
 # We can also reshape an array using the `reshape` method/function:
 
-# In[29]:
+# In[22]:
 
 
 array = np.arange(2*3*4)
@@ -449,7 +449,7 @@ get_ipython().run_line_magic('pinfo', 'array.reshape')
 # `flatten` is a special case of reshaping an array to one dimension.  
 # (Indeed, `flatten` returns a copy of the array but `reshape` returns a dynamic view whenever possible.)
 
-# In[30]:
+# In[23]:
 
 
 array = np.arange(2*3*4).reshape(2,3,4)
@@ -463,7 +463,7 @@ array, array.flatten(), array.reshape(-1), array.flatten(order='F')
 #         print(i)
 # ```
 
-# In[31]:
+# In[24]:
 
 
 def print_array_entries_line_by_line(array):
@@ -489,7 +489,7 @@ print_array_entries_line_by_line(np.arange(2*3*4).reshape(2,3,4))
 
 # `numpy` provides the function `matmul` and the operator `@` for matrix multiplication.
 
-# In[292]:
+# In[25]:
 
 
 print(np.matmul(A,np.array([0,0])) == b)
@@ -500,7 +500,7 @@ print(A @ np.array([0,0.5]) == b)
 
 # To check whether all items are true, we use the `all` method.
 
-# In[295]:
+# In[26]:
 
 
 print((np.matmul(A,np.array([0,0])) == b).all())
@@ -524,7 +524,7 @@ print((A @ np.array([0,0.5]) == b).all())
 
 # `numpy` provides functions to create block matrices:
 
-# In[265]:
+# In[27]:
 
 
 get_ipython().run_line_magic('pinfo', 'np.block')
@@ -534,7 +534,7 @@ C
 
 # To stack an array along different axes:
 
-# In[258]:
+# In[28]:
 
 
 array = np.arange(1*2*3).reshape(1,2,3)
@@ -550,7 +550,7 @@ for concat_array in [array,
 
 # To divide all the coefficients by $2$, we can simply write:
 
-# In[273]:
+# In[29]:
 
 
 D = C / 2
@@ -559,7 +559,7 @@ D
 
 # Note that the above does not work for `list`.
 
-# In[274]:
+# In[30]:
 
 
 C.tolist() / 2 # deep convert to list
@@ -572,7 +572,7 @@ C.tolist() / 2 # deep convert to list
 # `numpy` uses [broadcasting rules](https://numpy.org/doc/stable/user/basics.broadcasting.html#general-broadcasting-rules) to stretch the axis of size 1 up to match the corresponding axis in other arrays.  
 # `C / 2` is a example where the second operand $2$ is broadcasted to a $2$-by-$2$ matrix before the elementwise division. Another example is as follows. 
 
-# In[268]:
+# In[31]:
 
 
 three_by_one = np.arange(3).reshape(3,1)
@@ -588,7 +588,7 @@ print(f'''
 
 # Next, to subtract the second row of the coefficients from the first row:
 
-# In[275]:
+# In[32]:
 
 
 D[0,:] = D[0,:] - D[1,:]
@@ -597,7 +597,7 @@ D
 
 # Notice the use of commas to index different dimensions instead of using multiple brackets:
 
-# In[285]:
+# In[33]:
 
 
 assert (D[0][:] == D[0,:]).all()
@@ -605,7 +605,7 @@ assert (D[0][:] == D[0,:]).all()
 
 # Using this indexing technique, it is easy extract the last column as the solution to the system of linear equations:
 
-# In[278]:
+# In[34]:
 
 
 x = D[:,-1]
@@ -620,28 +620,28 @@ x
 
 # `numpy` provides many [convenient ways](https://numpy.org/doc/stable/reference/arrays.indexing.html#advanced-indexing) to index an array.
 
-# In[91]:
+# In[35]:
 
 
 B = np.arange(2*3).reshape(2,3)
 B, B[(0,1),(2,0)]  # selecting the corners using integer array
 
 
-# In[281]:
+# In[36]:
 
 
 B = np.arange(2*3*4).reshape(2,3,4)
 B, B[0], B[0,(1,2)], B[0,(1,2),(2,3)], B[:,(1,2),(2,3)]  # pay attention to the last two cases
 
 
-# In[282]:
+# In[37]:
 
 
 assert (B[...,-1] == B[:,:,-1]).all()
 B[...,-1]  # ... expands to selecting all elements of all previous dimensions
 
 
-# In[283]:
+# In[38]:
 
 
 B[B>5]  # indexing using boolean array
@@ -649,7 +649,7 @@ B[B>5]  # indexing using boolean array
 
 # Finally, the following function solves a system of 2 linear equations with 2 variables.
 
-# In[61]:
+# In[39]:
 
 
 def solve_2_by_2_system(A,b):
@@ -666,7 +666,7 @@ def solve_2_by_2_system(A,b):
     return C[:,-1]
 
 
-# In[65]:
+# In[40]:
 
 
 # tests
@@ -685,7 +685,7 @@ for A in (np.eye(2),
 #        [(1,1), (1,2), (1,3)]])
 # ```
 
-# In[95]:
+# In[41]:
 
 
 print(np.fromfunction(lambda i,j:(i,j), (2,3), dtype=int))
@@ -698,7 +698,7 @@ print(np.fromfunction(lambda i,j:(i*j), (2,3), dtype=int))
 
 # Indeed, `numpy` implements [universal/vectorized functions/operators](https://numpy.org/doc/stable/reference/ufuncs.html) that take arrays as arguments and perform operations with appropriate broadcasting rules. The following is an example that uses the universal function `np.sin`:
 
-# In[107]:
+# In[42]:
 
 
 import matplotlib.pyplot as plt

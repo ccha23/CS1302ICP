@@ -165,14 +165,14 @@ increment_user_input()  # still lead to runtime error
 
 # **Can we increment a variable instead of returning its increment?**
 
-# In[11]:
+# In[13]:
 
 
 def increment(x):
     x += 1
 
 
-# In[12]:
+# In[14]:
 
 
 x = 3
@@ -182,7 +182,7 @@ print(x)  # 4?
 
 # Does the above code increment `x`?
 
-# In[17]:
+# In[15]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 350', 'def increment(x):\n    x += 1\n\n\nx = 3\nincrement(x)\nprint(x)')

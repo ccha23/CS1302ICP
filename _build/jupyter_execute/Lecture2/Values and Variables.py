@@ -230,7 +230,7 @@ x, y
 
 # **Exercise** Evaluate the following cell and check if any of the rules above is violated.
 
-# In[16]:
+# In[21]:
 
 
 from ipywidgets import interact
@@ -272,7 +272,7 @@ def identifier_syntax(assignment=['a-number = 15',
 # - There is no need to delimit the input string by quotation marks.
 # - Simply press `enter` after typing a string.
 
-# In[ ]:
+# In[22]:
 
 
 print('Your name is', input('Please input your name: '))
@@ -283,7 +283,7 @@ print('Your name is', input('Please input your name: '))
 
 # **Exercise** Explain whether the following code prints `'My name is Python'`. Does `print` return a value? 
 
-# In[ ]:
+# In[23]:
 
 
 print('My name is', print('Python'))
@@ -296,7 +296,7 @@ print('My name is', print('Python'))
 
 # The following program tries to compute the sum of two numbers from user inputs:
 
-# In[ ]:
+# In[24]:
 
 
 num1 = input('Please input an integer: ')
@@ -315,7 +315,7 @@ print(num1, '+', num2, 'is equal to', num1 + num2)
 
 # To see this, we can use `type` to return the data type of an expression.
 
-# In[ ]:
+# In[25]:
 
 
 num1 = input('Please input an integer: ')
@@ -324,7 +324,7 @@ print('Your input is', num1, 'with type', type(num1))
 
 # **Exercise** `type` applies to any expressions. Try it out below on `15`, `print`, `print()`, `input`, and even `type` itself and `type(type)`.
 
-# In[ ]:
+# In[26]:
 
 
 type(15), type(print), type(print()), type(input), type(type), type(type(type))
@@ -332,7 +332,7 @@ type(15), type(print), type(print()), type(input), type(type), type(type(type))
 
 # **So what happens when we add strings together?**
 
-# In[ ]:
+# In[27]:
 
 
 '4' + '5' + '6'
@@ -342,7 +342,7 @@ type(15), type(print), type(print()), type(input), type(type), type(type(type))
 
 # We can convert a string to an integer using `int`.
 
-# In[ ]:
+# In[28]:
 
 
 int('4') + int('5') + int('6')
@@ -350,7 +350,7 @@ int('4') + int('5') + int('6')
 
 # We can also convert an integer to a string using `str`.
 
-# In[ ]:
+# In[29]:
 
 
 str(4) + str(5) + str(6)
@@ -358,7 +358,7 @@ str(4) + str(5) + str(6)
 
 # **Exercise** Fix the bug in the following cell.
 
-# In[ ]:
+# In[30]:
 
 
 num1 = input('Please input an integer: ')
@@ -382,14 +382,14 @@ print(num1, '+', num2, 'is equal to', int(num1) + int(num2))
 # Other kinds of error may be detected automatically.  
 # As an example, note that we can omit `+` for string concatenation, but we cannot omit it for integer summation:
 
-# In[ ]:
+# In[31]:
 
 
 print('Skipping + for string concatenation')
 '4' '5' '6'
 
 
-# In[ ]:
+# In[32]:
 
 
 print('Skipping + for integer summation')
@@ -406,7 +406,7 @@ print('Skipping + for integer summation')
 
 # The following code raises a different kind of error.
 
-# In[ ]:
+# In[33]:
 
 
 print("Evaluating '4' + '5' + 6")
@@ -431,7 +431,7 @@ print("Evaluating '4' + '5' + 6")
 # - JavaScript, which is a *weakly-typed* language that forces a type conversion to avoid a type error.
 # - C, which is a *statically-typed* language that does not allow data type to change at runtime.
 
-# In[ ]:
+# In[34]:
 
 
 get_ipython().run_cell_magic('javascript', '', "alert('4' + '5' + 6)  // no error because 6 is converted to a str automatically")
@@ -442,7 +442,7 @@ get_ipython().run_cell_magic('javascript', '', "alert('4' + '5' + 6)  // no erro
 
 # **Exercise** Not all the strings can be converted into integers. Try breaking the following code by providing invalid inputs and record them in the subsequent cell. Explain whether the errors are runtime errors.
 
-# In[ ]:
+# In[35]:
 
 
 num1 = input('Please input an integer: ')
@@ -464,7 +464,7 @@ print(num1, '+', num2, 'is equal to', int(num1) + int(num2))
 
 # **How to enter fractions in a program?**
 
-# In[ ]:
+# In[36]:
 
 
 x = -0.1 # decimal number
@@ -485,7 +485,7 @@ x, y, z, type(x), type(y), type(z)
 
 # Integers in mathematics may be regarded as a `float` instead of `int`:
 
-# In[ ]:
+# In[37]:
 
 
 type(1.0), type(1e2)
@@ -493,7 +493,7 @@ type(1.0), type(1e2)
 
 # You can also convert an `int` or a `str` to a `float`.
 
-# In[ ]:
+# In[38]:
 
 
 float(1), float('1')
@@ -503,7 +503,7 @@ float(1), float('1')
 
 # Python stores a [floating point](https://docs.python.org/3/library/sys.html#sys.float_info) with finite precision (usually as a 64bit binary fraction):
 
-# In[ ]:
+# In[39]:
 
 
 import sys
@@ -512,7 +512,7 @@ sys.float_info
 
 # It cannot represent a number larger than the `max`:
 
-# In[ ]:
+# In[40]:
 
 
 sys.float_info.max * 2
@@ -520,7 +520,7 @@ sys.float_info.max * 2
 
 # The precision also affects the check for equality.
 
-# In[33]:
+# In[41]:
 
 
 (1.0 == 1.0 + sys.float_info.epsilon * 0.5, # returns true if equal
@@ -529,7 +529,7 @@ sys.float_info.max * 2
 
 # Another issue with float is that it may keep more decimal places than desired.
 
-# In[ ]:
+# In[42]:
 
 
 1/3
@@ -537,7 +537,7 @@ sys.float_info.max * 2
 
 # **How to [round](https://docs.python.org/3/library/functions.html#round) a floating point number to the desired number of decimal places?**
 
-# In[ ]:
+# In[43]:
 
 
 round(2.665,2), round(2.675,2)
@@ -550,7 +550,7 @@ round(2.665,2), round(2.675,2)
 
 # The `round` function can also be applied to an integer.
 
-# In[ ]:
+# In[44]:
 
 
 round(150,-2), round(250,-2)
@@ -566,7 +566,7 @@ round(150,-2), round(250,-2)
 
 # This is possible with [*format specifications*](https://docs.python.org/3/library/string.html#format-specification-mini-language).
 
-# In[ ]:
+# In[45]:
 
 
 x = 10000/3
@@ -581,7 +581,7 @@ x
 
 # **Exercise** Play with the following widget to learn the effect of different format specifications. In particular, print `10000/3` as `3,333.33`.
 
-# In[21]:
+# In[46]:
 
 
 from ipywidgets import interact
@@ -597,7 +597,7 @@ def print_float(x,sign,align,grouping,width=0,precision=2):
     print("x ≈",format_spec.format(eval(x)))
 
 
-# In[23]:
+# In[47]:
 
 
 print('{:,.2f}'.format(10000/3))
@@ -606,7 +606,7 @@ print('{:,.2f}'.format(10000/3))
 # String formatting is useful for different data types other than `float`.  
 # E.g., consider the following program that prints a time specified by some variables.
 
-# In[ ]:
+# In[48]:
 
 
 # Some specified time
@@ -624,7 +624,7 @@ print("The time is " + str(hour) + ":" + str(minute) + ":" + str(second)+".")
 
 # Omitting `+` leads to syntax error. Removing `str` as follows also does not give the desired format.
 
-# In[ ]:
+# In[49]:
 
 
 print("The time is ", hour, ":", minute, ":", second, ".")  # note the extra spaces
@@ -632,7 +632,7 @@ print("The time is ", hour, ":", minute, ":", second, ".")  # note the extra spa
 
 # To make the code more readable, we can use the `format` function as follows.
 
-# In[ ]:
+# In[50]:
 
 
 message = "The time is {}:{}:{}."
@@ -647,7 +647,7 @@ print(message.format(hour,minute,second))
 # - indices *(0 is the first item)* or 
 # - names inside the placeholder `{}`:
 
-# In[10]:
+# In[51]:
 
 
 print("You should {0} {1} what I say instead of what I {0}.".format("do", "only"))
@@ -656,7 +656,7 @@ print("The surname of {first} {last} is {last}.".format(first="John", last="Doe"
 
 # You can even put variables inside the format specification directly and have a nested string formatting.
 
-# In[ ]:
+# In[52]:
 
 
 align, width = "^", 5
@@ -667,7 +667,7 @@ print(f"{{:*{align}{width}}}".format(x))  # note the syntax f"..."
 # 1. What happens when `align` is none but `fill` is `*`?
 # 1. What happens when the `expression` is a multi-line string?
 
-# In[20]:
+# In[53]:
 
 
 from ipywidgets import interact

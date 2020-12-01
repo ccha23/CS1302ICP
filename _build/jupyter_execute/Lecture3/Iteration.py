@@ -92,7 +92,7 @@ for i in range(stop):
 
 # **How to start from a number different from `0`?**
 
-# In[8]:
+# In[7]:
 
 
 for i in range(1,5): print(i)
@@ -100,7 +100,7 @@ for i in range(1,5): print(i)
 
 # **What about a step size different from `1`?**
 
-# In[9]:
+# In[8]:
 
 
 for i in range(0,5,2): print(i)  # starting number must also be specified. Why?
@@ -108,7 +108,7 @@ for i in range(0,5,2): print(i)  # starting number must also be specified. Why?
 
 # **Exercise** How to count down from 4 to 0? Do it without addition or subtraction.
 
-# In[10]:
+# In[9]:
 
 
 ### BEGIN SOLUTION
@@ -128,7 +128,7 @@ for i in range(4,-1,-1): print(i)
 # 
 # *Note:* `range` only accepts integer arguments.
 
-# In[12]:
+# In[10]:
 
 
 num = int(input('>'))
@@ -141,7 +141,7 @@ for i in range(0, 2 * num + 1, 1):
 # **Exercise** How to print the character `'*'` repeatedly for `m` rows and `n` columns?  
 # *Hint:* Use a *nested for loop*, i.e., write a for loop (called *inner loop*) inside the body of another for loop (*outer loop*).
 
-# In[13]:
+# In[11]:
 
 
 @interact(m=(0, 10), n=(0, 10))
@@ -158,7 +158,7 @@ def draw_rectangle(m=5, n=5):
 
 # **What does the following do?**
 
-# In[7]:
+# In[12]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "for character in 'loop': print(character)")
@@ -168,7 +168,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "for character in 'loop': prin
 # - The function [`len`](https://docs.python.org/3/library/functions.html#len) can return the length of a string.
 # - The indexing operator `[]` can return the character of a string at a specified location.
 
-# In[15]:
+# In[13]:
 
 
 message = "loop"
@@ -178,7 +178,7 @@ print('characters:', message[0], message[1], message[2], message[3])
 
 # We can also iterate over a string as follows although it is less elegant:
 
-# In[16]:
+# In[14]:
 
 
 for i in range(len('loop')): print('loop'[i])
@@ -187,7 +187,7 @@ for i in range(len('loop')): print('loop'[i])
 # **Exercise** Print a string assigned to `message` in reverse.  
 # E.g., `'loop'` should be printed as `'pool'`.
 
-# In[17]:
+# In[15]:
 
 
 @interact(message='loop')
@@ -204,7 +204,7 @@ def reverse_print(message):
 
 # Python provides the [`while` statement](https://docs.python.org/3/reference/compound_stmts.html#while) to loop until a specified condition is false.
 
-# In[18]:
+# In[16]:
 
 
 while not input('Input something please:'): pass
@@ -223,7 +223,7 @@ while not input('Input something please:'): pass
 # It is possible, however, to replace a for loop by a while loop.  
 # E.g., the following code prints from `0` to `4` using a while loop instead of a for loop.
 
-# In[19]:
+# In[17]:
 
 
 i = 0
@@ -239,7 +239,7 @@ while i <= 4:
 
 # Consider using the following while loop to print from `0` to a user-specified value.
 
-# In[ ]:
+# In[18]:
 
 
 num = int(input('>'))
@@ -251,7 +251,7 @@ while i!=num+1:
 
 # **Exercise** Is the above while loop doing the same thing as the for loop below?
 
-# In[24]:
+# In[19]:
 
 
 for i in range(int(input('>')) + 1): print(i)
@@ -270,7 +270,7 @@ for i in range(int(input('>')) + 1): print(i)
 
 # **Is the following an infinite loop?**
 
-# In[3]:
+# In[20]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "while True:\n    message = input('Input something please:')\n    if message: break\nprint('You entered:', message)")
@@ -282,7 +282,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "while True:\n    message = in
 
 #  Recall the earlier `while` loop:
 
-# In[4]:
+# In[21]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "while not input('Input something please:'): pass ")
@@ -294,7 +294,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "while not input('Input someth
 
 # We can avoid `break` statement by using *flags*, which are boolean variables for flow control:
 
-# In[6]:
+# In[22]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 350', "has_no_input = True\nwhile has_no_input:\n    message = input('Input something please:')\n    if message: has_no_input = False\nprint('You entered:', message)")
@@ -308,7 +308,7 @@ get_ipython().run_cell_magic('mytutor', '-h 350', "has_no_input = True\nwhile ha
 # **What does the following program do?  
 # Is it an infinite loop?**
 
-# In[7]:
+# In[23]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "while True:\n    message = input('Input something please:')\n    if not message: continue\n    print('You entered:', message)")
@@ -321,7 +321,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "while True:\n    message = in
 
 # **Exercise** Is the `continue` statement strictly necessary? Can you rewrite the above program without the `continue` statement? 
 
-# In[10]:
+# In[24]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 350', "while True:\n    message = input('Input something please:')\n    ### BEGIN SOLUTION\n    if message:\n        print('You entered:', message)\n    ### END SOLUTION")
@@ -333,7 +333,7 @@ get_ipython().run_cell_magic('mytutor', '-h 350', "while True:\n    message = in
 # - checks whether the user input is a positive integer using `isdigit`, and if so,
 # - check if the positive integer is a composite number, i.e., a product of two smaller positive integers.
 
-# In[8]:
+# In[25]:
 
 
 @interact(num='1')
@@ -352,7 +352,7 @@ def check_composite(num):
         print('Not a positive integer.')
 
 
-# In[ ]:
+# In[26]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 500 ', "def check_composite(num):\n    if num.isdigit():\n        num = int(num)\n        for divisor in range(2,num):\n            if num % divisor:\n                continue\n            else:\n                print('It is composite.')\n                break\n        else:\n            print('It is not composite.')\n    else:\n        print('Not a positive integer.')\n        \ncheck_composite('1')\ncheck_composite('2')\ncheck_composite('3')\ncheck_composite('4')")
@@ -369,7 +369,7 @@ get_ipython().run_cell_magic('mytutor', '-h 500 ', "def check_composite(num):\n 
 # **Exercise** Convert the for loop to a while loop.  
 # Can you improve the code to use fewer iterations?
 
-# In[7]:
+# In[27]:
 
 
 @interact(num='1')

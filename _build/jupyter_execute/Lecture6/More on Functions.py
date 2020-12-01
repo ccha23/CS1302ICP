@@ -184,7 +184,7 @@ next_fibonacci()
 
 # Suppose for aesthetic reasons we remove the underscores in global variable names?
 
-# In[16]:
+# In[14]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 600', "def next_fibonacci():\n    '''Returns the next Fibonacci number.'''\n    global Fn, Fn1, n\n    value = Fn\n    Fn, Fn1, n = Fn1, Fn + Fn1, n + 1\n    return value\n\ndef print_fibonacci_state():\n    print('''States:\n    Fn  : Next Fibonacci number      = {}\n    Fn1 : Next next Fibonacci number = {}\n    n   : Next order                 = {}'''.format(Fn,Fn1,n))\n\n# global variables renamed without underscores\nFn, Fn1, n = 0, 1, 0\n\nn = 0\nwhile n < 5:\n    print(next_fibonacci())\n    n += 1\nprint_fibonacci_state()")
@@ -202,7 +202,7 @@ get_ipython().run_cell_magic('mytutor', '-h 600', "def next_fibonacci():\n    ''
 
 # Yes. We can use nested functions and [`nonlocal` variables](https://docs.python.org/3/reference/simple_stmts.html#grammar-token-nonlocal-stmt).
 
-# In[17]:
+# In[15]:
 
 
 def fibonacci_closure(Fn, Fn1):
@@ -237,7 +237,7 @@ print_fibonacci_state()
 
 # Another benefit of using nested functions is that we can also create different Fibonacci sequence with different base cases.
 
-# In[18]:
+# In[16]:
 
 
 my_next_fibonacci, my_print_fibonacci_state = fibonacci_closure('cs', '1302')
@@ -252,7 +252,7 @@ my_print_fibonacci_state()
 
 # Each local function has an attribute named `__closure__` that stores the captured local variables.
 
-# In[19]:
+# In[17]:
 
 
 def print_closure(f):
@@ -270,7 +270,7 @@ print_closure(print_fibonacci_state)
 
 # Another way to generate a sequence of objects one-by-one is to write a *generator*.
 
-# In[20]:
+# In[18]:
 
 
 fibonacci_generator = (fibonacci_iteration(n) for n in range(3))
@@ -283,7 +283,7 @@ fibonacci_generator
 
 # We can use the [`next` function](https://docs.python.org/3/library/functions.html#next).
 
-# In[21]:
+# In[19]:
 
 
 while True: 
@@ -292,7 +292,7 @@ while True:
 
 # A generator object is [*iterable*](https://www.programiz.com/python-programming/iterator), i.e., it implements both `__iter__` and `__next__` methods that are automatically called in a `for` loop as well as the `next` function.
 
-# In[22]:
+# In[20]:
 
 
 fibonacci_generator = (fibonacci_iteration(n) for n in range(5))
@@ -305,7 +305,7 @@ for fib in fibonacci_generator:  # StopIterationException handled by for loop
 # No again due to redundant computations.  
 # A better way to define the generator is to use the keyword [`yield`](https://docs.python.org/3/reference/expressions.html?highlight=yield#yield-expressions):
 
-# In[23]:
+# In[21]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 450', "def fibonacci_sequence(Fn, Fn1, stop):\n    '''Return a generator that generates Fibonacci numbers\n    starting from Fn and Fn1 until stop (exclusive).'''\n    while Fn < stop:\n        yield Fn  # return Fn and pause execution\n        Fn, Fn1 = Fn1, Fn1 + Fn\n\n\nfor fib in fibonacci_sequence(0, 1, 5):\n    print(fib)")
@@ -322,7 +322,7 @@ get_ipython().run_cell_magic('mytutor', '-h 450', "def fibonacci_sequence(Fn, Fn
 # 
 # Add the document string to the following function. In particular, explain the effect of calling the method `send` on the returned generator.
 
-# In[24]:
+# In[22]:
 
 
 get_ipython().run_cell_magic('mytutor', '-r -h 500', "def fibonacci_sequence(Fn, Fn1, stop):\n    ### BEGIN SOLUTION\n    '''Return a generator that generates Fibonacci numbers\n    starting from Fn and Fn1 to stop (exclusive). \n    generator.send(value) sets next number to value.'''\n    ### END SOLUTION\n    while Fn < stop:\n        value = yield Fn\n        if value is not None: \n            Fn1 = value  # set next number to the value of yield expression\n        Fn, Fn1 = Fn1, Fn1 + Fn ")
@@ -332,7 +332,7 @@ get_ipython().run_cell_magic('mytutor', '-r -h 500', "def fibonacci_sequence(Fn,
 
 # **How to make function arguments optional?**
 
-# In[25]:
+# In[23]:
 
 
 def fibonacci_sequence(Fn=0, Fn1=1, stop=None):
@@ -341,14 +341,14 @@ def fibonacci_sequence(Fn=0, Fn1=1, stop=None):
         Fn, Fn1 = Fn1, Fn1 + Fn
 
 
-# In[26]:
+# In[24]:
 
 
 for fib in fibonacci_sequence(0,1,5):
     print(fib)  # with all arguments specified
 
 
-# In[27]:
+# In[25]:
 
 
 for fib in fibonacci_sequence(stop=5):
@@ -359,7 +359,7 @@ for fib in fibonacci_sequence(stop=5):
 
 # **Exercise** `stop` is an [optional argument](https://docs.python.org/3/tutorial/controlflow.html#default-argument-values) with the *default value* `None`. What is the behavior of the following code?
 
-# In[28]:
+# In[26]:
 
 
 for fib in fibonacci_sequence(5):
@@ -376,13 +376,13 @@ for fib in fibonacci_sequence(5):
 
 # E.g., the following results in error:
 
-# In[29]:
+# In[27]:
 
 
 fibonacci_sequence(stop=10, 1)
 
 
-# In[ ]:
+# In[28]:
 
 
 fibonacci_sequence(1, Fn=1)
@@ -390,7 +390,7 @@ fibonacci_sequence(1, Fn=1)
 
 # The following shows that the behavior of `range` is different.
 
-# In[30]:
+# In[29]:
 
 
 for count in range(1, 10, 2):
@@ -409,7 +409,7 @@ range(stop=10)  # fails
 
 # `range` is indeed NOT a generator.
 
-# In[31]:
+# In[30]:
 
 
 print(type(range),type(range(10)))
@@ -419,7 +419,7 @@ print(type(range),type(range(10)))
 
 # We can simulate the behavior of range by having a [variable number of arguments](https://docs.python.org/3.4/tutorial/controlflow.html#arbitrary-argument-lists).
 
-# In[32]:
+# In[31]:
 
 
 def print_arguments(*args, **kwargs):
@@ -436,7 +436,7 @@ print("{k}".format(greeting="Hello",k=8),"*"  )
 
 # `*` and `**` are *unpacking operators* for tuple/list and dictionary respectively:
 
-# In[33]:
+# In[32]:
 
 
 args = (0, 10, 2)
@@ -447,7 +447,7 @@ print_arguments(*args, **kwargs)
 # The following function converts all the arguments to a string.  
 # It will be useful later on.
 
-# In[34]:
+# In[33]:
 
 
 def argument_string(*args, **kwargs):
@@ -463,7 +463,7 @@ argument_string(0, 10, 2, start=1, stop=2)
 
 # **Exercise** Redefine `fibonacci_sequence` so that the positional arguments depend on the number of arguments:
 
-# In[35]:
+# In[34]:
 
 
 def fibonacci_sequence(*args):
@@ -494,14 +494,14 @@ def fibonacci_sequence(*args):
         Fn, Fn1 = Fn1, Fn1 + Fn
 
 
-# In[36]:
+# In[35]:
 
 
 for fib in fibonacci_sequence(5): # default Fn=0, Fn=1
     print(fib)
 
 
-# In[37]:
+# In[36]:
 
 
 for fib in fibonacci_sequence(1, 2): # default stop=None
@@ -510,7 +510,7 @@ for fib in fibonacci_sequence(1, 2): # default stop=None
         break
 
 
-# In[38]:
+# In[37]:
 
 
 args = (1, 2, 5)
@@ -523,7 +523,7 @@ for fib in fibonacci_sequence(*args): # default stop=None
 # **What is function decoration?**  
 # **Why decorate a function?**
 
-# In[39]:
+# In[38]:
 
 
 def fibonacci(n):
@@ -558,7 +558,7 @@ for n in range(6):
 
 # What about defining a new function that calls and decorates the original function?
 
-# In[40]:
+# In[39]:
 
 
 def fibonacci(n):
@@ -601,7 +601,7 @@ for n in range(6):
 
 # The solution is to capture the original `fibonacci` in a closure:
 
-# In[41]:
+# In[40]:
 
 
 import functools
@@ -636,7 +636,7 @@ def print_function_call(f):
 
 # By redefining `fibonacci` as the returned `wrapper`, the original `fibonacci` captured by `wrapper` calls `wrapper` as desired.
 
-# In[42]:
+# In[41]:
 
 
 def fibonacci(n):
@@ -650,7 +650,7 @@ fibonacci(5)
 
 # The redefinition does not change the original `fibonacci` captured by `wrapper`.
 
-# In[43]:
+# In[42]:
 
 
 import inspect
@@ -661,7 +661,7 @@ for cell in fibonacci.__closure__:
 
 # Python provides the syntatic sugar below to simplify the redefinition.
 
-# In[44]:
+# In[43]:
 
 
 @print_function_call
@@ -684,7 +684,7 @@ fibonacci(5)
 # - Add useful attributes. E.g., `__wrapped__` stores the original function so we can undo the decoration.
 # 
 
-# In[45]:
+# In[44]:
 
 
 fibonacci, fibonacci_decorated = fibonacci.__wrapped__, fibonacci  # recover
@@ -701,7 +701,7 @@ print(fibonacci(5))
 # We can also use a decorator to make recursion more efficient by caching the return values.  
 # `cache` is a dictionary where `cache[n]` stores the computed value of $F_n$ to avoid redundant computations.
 
-# In[46]:
+# In[45]:
 
 
 def caching(f):
@@ -725,7 +725,7 @@ def fibonacci(n):
     return fibonacci(n - 1) + fibonacci(n - 2) if n > 1 else 1 if n == 1 else 0
 
 
-# In[47]:
+# In[46]:
 
 
 fibonacci(5)
@@ -737,7 +737,7 @@ fibonacci(5)
 # A method `clear_cache` is added to the wrapper to clear the cache.   
 # `lambda <argument list> : <expression>`is called a [*lambda* expression](https://docs.python.org/3/reference/expressions.html#lambda), which conveniently defines an *anonymous function*.
 
-# In[48]:
+# In[47]:
 
 
 type(fibonacci.clear_cache), fibonacci.clear_cache.__name__
@@ -751,7 +751,7 @@ type(fibonacci.clear_cache), fibonacci.clear_cache.__name__
 # - the current directory, or
 # - a python *site-packages* directory in system path.
 
-# In[49]:
+# In[48]:
 
 
 import sys
@@ -760,20 +760,20 @@ print(sys.path)
 
 # For example, to create a module for generating Fibonacci numbers:
 
-# In[50]:
+# In[49]:
 
 
 get_ipython().run_line_magic('more', 'fibonacci.py')
 
 
-# In[51]:
+# In[50]:
 
 
 import fibonacci as fib # as statement shortens name
 help(fib)
 
 
-# In[52]:
+# In[51]:
 
 
 print(fib.fibonacci(5))

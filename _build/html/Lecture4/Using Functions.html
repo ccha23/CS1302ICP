@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Functions &#8212; CS1302 Introduction to Computer Programming</title>
+    <title>Using Functions &#8212; CS1302</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
@@ -79,8 +79,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
+  <img src="../_static/logo.png" class="logo" alt="logo">
   
-  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -90,12 +92,22 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+  <a class="reference internal" href="../README.html">
    Introduction to Computer Programming
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
    Values and Variables
@@ -154,6 +166,68 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
    Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
   </a>
  </li>
 </ul>
@@ -220,12 +294,6 @@
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Lecture4/Using Functions.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
         
         
         
@@ -385,9 +453,19 @@ Do we have to implement it ourselves?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abc
-def
-1st input: abc 2nd input def
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">ea10e0d74efc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st input:&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">(),</span> <span class="s1">&#39;2nd input&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">())</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">858</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -453,7 +531,7 @@ print(&#39;{:.2f}, {:.2f}, {:.2f}&#39;.format(sin(pi / 6), cos(pi / 3), tan(pi /
 <iframe
     width="1100"
     height="300"
-    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=from%20math%20import%20%2A%20%20%23%20import%20all%20except%20names%20starting%20with%20an%20underscore%0Aprint%28%27%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%27.format%28sin%28pi%2F6%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20cos%28pi%2F3%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tan%28pi%2F4%29%29%29%0A"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=from%20math%20import%20%2A%20%20%23%20import%20all%20except%20names%20starting%20with%20an%20underscore%0Aprint%28%27%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%27.format%28sin%28pi%20%2F%206%29%2C%20cos%28pi%20%2F%203%29%2C%20tan%28pi%20%2F%204%29%29%29%0A"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -477,7 +555,7 @@ print(&#39;{:.2f}&#39;.format(pow(-1, 1 / 2)))
 <iframe
     width="1100"
     height="300"
-    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=print%28%27%7B%7D%27.format%28pow%28-1%2C2%29%29%29%0Aprint%28%27%7B%3A.2f%7D%27.format%28pow%28-1%2C1%2F2%29%29%29%0Afrom%20math%20import%20%2A%0Aprint%28%27%7B%7D%27.format%28pow%28-1%2C2%29%29%29%0Aprint%28%27%7B%3A.2f%7D%27.format%28pow%28-1%2C1%2F2%29%29%29%0A"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=print%28%27%7B%7D%27.format%28pow%28-1%2C%202%29%29%29%0Aprint%28%27%7B%3A.2f%7D%27.format%28pow%28-1%2C%201%20%2F%202%29%29%29%0Afrom%20math%20import%20%2A%0Aprint%28%27%7B%7D%27.format%28pow%28-1%2C%202%29%29%29%0Aprint%28%27%7B%3A.2f%7D%27.format%28pow%28-1%2C%201%20%2F%202%29%29%29%0A"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -502,7 +580,7 @@ print(&#39;{:.2f}, {:.2f}&#39;.format(math.pow(-1, 2), pow(-1, 1 / 2)))
 <iframe
     width="1100"
     height="250"
-    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=import%20math%0Aprint%28%27%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%27.format%28math.pow%28-1%2C2%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pow%28-1%2C1%2F2%29%29%29%0A"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=import%20math%0Aprint%28%27%7B%3A.2f%7D%2C%20%7B%3A.2f%7D%27.format%28math.pow%28-1%2C%202%29%2C%20pow%28-1%2C%201%20%2F%202%29%29%29%0A"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -570,10 +648,9 @@ E.g., to plot a sequence using <code class="docutils literal notranslate"><span 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">ac8a1bbb324c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">53146</span><span class="n">a1609f3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">m</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nn">----&gt; 2 for m</span> in <span class="ni">range(5): m.pow</span><span class="nt">(m, 2)</span>
 
 <span class="ne">AttributeError</span>: &#39;int&#39; object has no attribute &#39;pow&#39;
 </pre></div>
@@ -590,7 +667,7 @@ E.g., to plot a sequence using <code class="docutils literal notranslate"><span 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -1214,7 +1291,7 @@ DATA
     __all__ = [&#39;Random&#39;, &#39;seed&#39;, &#39;random&#39;, &#39;uniform&#39;, &#39;randint&#39;, &#39;choice&#39;,...
 
 FILE
-    /opt/anaconda/lib/python3.7/random.py
+    /home/chungc/anaconda3/lib/python3.7/random.py
 </pre></div>
 </div>
 </div>
@@ -1450,17 +1527,22 @@ What does it print?</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;,
  &#39;Out&#39;,
  &#39;_&#39;,
- &#39;_10&#39;,
- &#39;_23&#39;,
- &#39;_8&#39;,
- &#39;_9&#39;,
+ &#39;_13&#39;,
+ &#39;_2&#39;,
+ &#39;_20&#39;,
+ &#39;_3&#39;,
  &#39;__&#39;,
  &#39;___&#39;,
  &#39;__builtin__&#39;,
  &#39;__builtins__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__loader__&#39;,
  &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
  &#39;_dh&#39;,
  &#39;_i&#39;,
+ &#39;_i1&#39;,
  &#39;_i10&#39;,
  &#39;_i11&#39;,
  &#39;_i12&#39;,
@@ -1471,29 +1553,30 @@ What does it print?</p>
  &#39;_i17&#39;,
  &#39;_i18&#39;,
  &#39;_i19&#39;,
+ &#39;_i2&#39;,
  &#39;_i20&#39;,
  &#39;_i21&#39;,
- &#39;_i22&#39;,
- &#39;_i23&#39;,
- &#39;_i24&#39;,
+ &#39;_i3&#39;,
+ &#39;_i4&#39;,
+ &#39;_i5&#39;,
+ &#39;_i6&#39;,
+ &#39;_i7&#39;,
  &#39;_i8&#39;,
  &#39;_i9&#39;,
  &#39;_ih&#39;,
  &#39;_ii&#39;,
  &#39;_iii&#39;,
  &#39;_oh&#39;,
- &#39;cs1302_site_packages&#39;,
  &#39;exit&#39;,
+ &#39;fpow&#39;,
  &#39;get_ipython&#39;,
- &#39;interact&#39;,
- &#39;json&#39;,
  &#39;log&#39;,
  &#39;m&#39;,
+ &#39;matplotlib&#39;,
+ &#39;plt&#39;,
  &#39;quit&#39;,
  &#39;random&#39;,
- &#39;sys&#39;,
- &#39;x&#39;,
- &#39;yapf_reformat&#39;]
+ &#39;x&#39;]
 </pre></div>
 </div>
 </div>

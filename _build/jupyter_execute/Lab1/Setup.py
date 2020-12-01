@@ -24,14 +24,14 @@
 #   ![server start](https://www.cs.cityu.edu.hk/~ccha23/cs1302/server_start.png)
 # - If you see the ``Start My Server`` button instead, click on that button to start your server.  
 #   ![server stopped](https://www.cs.cityu.edu.hk/~ccha23/cs1302/server_stopped.png)
-# - For other issues, try logging out using the `Logout` button at the top right-hand corner, and then logging in again. You may also click the `Control Panel` button and restarting your server.
+# - For other issues, try logging out using the `Logout` button at the top right-hand corner, and then logging in again. You may also click the `Control Panel` button and restart your server.
 
 # ### How to access course materials?
 
 # 1. Click on the `Assignments` tab, and ensure `cs1302` is chosen in the drop down list.
 # 1. In the `Released assignments panel`, click the button `Fetch` to download `Lab1`. 
 # 1. `Lab1` should appear in the `Downloaded assignments panel`. 
-# 1. Click on the little arrow next to `Lab1` to shows its content.  
+# 1. Click on the little arrow next to `Lab1` to show its content.  
 # 1. Ctrl-Click on `Lab1` to open the assignment folder on a new browser tab. 
 # 1. On the new browser, click the folder `cs1302` to navigate to the notebook `Setup.ipynb`.
 # 1. Click on `Setup.ipynb` to open the notebook.
@@ -59,7 +59,7 @@
 
 # **Exercise** Run the following cell to enable and configure the notebook extensions for this course.
 
-# In[1]:
+# In[ ]:
 
 
 get_ipython().run_cell_magic('javascript', '', 'IPython.notebook.config.update({\n  "load_extensions": {\n    "validate_assignment/main": true,\n    "execute_time/ExecuteTime": true,\n    "init_cell/main": true,\n    "printview/main": true,\n    "skip-traceback/main": true,\n    "hide_input/main": true,\n    "codefolding/main": true,\n    "scratchpad/main": true,\n    "spellchecker/main": true,\n    "create_assignment/main": true,\n    "ruler/main": true,\n    "collapsible_headings/main": true,\n    "latex_envs/latex_envs": true,\n    "exercise/main": true,\n    "select_keymap/main": true,\n    "toc2/main": true,\n    "code_prettify/code_prettify": true\n  },\n  "rise": {\n    "scroll": true\n  },\n  "toc": {\n    "skip_h1_title": true\n  }\n})')
@@ -72,7 +72,7 @@ get_ipython().run_cell_magic('javascript', '', 'IPython.notebook.config.update({
 
 # **Exercise** In learning a new computer language, the first program to write is often the ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program, which says Hello to the world. Type the program `print('Hello, World!')` below and run it with `Shift+Enter`.
 
-# In[2]:
+# In[ ]:
 
 
 # YOUR CODE HERE
@@ -93,7 +93,7 @@ sys.stdout = old_stdout
 
 
 # **Tips**
-# 1. You can repeatedly modify your solution and run the test cell your solution passes the test. You are not required to know how the test cell is written. 
+# 1. You can repeatedly modify your solution and run the test cell until your solution passes the test. You are not required to know how the test cell is written. 
 # 1. To assess your solution thoroughly, we often run new tests hidden from you after you have submitted your notebook. There is no partial credit for a partially correct solution that works for the visible test but fails for the hidden test. Therefore, *you should ensure your solution works in general rather than just the visible tests*.
 # 1. You can click the `Validate` button to run all the visible tests.
 # 1. If you open the same notebook multiple times in different browser windows, be careful in making changes in different windows. Inconsistent changes may lead to conflicts or loss of your data.
@@ -101,16 +101,16 @@ sys.stdout = old_stdout
 
 # ### How to submit a notebook
 
-# - Although this Lab is not graded, you are required to submit it, to get familiar with the procedure.
+# - Although this lab does not count towards your final grade, you are required to submit it, to get familiar with the procedure.
 # - Before you submit, however, make sure everything runs as expected:
 #     1. **Restart the kernel**: `Kernel->Restart` 
 #     1. **run all cells**: `Cell->Run All`
 
 # To submit your notebook:
 # 1. Go to `Assignment` tab of JupyterHub where you fetched the Lab assignment. 
-# 1. Expand the Lab folder and click the `validate` button next to the notebook(s) to check if all visible tests pass.
-# 1. Click the `Submit` to submit your notebook. 
-# 1. You may submit as many time as your wish but we will only collect your latest submission before the [Lab 1 due date](https://canvas.cityu.edu.hk/courses/36768/assignments/128315?return_to=https%3A%2F%2Fcanvas.cityu.edu.hk%2Fcalendar%3Finclude_contexts%3Dcourse_36768%23view_name%3Dmonth%26view_start%3D2020-09-01) for grading.
+# 1. Expand the Lab1 folder and click the `validate` button next to the notebook(s) to check if all visible tests pass.
+# 1. Click `Submit` to submit your notebook. 
+# 1. You may submit as many times as you wish but we will only collect your latest submission before the [Lab 1 due date](https://canvas.cityu.edu.hk/courses/36768/assignments/128315?return_to=https%3A%2F%2Fcanvas.cityu.edu.hk%2Fcalendar%3Finclude_contexts%3Dcourse_36768%23view_name%3Dmonth%26view_start%3D2020-09-01) for grading.
 
 # **Tips**
 # 1. You normally have at least 5 days to work on the lab after your lab session. 
@@ -131,4 +131,4 @@ sys.stdout = old_stdout
 # - locally using [Anaconda](https://www.anaconda.com/products/individual), or
 # - remotely on other JupyHub services such as [Google Colab](https://colab.research.google.com/).
 # 
-# However, you would need to learn how to manage and install any additional packages required.
+# However, you would need to learn how to manage and install the additional packages required by the course.

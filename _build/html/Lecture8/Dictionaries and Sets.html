@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dictionaries and Sets &#8212; CS1302 Introduction to Computer Programming</title>
+    <title>Dictionaries and Sets &#8212; CS1302</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
@@ -79,8 +79,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
+  <img src="../_static/logo.png" class="logo" alt="logo">
   
-  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -90,12 +92,22 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+  <a class="reference internal" href="../README.html">
    Introduction to Computer Programming
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
    Values and Variables
@@ -154,6 +166,68 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
    Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
   </a>
  </li>
 </ul>
@@ -220,12 +294,6 @@
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Lecture8/Dictionaries and Sets.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
         
         
         
@@ -302,7 +370,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 5 2 6 6 1 5 4 2 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 3 5 6 6 4 4 6 3 2
 </pre></div>
 </div>
 </div>
@@ -719,7 +787,7 @@ The for loop iterates over the keys.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e d b c a
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e d a c b
 (0, &#39;a&#39;) (1, &#39;b&#39;) (2, &#39;c&#39;) (3, &#39;d&#39;) (4, &#39;e&#39;)
 </pre></div>
 </div>
@@ -749,7 +817,7 @@ The for loop iterates over the keys.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mi">784624678</span><span class="n">be8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">784624678</span><span class="n">be8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># KeyError</span>
 
 <span class="ne">KeyError</span>: -1
@@ -783,7 +851,7 @@ The for loop iterates over the keys.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="n">a57f788767eb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="n">a57f788767eb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
@@ -886,12 +954,12 @@ sorted_keys = sorted(b)
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="mi">7</span><span class="n">ea0ff37fbdc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">27</span><span class="o">-</span><span class="mi">7</span><span class="n">ea0ff37fbdc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">pyplot</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> 
 <span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">plot_distribution</span><span class="p">(</span><span class="s1">&#39;What is the distribution of different characters?&#39;</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-29-7ea0ff37fbdc&gt;</span> in <span class="ni">plot_distribution</span><span class="nt">(seq)</span>
+<span class="nn">&lt;ipython-input-27-7ea0ff37fbdc&gt;</span> in <span class="ni">plot_distribution</span><span class="nt">(seq)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># pyplot.stem(dist.keys(), dist.values(), use_line_collection=True)</span>
@@ -1029,9 +1097,9 @@ assert len(union) == len(intersection) + len(symmetric_difference)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: copy, update, clear, pop
-dict-specific attributes: values, get, fromkeys, popitem, setdefault, items, keys
-set-specific attributes: difference_update, discard, intersection, symmetric_difference_update, difference, add, isdisjoint, intersection_update, issuperset, symmetric_difference, union, issubset, remove
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: copy, clear, update, pop
+dict-specific attributes: items, keys, setdefault, fromkeys, values, get, popitem
+set-specific attributes: union, intersection, difference_update, symmetric_difference_update, symmetric_difference, issuperset, difference, discard, isdisjoint, remove, issubset, intersection_update, add
 </pre></div>
 </div>
 </div>
@@ -1167,10 +1235,10 @@ a.update(b,c=3)
  &quot;&lt;class &#39;builtin_function_or_method&#39;&gt;&quot;: [&lt;function print&gt;,
   &lt;function hash(obj, /)&gt;],
  &quot;&lt;class &#39;type&#39;&gt;&quot;: [int, str, float, set, dict],
- &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7f854fa99e50&gt;],
- &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7f854f9311e0&gt;],
+ &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7fc4341da9a8&gt;],
+ &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7fc4340e47e0&gt;],
  &quot;&lt;class &#39;range&#39;&gt;&quot;: [range(0, 3)],
- &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7f854f9330a0&gt;],
+ &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7fc4340e36c8&gt;],
  &quot;&lt;class &#39;method_descriptor&#39;&gt;&quot;: [&lt;method &#39;add&#39; of &#39;set&#39; objects&gt;,
   &lt;method &#39;copy&#39; of &#39;dict&#39; objects&gt;]}
 </pre></div>

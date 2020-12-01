@@ -289,24 +289,3 @@ get_ipython().run_cell_magic('mytutor', '-h 400', '# The program here reads the 
 
 get_ipython().run_cell_magic('html', '', '<iframe width="912" height="513" src="https://www.youtube.com/embed/bTkXg2LZIMQ" allowfullscreen></iframe>')
 
-
-# 
-# ```{toctree}
-# :hidden:
-# :titlesonly:
-# 
-# 
-# ../Lecture2/Values and Variables
-# ../Lecture2/Expressions and Arithmetic
-# ../Lecture3/Conditional Execution
-# ../Lecture3/Iteration
-# ../Lecture4/Using Functions
-# ../Lecture4/Writing Functions
-# ../Lecture5/Objects
-# ../Lecture6/More on Functions
-# ../Lecture7/Lists and Tuples
-# ../Lecture8/Dictionaries and Sets
-# ../Lecture9/Monte Carlo Simulation and Linear Algebra
-# ../Review/Mock Exam Questions
-# ```
-# 

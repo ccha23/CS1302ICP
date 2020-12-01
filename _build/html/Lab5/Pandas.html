@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Combinatorics" href="../Lab6/Combinatorics.html" />
+    <link rel="prev" title="Mastermind" href="../Lab4/Mastermind.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab5/Pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab5/Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-csv-files-with-pandas">
+   Loading CSV Files with Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-and-removing-columns">
+   Selecting and Removing columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-rows-of-dataframe">
+   Selecting Rows of DataFrame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   Challenge
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<p>In this lab, we will analyze COVID19 data using a powerful package called <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/index.html"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>.<br />
+The package name comes from <em>panel data</em> and <em>Python for data analysis</em>.</p>
+<div class="section" id="loading-csv-files-with-pandas">
+<h2>Loading CSV Files with Pandas<a class="headerlink" href="#loading-csv-files-with-pandas" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://data.gov.hk/en-data/dataset/hk-dh-chpsebcddr-novel-infectious-agent">DATA.GOV.HK</a> provides an <a class="reference external" href="https://data.gov.hk/en/help/api-spec#historicalAPI">API</a> to retrieve historical data on COVID-19 cases in Hong Kong.</p>
+<p>The following uses the <code class="docutils literal notranslate"><span class="pre">urlencode</span></code> function to create the url that links to a csv file containing probable and confirmed cases of COVID-19 by Aug 1st, 2020.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span>
+
+<span class="n">url_data_gov_hk_get</span> <span class="o">=</span> <span class="s1">&#39;https://api.data.gov.hk/v1/historical-archive/get-file&#39;</span>
+<span class="n">url_covid_csv</span> <span class="o">=</span> <span class="s1">&#39;http://www.chp.gov.hk/files/misc/enhanced_sur_covid_19_eng.csv&#39;</span>
+<span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;20200801-1204&#39;</span>
+<span class="n">url_covid</span> <span class="o">=</span> <span class="n">url_data_gov_hk_get</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">urlencode</span><span class="p">({</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url_covid_csv</span><span class="p">,</span>
+    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">url_covid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">urlencode</span></code> creates a string <code class="docutils literal notranslate"><span class="pre">'url=&lt;...&gt;&amp;time=&lt;...&gt;'</span></code> with some <a class="reference external" href="https://www.w3schools.com/tags/ref_urlencode.ASP">special symbols encoded</a>, e.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">:</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">%3A</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">%2F</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> Write a function <code class="docutils literal notranslate"><span class="pre">simple_encode</span></code> that takes in a string and return a string with <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> encoded as described above.<br />
+<em>Hint:</em> Use the <code class="docutils literal notranslate"><span class="pre">replace</span></code> method of <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">simple_encode</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the string with : and / encoded to %3A and %2F respectively.&#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">simple_encode</span><span class="p">(</span>
+    <span class="s1">&#39;http://www.chp.gov.hk/files/misc/enhanced_sur_covid_19_eng.csv&#39;</span>
+<span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;http%3A</span><span class="si">%2F%2F</span><span class="s1">www.chp.gov.hk</span><span class="si">%2F</span><span class="s1">files</span><span class="si">%2F</span><span class="s1">misc</span><span class="si">%2F</span><span class="s1">enhanced_sur_covid_19_eng.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Like the function <code class="docutils literal notranslate"><span class="pre">open</span></code> that loads a file into memory, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> has a function <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> that loads a csv file.<br />
+The csv file can even reside on the web.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df_covid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_covid</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df_covid</span><span class="p">))</span>
+<span class="n">df_covid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above creates a <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html?highlight=dataframe#pandas.DataFrame"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object</a>. The content of the csv file is displayed as an HTML table conveniently.<br />
+(We can control how much information to show by setting the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html">display options</a>.)</p>
+<p><strong>Exercise</strong> Using the function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>, load <code class="docutils literal notranslate"><span class="pre">building_list_eng.csv</span></code> as <code class="docutils literal notranslate"><span class="pre">df_building</span></code> from the url <code class="docutils literal notranslate"><span class="pre">url_building</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url_building_csv</span> <span class="o">=</span> <span class="s1">&#39;http://www.chp.gov.hk/files/misc/building_list_eng.csv&#39;</span>
+<span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;20200801-1203&#39;</span>
+<span class="n">url_building</span> <span class="o">=</span> <span class="n">url_data_gov_hk_get</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">urlencode</span><span class="p">({</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url_building_csv</span><span class="p">,</span>
+    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span>
+<span class="p">})</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+<span class="n">df_building</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">df_building</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;District&#39;</span><span class="p">,</span> <span class="s1">&#39;Building name&#39;</span><span class="p">,</span> <span class="s1">&#39;Last date of residence of the case(s)&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Related probable/confirmed cases&#39;</span><span class="p">])</span>  <span class="c1"># check column names</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selecting-and-removing-columns">
+<h2>Selecting and Removing columns<a class="headerlink" href="#selecting-and-removing-columns" title="Permalink to this headline">¶</a></h2>
+<p>We can obtain the column labels of a <code class="docutils literal notranslate"><span class="pre">Dataframe</span></code> using its <code class="docutils literal notranslate"><span class="pre">columns</span></code> attribute.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the indexing operator <code class="docutils literal notranslate"><span class="pre">[]</span></code>, a column of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> can be returned as a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html"><code class="docutils literal notranslate"><span class="pre">Series</span></code> object</a>, which is essentially a named array.<br />
+We can further use the method <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> to return the counts of different values in another <code class="docutils literal notranslate"><span class="pre">Series</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_gender_counts</span> <span class="o">=</span> <span class="n">df_covid</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>  <span class="c1"># return the number of male and female cases</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">series_gender_counts</span><span class="p">))</span>
+<span class="n">series_gender_counts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> For <code class="docutils literal notranslate"><span class="pre">df_building</span></code>, use the operator <code class="docutils literal notranslate"><span class="pre">[]</span></code> and method <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> to assign <code class="docutils literal notranslate"><span class="pre">series_district_counts</span></code> to a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object that stores the counts of buildings in different district.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+<span class="n">series_district_counts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">series_district_counts</span><span class="p">[[</span><span class="s1">&#39;Wong Tai Sin&#39;</span><span class="p">,</span> <span class="s1">&#39;Kwun Tong&#39;</span><span class="p">]]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">313</span><span class="p">,</span> <span class="mi">212</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">df_covid</span></code>, it appears that the column <code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">of</span> <span class="pre">hospital</span> <span class="pre">admitted</span></code> contains no information. We can confirm this by:</p>
+<ol class="simple">
+<li><p>Returning the column as a <code class="docutils literal notranslate"><span class="pre">Series</span></code> with <code class="docutils literal notranslate"><span class="pre">df_covid_cases['Name</span> <span class="pre">of</span> <span class="pre">hospital</span> <span class="pre">admitted']</span></code>, and</p></li>
+<li><p>printing an array of unique column values using the method <code class="docutils literal notranslate"><span class="pre">unique</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_covid</span><span class="p">[</span><span class="s1">&#39;Name of hospital admitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Drop the column <code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">of</span> <span class="pre">hospital</span> <span class="pre">admitted</span></code> using the <code class="docutils literal notranslate"><span class="pre">drop</span></code> method of the DataFrame.</p>
+<p>Use the keyword argument <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>, so that the method will</p>
+<ul class="simple">
+<li><p>mutate the original DataFrame in place instead of</p></li>
+<li><p>creating a copy of the DataFrame with the column dropped.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+<span class="n">df_covid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">df_covid</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;Case no.&#39;</span><span class="p">,</span> <span class="s1">&#39;Report date&#39;</span><span class="p">,</span> <span class="s1">&#39;Date of onset&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Hospitalised/Discharged/Deceased&#39;</span><span class="p">,</span> <span class="s1">&#39;HK/Non-HK resident&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Case classification*&#39;</span><span class="p">,</span> <span class="s1">&#39;Confirmed/probable&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selecting-rows-of-dataframe">
+<h2>Selecting Rows of DataFrame<a class="headerlink" href="#selecting-rows-of-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>We can select the confirmed male cases using the attribute <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html"><code class="docutils literal notranslate"><span class="pre">.loc</span></code></a> and the indexing operator <code class="docutils literal notranslate"><span class="pre">[]</span></code>.<br />
+<code class="docutils literal notranslate"><span class="pre">.loc</span></code> implements an advanced indexing method <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> that can take a boolean vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_confirmed_male</span> <span class="o">=</span> <span class="n">df_covid</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df_covid</span><span class="p">[</span><span class="s1">&#39;Confirmed/probable&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_covid</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;M&#39;</span><span class="p">)]</span>
+<span class="n">df_confirmed_male</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Assign <code class="docutils literal notranslate"><span class="pre">df_confirmed_local</span></code> to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of confirmed cases that are local or epidemiologically linked with a local case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">df_confirmed_local</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">df_confirmed_local</span><span class="p">[</span><span class="s1">&#39;Case classification*&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="p">{</span>
+    <span class="s1">&#39;Epidemiologically linked with local case&#39;</span><span class="p">,</span> <span class="s1">&#39;Local case&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge">
+<h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise</strong> Write a function <code class="docutils literal notranslate"><span class="pre">case_counts</span></code> that</p>
+<ul class="simple">
+<li><p>takes an argument <code class="docutils literal notranslate"><span class="pre">district</span></code>, and</p></li>
+<li><p>returns the number of cases in <code class="docutils literal notranslate"><span class="pre">district</span></code>.</p></li>
+</ul>
+<p><em>Hint:</em> Be careful that there can be more than one case for each building and there may be multiple buildings associated with one case.<br />
+You may want to use the <code class="docutils literal notranslate"><span class="pre">split</span></code> and <code class="docutils literal notranslate"><span class="pre">strip</span></code> methods of <code class="docutils literal notranslate"><span class="pre">str</span></code> to obtain a list of cases from the <code class="docutils literal notranslate"><span class="pre">Dataframe</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">case_counts</span><span class="p">(</span><span class="n">district</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">case_counts</span><span class="p">(</span><span class="s1">&#39;Kwai Tsing&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">109</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lab4/Mastermind.html" title="previous page">Mastermind</a>
+    <a class='right-next' id="next-link" href="../Lab6/Combinatorics.html" title="next page">Combinatorics</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

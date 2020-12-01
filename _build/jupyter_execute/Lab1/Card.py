@@ -2,7 +2,8 @@
 # coding: utf-8
 
 # # Card guessing game
-# CS1302 Introduction to Computer Programming
+
+# **CS1302 Introduction to Computer Programming**
 # ___
 
 # ## Rules of the game
@@ -96,7 +97,7 @@
 
 # The following code creates a deck of cards. (You do not need to understand the code for now.)
 
-# In[1]:
+# In[ ]:
 
 
 # Create a deck of cards
@@ -112,7 +113,7 @@ print(deck)
 
 # To play the game, a dealer randomly pick a card without letting you know, and you're going to guess what exactly that card is.
 
-# In[2]:
+# In[ ]:
 
 
 # Randomly draw a card from the deck with replacement
@@ -145,7 +146,7 @@ print(random.choice(deck))
 
 # Play the role of the dealer and test if the program below can guess the card correctly after 6 questions.
 
-# In[3]:
+# In[ ]:
 
 
 suitIdx = 0

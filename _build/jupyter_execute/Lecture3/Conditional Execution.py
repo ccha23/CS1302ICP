@@ -67,7 +67,7 @@ multiply_or_divide(1, 0)  # multiplication is valid but not shown
 
 # Explore these operators using the widgets below:
 
-# In[5]:
+# In[4]:
 
 
 # Comparisons
@@ -90,7 +90,7 @@ def comparison(operand1,operator,operand2):
 
 #  All the comparison operators have the [same precedence](https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence) lower than that of `+` and `-`.
 
-# In[6]:
+# In[5]:
 
 
 1 + 2 >= 3  # (1 + 2) >= 3
@@ -98,7 +98,7 @@ def comparison(operand1,operator,operand2):
 
 # Python allows multiple comparison operations to be chained together:
 
-# In[83]:
+# In[6]:
 
 
 2.0 == 2>1 #equivalent to (2.0 ==2) and (2>1)
@@ -108,7 +108,7 @@ def comparison(operand1,operator,operand2):
 
 # Comparison operations are [*non-associative*](https://en.wikipedia.org/wiki/Operator_associativity#Non-associative_operators):
 
-# In[8]:
+# In[7]:
 
 
 (2.0 == 2) > 1, 2.0 == (2 > 1)  # not the same as 2.0 == 2 > 1
@@ -124,7 +124,7 @@ def comparison(operand1,operator,operand2):
 
 # **Exercise** Explain why the following boolean expressions have different values.
 
-# In[10]:
+# In[8]:
 
 
 1 <= 2 < 3 != 4, (1 <= 2) < (3 != 4)
@@ -137,7 +137,7 @@ def comparison(operand1,operator,operand2):
 # **Exercise** The comparison operators can be applied to different data types, as illustrated below.  
 # Explain the meaning of the operators in each of the following expressions.
 
-# In[11]:
+# In[9]:
 
 
 # Comparisons beyond numbers
@@ -164,13 +164,13 @@ def relational_expression(expression):
 # - We can write `1 != 2` as `not 1 == 2` but not `!(1 == 2)` because
 # - `!` is not a logical operator. It is used to call a [system shell command](https://ipython.readthedocs.io/en/stable/interactive/tutorial.html?highlight=system%20call#system-shell-commands) in IPython.
 
-# In[ ]:
+# In[10]:
 
 
 get_ipython().system('(1 == 2)')
 
 
-# In[ ]:
+# In[11]:
 
 
 get_ipython().system('ls  # a bash command that lists files in the current directory')
@@ -178,7 +178,7 @@ get_ipython().system('ls  # a bash command that lists files in the current direc
 
 # **How to compare floating point numbers?**
 
-# In[31]:
+# In[12]:
 
 
 x = 10
@@ -193,7 +193,7 @@ x == y
 
 # One method of comparing floating point numbers:
 
-# In[32]:
+# In[13]:
 
 
 abs(x - y) <= 1e-9
@@ -211,7 +211,7 @@ abs(x - y) <= 1e-9
 
 # What if we want to compare `x = 1e10` instead of `10`?
 
-# In[36]:
+# In[14]:
 
 
 x = 1e10
@@ -222,7 +222,7 @@ abs(x - y) <= 1e-9
 # Floating point numbers "float" at different scales.  
 # A better way to use the [`isclose`](https://docs.python.org/3/library/math.html#math.isclose) function from `math` module. 
 
-# In[37]:
+# In[15]:
 
 
 import math
@@ -240,7 +240,7 @@ math.isclose(x, y)
 
 # **Exercise** Write the boolean expression implemented by `isclose`. You can use the function `max(a,b)` to find the maximum of `a` and `b`. 
 
-# In[28]:
+# In[16]:
 
 
 rel_tol, abs_tol = 1e-9, 0.0
@@ -256,7 +256,7 @@ abs(x-y) <= max(rel_tol * max(abs(x), abs(y)), abs_tol)
 
 # E.g., `1 <= 2 < 3 != 4` is evaluated as follows:
 
-# In[38]:
+# In[17]:
 
 
 1 <= 2 and 2 < 3 and 3 != 4
@@ -269,7 +269,7 @@ abs(x-y) <= max(rel_tol * max(abs(x), abs(y)), abs_tol)
 # What if we want to check whether a number is either $< 0$ or $\geq 100$?  
 # Can we achieve this only by chaining the comparison operators or applying the logical `and`?
 
-# In[69]:
+# In[18]:
 
 
 # Check if a number is outside a range.
@@ -315,7 +315,7 @@ def check_out_of_range(x):
 
 # To understand this, we will use the following function to evaluate a boolean expression verbosely.
 
-# In[47]:
+# In[19]:
 
 
 def verbose(id,boolean):
@@ -324,7 +324,7 @@ def verbose(id,boolean):
     return boolean
 
 
-# In[45]:
+# In[20]:
 
 
 verbose('A',verbose(1,True) or verbose(2,False) and verbose(3,True))  # True or (False and True)
@@ -340,7 +340,7 @@ verbose('A',verbose(1,True) or verbose(2,False) and verbose(3,True))  # True or 
 # - Even though `or` has lower precedence than `and`, it is still evaluated first. 
 # - The evaluation order for logical operators is left-to-right.
 
-# In[48]:
+# In[21]:
 
 
 verbose('B',verbose(4,True) and verbose(5,False) and verbose(6,True))  # (True and False) and True
@@ -358,7 +358,7 @@ verbose('B',verbose(4,True) and verbose(5,False) and verbose(6,True))  # (True a
 
 # **Exercise** How does the following code work?
 
-# In[50]:
+# In[22]:
 
 
 print('You have entered', input() or 'nothing')
@@ -369,7 +369,7 @@ print('You have entered', input() or 'nothing')
 
 # **Is empty string equal to False?**
 
-# In[92]:
+# In[23]:
 
 
 print('Is empty string equal False?',''==False)
@@ -403,7 +403,7 @@ print('Is empty string equal False?',''==False)
 
 # Python provides the [`if` statement](https://docs.python.org/3/reference/compound_stmts.html#the-if-statement) to implement the above [*control flow*](https://en.wikipedia.org/wiki/Control_flow) specified by the diamonds.
 
-# In[52]:
+# In[24]:
 
 
 # Sort two values using if statement
@@ -420,7 +420,7 @@ def sort_two_values_app(x, y):
 
 # We can visualize the execution as follows:
 
-# In[53]:
+# In[25]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 350', 'def sort_two_values(x, y):\n    if x <= y:\n        print(x, y)\n    if y < x: print(y, x)\n        \nsort_two_values(1,0)\nsort_two_values(1,2)')
@@ -441,7 +441,7 @@ get_ipython().run_cell_magic('mytutor', '-h 350', 'def sort_two_values(x, y):\n 
 # In programming, it is often useful to delay detailed implementations until we have written an overall skeleton.  
 # To leave a block empty, Python uses the keyword [`pass`](https://docs.python.org/3/tutorial/controlflow.html#pass-statements).
 
-# In[61]:
+# In[26]:
 
 
 # write a code skeleton
@@ -455,7 +455,7 @@ sort_two_values(1,2)
 
 # Without `pass`, the code will fail to run, preventing you from checking other parts of the code.
 
-# In[63]:
+# In[27]:
 
 
 # You can add more details to the skeleton step-by-step
@@ -486,7 +486,7 @@ sort_two_values(1,2)
 
 # This can be down by the `else` clause of the [`if` statement](https://docs.python.org/3/tutorial/controlflow.html#if-statements).
 
-# In[64]:
+# In[28]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 350', 'def sort_two_values(x, y):\n    if x <= y:\n        print(x, y)\n    else:\n        print(y,x)\n        \nsort_two_values(1,0)\nsort_two_values(1,2)')
@@ -494,7 +494,7 @@ get_ipython().run_cell_magic('mytutor', '-h 350', 'def sort_two_values(x, y):\n 
 
 # We can also use a [*conditional expression*](https://docs.python.org/3/reference/expressions.html#conditional-expressions) to shorten the code.
 
-# In[65]:
+# In[29]:
 
 
 def sort_two_values(x, y):
@@ -508,13 +508,13 @@ def sort_two_values_app(x, y):
 
 # **Exercise** Explain why the followings have syntax errors.
 
-# In[ ]:
+# In[30]:
 
 
 1 if True
 
 
-# In[ ]:
+# In[31]:
 
 
 x = 1 if True else x = 0 
@@ -550,7 +550,7 @@ x = 1 if True else x = 0
 
 # We can implement the flow using *nested conditional constructs*:
 
-# In[66]:
+# In[32]:
 
 
 def sort_three_values(x, y, z):
@@ -585,7 +585,7 @@ test_sort_three_values()
 # Imagine what would happen if we have to sort many values.  
 # To avoid an excessively long line due to the indentation, Python provides the `elif` keyword that combines `else` and `if`.
 
-# In[67]:
+# In[33]:
 
 
 def sort_three_values(x, y, z):
@@ -610,7 +610,7 @@ test_sort_three_values()
 # Improve the program to eliminate duplicate checks.  
 # *Hint:* Do not use chained comparison operators or compound boolean expressions.
 
-# In[88]:
+# In[34]:
 
 
 def sort_three_values(x, y, z):

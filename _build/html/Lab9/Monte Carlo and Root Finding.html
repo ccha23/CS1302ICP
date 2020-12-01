@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monte Carlo and Root Finding &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Information Theory" href="../Lab8/Information%20Theory.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab9/Monte Carlo and Root Finding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab9/Monte Carlo and Root Finding.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-monty-hall-game">
+   The Monty-Hall Game
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-a-3-by-3-system-of-linear-equations">
+   Solving a 3-by-3 system of linear equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-non-linear-equations">
+   Solving non-linear equations
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="monte-carlo-and-root-finding">
+<h1>Monte Carlo and Root Finding<a class="headerlink" href="#monte-carlo-and-root-finding" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-monty-hall-game">
+<h2>The Monty-Hall Game<a class="headerlink" href="#the-monty-hall-game" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/rn1y-HrmA5c?end=23&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is it better to change the initial pick? What is the chance of winning if we change?</strong></p>
+<p><em>Hint:</em> There are two doors to choose from, and only one of the doors has treasure behind.</p>
+<p>Let’s use the following program to play the game a couple of times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">def</span> <span class="nf">play_monty_hall</span><span class="p">(</span><span class="n">num_of_doors</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Main function to run the Monty Hall game.&#39;&#39;&#39;</span>
+    <span class="n">doors</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_of_doors</span><span class="p">)}</span>
+    <span class="n">door_with_treasure</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">doors</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Input initial pick of the door.</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">initial_pick</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pick a door from </span><span class="si">{</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">doors</span><span class="p">))</span><span class="si">}</span><span class="s1">: &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">initial_pick</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span> <span class="k">break</span>
+
+    <span class="c1"># Open all but one other door. Opened door must have nothing.</span>
+    <span class="n">doors_to_open</span> <span class="o">=</span> <span class="n">doors</span> <span class="o">-</span> <span class="p">{</span><span class="n">initial_pick</span><span class="p">,</span> <span class="n">door_with_treasure</span><span class="p">}</span>
+    <span class="n">other_door</span> <span class="o">=</span> <span class="n">door_with_treasure</span> <span class="k">if</span> <span class="n">initial_pick</span> <span class="o">!=</span> <span class="n">door_with_treasure</span> \
+                                    <span class="k">else</span> <span class="n">doors_to_open</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Door(s) with nothing behind:&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">doors_to_open</span><span class="p">)</span>
+
+    <span class="c1"># Allow player to change the initial pick the other (unopened) door.</span>
+    <span class="n">change_pick</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;Would you like to change your choice to </span><span class="si">{</span><span class="n">other_door</span><span class="si">}</span><span class="s1">? [y/N] &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span>
+        <span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span>
+
+    <span class="c1"># Check and recording winning.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">change_pick</span><span class="p">:</span>
+        <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# no change&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">door_with_treasure</span> <span class="o">==</span> <span class="n">initial_pick</span><span class="p">:</span>
+            <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# win without changing&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You won!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# change&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">door_with_treasure</span> <span class="o">==</span> <span class="n">other_door</span><span class="p">:</span>
+            <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# win by changing&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You won!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;You lost. The door with treasure is </span><span class="si">{</span><span class="n">door_with_treasure</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+       
+<span class="n">mh_stats</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s1">&#39;# win by changing&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;# win without changing&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;# change&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;# no change&#39;</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">monty_hall_statistics</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Print the statistics of the Monty Hall games.&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;Statistics&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# change&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;% win by changing: </span><span class="se">\</span>
+<span class="s2">        </span><span class="si">{</span><span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# win by changing&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# change&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# no change&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;% win without changing: </span><span class="se">\</span>
+<span class="s2">        </span><span class="si">{</span><span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# win without changing&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">mh_stats</span><span class="p">[</span><span class="s1">&#39;# no change&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">play_monty_hall</span><span class="p">()</span>
+<span class="n">monty_hall_statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may also <a class="reference external" href="https://math.ucsd.edu/~crypto/Monty/monty.html">play the game online</a>.</p>
+<p>To get a good estimate of the chance of winning, we need to play the game many times.<br />
+We can write a Monty-Carlo simulation instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not change any variables defined here, or some of the tests may fail.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+np.random.randint<span class="o">?</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># for reproducible result</span>
+<span class="n">num_of_games</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">10e7</span><span class="p">)</span>
+<span class="n">door_with_treasure</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num_of_games</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">initial_pick</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num_of_games</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Door with treasure:&#39;</span><span class="si">:</span><span class="s2">&gt;19</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">door_with_treasure</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Initial pick:&#39;</span><span class="si">:</span><span class="s2">&gt;19</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">initial_pick</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">door_with_treasure</span></code> stores as 8-bit unsigned integers <code class="docutils literal notranslate"><span class="pre">uint8</span></code> the door numbers randomly chosen from <span class="math notranslate nohighlight">\(\{1, 2, 3\}\)</span> as the doors with treasure behind for a number <code class="docutils literal notranslate"><span class="pre">num_of_games</span></code> of Monty-Hall games.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initial_pick</span></code> stores the initial choices for the different games.</p></li>
+</ul>
+<p>If players do not change their initial pick, the chance of winning can be estimated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">estimate_chance_of_winning_without_change</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">,</span>
+                                              <span class="n">initial_pick</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Estimate the chance of winning the Monty Hall game without changing </span>
+<span class="sd">    the initial pick using the Monte Carlo simulation of door_with_treasure </span>
+<span class="sd">    and initial_pick.&#39;&#39;&#39;</span>
+    <span class="n">count_of_win</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">,</span> <span class="n">initial_pick</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span> <span class="n">count_of_win</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count_of_win</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">num_of_games</span> <span class="o">//</span> <span class="mi">100</span>
+<span class="n">estimate_chance_of_winning_without_change</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span>
+                                          <span class="n">initial_pick</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, the above code is inefficient and takes a long time to run. You may try running it on the entire sequences of <code class="docutils literal notranslate"><span class="pre">door_with_treasure</span></code> and <code class="docutils literal notranslate"><span class="pre">initial_pick</span></code> but <strong>DO NOT</strong> put the code in your notebook, as jupyterhub refuses to autograde notebook that take too much time or memory to run.</p>
+<p>A simpler and also more efficient solution with well over 100 times speed up is as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">estimate_chance_of_winning_without_change</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">,</span>
+                                              <span class="n">initial_pick</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Estimate the chance of winning the Monty Hall game without changing </span>
+<span class="sd">    the initial pick using the Monte Carlo simulation of door_with_treasure </span>
+<span class="sd">    and initial_pick.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">door_with_treasure</span> <span class="o">==</span> <span class="n">initial_pick</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">estimate_chance_of_winning_without_change</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">,</span>
+                                          <span class="n">initial_pick</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code uses the method <code class="docutils literal notranslate"><span class="pre">mean</span></code> of <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> that computes the mean of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array.<br />
+In computing the mean, <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> are regarded as <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> respectively, as illustrated below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1"> == </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Define the function <code class="docutils literal notranslate"><span class="pre">estimate_chance_of_winning_by_change</span></code> same as <code class="docutils literal notranslate"><span class="pre">estimate_chance_of_winning_without_change</span></code> above but returns the estimate of the chance of winning by changing the initial choice instead. Again, <em>implement efficiently or jupyterhub may refuse to autograde your entire notebook</em>.</p>
+<p><em>Hint:</em> Since there are only two unopened doors at the end of each game, a player will win by changing the initial pick if the initially picked door is not the door with treasure behind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">estimate_chance_of_winning_by_change</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">,</span>
+                                              <span class="n">initial_pick</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Estimate the chance of winning the Monty Hall game by changing </span>
+<span class="sd">    the initial pick using the Monte Carlo simulation of door_with_treasure </span>
+<span class="sd">    and initial_pick.&#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+    <span class="n">estimate_chance_of_winning_by_change</span><span class="p">(</span><span class="n">door_with_treasure</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span>
+                                         <span class="n">initial_pick</span><span class="p">[:</span><span class="mi">10</span><span class="p">]),</span> <span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solving-a-3-by-3-system-of-linear-equations">
+<h2>Solving a 3-by-3 system of linear equations<a class="headerlink" href="#solving-a-3-by-3-system-of-linear-equations" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> has a module <code class="docutils literal notranslate"><span class="pre">linalg</span></code> for linear algebra, and the module provides a function called <code class="docutils literal notranslate"><span class="pre">solve</span></code> that can solve a system of linear equations. For the example in the lecture</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+2 x_0 + 2 x_1 &amp;= 1\\
+2 x_1 &amp;= 1,
+\end{aligned}
+\end{split}\]</div>
+<p>we can obtain the solution as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.linalg.solve<span class="o">?</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As explained in the lecture, the arguments <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are obtained from the matrix form of the system of linear equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\underbrace{
+\begin{bmatrix}
+2 &amp; 2\\
+0 &amp; 2
+\end{bmatrix}}_{\mathbf{A}}
+\underbrace{
+\begin{bmatrix}
+x_0\\ x_1
+\end{bmatrix}}_{\mathbf{x}}
+= 
+\underbrace{
+\begin{bmatrix}
+1 \\ 1
+\end{bmatrix}
+}_{\mathbf{b}}
+\end{split}\]</div>
+<p>However, the function returns an error when there is no unique solutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Case with infinitely many solution</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Case without solution</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A unique solution does not exist if and only if the <a class="reference external" href="https://en.m.wikipedia.org/wiki/Determinant">determinant</a> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is <span class="math notranslate nohighlight">\(0\)</span>, in which case <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is called a singular matrix. For a <span class="math notranslate nohighlight">\(2\)</span>-by-<span class="math notranslate nohighlight">\(2\)</span> matrix, the determinant is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\begin{aligned}
+\operatorname{det}(A) &amp;:= \left| 
+\begin{matrix}
+a_{00} &amp; a_{01}\\
+a_{10} &amp; a_{11}
+\end{matrix}
+\right|\\
+&amp;= a_{00}\times a_{11} - a_{01}\times a_{10}.
+\end{aligned}
+\end{split}\]</div>
+<p>For example, the first system has a unique solution because</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left|
+\begin{matrix}
+2 &amp; 2\\
+0 &amp; 2
+\end{matrix}
+\right|
+= 2\times 2 - 2\times 0 = 4&gt;0.
+\end{split}\]</div>
+<p>The last two systems do not have unique solutions because</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left|
+\begin{matrix}
+2 &amp; 2\\
+2 &amp; 2
+\end{matrix}
+\right|
+= 2\times 2 - 2\times 2 = 0.
+\end{split}\]</div>
+<p>We can use the function <code class="docutils literal notranslate"><span class="pre">det</span></code> from <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> to compute the determinant as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.linalg.det<span class="o">?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Use the <code class="docutils literal notranslate"><span class="pre">det</span></code> and <code class="docutils literal notranslate"><span class="pre">solve</span></code> functions to assign <code class="docutils literal notranslate"><span class="pre">x</span></code> to the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array storing the solution of the following linear system if the solution is unique else <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+x_0 + 2 x_1 + 3x_2 &amp;= 14\\
+2x_0 + x_1 + 2x_2 &amp;= 10\\
+3 x_0 + 2x_1 + x_2 &amp;= 10.
+\end{aligned}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="c1"># As the main test must be hidden, you may want to verify your solution</span>
+<span class="c1"># as explained in the lecture using matrix multiplication.</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solving-non-linear-equations">
+<h2>Solving non-linear equations<a class="headerlink" href="#solving-non-linear-equations" title="Permalink to this headline">¶</a></h2>
+<p>Suppose we want to solve:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = 0
+\]</div>
+<p>for some possibly non-linear real-valued function <span class="math notranslate nohighlight">\(f(x)\)</span> in one real-valued variable <span class="math notranslate nohighlight">\(x\)</span>. Quadratic equation with an <span class="math notranslate nohighlight">\(x^2\)</span> term is an example. The following is another example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Plot of $f(x)=x(x-1)(x-2)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>While it is clear that the above function has three roots, namely, <span class="math notranslate nohighlight">\(x=0, 1, 2\)</span>, can we write a program to compute a root of any given continuous function <span class="math notranslate nohighlight">\(f\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/PXSLcEGkXkU&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following function <code class="docutils literal notranslate"><span class="pre">bisection</span></code></p>
+<ul class="simple">
+<li><p>takes as arguments</p>
+<ul>
+<li><p>a continuous function <code class="docutils literal notranslate"><span class="pre">f</span></code>,</p></li>
+<li><p>two real values <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>,</p></li>
+<li><p>a positive integer <code class="docutils literal notranslate"><span class="pre">n</span></code> indicating the maximum depth of the recursion, and</p></li>
+</ul>
+</li>
+<li><p>returns a list <code class="docutils literal notranslate"><span class="pre">[xstart,</span> <span class="pre">xstop]</span></code> if the bisection succeeds in capturing a root in the interval <code class="docutils literal notranslate"><span class="pre">[xstart,</span> <span class="pre">xstop]</span></code> bounded by <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, or else, returns a empty list <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># because f(x) may not have a root between x=a and x=b</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># base case when recursion cannot go any deeper</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="k">else</span> <span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>  <span class="c1"># bisect the interval between a and b</span>
+        <span class="k">return</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># recursion</span>
+    
+<span class="c1"># bisection solver</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="nd">@widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">bisection_solver</span><span class="p">(</span><span class="n">a</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Bisection on $f(x)$&#39;</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">xstart</span><span class="p">,</span><span class="n">xstop</span><span class="p">]</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xstart</span><span class="p">,</span><span class="n">xstop</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;r|-&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Interval: &#39;</span><span class="p">,[</span><span class="n">xstart</span><span class="p">,</span><span class="n">xstop</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try setting the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> as follows and change <span class="math notranslate nohighlight">\(n\)</span> to see the change of the interval step-by-step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Modify the function <code class="docutils literal notranslate"><span class="pre">bisection</span></code> to</p>
+<ul class="simple">
+<li><p>take the floating point parameter <code class="docutils literal notranslate"><span class="pre">tol</span></code> instead of <code class="docutils literal notranslate"><span class="pre">n</span></code>, and</p></li>
+<li><p>return the interval from the bisection method represented by a list <code class="docutils literal notranslate"><span class="pre">[xstart,xstop]</span></code> but as soon as the gap <code class="docutils literal notranslate"><span class="pre">xstop</span> <span class="pre">-</span> <span class="pre">xstart</span></code> is <span class="math notranslate nohighlight">\(\leq\)</span> <code class="docutils literal notranslate"><span class="pre">tol</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),[</span><span class="o">-</span><span class="mf">9.313225746154785e-10</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1e-2</span><span class="p">),</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0078125</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">1e-3</span><span class="p">),</span> <span class="p">[</span><span class="mf">1.9998046875000002</span><span class="p">,</span> <span class="mf">2.0004394531250003</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lab8/Information%20Theory.html" title="previous page">Information Theory</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

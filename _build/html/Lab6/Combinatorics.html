@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combinatorics &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cybersecurity" href="../Lab7/Cybersecurity.html" />
+    <link rel="prev" title="Pandas" href="../Lab5/Pandas.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab6/Combinatorics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab6/Combinatorics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-using-recursion">
+   Permutation using Recursion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#number-of-permutations">
+   Number of permutations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-using-iteration">
+   Permutation using Iteration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deduplication-using-decorator">
+   Deduplication using Decorator
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="combinatorics">
+<h1>Combinatorics<a class="headerlink" href="#combinatorics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="permutation-using-recursion">
+<h2>Permutation using Recursion<a class="headerlink" href="#permutation-using-recursion" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Permutation#k-permutations_of_n"><span class="math notranslate nohighlight">\(k\)</span>-permutation of <span class="math notranslate nohighlight">\(n\)</span></a> items <span class="math notranslate nohighlight">\(a_0,\dots,a_{n-1}\)</span> is an ordered tuple</p>
+<div class="math notranslate nohighlight">
+\[
+(a_{i_0},\dots,a_{i_{k-1}})
+\]</div>
+<p>of <span class="math notranslate nohighlight">\(k\)</span> out of the <span class="math notranslate nohighlight">\(n\)</span> objects, where <span class="math notranslate nohighlight">\(0\leq i_0,\dots,i_{k-1}&lt;n\)</span> are distinct indices. An <span class="math notranslate nohighlight">\(n\)</span>-permutation of <span class="math notranslate nohighlight">\(n\)</span> objects is simply called a permutation of <span class="math notranslate nohighlight">\(n\)</span> objects.</p>
+<p>For examples:</p>
+<ul class="simple">
+<li><p>The list of (<span class="math notranslate nohighlight">\(3\)</span>-)permutations of <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code> is:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The list of <span class="math notranslate nohighlight">\(2\)</span>-permutations of <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code> is:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above, we used</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> delimited by <code class="docutils literal notranslate"><span class="pre">()</span></code> such as <code class="docutils literal notranslate"><span class="pre">(1,2,3)</span></code> to store items of a permutation, and</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">list</span></code> delimited by <code class="docutils literal notranslate"><span class="pre">[]</span></code> such as <code class="docutils literal notranslate"><span class="pre">[(1,</span> <span class="pre">2,</span> <span class="pre">3),</span> <span class="pre">(1,</span> <span class="pre">3,</span> <span class="pre">2),</span> <span class="pre">(2,</span> <span class="pre">1,</span> <span class="pre">3),</span> <span class="pre">(2,</span> <span class="pre">3,</span> <span class="pre">1),</span> <span class="pre">(3,</span> <span class="pre">1,</span> <span class="pre">2),</span> <span class="pre">(3,</span> <span class="pre">2,</span> <span class="pre">1)]</span></code> to store all the permutations.</p></li>
+</ul>
+<p>Generating permutations is a fundamental problem in computing and combinatorics.<br />
+A simple way to generate permutations is by recursion. (There are also <a class="reference external" href="https://www.topcoder.com/generating-permutations/">other algorithms</a>.)</p>
+<p><strong>Recurrence relation (Line 10):</strong></p>
+<ul class="simple">
+<li><p>Removing the first element of a <span class="math notranslate nohighlight">\(k\)</span>-permutation of <span class="math notranslate nohighlight">\(n\)</span> objects gives a different <span class="math notranslate nohighlight">\((k-1)\)</span>-permutation of the remaining <span class="math notranslate nohighlight">\(n-1\)</span> objects.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ (a_{i_0}, \underbrace{a_{i_1},\dots,a_{i_{k-1}}}_{\text{($k-1$)-permutation of $a_{i_1},\dots,a_{i_{k-1}}$.}\kern-5em} ) \]</div>
+<ul class="simple">
+<li><p>Reversing the above removal process gives a way of constructing a <span class="math notranslate nohighlight">\(k\)</span>-permutation from a <span class="math notranslate nohighlight">\((k-1)\)</span>-permutation.<br />
+E.g., the permutations of <span class="math notranslate nohighlight">\(1,2,3\)</span> can be constructed as follows:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[[\overbrace{({\color{red} 1}, {\color{blue}{2, 3}}), ({\color{red} 1}, {\color{blue}{3, 2}})}^{\text{prepend 1 to permutations of $2,3$.} }, \overbrace{({\color{red} 2}, {\color{blue}{1, 3}}), ({\color{red} 2}, {\color{blue}{3, 1}})}^{\text{prepend 2 to permutations of $1,3$.} }, \overbrace{({\color{red} 3}, {\color{blue}{1, 2}}), ({\color{red} 3}, {\color{blue}{2, 1}})}^{\text{prepend 3 to permutations of $1,2$.} }]\]</div>
+<p>The following is an implementation of the recursion <code class="docutils literal notranslate"><span class="pre">permutation(*a,k=None)</span></code> that</p>
+<ul class="simple">
+<li><p>takes in a variable number <span class="math notranslate nohighlight">\(n\)</span> of objects as positional arguments (in <code class="docutils literal notranslate"><span class="pre">a</span></code>),</p></li>
+<li><p>takes in an integer <span class="math notranslate nohighlight">\(k\)</span> using a keyword argument (<code class="docutils literal notranslate"><span class="pre">k</span></code>, with the default <code class="docutils literal notranslate"><span class="pre">k=None</span></code> for <span class="math notranslate nohighlight">\(k=n\)</span>), and</p></li>
+<li><p>returns the list of all <span class="math notranslate nohighlight">\(k\)</span>-permutations represented as ordered tuples of the <span class="math notranslate nohighlight">\(n\)</span> objects.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">permutation</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the list of (k-)permutations of the position arguments.&#39;&#39;&#39;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">)</span> <span class="o">+</span> <span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">permutation</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)])</span>
+    <span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[()]</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The recurrence is implemented by the for loop:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>        <span class="o">...</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">extend</span><span class="p">([(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">)</span> <span class="o">+</span> <span class="n">p</span>
+                           <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">permutation</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)])</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>In the above code, <code class="docutils literal notranslate"><span class="pre">(a[i],</span> <span class="pre">)</span> <span class="pre">+</span> <span class="pre">p</span></code> creates a <span class="math notranslate nohighlight">\(k\)</span>-permutation of the items in <code class="docutils literal notranslate"><span class="pre">a</span></code> by concatenating for each index <code class="docutils literal notranslate"><span class="pre">i</span></code></p>
+<ul class="simple">
+<li><p>a singleton tuple <code class="docutils literal notranslate"><span class="pre">(a[i],</span> <span class="pre">)</span></code> and</p></li>
+<li><p>a <span class="math notranslate nohighlight">\(k-1\)</span> permutation <code class="docutils literal notranslate"><span class="pre">p</span></code> of all elements but <code class="docutils literal notranslate"><span class="pre">a[i]</span></code>.</p></li>
+</ul>
+<p>(See the example in the recurrence relation described earlier.)</p>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>The comma in <code class="docutils literal notranslate"><span class="pre">(a[i],</span> <span class="pre">)</span></code> is not a typo. Without commas, <code class="docutils literal notranslate"><span class="pre">(...)</span></code> does not create a tuple.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a[:i]</span></code> returns a tuple of <code class="docutils literal notranslate"><span class="pre">a[0]</span></code> up to and excluding <code class="docutils literal notranslate"><span class="pre">a[i]</span></code>. <code class="docutils literal notranslate"><span class="pre">*a[:i]</span></code> unpacks the tuple such that its items are separate arguments to <code class="docutils literal notranslate"><span class="pre">permutation</span></code>.</p></li>
+<li><p>Similarly, <code class="docutils literal notranslate"><span class="pre">*a[i</span> <span class="pre">+</span> <span class="pre">1:]</span></code> provides items as separate arguments starting from <code class="docutils literal notranslate"><span class="pre">a[i</span> <span class="pre">+</span> <span class="pre">1]</span></code> until the last item in <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[...</span> <span class="pre">for</span> <span class="pre">...]</span></code> generates a list of <span class="math notranslate nohighlight">\(k\)</span>-permutations, and <code class="docutils literal notranslate"><span class="pre">output.extend([...])</span></code> added the list to the end of the <code class="docutils literal notranslate"><span class="pre">output</span></code> list.</p></li>
+</ul>
+<p><strong>Exercise</strong> One of the base cases of the recusion happens when <span class="math notranslate nohighlight">\(k=0\)</span>, in which case there is only one <span class="math notranslate nohighlight">\(k\)</span>-permutation, namely the empty tuple <span class="math notranslate nohighlight">\(()\)</span>, and so the function returns <code class="docutils literal notranslate"><span class="pre">[()]</span></code>. There is another base case of the recursion. Explain the condition of that base case and its return value.</p>
+<p>YOUR ANSWER HERE</p>
+</div>
+<div class="section" id="number-of-permutations">
+<h2>Number of permutations<a class="headerlink" href="#number-of-permutations" title="Permalink to this headline">¶</a></h2>
+<p>Computing permutations using recursion is slow. Why?<br />
+There are simply too many permutations even for a reasonably small <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">permutation</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# permutations:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Surprisingly, the number <span class="math notranslate nohighlight">\(P_n\)</span> of (<span class="math notranslate nohighlight">\(n-\)</span>)permutations of <span class="math notranslate nohighlight">\(n\)</span> items can be calculated much faster without enumerating all the permutations. It satisfies the following recurrence:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P_n = \begin{cases}
+n P_{n-1} &amp; n&gt;0\\
+1 &amp; n=0\\
+0 &amp; \text{otherwise.}
+\end{cases}
+\end{split}\]</div>
+<p>This quantity is fundamental in the field of <a class="reference external" href="https://en.wikipedia.org/wiki/Combinatorics">combinatorics</a> with enormous applications.</p>
+<p><strong>Exercise</strong> Implement the above recurrence equation as a recursion <code class="docutils literal notranslate"><span class="pre">num_permutation(n)</span></code> which</p>
+<ul class="simple">
+<li><p>takes in an integer <code class="docutils literal notranslate"><span class="pre">n</span></code>, and</p></li>
+<li><p>returns the number of permutations of <code class="docutils literal notranslate"><span class="pre">n</span></code> items.</p></li>
+</ul>
+<p><em>Hint: Ensure all base cases are covered, and can run efficiently for large <span class="math notranslate nohighlight">\(n\)</span>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">num_permutation</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3628800</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Extend the function to <code class="docutils literal notranslate"><span class="pre">num_permutation(n,k=None)</span></code> which</p>
+<ul class="simple">
+<li><p>takes in an additional optional keyword argument <code class="docutils literal notranslate"><span class="pre">k</span></code>, and</p></li>
+<li><p>returns the INTEGER number of <code class="docutils literal notranslate"><span class="pre">k</span></code>-permutations of <code class="docutils literal notranslate"><span class="pre">n</span></code> items.</p></li>
+</ul>
+<p>The number is given by the formula</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P_{n,k} = \begin{cases}
+\frac{P_n}{P_{n-k}} &amp; 0\leq k \leq n\\
+0 &amp; \text{otherwise.}
+\end{cases}\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">num_permutation</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num_permutation</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+<span class="k">assert</span> <span class="n">num_permutation</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">30240</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="permutation-using-iteration">
+<h2>Permutation using Iteration<a class="headerlink" href="#permutation-using-iteration" title="Permalink to this headline">¶</a></h2>
+<p>The following function <code class="docutils literal notranslate"><span class="pre">permutation_sequence(*a)</span></code> returns a generator that generates the list of <span class="math notranslate nohighlight">\(k\)</span>-permutations one-by-one for <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <code class="docutils literal notranslate"><span class="pre">len(a)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">permutation_sequence</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns a generator for the k-permuations of the positional arguments</span>
+<span class="sd">    for k from 0 to len(a).&#39;&#39;&#39;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">idx_left</span> <span class="o">=</span> <span class="p">[()],</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">output</span>
+        <span class="n">next_output</span><span class="p">,</span> <span class="n">next_idx_left</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx_left</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx_left</span><span class="p">[</span><span class="n">m</span><span class="p">])):</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">idx_left</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">next_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">))</span>
+                <span class="n">next_idx_left</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx_left</span><span class="p">[</span><span class="n">m</span><span class="p">][:</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">idx_left</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+        <span class="n">output</span><span class="p">,</span> <span class="n">idx_left</span> <span class="o">=</span> <span class="n">next_output</span><span class="p">,</span> <span class="n">next_idx_left</span>
+
+
+<span class="k">for</span> <span class="n">permutation_list</span> <span class="ow">in</span> <span class="n">permutation_sequence</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">permutation_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unlike the recursion <code class="docutils literal notranslate"><span class="pre">permutation</span></code>, the above generates a <span class="math notranslate nohighlight">\(k\)</span>-permutation <span class="math notranslate nohighlight">\((a_{i_0},\dots,a_{i_{k-1}})\)</span> of <span class="math notranslate nohighlight">\(n\)</span> object iteratively by</p>
+<ul class="simple">
+<li><p>choosing <span class="math notranslate nohighlight">\(i_j\)</span> for <span class="math notranslate nohighlight">\(j\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(k-1\)</span> such that</p></li>
+<li><p><span class="math notranslate nohighlight">\(i_j\)</span> is not already chosen, i.e., <span class="math notranslate nohighlight">\(i_j\not\in \{i_0,\dots,i_{j-1}\}\)</span>.</p></li>
+</ul>
+<p>E.g., the permutations of <span class="math notranslate nohighlight">\(1,2,3\)</span> is generated iteratively as follows:</p>
+<ul class="simple">
+<li><p>1</p></li>
+<li><p>1,2</p>
+<ul>
+<li><p><strong>(1,2,3)</strong></p></li>
+</ul>
+</li>
+<li><p>1,3</p>
+<ul>
+<li><p><strong>(1,3,2)</strong></p></li>
+</ul>
+</li>
+<li><p>2</p></li>
+<li><p>2,1</p>
+<ul>
+<li><p><strong>(2,1,3)</strong></p></li>
+</ul>
+</li>
+<li><p>2,3</p>
+<ul>
+<li><p><strong>(2,3,1)</strong></p></li>
+</ul>
+</li>
+<li><p>3</p></li>
+<li><p>3,1</p>
+<ul>
+<li><p><strong>(3,1,2)</strong></p></li>
+</ul>
+</li>
+<li><p>3,2</p>
+<ul>
+<li><p><strong>(3,2,1)</strong></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Invariance maintained at the beginning of iteration:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code> is the list of <span class="math notranslate nohighlight">\(k\)</span>-permutations, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_left[m]</span></code> is the list of indices of arguments not yet in <code class="docutils literal notranslate"><span class="pre">output[m]</span></code>.</p></li>
+</ul>
+<p>A <span class="math notranslate nohighlight">\((k+1)\)</span>-permutation (in <code class="docutils literal notranslate"><span class="pre">next_output</span></code>) can then be generated by (Line 10) appending an argument (with an index from <code class="docutils literal notranslate"><span class="pre">idx_left</span></code>) to a <span class="math notranslate nohighlight">\(k\)</span>-permutation (in <code class="docutils literal notranslate"><span class="pre">output</span></code>).</p>
+<p>Is iteration significantly faster?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">permutation_list</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">permutation_sequence</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# </span><span class="si">{}</span><span class="s1">-permutations of </span><span class="si">{}</span><span class="s1"> items: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">permutation_list</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unfortunately, there is not much improvement. Nevertheless, we can efficiently compute the number of <span class="math notranslate nohighlight">\(k\)</span>-permutations based on the previously computed number of <span class="math notranslate nohighlight">\(k-1\)</span>-permutations:</p>
+<p>For <span class="math notranslate nohighlight">\(k\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P_{n,k} = \underbrace{\overbrace{n\times  (n-1)\times \cdots }^{P_{n,k-1}\text{  if }k&gt;0}\times(n-k+1)}_{\text{$k$ terms in the product.}}.\]</div>
+<p><strong>Exercise</strong> Use the <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement to write the function <code class="docutils literal notranslate"><span class="pre">num_permutation_sequence(n)</span></code> that returns a generator of <span class="math notranslate nohighlight">\(P_{n,k}\)</span> with <code class="docutils literal notranslate"><span class="pre">k</span></code> from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">num_permutation_sequence</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># YOUR CODE HERE</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">num_permutation_sequence</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="k">assert</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">num_permutation_sequence</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="mi">5040</span><span class="p">,</span> <span class="mi">30240</span><span class="p">,</span> <span class="mi">151200</span><span class="p">,</span> <span class="mi">604800</span><span class="p">,</span> <span class="mi">1814400</span><span class="p">,</span> <span class="mi">3628800</span><span class="p">,</span> <span class="mi">3628800</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise (Challenge)</strong> Extend the function <code class="docutils literal notranslate"><span class="pre">num_permutation_sequence(n)</span></code> so that calling <code class="docutils literal notranslate"><span class="pre">send(0)</span></code> method causes the generator to increment <span class="math notranslate nohighlight">\(n\)</span> instead of <span class="math notranslate nohighlight">\(k\)</span> for the next number to generate. i.e., for <span class="math notranslate nohighlight">\(0\leq k \leq n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\dots P_{n,k-1}\to P_{n,k} \xrightarrow{\text{send(0)}} P_{n+1,k} \to P_{n+1,k+1}\dots\]</div>
+<p>where <span class="math notranslate nohighlight">\(\to\)</span> without labels is the normal transition without calling the <code class="docutils literal notranslate"><span class="pre">send</span></code> method.</p>
+<p><em>Hint:</em></p>
+<div class="math notranslate nohighlight">
+\[P_{n+1,k}=P_{n,k} \times \frac{n+1}{n-k+1}.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">num_permutation_sequence</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">num_permutation_sequence</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="n">g</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">),</span> <span class="n">g</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="deduplication-using-decorator">
+<h2>Deduplication using Decorator<a class="headerlink" href="#deduplication-using-decorator" title="Permalink to this headline">¶</a></h2>
+<p>An issue with the function <code class="docutils literal notranslate"><span class="pre">permutation</span></code> is that it regards arguments at different positions as distinct even if they may have the same value. E.g.,<br />
+<code class="docutils literal notranslate"><span class="pre">permutation(1,1,2)</span></code> returns <code class="docutils literal notranslate"><span class="pre">[(1,</span> <span class="pre">1,</span> <span class="pre">2),</span> <span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">1),</span> <span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">2),</span> <span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">1),</span> <span class="pre">(2,</span> <span class="pre">1,</span> <span class="pre">1),</span> <span class="pre">(2,</span> <span class="pre">1,</span> <span class="pre">1)]</span></code><br />
+where each distinct permutation appears twice.</p>
+<p>To remove duplicates from a list, we can</p>
+<ul class="simple">
+<li><p>convert the list to a <code class="docutils literal notranslate"><span class="pre">set</span></code> (which automatically remove duplicates),</p></li>
+<li><p>and then convert the set back to a list.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Deduplicated:&#39;</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using a decorator, we can fix <code class="docutils literal notranslate"><span class="pre">permutation</span></code> without rewriting the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+
+
+<span class="k">def</span> <span class="nf">deduplicate_output</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Takes in a function f that returns a list possibly with duplicates,</span>
+<span class="sd">    returns a decorator that remove duplicates from the output list.&#39;&#39;&#39;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="n">permutation</span> <span class="o">=</span> <span class="n">deduplicate_output</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Deduplicated: &#39;</span><span class="p">,</span> <span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">permutation</span> <span class="o">=</span> <span class="n">permutation</span><span class="o">.</span><span class="n">__wrapped__</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original: &#39;</span><span class="p">,</span> <span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise:</strong> Create a decorator to eliminate duplicate input positional arguments instead of the ouput, i.e.,<br />
+<code class="docutils literal notranslate"><span class="pre">permutation(1,1,2)</span></code> will return the same result as <code class="docutils literal notranslate"><span class="pre">permutation(1,2)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deduplicate_input</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Takes in a function f that takes a variable number of arguments </span>
+<span class="sd">    possibly with duplicates, returns a decorator that remove duplicates </span>
+<span class="sd">    in the positional argument.&#39;&#39;&#39;</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># YOUR CODE HERE</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">permutation</span> <span class="o">=</span> <span class="n">deduplicate_input</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">permutation</span> <span class="o">=</span> <span class="n">permutation</span><span class="o">.</span><span class="n">__wrapped__</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lab5/Pandas.html" title="previous page">Pandas</a>
+    <a class='right-next' id="next-link" href="../Lab7/Cybersecurity.html" title="next page">Cybersecurity</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

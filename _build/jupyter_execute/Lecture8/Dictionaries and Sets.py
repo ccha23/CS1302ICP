@@ -293,7 +293,7 @@ a[0]  # TypeError
 
 # Unlike tuple/list, `b[-1]` does not refer to the value of the last entry. (Dictionary is not ordered.)
 
-# In[23]:
+# In[21]:
 
 
 b[-1]  # KeyError
@@ -303,7 +303,7 @@ b[-1]  # KeyError
 
 # Dictionary implements the [`__setitem__`](https://docs.python.org/3/reference/simple_stmts.html#assignment-statements) method so we can enter a key value pair to a dictionary using the assignment operator.
 
-# In[24]:
+# In[22]:
 
 
 b[-1] = 'f'
@@ -312,7 +312,7 @@ b[-1]
 
 # To delete a key, we can use the function `del`.
 
-# In[25]:
+# In[23]:
 
 
 del b[-1]
@@ -322,7 +322,7 @@ b[-1]
 # To avoid key error, we can check if a key is in a dictionary efficiently (due to hashing) using the `in` operator.  
 # The following is a different implementation of `distribute`.
 
-# In[26]:
+# In[24]:
 
 
 def distribute(seq):
@@ -349,7 +349,7 @@ plot_distribution('What is the distribution of different characters?')
 
 # **Exercise** `dict` also has a getter method `get` that conveniently returns a default value if the key does not exist. Rewrite the alternative implementation of `distribute` to use `get` instead of `in`.
 
-# In[27]:
+# In[25]:
 
 
 get_ipython().run_line_magic('pinfo', 'dict.get')
@@ -368,7 +368,7 @@ plot_distribution('What is the distribution of different characters?')
 
 # We can apply the function `sorted` to a set/dictionary to return a sorted list of the keys.
 
-# In[28]:
+# In[26]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 600', "a = set(reversed('abcde'))\nb = dict(reversed([*enumerate('abcde')]))\nsorted_elements = sorted(a)\nsorted_keys = sorted(b)")
@@ -376,7 +376,7 @@ get_ipython().run_cell_magic('mytutor', '-h 600', "a = set(reversed('abcde'))\nb
 
 # **Exercise** Re-implement `plot_distribution` to plot the distribution in ascending order of the keys.
 
-# In[29]:
+# In[27]:
 
 
 def plot_distribution(seq):
@@ -397,7 +397,7 @@ plot_distribution('What is the distribution of different characters?')
 
 # Instead of subscription, `set` has the `add`/`discard`/`remove` methods for adding/removing elements.
 
-# In[30]:
+# In[28]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 400', "a = set('abc')\na.add('d')      \na.discard('a')  \na.remove('b')\na.clear()\na.discard('a')  # no error\na.remove('b')   # KeyError")
@@ -407,7 +407,7 @@ get_ipython().run_cell_magic('mytutor', '-h 400', "a = set('abc')\na.add('d')   
 
 # Unlike `str`/`tuple`/`list`, `set` and `dict` do not implement addition `+` and multiplication `*`:
 
-# In[31]:
+# In[29]:
 
 
 any(hasattr(container, attr) for attr in ('__add__', '__mult__')
@@ -416,7 +416,7 @@ any(hasattr(container, attr) for attr in ('__add__', '__mult__')
 
 # **Exercise** Use the unpacking operators `*` and `**` to concatenate two sets/dictionaries below into a new set/dictionary.
 
-# In[32]:
+# In[30]:
 
 
 set1 = set('abc')
@@ -427,7 +427,7 @@ concatenated_set = {*set1,*set2}
 concatenated_set
 
 
-# In[33]:
+# In[31]:
 
 
 dict1 = dict(enumerate('abc'))
@@ -440,7 +440,7 @@ concatenated_dict
 
 # `set` overloads many other operators:
 
-# In[3]:
+# In[32]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 550', 'a, b = {1,2}, {2,3}\n\nunion = a | b\nassert all(i in union for i in a) and all(i in union for i in b)\n\nintersection = a & b\nassert all(i in a and i in b for i in intersection)\n\nassert intersection <= a <= union  # subset\nassert union > b > intersection    # proper superset\nassert len(a) + len(b) == len(intersection) + len(union) \n\nsymmetric_difference = a ^ b\nassert all((i in a or i in b) and not (i in a and i in b) \n           for i in symmetric_difference)\nassert symmetric_difference == union - intersection\nassert set.isdisjoint(intersection, symmetric_difference)\nassert len(union) == len(intersection) + len(symmetric_difference)')
@@ -448,7 +448,7 @@ get_ipython().run_cell_magic('mytutor', '-h 550', 'a, b = {1,2}, {2,3}\n\nunion 
 
 # The following uses `&` and `-` to compare the sets of public attributes for `set` and `dict`:
 
-# In[35]:
+# In[33]:
 
 
 set_attributes = {attr for attr in dir(set) if attr[0] != '_'}
@@ -462,7 +462,7 @@ print('set-specific attributes:',', '.join(set_attributes - dict_attributes))
 # - the class method `intersection` which returns the intersection of its arguments, and
 # - the object method `intersection_update` which mutates a set object by intersecting the set with the arguments.
 
-# In[36]:
+# In[34]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', 'a = {0,1,2}\nb = {1,2,3}\nc = set.intersection(a,b,{2,3,4})\na.intersection_update(b,c)')
@@ -482,7 +482,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', 'a = {0,1,2}\nb = {1,2,3}\nc =
 
 # `dict` also has an `update` method that can update a dictionary using dictionary, iterables and keyword arguments:
 
-# In[4]:
+# In[35]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "a = {}\na.update(enumerate('a'),b=2)\nb = a.copy()\na.update(b,c=3)")
@@ -494,7 +494,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "a = {}\na.update(enumerate('a
 # 
 # If there is no objects of type `t`, raise a key error.
 
-# In[38]:
+# In[36]:
 
 
 def group_by_type(seq):

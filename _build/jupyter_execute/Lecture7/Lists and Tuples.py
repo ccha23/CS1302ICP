@@ -302,7 +302,7 @@ print(a[len(a)]) # IndexError
 # & = (a_{-n}, ..., a_{-1})
 # \end{aligned}$$
 
-# In[149]:
+# In[21]:
 
 
 a = [*range(10)]
@@ -327,7 +327,7 @@ print(a[-len(a)-1]) # IndexError
 # - `stop` is an integer that is one larger than the index of the last item in the selection; and
 # - `step` is an integer that specifies the step/stride size through the list.
 
-# In[150]:
+# In[22]:
 
 
 a = (*range(10),)
@@ -337,7 +337,7 @@ print(a[1:4:2])
 
 # The parameters take their default values if missing or equal to None.
 
-# In[151]:
+# In[23]:
 
 
 a = [*range(10)]
@@ -348,7 +348,7 @@ print(a[1:4:]) # step defaults to 1
 
 # They can take negative values.
 
-# In[153]:
+# In[24]:
 
 
 print(a[-1:])
@@ -358,7 +358,7 @@ print(a[::-1])
 
 # They can also take a mixture of negative and postive values.
 
-# In[155]:
+# In[25]:
 
 
 print(a[-1:1])      # equal [a[-1], a[0]]?
@@ -369,7 +369,7 @@ print(a[-100:100])  # result in IndexError like subscription?
 
 # We can now implement a practical sorting algorithm called [quicksort](https://en.wikipedia.org/wiki/Quicksort) to sort a sequence.
 
-# In[160]:
+# In[26]:
 
 
 import random
@@ -399,7 +399,7 @@ print(seq, quicksort(seq), sep='\n')
 
 # There is a built-in function `sorted` for sorting a sequence. It uses the [Timsort](https://en.wikipedia.org/wiki/Timsort) algorithm.
 
-# In[399]:
+# In[27]:
 
 
 get_ipython().run_line_magic('pinfo', 'sorted')
@@ -410,7 +410,7 @@ sorted(sorted(seq))
 
 # For list (but not tuple), subscription and slicing can also be used as the target of an assignment operation to mutate the list.
 
-# In[162]:
+# In[28]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', 'b = [*range(10)]  # aliasing\nb[::2] = b[:5]\nb[0:1] = b[:5]\nb[::2] = b[:5]  # fails')
@@ -426,7 +426,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', 'b = [*range(10)]  # aliasing\
 
 # **Exercise** Explain the outcome of the following checks of equivalence?
 
-# In[166]:
+# In[29]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 400', "a = [10, 20, 30, 40]\nb = a\nprint('a is b? {}'.format(a is b))\nprint('{} == {}? {}'.format(a, b, a == b))\nb[1:3] = b[2:0:-1]\nprint('{} == {}? {}'.format(a, b, a == b))")
@@ -439,7 +439,7 @@ get_ipython().run_cell_magic('mytutor', '-h 400', "a = [10, 20, 30, 40]\nb = a\n
 
 # The following is another implementation of `composite_sequence` that takes advantage of the mutability of list. 
 
-# In[167]:
+# In[30]:
 
 
 def sieve_composite_sequence(stop):
@@ -459,13 +459,13 @@ for x in sieve_composite_sequence(100): print(x, end=' ')
 
 # **Exercise** Is `sieve_composite_sequence` more efficient than your solution `composite_sequence`? Why?
 
-# In[168]:
+# In[31]:
 
 
 for x in composite_sequence(10000): pass
 
 
-# In[169]:
+# In[32]:
 
 
 for x in sieve_composite_sequence(1000000): pass
@@ -475,13 +475,13 @@ for x in sieve_composite_sequence(1000000): pass
 
 # **Exercise** Note that the multiplication operation `*` is the most efficient way to [initialize a 1D list with a specified size](https://www.geeksforgeeks.org/python-which-is-faster-to-initialize-lists/), but we should not use it to initialize a 2D list. Fix the following code so that `a` becomes `[[1, 0], [0, 1]]`.
 
-# In[170]:
+# In[33]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 250', 'a = [[0] * 2] * 2\na[0][0] = a[1][1] = 1\nprint(a)')
 
 
-# In[171]:
+# In[34]:
 
 
 ### BEGIN SOLUTION
@@ -497,7 +497,7 @@ print(a)
 # - We determine membership using the [operator `in` or `not in`](https://docs.python.org/3/reference/expressions.html#membership-test-operations).
 # - Different from the [keyword `in` in a for loop](https://docs.python.org/3/reference/compound_stmts.html#the-for-statement), operator `in` calls the method `__contains__`.
 
-# In[172]:
+# In[35]:
 
 
 list_attributes = dir(list)
@@ -529,7 +529,7 @@ print(
 # - `count` method returns the number of occurrences of a value in a tuple/list, and
 # - `index` method returns the index of the first occurrence of a value in a tuple/list.
 
-# In[173]:
+# In[36]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', 'a = (1,2,2,4,5)\nprint(a.index(2))\nprint(a.count(2))')
@@ -537,7 +537,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', 'a = (1,2,2,4,5)\nprint(a.inde
 
 # `reverse` method reverses the list instead of returning a reversed list.
 
-# In[177]:
+# In[37]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', 'a = [*range(10)]\nprint(reversed(a))\nprint(*reversed(a))\nprint(a.reverse())')
@@ -546,7 +546,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', 'a = [*range(10)]\nprint(rever
 # - `copy` method returns a copy of a list.  
 # - `tuple` does not have the `copy` method but it is easy to create a copy by slicing.
 
-# In[178]:
+# In[38]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 400', 'a = [*range(10)]\nb = tuple(a)\na_reversed = a.copy()\na_reversed.reverse()\nb_reversed = b[::-1]')
@@ -554,7 +554,7 @@ get_ipython().run_cell_magic('mytutor', '-h 400', 'a = [*range(10)]\nb = tuple(a
 
 # `sort` method sorts the list *in place* instead of returning a sorted list.
 
-# In[179]:
+# In[39]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', 'import random\na = [random.randint(0,10) for i in range(10)]\nprint(sorted(a))\nprint(a.sort())')
@@ -564,7 +564,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', 'import random\na = [random.ra
 # - `append` method adds an object to the end of a list.
 # - `insert` method insert an object to a specified location.
 
-# In[180]:
+# In[40]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "a = b = [*range(5)]\nprint(a + b)\nprint(a.extend(b))\nprint(a.append('stop'))\nprint(a.insert(0,'start'))")
@@ -576,7 +576,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "a = b = [*range(5)]\nprint(a 
 # 
 # We can also use the function `del` to delete a selection of a list.
 
-# In[182]:
+# In[41]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', 'a = [*range(10)]\ndel a[::2]\nprint(a.pop())\nprint(a.remove(5))\nprint(a.clear())')

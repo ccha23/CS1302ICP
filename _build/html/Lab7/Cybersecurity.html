@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cybersecurity &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Information Theory" href="../Lab8/Information%20Theory.html" />
+    <link rel="prev" title="Combinatorics" href="../Lab6/Combinatorics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
+   Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab7/Cybersecurity.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab7/Cybersecurity.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caesar-symmetric-key-cipher">
+   Caesar symmetric key cipher
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encrypt-decrypt-a-character">
+     Encrypt/decrypt a character
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encrypt-a-plaintext-and-decrypt-a-ciphertext">
+     Encrypt a plaintext and decrypt a ciphertext
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brute-force-attack">
+   Brute-force attack
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-an-english-dictionary">
+     Create an English dictionary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identify-english-like-text">
+     Identify English-like text
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#launch-a-brute-force-attack">
+     Launch a brute-force attack
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   Challenge
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="cybersecurity">
+<h1>Cybersecurity<a class="headerlink" href="#cybersecurity" title="Permalink to this headline">¶</a></h1>
+<p>Python is a popular tool among hackers and engineers. In this lab, you will learn Cryptology in cybersecurity, which covers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Cryptography">Cryptography</a>: Encryption and decryption using a cipher.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Cryptanalysis">Cryptanalysis</a>: Devising an attack to break a cipher.</p></li>
+</ul>
+<div class="section" id="caesar-symmetric-key-cipher">
+<h2>Caesar symmetric key cipher<a class="headerlink" href="#caesar-symmetric-key-cipher" title="Permalink to this headline">¶</a></h2>
+<p>We first implements a simple cipher called the <a class="reference external" href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/sMOZf4GN3oc&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="encrypt-decrypt-a-character">
+<h3>Encrypt/decrypt a character<a class="headerlink" href="#encrypt-decrypt-a-character" title="Permalink to this headline">¶</a></h3>
+<p><strong>How to encrypt a character?</strong></p>
+<p>The following code encrypts a character <code class="docutils literal notranslate"><span class="pre">char</span></code> using a non-negative integer <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cc_n</span> <span class="o">=</span> <span class="mi">1114112</span>
+
+
+<span class="k">def</span> <span class="nf">cc_encrypt_character</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the encryption of a character by an integer key using Caesar cipher.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    char (str): a unicode (UTF-8) character to be encrypted.</span>
+<span class="sd">    key (int): secret key to encrypt char.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">char_code</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="n">shifted_char_code</span> <span class="o">=</span> <span class="p">(</span><span class="n">char_code</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="n">cc_n</span>
+    <span class="n">encrypted_char</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">shifted_char_code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">encrypted_char</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, to encrypt the letter <code class="docutils literal notranslate"><span class="pre">'A'</span></code> using a secret key <code class="docutils literal notranslate"><span class="pre">5</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cc_encrypt_character</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The character <code class="docutils literal notranslate"><span class="pre">'A'</span></code> is encrypted to the character <code class="docutils literal notranslate"><span class="pre">'F'</span></code> as follows:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ord(char)</span></code> return the integer <code class="docutils literal notranslate"><span class="pre">65</span></code> that is the code point (integer representation) of the unicode of <code class="docutils literal notranslate"><span class="pre">'A'</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(char_code</span> <span class="pre">+</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n</span></code> cyclic shifts the code by the key <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chr(shifted_char_code)</span></code> converts the shifted code back to a character, which is <code class="docutils literal notranslate"><span class="pre">'F'</span></code>.</p></li>
+</ol>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Encryption</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>A</strong></p></td>
+<td><p>B</p></td>
+<td><p>C</p></td>
+<td><p>D</p></td>
+<td><p>E</p></td>
+<td><p>F</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ord(char)</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>65</strong></p></td>
+<td><p>66</p></td>
+<td><p>67</p></td>
+<td><p>68</p></td>
+<td><p>69</p></td>
+<td><p>70</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">(ord(char)</span> <span class="pre">+</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>70</strong></p></td>
+<td><p>71</p></td>
+<td><p>72</p></td>
+<td><p>73</p></td>
+<td><p>74</p></td>
+<td><p>75</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">(chr(ord(char)</span> <span class="pre">+</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n)</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>F</strong></p></td>
+<td><p>G</p></td>
+<td><p>H</p></td>
+<td><p>I</p></td>
+<td><p>J</p></td>
+<td><p>K</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>You may learn more about <code class="docutils literal notranslate"><span class="pre">ord</span></code> and <code class="docutils literal notranslate"><span class="pre">chr</span></code> from their docstrings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">ord</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="nb">chr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to decrypt a character?</strong></p>
+<p>Mathematically, we define the encryption and decryption of a character for Caesar cipher as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{aligned} E(x,k) &amp;:= x + k \mod n &amp; \text{(encryption)} \\
+D(x,k) &amp;:= x - k \mod n &amp; \text{(decryption),} \end{aligned}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the character code in <span class="math notranslate nohighlight">\(\{0,\dots,n\}\)</span> and <span class="math notranslate nohighlight">\(k\)</span> is the secret key. <code class="docutils literal notranslate"><span class="pre">mod</span></code> operator above is the modulo operator. In Mathematics, it has a lower precedence than addition and multiplication and is typeset with an extra space accordingly.</p>
+<p>The encryption and decryption satisfies the recoverability condition</p>
+<div class="math notranslate nohighlight">
+\[ D(E(x,k),k) = x \]</div>
+<p>so two people with a common secret key can encrypt and decrypt a character, but others not knowing the key cannot. This is a defining property of a <a class="reference external" href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cipher</a>.</p>
+<p>The following code decrypts a character using a key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cc_decrypt_character</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the decryption of a character by the key using Caesar cipher.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    char (str): a unicode (UTF-8) character to be decrypted.</span>
+<span class="sd">    key (int): secret key to decrypt char.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">char_code</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="n">shifted_char_code</span> <span class="o">=</span> <span class="p">(</span><span class="n">char_code</span> <span class="o">-</span> <span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="n">cc_n</span>
+    <span class="n">decrypted_char</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">shifted_char_code</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">decrypted_char</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For instance, to decrypt the letter <code class="docutils literal notranslate"><span class="pre">'F'</span></code> by the secret key <code class="docutils literal notranslate"><span class="pre">5</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cc_decrypt_character</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The character <code class="docutils literal notranslate"><span class="pre">'F'</span></code> is decrypted back to <code class="docutils literal notranslate"><span class="pre">'A'</span></code> because
+<code class="docutils literal notranslate"><span class="pre">(char_code</span> <span class="pre">-</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n</span></code> reverse cyclic shifts the code by the key <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Encryption</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>Decryption</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>A</strong></p></td>
+<td><p>B</p></td>
+<td><p>C</p></td>
+<td><p>D</p></td>
+<td><p>E</p></td>
+<td><p>F</p></td>
+<td><p>…</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(chr(ord(char)</span> <span class="pre">-</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ord(char)</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>65</strong></p></td>
+<td><p>66</p></td>
+<td><p>67</p></td>
+<td><p>68</p></td>
+<td><p>69</p></td>
+<td><p>70</p></td>
+<td><p>…</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(ord(char)</span> <span class="pre">-</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">(ord(char)</span> <span class="pre">+</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>70</strong></p></td>
+<td><p>71</p></td>
+<td><p>72</p></td>
+<td><p>73</p></td>
+<td><p>74</p></td>
+<td><p>75</p></td>
+<td><p>…</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ord(char)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">(chr(ord(char)</span> <span class="pre">+</span> <span class="pre">key)</span> <span class="pre">%</span> <span class="pre">cc_n)</span></code></p></td>
+<td><p>…</p></td>
+<td><p><strong>F</strong></p></td>
+<td><p>G</p></td>
+<td><p>H</p></td>
+<td><p>I</p></td>
+<td><p>J</p></td>
+<td><p>K</p></td>
+<td><p>…</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exercise</strong> Why did we set <code class="docutils literal notranslate"><span class="pre">cc_n</span> <span class="pre">=</span> <span class="pre">1114112</span></code>? Explain whether the recoverability property may fail if we set <code class="docutils literal notranslate"><span class="pre">cc_n</span></code> to a bigger number or remove <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">cc_n</span></code> for both <code class="docutils literal notranslate"><span class="pre">cc_encrypt_character</span></code> and <code class="docutils literal notranslate"><span class="pre">cc_decrypt_character</span></code>.</p>
+<p>YOUR ANSWER HERE</p>
+</div>
+<div class="section" id="encrypt-a-plaintext-and-decrypt-a-ciphertext">
+<h3>Encrypt a plaintext and decrypt a ciphertext<a class="headerlink" href="#encrypt-a-plaintext-and-decrypt-a-ciphertext" title="Permalink to this headline">¶</a></h3>
+<p>Of course, it is more interesting to encrypt a string instead of a character. The following code implements this in one line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cc_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the ciphertext of a plaintext by the key using Caesar cipher.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plaintext (str): a unicode (UTF-8) message in to be encrypted.</span>
+<span class="sd">    key (int): secret key to encrypt plaintext.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="n">cc_n</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">plaintext</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above function encrypts a message, referred to as the <em>plaintext</em>, by replacing each character with its encryption.<br />
+This is referred to as a <a class="reference external" href="https://en.wikipedia.org/wiki/Substitution_cipher"><em>substitution cipher</em></a>.</p>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">cc_decrypt</span></code> that</p>
+<ul class="simple">
+<li><p>takes a string <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code> and an integer <code class="docutils literal notranslate"><span class="pre">key</span></code>, and</p></li>
+<li><p>returns the plaintext that encrypts to <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code> by the key using Caesar cipher.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cc_decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the plaintext that encrypts to ciphertext by the key using Caesar cipher.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ciphertext (str): message to be decrypted.</span>
+<span class="sd">    key (int): secret key to decrypt the ciphertext.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">cc_decrypt</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;bcdefghijklmnopqrstuvwxyz{&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+<span class="k">assert</span> <span class="n">cc_decrypt</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Mjqqt1%\twqi&amp;&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Hello, World!&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="brute-force-attack">
+<h2>Brute-force attack<a class="headerlink" href="#brute-force-attack" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-an-english-dictionary">
+<h3>Create an English dictionary<a class="headerlink" href="#create-an-english-dictionary" title="Permalink to this headline">¶</a></h3>
+<p>You will launch a brute-force attack to guess the key that encrypts an English text. The idea is simple:</p>
+<ul class="simple">
+<li><p>You try decrypting the ciphertext with different keys, and</p></li>
+<li><p>see which of the resulting plaintexts make most sense (most english-like).</p></li>
+</ul>
+<p>To check whether a plaintext is English-like, we need to have a list of English words. One way is to type them out
+but this is tedious. Alternatively, we can obtain the list from the <em>Natural Language Toolkit (NLTK)</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;words&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">words</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">words.words()</span></code> returns a list of words. We can check whether a string is in the list using the operator <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="s1">&#39;Ada&#39;</span><span class="p">,</span> <span class="s1">&#39;ada&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r}</span><span class="s1"> in dictionary? </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="o">.</span><span class="n">words</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However there are two issues:</p>
+<ul class="simple">
+<li><p>Checking membership is slow for a long list.</p></li>
+<li><p>Both ‘Hello’ and ‘ada’ are English-like but they are not in the words_list.</p></li>
+</ul>
+<p><strong>Exercise</strong> Using the method <code class="docutils literal notranslate"><span class="pre">lower</span></code> of <code class="docutils literal notranslate"><span class="pre">str</span></code> and the constructor <code class="docutils literal notranslate"><span class="pre">set</span></code>, assign <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> to a set of lowercase English words from <code class="docutils literal notranslate"><span class="pre">words.words()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span><span class="nb">set</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span> <span class="o">==</span> <span class="mi">234377</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">dictionary</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;ada&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">))</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dictionary</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;Ada&#39;</span><span class="p">,</span> <span class="s1">&#39;hola&#39;</span><span class="p">))</span>
+<span class="c1">### BEGIN TESTS</span>
+<span class="k">assert</span> <span class="s1">&#39;world&#39;</span> <span class="ow">in</span> <span class="n">dictionary</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="s1">&#39;mundo&#39;</span> <span class="ow">in</span> <span class="n">dictionary</span>
+<span class="c1">### END TESTS</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="identify-english-like-text">
+<h3>Identify English-like text<a class="headerlink" href="#identify-english-like-text" title="Permalink to this headline">¶</a></h3>
+<p>To determine how English-like a text is, we calculate the following score:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\text{number of English words in the text}}{\text{number of tokens in the text}} 
+\]</div>
+<p>where tokens are substrings (not necessarily an English word) separated by white space characters in the text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the list of tokens of the text.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_score</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Return the fraction of tokens which appear in dictionary.&#39;&#39;&#39;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+<span class="c1"># tests</span>
+<span class="n">get_score</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">),</span> <span class="n">get_score</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown in tests above, the code fails to handle text with punctuations and uppercase letters properly.<br />
+In particular,</p>
+<ul class="simple">
+<li><p>while <code class="docutils literal notranslate"><span class="pre">get_score</span></code> recognizes <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">world</span></code> as English-like and returns the maximum score of 1,</p></li>
+<li><p>it fails to recognize <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> as English-like and returns the minimum score of 0.</p></li>
+</ul>
+<p>Why? This is because every words in <code class="docutils literal notranslate"><span class="pre">dictionary</span></code></p>
+<ul class="simple">
+<li><p>are in lowercase, and</p></li>
+<li><p>have no leading/trailing punctuations.</p></li>
+</ul>
+<p><strong>Exercise</strong> Define a funtion <code class="docutils literal notranslate"><span class="pre">tokenizer</span></code> that</p>
+<ul class="simple">
+<li><p>takes a string <code class="docutils literal notranslate"><span class="pre">text</span></code> as an argument, and</p></li>
+<li><p>returns a <code class="docutils literal notranslate"><span class="pre">list</span></code> of tokens obtained by</p>
+<ol class="simple">
+<li><p>splitting <code class="docutils literal notranslate"><span class="pre">text</span></code> into a list using <code class="docutils literal notranslate"><span class="pre">split()</span></code>;</p></li>
+<li><p>removing leading/trailing punctuations in <code class="docutils literal notranslate"><span class="pre">string.punctuation</span></code> using the <code class="docutils literal notranslate"><span class="pre">strip</span></code> method; and</p></li>
+<li><p>converting all items of the list to lowercase using <code class="docutils literal notranslate"><span class="pre">lower()</span></code>.</p></li>
+</ol>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+
+<span class="k">def</span> <span class="nf">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns the list of tokens of the text such that </span>
+<span class="sd">    1) each token has no leading or training spaces/punctuations, and </span>
+<span class="sd">    2) all letters in each tokens are in lowercase.&#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">tokenizer</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">get_score</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.99999</span>
+<span class="k">assert</span> <span class="n">tokenizer</span><span class="p">(</span><span class="s1">&#39;Do you know Jean-Pierre?&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;do&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;know&#39;</span><span class="p">,</span> <span class="s1">&#39;jean-pierre&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">get_score</span><span class="p">(</span><span class="s1">&#39;Do you know Jean-Pierre?&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.99999</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="launch-a-brute-force-attack">
+<h3>Launch a brute-force attack<a class="headerlink" href="#launch-a-brute-force-attack" title="Permalink to this headline">¶</a></h3>
+<p><strong>Exercise</strong> Define the function <code class="docutils literal notranslate"><span class="pre">cc_attack</span></code> that</p>
+<ul class="simple">
+<li><p>takes as arguments</p>
+<ul>
+<li><p>a string <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code>,</p></li>
+<li><p>a floating point number <code class="docutils literal notranslate"><span class="pre">threshold</span></code> in the interval <span class="math notranslate nohighlight">\((0,1)\)</span> with a default value of <span class="math notranslate nohighlight">\(0.6\)</span>, and</p></li>
+</ul>
+</li>
+<li><p>returns a generator that</p>
+<ul>
+<li><p>generates one-by-one in ascending order guesses of the key that</p></li>
+<li><p>decrypt <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code> to texts with scores at least the <code class="docutils literal notranslate"><span class="pre">threshold</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cc_attack</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns a generator that generates the next guess of the key that </span>
+<span class="sd">    decrypts the ciphertext to a text with get_score(text) at least the threshold.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">cc_encrypt</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span><span class="mi">12345</span><span class="p">)</span>
+<span class="n">key_generator</span> <span class="o">=</span> <span class="n">cc_attack</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
+<span class="n">key_guess</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">key_generator</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">key_guess</span> <span class="o">==</span> <span class="mi">12345</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">cc_decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">key_guess</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;guess of the key: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">score: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">text :</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key_guess</span><span class="p">,</span><span class="n">get_score</span><span class="p">(</span><span class="n">text</span><span class="p">),</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge">
+<h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h2>
+<p>Another symmetric key cipher is <a class="reference external" href="https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition">columnar transposition cipher</a>. A transposition cipher encrypts a text by permuting instead of substituting characters.</p>
+<p><strong>Exercise</strong> Study and implement the irregular case of the <a class="reference external" href="https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition">columnar transposition cipher</a> as described in Wikipedia page. Define the functions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ct_encrypt(plaintext,</span> <span class="pre">key)</span></code> for encryption, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ct_decrypt(ciphertext,</span> <span class="pre">key)</span></code> for decryption.</p></li>
+</ul>
+<p>You can assume the plaintext is in uppercase and has no spaces/punctuations.</p>
+<p><em>Hints:</em> See the text cases for an example of <code class="docutils literal notranslate"><span class="pre">plaintext</span></code>, <code class="docutils literal notranslate"><span class="pre">key</span></code>, and the corresponding <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code>. You can but are not required to follow the solution template below:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">argsort</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A helper function that returns the tuple of indices that would sort the</span>
+<span class="sd">    sequence seq.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seq</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+
+<span class="k">def</span> <span class="nf">ct_idx</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A helper function that returns the tuple of indices that would permute </span>
+<span class="sd">    the letters of a message according to the key using the irregular case of </span>
+<span class="sd">    columnar transposition cipher.&#39;&#39;&#39;</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">argsort</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_______________</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">ct_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the ciphertext of a plaintext by the key using the irregular case</span>
+<span class="sd">    of columnar transposition cipher.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plaintext (str): a message in uppercase without punctuations/spaces.</span>
+<span class="sd">    key (str): secret key to encrypt plaintext.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">plaintext</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ct_idx</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">plaintext</span><span class="p">),</span> <span class="n">key</span><span class="p">)])</span>
+
+
+<span class="k">def</span> <span class="nf">ct_decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the plaintext of the ciphertext by the key using the irregular case</span>
+<span class="sd">    of columnar transposition cipher.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ciphertext (str): a string in uppercase without punctuations/spaces.</span>
+<span class="sd">    key (str): secret key to decrypt ciphertext.</span>
+<span class="sd">    &#39;&#39;&#39;</span>        
+    <span class="k">return</span> <span class="n">_______________________________________________________________________</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;ZEBRAS&#39;</span>
+<span class="n">plaintext</span> <span class="o">=</span> <span class="s1">&#39;WEAREDISCOVEREDFLEEATONCE&#39;</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="s1">&#39;EVLNACDTESEAROFODEECWIREE&#39;</span>
+<span class="k">assert</span> <span class="n">ct_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="n">ciphertext</span>
+<span class="k">assert</span> <span class="n">ct_decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="n">plaintext</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lab6/Combinatorics.html" title="previous page">Combinatorics</a>
+    <a class='right-next' id="next-link" href="../Lab8/Information%20Theory.html" title="next page">Information Theory</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

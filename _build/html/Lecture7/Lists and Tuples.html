@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lists and Tuples &#8212; CS1302 Introduction to Computer Programming</title>
+    <title>Lists and Tuples &#8212; CS1302</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
@@ -79,8 +79,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
+  <img src="../_static/logo.png" class="logo" alt="logo">
   
-  <h1 class="site-logo" id="site-title">CS1302 Introduction to Computer Programming</h1>
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -90,12 +92,22 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+  <a class="reference internal" href="../README.html">
    Introduction to Computer Programming
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
    Values and Variables
@@ -154,6 +166,68 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../Review/Mock%20Exam%20Questions.html">
    Mock Exam Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   Monte Carlo and Root Finding
   </a>
  </li>
 </ul>
@@ -220,12 +294,6 @@
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ccha23/CS1302ICP/main?urlpath=tree/Lecture7/Lists and Tuples.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
         
         
         
@@ -557,7 +625,7 @@ E.g., the following is a python one-liner that returns a generator for prime num
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f3cfc7e8408&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7fa6105b7408&gt;
 (0, 1, 4, 9, 16, 25, 36, 49, 64, 81)
 </pre></div>
 </div>
@@ -578,7 +646,7 @@ There must be a comma after the generator since there is only one enclosed term,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-[&lt;generator object &lt;genexpr&gt; at 0x7f3cfc7e84f8&gt;]
+[&lt;generator object &lt;genexpr&gt; at 0x7fa6105b74f8&gt;]
 </pre></div>
 </div>
 </div>
@@ -600,11 +668,11 @@ which is returned by the anonymous function and enclosed to form the singleton l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance of head: 0.37516105683910694
-Coin flips: H T H H T H H T T H T H T T T H H T T H H H T T T T H T T T T T H H T T T T T H T T H T T H T H T T T T T T T H T T T H H T T T T T T H T T H T H T T H H T T T T H H T T T T H T T T H T T T H T H H T T T T H T T T T H H T T T T T H T H H T T T T T T T H T T T T T T T T T T T H T T T T H T T H T T H H T H H H T H T T H T H T H T H H T T H T T T H T T T H T H T H T T H H T T T T T T T T H T T H H T H T T T T H H H H H H T H H H T T T H T H T T T T T H T T H T T T T H T T T T T T T H T T T T T T H T H T T T T H T T H H T H H H T H T H T H H H T H T H H T H T H H H H T H T H T T H T T T T H T T T H H H T T H T H T H T H H T H T T T T H T H T H H T H T T H T T T H H T H T H T H T H T T H H H T T H H T T H H T T T T H H H T H T T T T T T H T H H H T T T T T T T H H T T T T T H T H T T T H T T T H T H H H H T T H H H T H T H H T H T T H T T T T T T T T T T H H T H H H T H T T H T T T H H H H H T T T H H H T T T H T T H T T H T T H T T T H T T H T T T H T T T T H T T T T H T T T T T T T T H T T T T T T H H T T T T T T H T T T H T H T T H T T T H T H H T T H T T H H T H H T T T H T H T T T T T T H H T H H H T T T T H T H T T T T T H H H T H T T T T H H T H T H T H H H H T H H T H T T T T T H T H T H H H T H T H H H T T H T T T H T H H T T T H H H T T H H H T T T H H T T T H T T H T T H T T H T H T H T H T T T T T T T H T T H T T T T T H T T H H H T T H H T H T T H H T T T H T H T T T T H T T H T T H T T T H T T H T H T H H T T H T T H T T H T T T H T T T H T T T T T T T H T T H T H H T T H H H T H H H T T T T T T H H T H T T H H H H H H T H H T T T T H H H H H H T H T T H T T H T T H T T T H T T H T T T H H T T H T T T T T H T T T T T T T T H H H H H T T T H T
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chance of head: 0.7858876900773327
+Coin flips: H T T H H H H H H H H H H H T H H H T H T T T H T H H H H H H H H H H H H H H T T H H H H H H H H H H H H H H H T H H H H H H T T H H T T H H H H H T T H H T T H H H H T H H H H H H H T H H H T T H H H H H H H H H H H H H H H H H T H H H T H H H H H H H H T T H H T H H H H H H H H H T H H H H T H H H H T H H T H H H H T T H H H H H H H H H H H H H H T H H H H T H H H H H T H H H H T T H H H H H H H H T H H T H H H T T T H H H H H H H H H H H H H H T H H T H T T T H H T H H H H H H H H H T T H H H H T H H H T H H H H H H H H H H H H T H H H T H H T H H H H H H H H H H T H H T H H H H H H H T T T H T H T H H H H H T H T T H H H H T H T H H H T T H T H H H T H H H H H H T H H T T H T H H H H T H H H T H T H H H H H H H T H H H H T H T H H H H H H H T H T H T H H H T H H H T T H H T H H T H H H H H H H T T H T H H H H H T H H T H H H H T H H H H T H H H H H H T H T H H T H T T H T H H H H H H T H H H H H H H H H H H H H H T H H H H H H H H H H H H H H T H T H T T H H H H H H T H H H H H H H H T H H H H H T H H H H H T H H T T H H H H H H H H H H H H H H T H T H H H H H H H T H H H H H H T H H H H H H T H H H H H H H H H T H H T H H H H T H T H T T H H H H H H H H H H T T H H H H T H H H H H T H H T T T H H H H H H T H T H H H H H T H H H H H H H H H H H H H H T H H T H H H H T T H H H T T H H H T T T T T H T H H H H H H H H H T T H H H H H H H T H H H H H H H H H H H H H H H H H H H H H H H H T H H T H H H T H H H H T H T T H H H H H T H H H H H H H T H H T H H H H H T H H H H H H H H H H T H T H H H H H H H H H H H H H H H T H H H H H H H H H H T H H T H T H H H H H H H T H H H H H T H H H H T H H H H T H H H T T H H T T H H H H H H H H T H H 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> T H H H H T T T T H T H H T H T H T T H T H H T H T H H H H T T T T H H H T T T T T T T H H H T H T T T H H T H T T H H T T H T T T T T T H H H H T H T T T T T T T T T T T T T T H T T T H H H T T T H H T T H T H H T H T H H T H T T H T T T T H T H T H H H H H T T H T T T H T T T T T T T H H T H T T T H T H T T H H H H
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T H H H H T H T H H H H H H H H T T T H H H H H T H H T H T T H H H H H H T T H H T H T H H H H H H H H T H H H T H H H H H H H H H H H H H H H H H H T H T H H H H T H H H H T H H H H H H H H H T H H H H H H T H T T H H H T H H H H H H H H T H H H H T T H H H T H H H H H H H T H H H H H H H H H H H H T T H T H H H H H H H H H H H
 </pre></div>
 </div>
 </div>
@@ -622,7 +690,7 @@ Coin flips: H T H H T H H T T H T H T T T H H T T H H H T T T T H T T T T T H H 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fraction of heads: 0.387
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fraction of heads: 0.79
 </pre></div>
 </div>
 </div>
@@ -642,7 +710,7 @@ Coin flips: H T H H T H H T T H T H T T T H H T T H H H T T T T H T T T T T H H 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95% confidence interval: [0.34,0.41]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95% confidence interval: [0.76,0.81]
 </pre></div>
 </div>
 </div>
@@ -726,10 +794,7 @@ Coin flips: H T H H T H H T T H T H T T T H H T T H H H T T T T H T T T T T H H 
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 Length: 10
-First element:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0
+First element: 0
 Second element: 1
 Last element: 9
 </pre></div>
@@ -772,7 +837,7 @@ First element: 0
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">149</span><span class="o">-</span><span class="mi">6</span><span class="n">f6376dfba21</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">6</span><span class="n">f6376dfba21</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Second last element:&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First element:&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># IndexError</span>
@@ -887,8 +952,8 @@ First element: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19, 2, 64, 71, 93, 58, 1, 39, 52, 32]
-[1, 2, 19, 32, 39, 52, 58, 64, 71, 93]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9, 68, 98, 38, 25, 2, 95, 81, 53, 36]
+[2, 9, 25, 36, 38, 53, 68, 81, 95, 98]
 </pre></div>
 </div>
 </div>
@@ -909,7 +974,7 @@ First element: 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 9, 31, 36, 59, 61, 70, 86, 90, 97]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 9, 25, 36, 38, 53, 68, 81, 95, 98]
 </pre></div>
 </div>
 </div>
@@ -1005,16 +1070,6 @@ print(&#39;{} == {}? {}&#39;.format(a, b, a == b))
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">composite_sequence</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span> <span class="k">pass</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">168</span><span class="o">-</span><span class="mi">1</span><span class="n">eba4e6d3969</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">composite_sequence</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span> <span class="k">pass</span>
-
-<span class="ne">NameError</span>: name &#39;composite_sequence&#39; is not defined
 </pre></div>
 </div>
 </div>

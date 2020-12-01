@@ -63,7 +63,7 @@ input()
 
 # - A computer function may have side effects and return `None`.
 
-# In[11]:
+# In[5]:
 
 
 x = print()
@@ -72,7 +72,7 @@ print(x, 'of type', type(x))
 
 # An argument of a function call can be any expression.
 
-# In[12]:
+# In[6]:
 
 
 print('1st input:', input(), '2nd input', input())
@@ -104,7 +104,7 @@ print('1st input:', input(), '2nd input', input())
 
 # We can use the [`import` statement](https://docs.python.org/3/reference/simple_stmts.html#import) to import multiple functions into the program *global frame*.
 
-# In[13]:
+# In[7]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "from math import log10, ceil\nx = 1234\nprint('Number of digits of x:', ceil(log10(x)))")
@@ -114,7 +114,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "from math import log10, ceil\
 
 # **How to import all functions from a library?**
 
-# In[14]:
+# In[8]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "from math import *  # import all except names starting with an underscore\nprint('{:.2f}, {:.2f}, {:.2f}'.format(sin(pi / 6), cos(pi / 3), tan(pi / 4)))")
@@ -124,7 +124,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "from math import *  # import 
 
 # **What if different packages define the same function?**
 
-# In[15]:
+# In[9]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 300', "print('{}'.format(pow(-1, 2)))\nprint('{:.2f}'.format(pow(-1, 1 / 2)))\nfrom math import *\nprint('{}'.format(pow(-1, 2)))\nprint('{:.2f}'.format(pow(-1, 1 / 2)))")
@@ -136,7 +136,7 @@ get_ipython().run_cell_magic('mytutor', '-h 300', "print('{}'.format(pow(-1, 2))
 
 # **How to avoid name collisions?**
 
-# In[16]:
+# In[10]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 250', "import math\nprint('{:.2f}, {:.2f}'.format(math.pow(-1, 2), pow(-1, 1 / 2)))")
@@ -149,7 +149,7 @@ get_ipython().run_cell_magic('mytutor', '-h 250', "import math\nprint('{:.2f}, {
 # The name of a library can be very long and there can be a hierarchical structure as well.  
 # E.g., to plot a sequence using `pyplot` module from `matplotlib` package:
 
-# In[30]:
+# In[11]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -163,7 +163,7 @@ matplotlib.pyplot.show()
 
 # It is common to rename `matplotlib.pyplot` as `plt`:
 
-# In[80]:
+# In[12]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -177,7 +177,7 @@ plt.show()
 
 # We can also rename a function as we import it to avoid name collision:
 
-# In[67]:
+# In[13]:
 
 
 from math import pow as fpow
@@ -186,7 +186,7 @@ fpow(2, 2), pow(2, 2)
 
 # **Exercise** What is wrong with the following code?
 
-# In[17]:
+# In[14]:
 
 
 import math as m
@@ -197,7 +197,7 @@ for m in range(5): m.pow(m, 2)
 
 # **Exercise** Use the `randint` function from `random` to simulate the rolling of a die, by printing a random integer from 1 to 6. 
 
-# In[110]:
+# In[15]:
 
 
 import random
@@ -210,20 +210,20 @@ print(random.randint(1, 6))
 
 # There is a built-in function `help` for showing the *docstring* (documentation string). 
 
-# In[19]:
+# In[16]:
 
 
 import random
 help(random.randint)  # random must be imported before
 
 
-# In[20]:
+# In[17]:
 
 
 help(random)  # can also show the docstring of a module
 
 
-# In[21]:
+# In[18]:
 
 
 help(help)
@@ -233,7 +233,7 @@ help(help)
 
 # Indeed, every function must come from a module.
 
-# In[22]:
+# In[19]:
 
 
 __builtin__.print('I am from the __builtin__ module.')
@@ -245,7 +245,7 @@ __builtin__.print('I am from the __builtin__ module.')
 
 # We can use the built-in function `dir` (*directory*).
 
-# In[23]:
+# In[20]:
 
 
 dir(__builtin__)
@@ -254,7 +254,7 @@ dir(__builtin__)
 # We can also call `dir` without arguments.  
 # What does it print?
 
-# In[24]:
+# In[21]:
 
 
 dir()

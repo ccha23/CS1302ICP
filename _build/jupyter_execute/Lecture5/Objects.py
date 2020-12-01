@@ -378,7 +378,7 @@ for x, y in (1, 1), ('1', '1'), (1, '1'):
 
 # A naive idea is to put all different implementations together with case-by-case checks of operand types.
 
-# In[24]:
+# In[33]:
 
 
 def add_case_by_case(x, y):
@@ -397,7 +397,7 @@ for x, y in (1, 1), ('1', '1'), (1, '1'):
 
 # It can get quite messy with all possible types and combinations.
 
-# In[26]:
+# In[34]:
 
 
 for x, y in ((1, 1.1), (1, complex(1, 2)), ((1, 2), (1, 2))):
@@ -406,7 +406,7 @@ for x, y in ((1, 1.1), (1, complex(1, 2)), ((1, 2), (1, 2))):
 
 # **What about new data types?**
 
-# In[27]:
+# In[35]:
 
 
 from fractions import Fraction  # non-built-in type for fractions
@@ -425,7 +425,7 @@ for x, y in ((Fraction(1, 2), 1), (1, Fraction(1, 2))):
 # - `x + y` is a [*syntactic sugar*](https://en.wikipedia.org/wiki/Syntactic_sugar) that
 # - invokes the method `type(x).__add__(x,y)` of `type(x)` to do the addition.
 
-# In[28]:
+# In[36]:
 
 
 for x, y in (Fraction(1, 2), 1), (1, Fraction(1, 2)):
@@ -440,7 +440,7 @@ for x, y in (Fraction(1, 2), 1), (1, Fraction(1, 2)):
 # - This allows `+` to continue to handle the addition by
 # - dispatching on `Fraction` to call its reverse addition method [`__radd__`](https://docs.python.org/3.6/library/numbers.html#implementing-the-arithmetic-operations).
 
-# In[36]:
+# In[37]:
 
 
 get_ipython().run_cell_magic('mytutor', '-h 500', "from fractions import Fraction\ndef add(x, y):\n    '''Simulate the + operator.'''\n    sum = x.__add__(y)\n    if sum is NotImplemented:\n        sum = y.__radd__(x)\n    return sum\n\n\nfor x, y in (Fraction(1, 2), 1), (1, Fraction(1, 2)):\n    print(f'{x} + {y} = {add(x,y)}')")
