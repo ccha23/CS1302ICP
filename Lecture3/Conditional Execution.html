@@ -1,0 +1,1331 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Conditional Execution &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Iteration" href="Iteration.html" />
+    <link rel="prev" title="3. Expressions and Arithmetic" href="../Lecture2/Expressions%20and%20Arithmetic.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   1. Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   2. Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   3. Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Iteration.html">
+   5. Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   6. Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   7. Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   8. Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   9. More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   10. Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   11. Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   12. Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Review%20Questions.html">
+   13. Review Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   1. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   2. Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   3. Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   4. Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   5. Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   6. Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   7. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   8. Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   9. Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   11. Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture3/Conditional Execution.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ltjh.cs.cityu.edu.hk/hub/user-redirect/git-pull?repo=https://github.com/ccha23/CS1302ICP&urlpath=tree/CS1302ICP/Lecture3/Conditional Execution.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lecture3/Conditional Execution.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   4.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-expressions">
+   4.2. Boolean expressions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-operators">
+     4.2.1. Comparison Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-operations">
+     4.2.2. Boolean Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-constructs">
+   4.3. Conditional Constructs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-then-construct">
+     4.3.1. If-Then Construct
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-then-else-construct">
+     4.3.2. If-Then-Else Construct
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nested-conditionals">
+     4.3.3. Nested Conditionals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="conditional-execution">
+<h1><span class="section-number">4. </span>Conditional Execution<a class="headerlink" href="#conditional-execution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2><span class="section-number">4.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Conditional execution means running different pieces of code based on different conditions. Why?</p>
+<p>For instance, when trying to compute <code class="docutils literal notranslate"><span class="pre">a/b</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> may be <code class="docutils literal notranslate"><span class="pre">0</span></code> and division by <code class="docutils literal notranslate"><span class="pre">0</span></code> is invalid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_or_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="si">{}</span><span class="s1">, b:</span><span class="si">{}</span><span class="s1">, a*b:</span><span class="si">{}</span><span class="s1">, a/b:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+
+
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># multiplication is valid but not shown</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a:1, b:2, a*b:2, a/b:0.5
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">c6f0ad2b2b09</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># multiplication is valid but not shown</span>
+
+<span class="nn">&lt;ipython-input-2-c6f0ad2b2b09&gt;</span> in <span class="ni">multiply_or_divide</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">multiply_or_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="si">{}</span><span class="s1">, b:</span><span class="si">{}</span><span class="s1">, a*b:</span><span class="si">{}</span><span class="s1">, a/b:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can we skip only the division but not multiplication when <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_or_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">fix</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="s1">&#39;undefined&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a:</span><span class="si">{}</span><span class="s1">, b:</span><span class="si">{}</span><span class="s1">, a*b:</span><span class="si">{}</span><span class="s1">, a/b:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">fix</span><span class="p">))</span>
+
+
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">multiply_or_divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># multiplication is valid but not shown</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a:1, b:2, a*b:2, a/b:0.5
+a:1, b:0, a*b:0, a/b:undefined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above solution involve:</p>
+<ul class="simple">
+<li><p>a <em>boolean expression</em> <code class="docutils literal notranslate"><span class="pre">fix</span></code> that checks whether a condition holds, and</p></li>
+<li><p>a <em>conditional construct</em> <code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> that specify which code block should be executed under what condition.</p></li>
+</ul>
+</div>
+<div class="section" id="boolean-expressions">
+<h2><span class="section-number">4.2. </span>Boolean expressions<a class="headerlink" href="#boolean-expressions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comparison-operators">
+<h3><span class="section-number">4.2.1. </span>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
+<p><strong>How to compare different values?</strong></p>
+<p>Like the equality and inequality relationships in mathematics,<br />
+Python also have binary <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#comparisons"><em>comparison/relational operators</em></a>:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Expression</p></th>
+<th class="text-align:left head"><p>True iff</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x=y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x&lt;y\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x\leq y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x&gt;y\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x\geq y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(x\neq y\)</span>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Explore these operators using the widgets below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparisons</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="n">comparison_operators</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;==&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;=&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;=&#39;</span><span class="p">,</span><span class="s1">&#39;!=&#39;</span><span class="p">]</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">operand1</span><span class="o">=</span><span class="s1">&#39;10&#39;</span><span class="p">,</span>
+          <span class="n">operator</span><span class="o">=</span><span class="n">comparison_operators</span><span class="p">,</span>
+          <span class="n">operand2</span><span class="o">=</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">comparison</span><span class="p">(</span><span class="n">operand1</span><span class="p">,</span><span class="n">operator</span><span class="p">,</span><span class="n">operand2</span><span class="p">):</span>
+    <span class="n">expression</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">operand1</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">operator</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">operand2</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="si">{</span><span class="s1">&#39;Expression:&#39;</span><span class="si">:</span><span class="s2">&gt;11</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">expression</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;Value:&#39;</span><span class="si">:</span><span class="s2">&gt;11</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;Type:&#39;</span><span class="si">:</span><span class="s2">&gt;11</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "05ac4e1f09414dd2b758a2dc55185515"}
+</script></div>
+</div>
+<ul class="simple">
+<li><p>These operators return either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, which are <code class="docutils literal notranslate"><span class="pre">keywords</span></code> of type <em>boolean</em>.</p></li>
+<li><p>The expressions are called <em>boolean expressions</em> or <em>predicates</em>, named after <a class="reference external" href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>.</p></li>
+<li><p>N.b., the equality operator <code class="docutils literal notranslate"><span class="pre">==</span></code> consists of <em>two equal signs</em>, different from the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p></li>
+</ul>
+<p><strong>What is the precedence of comparison operators?</strong></p>
+<p>All the comparison operators have the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence">same precedence</a> lower than that of <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">3</span>  <span class="c1"># (1 + 2) &gt;= 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python allows multiple comparison operations to be chained together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2.0</span> <span class="o">==</span> <span class="mi">2</span><span class="o">&gt;</span><span class="mi">1</span> <span class="c1">#equivalent to (2.0 ==2) and (2&gt;1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the associativity?</strong></p>
+<p>Comparison operations are <a class="reference external" href="https://en.wikipedia.org/wiki/Operator_associativity#Non-associative_operators"><em>non-associative</em></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">2.0</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># not the same as 2.0 == 2 &gt; 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(False, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Errorata</strong> in [Halterman17] due to a misunderstanding of non-associativity vs left-to-right evaluation order:</p>
+<ul>
+<li><p><a class="reference external" href="https://archive.org/stream/2018Fundamentals.ofPython?ref=ol#page/n79/mode/1up">Halterman17, p.69</a>:</p>
+<blockquote>
+<div><p>The relational operators are binary operators and are all ~left associative~ <strong>non-associative</strong>.</p>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://archive.org/stream/2018Fundamentals.ofPython?ref=ol#page/n60/mode/1up">Halterman17, p.50, Table 3.2</a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> should be non-associative instead of right-associative.</p></li>
+<li><p>The corresponding table in <code class="docutils literal notranslate"><span class="pre">Lecture2/Expressions</span> <span class="pre">and</span> <span class="pre">Arithmetic.ipynb</span></code> should also be corrected accordingly.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Exercise</strong> Explain why the following boolean expressions have different values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second expression is not a chained comparison:</p>
+<ul class="simple">
+<li><p>The expressions in the parentheses are evaluated to boolean values first to <code class="docutils literal notranslate"><span class="pre">True</span></code>, and so</p></li>
+<li><p>the overall expression <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">&lt;</span> <span class="pre">True</span></code> is evaluated to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> The comparison operators can be applied to different data types, as illustrated below.<br />
+Explain the meaning of the operators in each of the following expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparisons beyond numbers</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">expression</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;10 == 10.&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; == &quot;A&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; == &quot;A &quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; != &quot;a&quot;&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;&quot;A&quot; &gt; &quot;a&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;aBcd&quot; &lt; &quot;abd&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; != 64&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;A&quot; &lt; 64&#39;</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">relational_expression</span><span class="p">(</span><span class="n">expression</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "9fc4240f16b748c99c8bfadc87d976ed"}
+</script></div>
+</div>
+<ol class="simple">
+<li><p>Checks whether an integer is equal to a floating point number.</p></li>
+<li><p>Checks whether two characters are the same.</p></li>
+<li><p>Checks whether two strings are the same. Note the space character.</p></li>
+<li><p>Checks whether a character is larger than the order character according to their unicodes.</p></li>
+<li><p>Checks whether a string is lexicographically smaller than the other string.</p></li>
+<li><p>Checks whether a character is not equal to an integer.</p></li>
+<li><p>TypeError because there is no implementation that evaluates whether a string is smaller than an integer.</p></li>
+</ol>
+<p><strong>Is <code class="docutils literal notranslate"><span class="pre">!</span></code> the same as the <code class="docutils literal notranslate"><span class="pre">not</span></code> operator?</strong></p>
+<p><strong>Errata</strong> There is an error in <a class="reference external" href="https://archive.org/stream/2018Fundamentals.ofPython?ref=ol#page/n79/mode/1up">Halterman17, p.69</a> due to confusion with C language:</p>
+<blockquote>
+<div><p>… <code class="docutils literal notranslate"><span class="pre">!(x</span> <span class="pre">&gt;=</span> <span class="pre">10)</span></code> and <code class="docutils literal notranslate"><span class="pre">!(10</span> <span class="pre">&lt;=</span> <span class="pre">x)</span></code> are ~equivalent~ <strong>invalid</strong>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>We can write <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">2</span></code> but not <code class="docutils literal notranslate"><span class="pre">!(1</span> <span class="pre">==</span> <span class="pre">2)</span></code> because</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!</span></code> is not a logical operator. It is used to call a <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/tutorial.html?highlight=system%20call#system-shell-commands">system shell command</a> in IPython.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!(</span><span class="nv">1</span> <span class="o">==</span> <span class="m">2</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: 1: command not found
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls  # a bash <span class="nb">command</span> that lists files in the current directory
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Conditional Execution.ipynb&#39;		        Iteration.ipynb
+&#39;Conditional Execution.ipynb:Zone.Identifier&#39;   Iteration.ipynb:Zone.Identifier
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to compare floating point numbers?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why False? Shouldn’t <span class="math notranslate nohighlight">\((x^{\frac13})^3=x\)</span>?</p>
+<ul class="simple">
+<li><p>Floating point numbers have finite precisions and so</p></li>
+<li><p>we should instead check whether the numbers are close enough.</p></li>
+</ul>
+<p>One method of comparing floating point numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">abs</span></code> is a function that returns the absolute value of its argument. Hence, the above translates to</p>
+<div class="math notranslate nohighlight">
+\[|x - y| \leq \delta_{\text{abs}}\]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight">
+\[y-\delta_{\text{abs}} \leq x \leq y+\delta_{\text{abs}} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{\text{abs}}\)</span> is called the <em>absolute tolerance</em>.</p>
+<p><strong>Is an absolute tolerance of <code class="docutils literal notranslate"><span class="pre">1e-9</span></code> good enough?</strong></p>
+<p>What if we want to compare <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1e10</span></code> instead of <code class="docutils literal notranslate"><span class="pre">10</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1e10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1e-9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Floating point numbers “float” at different scales.<br />
+A better way to use the <a class="reference external" href="https://docs.python.org/3/library/math.html#math.isclose"><code class="docutils literal notranslate"><span class="pre">isclose</span></code></a> function from <code class="docutils literal notranslate"><span class="pre">math</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How does it work?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">math.isclose(x,y)</span></code> implements</p>
+<div class="math notranslate nohighlight">
+\[ |x - y| \leq \max\{\delta_{\text{rel}} \max\{|x|,|y|\},\delta_{\text{abs}}\}\]</div>
+<p>with the default</p>
+<ul class="simple">
+<li><p><em>relative tolerance</em> <span class="math notranslate nohighlight">\(\delta_{\text{rel}}\)</span> equal to <code class="docutils literal notranslate"><span class="pre">1e-9</span></code>, and</p></li>
+<li><p>absolute tolerance <span class="math notranslate nohighlight">\(\delta_{\text{abs}}\)</span> equal to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> Write the boolean expression implemented by <code class="docutils literal notranslate"><span class="pre">isclose</span></code>. You can use the function <code class="docutils literal notranslate"><span class="pre">max(a,b)</span></code> to find the maximum of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_tol</span><span class="p">,</span> <span class="n">abs_tol</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">1e-100</span><span class="p">,</span> <span class="mf">2e-100</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">max</span><span class="p">(</span><span class="n">rel_tol</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">abs_tol</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-operations">
+<h3><span class="section-number">4.2.2. </span>Boolean Operations<a class="headerlink" href="#boolean-operations" title="Permalink to this headline">¶</a></h3>
+<p>Since chained comparisons are non-associative. It follows a different evaluation rule than arithmetical operators.</p>
+<p>E.g., <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">3</span> <span class="pre">!=</span> <span class="pre">4</span></code> is evaluated as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above is called a <em>compound boolean expression</em>, which is formed using the <em>boolean/logical operator</em> <code class="docutils literal notranslate"><span class="pre">and</span></code>.</p>
+<p><strong>Why use boolean operators?</strong></p>
+<p>What if we want to check whether a number is either <span class="math notranslate nohighlight">\(&lt; 0\)</span> or <span class="math notranslate nohighlight">\(\geq 100\)</span>?<br />
+Can we achieve this only by chaining the comparison operators or applying the logical <code class="docutils literal notranslate"><span class="pre">and</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if a number is outside a range.</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">check_out_of_range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x_</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">is_out_of_range</span> <span class="o">=</span> <span class="n">x_</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">x_</span><span class="o">&gt;=</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Out of range [0,100):&#39;</span><span class="p">,</span> <span class="n">is_out_of_range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "659b88c0aace4401b53c666f864d9328"}
+</script></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> alone is not <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_completeness">functionally complete</a>,  i.e., not enough to give all possible boolean functions.</p></li>
+<li><p>In addition to <code class="docutils literal notranslate"><span class="pre">and</span></code>, we can also use <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></th>
+<th class="text-align:center head"><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The above table is called a <em>truth table</em>. It enumerates all possible input and output combinations for each boolean operator.</p>
+<p><strong>How are chained logical operators evaluated?<br />
+What are the precedence and associativity for the logical operators?</strong></p>
+<ul class="simple">
+<li><p>All binary boolean operators are left associative.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence">Precedence</a>: <code class="docutils literal notranslate"><span class="pre">comparison</span> <span class="pre">operators</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">not</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">and</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+</ul>
+<p><strong>Exercise</strong> Explain what the values of the following two compound boolean expressions are:</p>
+<ul class="simple">
+<li><p>Expression A: <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">False</span> <span class="pre">and</span> <span class="pre">True</span></code></p></li>
+<li><p>Expression B: <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span> <span class="pre">and</span> <span class="pre">True</span></code></p></li>
+<li><p>Expression C: <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span></code></p></li>
+</ul>
+<ul class="simple">
+<li><p>Expression A evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> because <code class="docutils literal notranslate"><span class="pre">and</span></code> has higher precedence and so the expression has the same value as <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">(False</span> <span class="pre">and</span> <span class="pre">True)</span></code>.</p></li>
+<li><p>Expression B evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code> because <code class="docutils literal notranslate"><span class="pre">and</span></code> is left associative and so the expression has the same value as <code class="docutils literal notranslate"><span class="pre">(True</span> <span class="pre">and</span> <span class="pre">False)</span> <span class="pre">and</span> <span class="pre">True</span></code>.</p></li>
+<li><p>Expression C evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> because <code class="docutils literal notranslate"><span class="pre">and</span></code> has a higher precedence and so the expression has the same value as <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">or</span> <span class="pre">(True</span> <span class="pre">and</span> <span class="pre">False)</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">(True</span> <span class="pre">or</span> <span class="pre">True)</span> <span class="pre">and</span> <span class="pre">False</span></code> evaluates to something <code class="docutils literal notranslate"><span class="pre">False</span></code> instead, so precedence matters.</p></li>
+</ul>
+<p>Instead of following the precedence and associativity, however, a compound boolean expression uses a <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#boolean-operations">short-circuit evaluation</a>.</p>
+<p>To understand this, we will use the following function to evaluate a boolean expression verbosely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verbose</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">boolean</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Identify evaluated boolean expressions.&#39;&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="s1">&#39;evaluated:&#39;</span><span class="p">,</span><span class="n">boolean</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">boolean</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="ow">or</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># True or (False and True)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 evaluated: True
+A evaluated: True
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why expression 2 and 3 are not evaluated?</strong></p>
+<p>Because True or … must be True (Why?) so Python does not look further. From the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#boolean-operations">documentation</a>:</p>
+<blockquote>
+<div><p>The expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code> first evaluates <code class="docutils literal notranslate"><span class="pre">x</span></code>; if <code class="docutils literal notranslate"><span class="pre">x</span></code> is true, its value is returned; otherwise, <code class="docutils literal notranslate"><span class="pre">y</span></code> is evaluated and the resulting value is returned.</p>
+</div></blockquote>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>Even though <code class="docutils literal notranslate"><span class="pre">or</span></code> has lower precedence than <code class="docutils literal notranslate"><span class="pre">and</span></code>, it is still evaluated first.</p></li>
+<li><p>The evaluation order for logical operators is left-to-right.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># (True and False) and True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 evaluated: True
+5 evaluated: False
+B evaluated: False
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why expression 6 is not evaluated?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">and</span> <span class="pre">False</span> <span class="pre">and</span> <span class="pre">...</span></code> must be <code class="docutils literal notranslate"><span class="pre">False</span></code> so Python does not look further.</p>
+<blockquote>
+<div><p>The expression <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code> first evaluates <code class="docutils literal notranslate"><span class="pre">x</span></code>; if <code class="docutils literal notranslate"><span class="pre">x</span></code> is false, its value is returned; otherwise, <code class="docutils literal notranslate"><span class="pre">y</span></code> is evaluated and the resulting value is returned.</p>
+</div></blockquote>
+<p>Indeed, logical operators can even be applied to non-boolean operands. From the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#boolean-operations">documentation</a>:</p>
+<blockquote>
+<div><p>In the context of Boolean operations, and also when expressions are used by control flow statements, the following values are interpreted as false: <code class="docutils literal notranslate"><span class="pre">False</span></code>, None, numeric zero of all types, and empty strings and containers (including strings, tuples, lists, dictionaries, sets and frozensets). All other values are interpreted as true.</p>
+</div></blockquote>
+<p><strong>Exercise</strong> How does the following code work?</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You have entered&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;nothing&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The code replaces empty user input by the default string <code class="docutils literal notranslate"><span class="pre">nothing</span></code> because empty string is regarded as False in a boolean operation.</p></li>
+<li><p>If user input is non-empty, it is regarded as True in the boolean expression and returned immediately as the value of the boolean operation.</p></li>
+</ul>
+<p><strong>Is empty string equal to False?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is empty string equal False?&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="o">==</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is empty string equal False? False
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>An empty string is regarded as False in a boolean operation but</p></li>
+<li><p>a <em>comparison operation is not a boolean operation</em>, even though it forms a boolean expression.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="conditional-constructs">
+<h2><span class="section-number">4.3. </span>Conditional Constructs<a class="headerlink" href="#conditional-constructs" title="Permalink to this headline">¶</a></h2>
+<p>Consider writing a program that sorts values in <em>ascending</em> order.<br />
+A <em>sorting algorithm</em> refers to the procedure of sorting values in order.</p>
+<div class="section" id="if-then-construct">
+<h3><span class="section-number">4.3.1. </span>If-Then Construct<a class="headerlink" href="#if-then-construct" title="Permalink to this headline">¶</a></h3>
+<p><strong>How to sort two values?</strong></p>
+<p>Given two values are stored as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, we want to</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(x,y)</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(y,x)</span></code> if <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">x</span></code>.</p></li>
+</ul>
+<p>Such a program flow is often represented by a flowchart like the following:</p>
+<p><img src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Lecture3/sort_two_values1.svg" style="max-width:300px;" alt="sort_two_values(x,y);
+if(x<=y) {
+  print(x, y)
+}
+if (y<x) {
+  print(y, x)
+}"></p>
+<p>Python provides the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-if-statement"><code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a> to implement the above <a class="reference external" href="https://en.wikipedia.org/wiki/Control_flow"><em>control flow</em></a> specified by the diamonds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort two values using if statement</span>
+<span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sort_two_values_app</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">sort_two_values</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">eval</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "9f395eee4df844b2a4ed363f36663ef5"}
+</script></div>
+</div>
+<p>We can visualize the execution as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 350
+def sort_two_values(x, y):
+    if x &lt;= y:
+        print(x, y)
+    if y &lt; x: print(y, x)
+        
+sort_two_values(1,0)
+sort_two_values(1,2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="350"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20sort_two_values%28x%2C%20y%29%3A%0A%20%20%20%20if%20x%20%3C%3D%20y%3A%0A%20%20%20%20%20%20%20%20print%28x%2C%20y%29%0A%20%20%20%20if%20y%20%3C%20x%3A%20print%28y%2C%20x%29%0A%20%20%20%20%20%20%20%20%0Asort_two_values%281%2C0%29%0Asort_two_values%281%2C2%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Python use indentation to indicate code blocks or <em>suite</em>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(x,</span> <span class="pre">y)</span></code> (Line 5) is indented to the right of <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y:</span></code> (Line 4) to indicate it is the body of the if statement.</p></li>
+<li><p>For convenience, <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">x:</span> <span class="pre">print(y,</span> <span class="pre">x)</span></code> (Line 6) is a one-liner for an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that only has one line in its block.</p></li>
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">if</span></code> statements (Line 4-6) are indented to the right of <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">sort_two_values(x,y):</span></code> (Line 3) to indicate that they are part of the body of the function <code class="docutils literal notranslate"><span class="pre">sort_two_values</span></code>.</p></li>
+</ul>
+<p><strong>How to indent?</strong></p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#indentation">style guide</a> recommends using 4 spaces for each indentation.</p></li>
+<li><p>In IPython, you can simply type the <code class="docutils literal notranslate"><span class="pre">tab</span></code> key and IPython will likely enter the correct number of spaces for you.</p></li>
+</ul>
+<p><strong>What if you want to leave a block empty?</strong></p>
+<p>In programming, it is often useful to delay detailed implementations until we have written an overall skeleton.<br />
+To leave a block empty, Python uses the keyword <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements"><code class="docutils literal notranslate"><span class="pre">pass</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a code skeleton</span>
+<span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+    <span class="c1"># print the smaller value first followed by the larger one</span>
+    
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Without <code class="docutils literal notranslate"><span class="pre">pass</span></code>, the code will fail to run, preventing you from checking other parts of the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can add more details to the skeleton step-by-step</span>
+<span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">pass</span>  
+        <span class="c1"># print x before y</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span> <span class="k">pass</span>  <span class="c1"># print y before x</span>
+
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sort_two_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if-then-else-construct">
+<h3><span class="section-number">4.3.2. </span>If-Then-Else Construct<a class="headerlink" href="#if-then-else-construct" title="Permalink to this headline">¶</a></h3>
+<p>The sorting algorithm is not efficient enough. Why not?<br />
+Hint: <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">&lt;=</span> <span class="pre">y)</span> <span class="pre">and</span> <span class="pre">not</span> <span class="pre">(y</span> <span class="pre">&lt;</span> <span class="pre">x)</span></code> is a <em>tautology</em>, i.e., always true.</p>
+<p>To improve the efficient, we should implement the following program flow.</p>
+<p><img src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Lecture3/sort_two_values2.svg" style="max-width:300px;" alt="sort_two_values(x,y);
+if(x<=y) {
+  print(x, y)
+}
+else {
+  print(y, x)
+}"></p>
+<p>This can be down by the <code class="docutils literal notranslate"><span class="pre">else</span></code> clause of the <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements"><code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 350
+def sort_two_values(x, y):
+    if x &lt;= y:
+        print(x, y)
+    else:
+        print(y,x)
+        
+sort_two_values(1,0)
+sort_two_values(1,2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="350"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=def%20sort_two_values%28x%2C%20y%29%3A%0A%20%20%20%20if%20x%20%3C%3D%20y%3A%0A%20%20%20%20%20%20%20%20print%28x%2C%20y%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28y%2Cx%29%0A%20%20%20%20%20%20%20%20%0Asort_two_values%281%2C0%29%0Asort_two_values%281%2C2%29%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>We can also use a <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#conditional-expressions"><em>conditional expression</em></a> to shorten the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_two_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="si">{1}</span><span class="s1"> </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sort_two_values_app</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">sort_two_values</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">eval</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "fd3daf66be1e479c8a319cca9c2d9e52"}
+</script></div>
+</div>
+<p><strong>Exercise</strong> Explain why the followings have syntax errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="k">if</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-30-1cbab0db8442&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="k">if</span> <span class="kc">True</span>
+             <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="kc">True</span> <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-31-f68814adf81f&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="kc">True</span> <span class="k">else</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: can&#39;t assign to conditional expression
+</pre></div>
+</div>
+</div>
+</div>
+<p>A conditional expression must be an expression:</p>
+<ol class="simple">
+<li><p>It must give a value under all cases. To enforce that, <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword must be provided.</p></li>
+<li><p>An assignment statement does not return any value and therefore cannot be used for the conditional expression.<br />
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">if</span> <span class="pre">True</span> <span class="pre">else</span> <span class="pre">0</span></code> is valid because <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span></code> is not part of the conditional expression.</p></li>
+</ol>
+</div>
+<div class="section" id="nested-conditionals">
+<h3><span class="section-number">4.3.3. </span>Nested Conditionals<a class="headerlink" href="#nested-conditionals" title="Permalink to this headline">¶</a></h3>
+<p>Consider sorting three values instead of two. A feasible algorithm is as follows:</p>
+<p><img src="https://www.cs.cityu.edu.hk/~ccha23/cs1302/Lecture3/sort_three_values1.svg" style="max-width:800px;" alt="sort_three_values(x,y,z);
+if(x<=y<=z) {
+  print(x, y, z)
+} else
+if (x<=z<=y) {
+  print(x, z, y)
+} else
+if (y<=x<=z) {
+  print(y, x, z)
+} else
+if (y<=z<=x) {
+  print(y, z, x)
+} else
+if (z<=x<=y) {
+  print(z, x, y)
+} else {
+  print(z, y, x)
+}"></p>
+<p>We can implement the flow using <em>nested conditional constructs</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_three_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_sort_three_values</span><span class="p">():</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sort_three_values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">test_sort_three_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Imagine what would happen if we have to sort many values.<br />
+To avoid an excessively long line due to the indentation, Python provides the <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword that combines <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_three_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">test_sort_three_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2
+0 1 2
+0 1 2
+0 1 2
+0 1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> The above sorting algorithm is inefficient because some conditions may be checked more than once.<br />
+Improve the program to eliminate duplicate checks.<br />
+<em>Hint:</em> Do not use chained comparison operators or compound boolean expressions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_three_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+        
+<span class="n">sort_three_values</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 14 17
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"4ab2d606e881401fa0c987d540912e5a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "05ac4e1f09414dd2b758a2dc55185515": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_43dc8c0b9b2b41a6b46ec1b9925bd84e", "IPY_MODEL_1b649744573243b5999af42a814caf69", "IPY_MODEL_950d9495b83540c788114f705881ea01", "IPY_MODEL_cff580ac99f940df893dd33a706ea46a"], "layout": "IPY_MODEL_4ab2d606e881401fa0c987d540912e5a"}}, "c0cf3948f51b4a41afc413b814523167": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "66d0b317cadc437d89f919cea7f15f61": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "43dc8c0b9b2b41a6b46ec1b9925bd84e": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "operand1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_c0cf3948f51b4a41afc413b814523167", "placeholder": "\u200b", "style": "IPY_MODEL_66d0b317cadc437d89f919cea7f15f61", "value": "10"}}, "8e2b001ef0174816a48b4ca9666e13fb": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a174481908c44d2393fcf0c0eb7aa8aa": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "1b649744573243b5999af42a814caf69": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["==", "<", "<=", ">", ">=", "!="], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "operator", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_8e2b001ef0174816a48b4ca9666e13fb", "style": "IPY_MODEL_a174481908c44d2393fcf0c0eb7aa8aa"}}, "2ab0ba35714c4714b7af90529c7f76aa": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "609c06f86a864c4884dbb714d1e5aa0d": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "950d9495b83540c788114f705881ea01": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "operand2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_2ab0ba35714c4714b7af90529c7f76aa", "placeholder": "\u200b", "style": "IPY_MODEL_609c06f86a864c4884dbb714d1e5aa0d", "value": "3"}}, "e7fec46e26f74589bef291c4e0edf8a5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cff580ac99f940df893dd33a706ea46a": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_e7fec46e26f74589bef291c4e0edf8a5", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Expression: 10 == 3\n     Value: False\n      Type: <class 'bool'>\n"}]}}, "4ae0eb582e22469ab21a16601ad8548d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9fc4240f16b748c99c8bfadc87d976ed": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_69794f14631a449e8c1359b0e961c37e", "IPY_MODEL_d52cb6cb7e234d05a98e72ab1ecfa499"], "layout": "IPY_MODEL_4ae0eb582e22469ab21a16601ad8548d"}}, "6119d2d9a3ee44818f8dbef19a1de7ea": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f95f1e6e840f489f94e0e4a18aaafa46": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "69794f14631a449e8c1359b0e961c37e": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["10 == 10.", "\"A\" == \"A\"", "\"A\" == \"A \"", "\"A\" != \"a\"", "\"A\" > \"a\"", "\"aBcd\" < \"abd\"", "\"A\" != 64", "\"A\" < 64"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "expression", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_6119d2d9a3ee44818f8dbef19a1de7ea", "style": "IPY_MODEL_f95f1e6e840f489f94e0e4a18aaafa46"}}, "f698daca215e4ac096432fa59d87be4f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d52cb6cb7e234d05a98e72ab1ecfa499": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_f698daca215e4ac096432fa59d87be4f", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "True\n"}]}}, "a611d1dbc4cc426bbd26fde0f171be4f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "659b88c0aace4401b53c666f864d9328": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_b6a69ad4d1a04cc3b54731760ea94cf9", "IPY_MODEL_cda04bbf4b824a75b4b257fd35af7313"], "layout": "IPY_MODEL_a611d1dbc4cc426bbd26fde0f171be4f"}}, "0a182e2168aa41f6ae7aa575dc58e7ff": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6d2f9d9ff8484371bef3710e3a30f7eb": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b6a69ad4d1a04cc3b54731760ea94cf9": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_0a182e2168aa41f6ae7aa575dc58e7ff", "placeholder": "\u200b", "style": "IPY_MODEL_6d2f9d9ff8484371bef3710e3a30f7eb", "value": "15"}}, "63c5895a2156443995e0ee56b2351fbc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cda04bbf4b824a75b4b257fd35af7313": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_63c5895a2156443995e0ee56b2351fbc", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Out of range [0,100): False\n"}]}}, "c48d1361a87c48feb4733b9e78369b41": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9f395eee4df844b2a4ed363f36663ef5": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_65a8cbae83a944bb98fc7f131eff834d", "IPY_MODEL_b4a3daef0ec6423eb9b76725665efd4a", "IPY_MODEL_70404c7e480f42f896fd90a83a3074ab"], "layout": "IPY_MODEL_c48d1361a87c48feb4733b9e78369b41"}}, "a145caa3ca704b56b89b606a4bc23a75": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ca8973388b3c4831b0806edd7581a355": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "65a8cbae83a944bb98fc7f131eff834d": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_a145caa3ca704b56b89b606a4bc23a75", "placeholder": "\u200b", "style": "IPY_MODEL_ca8973388b3c4831b0806edd7581a355", "value": "1"}}, "7a5098f5e0504a938b2d71390390c75f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1fe56c61baca4dc89c6f458401baf6cb": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b4a3daef0ec6423eb9b76725665efd4a": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "y", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_7a5098f5e0504a938b2d71390390c75f", "placeholder": "\u200b", "style": "IPY_MODEL_1fe56c61baca4dc89c6f458401baf6cb", "value": "0"}}, "c9bcd3838e8248e1a1b5204d94a74fad": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "70404c7e480f42f896fd90a83a3074ab": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_c9bcd3838e8248e1a1b5204d94a74fad", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "0 1\n"}]}}, "b1223d1fc91c4eb199f400959ea17bcf": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fd3daf66be1e479c8a319cca9c2d9e52": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_b7f6dbd1fb264e9eb80da54595e59d6c", "IPY_MODEL_8c5f551d14a14d94bc30d781c3ba2dee", "IPY_MODEL_7cc424a064ca4024a4a596d32d0423fb"], "layout": "IPY_MODEL_b1223d1fc91c4eb199f400959ea17bcf"}}, "fc1debc2b4a247f9aa4ddc58a6e4bafe": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4c2ac2e8eca94ed8b904481fc5f065fc": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b7f6dbd1fb264e9eb80da54595e59d6c": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_fc1debc2b4a247f9aa4ddc58a6e4bafe", "placeholder": "\u200b", "style": "IPY_MODEL_4c2ac2e8eca94ed8b904481fc5f065fc", "value": "1"}}, "98ee2a2128bf4f39b93932e0b7a9ac48": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c668bd2857314eaea6d78e8267f8c04f": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "8c5f551d14a14d94bc30d781c3ba2dee": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "y", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_98ee2a2128bf4f39b93932e0b7a9ac48", "placeholder": "\u200b", "style": "IPY_MODEL_c668bd2857314eaea6d78e8267f8c04f", "value": "0"}}, "5c2a32b8dc5c4feab81ca7d31a3968b8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7cc424a064ca4024a4a596d32d0423fb": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_5c2a32b8dc5c4feab81ca7d31a3968b8", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "0 1\n"}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture2/Expressions%20and%20Arithmetic.html" title="previous page"><span class="section-number">3. </span>Expressions and Arithmetic</a>
+    <a class='right-next' id="next-link" href="Iteration.html" title="next page"><span class="section-number">5. </span>Iteration</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

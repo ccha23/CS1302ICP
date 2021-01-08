@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Mastermind &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Pandas" href="../Lab5/Pandas.html" />
+    <link rel="prev" title="5. Big Number Conversion" href="../Lab3b/Big%20Number%20Conversion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   1. Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   2. Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   3. Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   4. Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   5. Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   6. Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   7. Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   8. Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   9. More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   10. Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   11. Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   12. Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Review%20Questions.html">
+   13. Review Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   1. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   2. Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   3. Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   4. Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   5. Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   7. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   8. Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   9. Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   11. Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab4/Mastermind.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ltjh.cs.cityu.edu.hk/hub/user-redirect/git-pull?repo=https://github.com/ccha23/CS1302ICP&urlpath=tree/CS1302ICP/Lab4/Mastermind.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab4/Mastermind.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-code-generation">
+   6.1. Random Code Generation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guess-validation">
+   6.2. Guess Validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feedback-generation">
+   6.3. Feedback Generation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#play-the-game">
+   6.4. Play the Game
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mastermind">
+<h1><span class="section-number">6. </span>Mastermind<a class="headerlink" href="#mastermind" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, you will write a game called <a class="reference external" href="https://en.wikipedia.org/wiki/Mastermind_(board_game)"><em>Mastermind</em></a>.<br />
+Play the video below to learn about the rule of the game.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/wsYPsrzCKiA&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p><strong>Mastermind</strong> first creates a hidden <code class="docutils literal notranslate"><span class="pre">code</span></code> of length <code class="docutils literal notranslate"><span class="pre">code_length</span></code> consisting code pegs with possibly duplicate colors chosen from a sequence of <code class="docutils literal notranslate"><span class="pre">colors</span></code>.</p></li>
+<li><p><strong>Coderbreaker</strong> provides a <code class="docutils literal notranslate"><span class="pre">guess</span></code> of the <code class="docutils literal notranslate"><span class="pre">code</span></code>.</p></li>
+<li><p><strong>Mastermind</strong> generates a <code class="docutils literal notranslate"><span class="pre">feedback</span></code> consisting of key pegs of black and white colors:</p>
+<ul class="simple">
+<li><p>The number of black pegs (<code class="docutils literal notranslate"><span class="pre">black_key_pegs_count</span></code>) is the number of code pegs that are the correct colors in the correct positions.</p></li>
+<li><p>The number of white pegs (<code class="docutils literal notranslate"><span class="pre">white_key_pegs_count</span></code>) is the number of code pegs that are the correct colors but in incorrect positions.</p></li>
+<li><p>Each code peg should be counted only once, i.e., a code peg cannot be awarded more than one key peg. E.g.,</p>
+<ul>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">code</span></code> is <code class="docutils literal notranslate"><span class="pre">'RBGG'</span></code> and <code class="docutils literal notranslate"><span class="pre">guess</span></code> is <code class="docutils literal notranslate"><span class="pre">'BGGG'</span></code>, then</p></li>
+<li><p>the feedback should be <code class="docutils literal notranslate"><span class="pre">'bbw'</span></code> with</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">black_key_pegs_count</span> <span class="pre">==</span> <span class="pre">2</span></code> because of <code class="docutils literal notranslate"><span class="pre">__GG</span></code> in the guess, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">white_key_pegs_count</span> <span class="pre">==</span> <span class="pre">1</span></code> because of <code class="docutils literal notranslate"><span class="pre">_B__</span></code> in the guess.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_G__</span></code> in the <code class="docutils literal notranslate"><span class="pre">guess</span></code> should not be awarded an additional white peg because <code class="docutils literal notranslate"><span class="pre">__GG</span></code> in the <code class="docutils literal notranslate"><span class="pre">code</span></code> has been counted.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Codebreaker</strong> wins if the code is correctly guessed within certain number (<code class="docutils literal notranslate"><span class="pre">max_num_guesses</span></code>) of guesses.</p></li>
+</ol>
+<div class="section" id="random-code-generation">
+<h2><span class="section-number">6.1. </span>Random Code Generation<a class="headerlink" href="#random-code-generation" title="Permalink to this headline">¶</a></h2>
+<p>The first exercise is to generate a random hidden code so even one person can play the game as Codebreaker.<br />
+Watch the following video to understand how computers generate random objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;912&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;513&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/GtOt7EBNEwQ&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To generate random content in Python, we can import the <strong>random</strong> module, which provides some useful functions to generate random objects as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>  <span class="c1"># random floating point numbers in [0,1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># random integer in range [3,10]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="s1">&#39;RBG&#39;</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># random element in the sequence &#39;RBG&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can generate a reproducible pseudo-random sequence by specifying the seed.<br />
+By default Python uses the system time as seed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeatedly run the cell to see new sequences.</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Define a function that generates a random <code class="docutils literal notranslate"><span class="pre">code</span></code>. The functions takes in</p>
+<ul class="simple">
+<li><p>a string <code class="docutils literal notranslate"><span class="pre">colors</span></code> whose characters represent distinct colors to choose from, and</p></li>
+<li><p>a positive integer <code class="docutils literal notranslate"><span class="pre">code_length</span></code> representing the length of the code.</p></li>
+</ul>
+<p>For instance, <code class="docutils literal notranslate"><span class="pre">get_code('ROYGBP',4)</span></code> returns a code of <code class="docutils literal notranslate"><span class="pre">4</span></code> code pegs randomly with colors chosen from <code class="docutils literal notranslate"><span class="pre">'R'</span></code>ed, <code class="docutils literal notranslate"><span class="pre">'O'</span></code>range, <code class="docutils literal notranslate"><span class="pre">'Y'</span></code>ellow, <code class="docutils literal notranslate"><span class="pre">'G'</span></code>reen, <code class="docutils literal notranslate"><span class="pre">'B'</span></code>lue, and <code class="docutils literal notranslate"><span class="pre">'P'</span></code>urple. One possible outcome is <code class="docutils literal notranslate"><span class="pre">'ROYY'</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">get_code</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">code_length</span><span class="p">):</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The function body will iterate code_length times.</span>
+<span class="sd">    In each iteration, generate a random (integer) position in range 0 to len(colors)-1. </span>
+<span class="sd">    From color, get the character at that random position and append the character to code</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># YOUR CODE HERE</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">code</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="guess-validation">
+<h2><span class="section-number">6.2. </span>Guess Validation<a class="headerlink" href="#guess-validation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">valid_code</span></code> that</p>
+<ul class="simple">
+<li><p>takes <code class="docutils literal notranslate"><span class="pre">colors</span></code>, <code class="docutils literal notranslate"><span class="pre">code_length</span></code>, and <code class="docutils literal notranslate"><span class="pre">guess</span></code> as the first, second, and third arguments respectively, and</p></li>
+<li><p>return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">guess</span></code> is a valid code, i.e., a string of length <code class="docutils literal notranslate"><span class="pre">code_length</span></code> with characters from those of <code class="docutils literal notranslate"><span class="pre">colors</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+<p><em>Hint:</em> Solution template:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__________</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">code_length</span><span class="p">,</span> <span class="n">guess</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guess</span><span class="p">)</span> <span class="n">__</span> <span class="n">code_length</span><span class="p">:</span>
+        <span class="n">is_valid</span> <span class="o">=</span> <span class="n">____</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">peg</span> <span class="ow">in</span> <span class="n">guess</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">peg</span> <span class="o">==</span> <span class="n">color</span><span class="p">:</span> <span class="n">____</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">is_valid</span> <span class="o">=</span> <span class="n">_____</span>
+                <span class="n">____</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_valid</span> <span class="o">=</span> <span class="n">____</span>
+    <span class="k">return</span> <span class="n">is_valid</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">assert</span> <span class="n">valid_code</span><span class="p">(</span><span class="s1">&#39;RBG&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">valid_code</span><span class="p">(</span><span class="s1">&#39;RBG&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">valid_code</span><span class="p">(</span><span class="s1">&#39;RBG&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;RP&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">valid_code</span><span class="p">(</span><span class="s1">&#39;RBG&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feedback-generation">
+<h2><span class="section-number">6.3. </span>Feedback Generation<a class="headerlink" href="#feedback-generation" title="Permalink to this headline">¶</a></h2>
+<p>According to the rules of Mastermind, double-counting of a single peg (as black and white) is not allowed. To facilitate this check, we have written a new module <code class="docutils literal notranslate"><span class="pre">markposition</span></code> that allows you to mark any non-negative integer position as counted.</p>
+<p><strong>Exercise</strong> Write an <code class="docutils literal notranslate"><span class="pre">import</span></code> statement to import from the module <code class="docutils literal notranslate"><span class="pre">markposition</span></code> the functions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mark_as_counted</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_if_counted</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset_all_to_not_counted</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tests</span>
+<span class="n">reset_all_to_not_counted</span><span class="p">()</span>
+<span class="n">mark_as_counted</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">check_if_counted</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">check_if_counted</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Using the functions imported from <code class="docutils literal notranslate"><span class="pre">markposition</span></code>, mark only the positions <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">6</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code>, and <code class="docutils literal notranslate"><span class="pre">10</span></code> as counted. All other positions are not counted.<br />
+<em>Hint</em>: Use <code class="docutils literal notranslate"><span class="pre">help</span></code> to learn how to use the imported functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tests</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">check_if_counted</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">check_if_counted</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Define a function <code class="docutils literal notranslate"><span class="pre">get_feedback</span></code> that</p>
+<ul class="simple">
+<li><p>takes <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">guess</span></code> as the first and second arguments respectively, and</p></li>
+<li><p>returns a feedback string that starts with the appropriate number of characters <code class="docutils literal notranslate"><span class="pre">'b'</span></code> (for black key pegs) followed by the appropriate number of characters <code class="docutils literal notranslate"><span class="pre">'w'</span></code> (for white key pegs).</p></li>
+</ul>
+<p><em>Hint:</em> Solution template:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_feedback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">guess</span><span class="p">):</span>
+    <span class="n">black_key_pegs_count</span> <span class="o">=</span> <span class="n">white_key_pegs_count</span> <span class="o">=</span> <span class="n">counted</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">reset_all_to_not_counted</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_________________</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">___________________</span><span class="p">:</span>
+            <span class="n">black_key_pegs_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">mark_as_counted</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guess</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">code</span><span class="p">)):</span>
+            <span class="k">if</span>  <span class="n">__________________________________________________________</span><span class="p">:</span>
+                <span class="n">white_key_pegs_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">mark_as_counted</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="k">break</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span> <span class="o">*</span> <span class="n">black_key_pegs_count</span> <span class="o">+</span> <span class="s1">&#39;w&#39;</span> <span class="o">*</span> <span class="n">white_key_pegs_count</span>
+    <span class="k">return</span> <span class="n">key</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests</span>
+<span class="k">def</span> <span class="nf">test_get_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="n">guess</span><span class="p">):</span>
+    <span class="n">feedback_</span> <span class="o">=</span> <span class="n">get_feedback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="n">guess</span><span class="p">)</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="n">feedback</span> <span class="o">==</span> <span class="n">feedback_</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">correct</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;With code=&quot;</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s1">&quot; and guess=&quot;</span><span class="si">{</span><span class="n">guess</span><span class="si">}</span><span class="s1">&quot;, feedback should be &quot;</span><span class="si">{</span><span class="n">feedback</span><span class="si">}</span><span class="s1">&quot;, not &quot;</span><span class="si">{</span><span class="n">feedback_</span><span class="si">}</span><span class="s1">&quot;.&#39;</span>
+        <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">correct</span>
+
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;RGBRGBRGBY&quot;</span><span class="p">,</span><span class="s2">&quot;RGBRGBRGBY&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;RGBRGBRGBY&quot;</span><span class="p">,</span><span class="s2">&quot;YRGBRGBRGB&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;RGRGRGRG&quot;</span><span class="p">,</span><span class="s2">&quot;RGRGRGRG&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;RGRGRGRG&quot;</span><span class="p">,</span><span class="s2">&quot;GRGRGRGR&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;RRRRGGG&quot;</span><span class="p">,</span><span class="s2">&quot;GGGGRRR&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;RRRRGGG&quot;</span><span class="p">,</span><span class="s2">&quot;GGGRRRR&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;RRRRGGG&quot;</span><span class="p">,</span><span class="s2">&quot;RRRGGGR&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;RRRRGGG&quot;</span><span class="p">,</span><span class="s2">&quot;RYYPPBB&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;RRRRG&quot;</span><span class="p">,</span><span class="s2">&quot;GBBBB&quot;</span><span class="p">)</span>
+<span class="n">test_get_feedback</span><span class="p">(</span><span class="mi">0</span><span class="o">*</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="s1">&#39;w&#39;</span><span class="o">*</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;RRRRG&quot;</span><span class="p">,</span><span class="s2">&quot;YBBBB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="play-the-game">
+<h2><span class="section-number">6.4. </span>Play the Game<a class="headerlink" href="#play-the-game" title="Permalink to this headline">¶</a></h2>
+<p>After finishing the previous exercises, you can play the game as a code breaker against a random mastermind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mastermind</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;The main function that runs the mastermind game.&#39;&#39;&#39;</span>
+    <span class="n">max_num_guesses</span> <span class="o">=</span> <span class="n">code_length</span> <span class="o">=</span> <span class="n">code</span> <span class="o">=</span> <span class="n">num_guesses_left</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">is_game_ended</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="s1">&#39;ROYGBP&#39;</span>
+    <span class="n">color_code</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;R&quot;</span><span class="p">:</span> <span class="s2">&quot;#F88,#F00,#800&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;O&quot;</span><span class="p">:</span> <span class="s2">&quot;#FD8,#F80,#840&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF8,#FF0,#AA0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;#8F8,#0F0,#080&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;#88F,#00F,#008&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;P&quot;</span><span class="p">:</span> <span class="s2">&quot;#F8F,#F0F,#808&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;#888,#000,#000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFF,#EEE,#888&quot;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># returns the HTML code for a colored peg.</span>
+    <span class="k">def</span> <span class="nf">getPeg</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;&#39;&lt;div style=&#39;display:inline-block;</span>
+<span class="s1">                              background-image: radial-gradient(circle, </span><span class="si">{0}</span><span class="s1">); </span>
+<span class="s1">                              width:</span><span class="si">{1}</span><span class="s1">px; height:</span><span class="si">{1}</span><span class="s1">px; border-radius:50%;&#39;&gt;</span>
+<span class="s1">                  &lt;/div&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">color_code</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">colors_display</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Color codes:&#39;</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span>
+        <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">widgets</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">color</span><span class="p">),</span>
+                      <span class="n">widgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">getPeg</span><span class="p">(</span><span class="n">color</span><span class="p">))])</span> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span>
+    <span class="p">])</span>
+
+    <span class="n">max_num_guesses_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                              <span class="nb">max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                                              <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                              <span class="n">description</span><span class="o">=</span><span class="s2">&quot;# guesses:&quot;</span><span class="p">)</span>
+    <span class="n">code_length_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                          <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                          <span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                                          <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Code length:&quot;</span><span class="p">)</span>
+    <span class="n">code_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Password</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Code:&quot;</span><span class="p">)</span>
+    <span class="n">start_new_game_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Start a new game&quot;</span><span class="p">)</span>
+
+    <span class="n">guess_input</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Guess:&quot;</span><span class="p">)</span>
+    <span class="n">submit_guess_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Submit guess&quot;</span><span class="p">)</span>
+    <span class="n">board</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+    <span class="n">display</span><span class="p">(</span>
+        <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span>
+            <span class="n">max_num_guesses_input</span><span class="p">,</span> <span class="n">code_length_input</span><span class="p">,</span> <span class="n">colors_display</span><span class="p">,</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">code_input</span><span class="p">,</span> <span class="n">start_new_game_button</span><span class="p">]),</span>
+            <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">guess_input</span><span class="p">,</span> <span class="n">submit_guess_button</span><span class="p">]),</span> <span class="n">board</span><span class="p">,</span> <span class="n">message</span>
+        <span class="p">]))</span>
+
+    <span class="c1"># A listener that starts a new game</span>
+    <span class="k">def</span> <span class="nf">start_new_game</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+        <span class="k">nonlocal</span> <span class="n">code</span><span class="p">,</span> <span class="n">num_guesses_left</span><span class="p">,</span> <span class="n">is_game_ended</span><span class="p">,</span> <span class="n">max_num_guesses</span><span class="p">,</span> <span class="n">code_length</span>
+        <span class="n">max_num_guesses</span> <span class="o">=</span> <span class="n">max_num_guesses_input</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">code_length</span> <span class="o">=</span> <span class="n">code_length_input</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">board</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">message</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">code_input</span><span class="o">.</span><span class="n">value</span> <span class="ow">or</span> <span class="n">get_code</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">code_length</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">message</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">valid_code</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">code_length</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+                <span class="n">display</span><span class="p">(</span>
+                    <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;p&gt;The code </span><span class="si">{}</span><span class="s1"> is invalid.&lt;br&gt;</span>
+<span class="s1">                        Leave the code box empty to randomly generated a code.</span>
+<span class="s1">                        &lt;/p&gt;&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">code</span><span class="p">)))</span>
+                <span class="n">is_game_ended</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">num_guesses_left</span> <span class="o">=</span> <span class="n">max_num_guesses</span>
+                <span class="n">is_game_ended</span> <span class="o">=</span> <span class="n">num_guesses_left</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+                <span class="n">display</span><span class="p">(</span>
+                    <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Game started! </span><span class="si">{}</span><span class="s1"> Guesses left.&lt;/p&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">num_guesses_left</span><span class="p">)))</span>
+
+    <span class="c1"># A listener that submits a guess</span>
+    <span class="k">def</span> <span class="nf">submit_guess</span><span class="p">(</span><span class="n">button</span><span class="p">):</span>
+        <span class="k">nonlocal</span> <span class="n">num_guesses_left</span><span class="p">,</span> <span class="n">is_game_ended</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="n">guess_input</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">with</span> <span class="n">message</span><span class="p">:</span>
+            <span class="n">message</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">is_game_ended</span><span class="p">:</span>
+                <span class="n">display</span><span class="p">(</span>
+                    <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;p&gt;Game has not started.&lt;br&gt; </span>
+<span class="s1">                        Please start a new game.&lt;/p&gt;&#39;&#39;&#39;</span><span class="p">))</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">valid_code</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">code_length</span><span class="p">,</span> <span class="n">guess</span><span class="p">):</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Invalid guess.&lt;/p&gt;&#39;</span><span class="p">))</span>
+                <span class="k">return</span>
+        <span class="n">feedback</span> <span class="o">=</span> <span class="n">get_feedback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">guess</span><span class="p">)</span>
+        <span class="n">num_guesses_left</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">with</span> <span class="n">board</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">guess</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">+=</span> <span class="n">getPeg</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="n">content</span> <span class="o">+=</span> <span class="s1">&#39;&#39;&#39;&lt;div style=&#39;display:inline-block; </span>
+<span class="s1">                             margin: 0px 5px 0px 30px; </span>
+<span class="s1">                             position:relative; top:5px;&#39;&gt;Feeback:&lt;/div&gt;</span>
+<span class="s1">                          &lt;div style=&#39;display:inline-block; </span>
+<span class="s1">                             border: 1px solid; width:120px; height:30px;&#39;&gt;&#39;&#39;&#39;</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">feedback</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">+=</span> <span class="n">getPeg</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+            <span class="n">content</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/div&gt;&quot;</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+
+        <span class="k">with</span> <span class="n">message</span><span class="p">:</span>
+            <span class="n">message</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">feedback</span> <span class="o">==</span> <span class="s1">&#39;b&#39;</span> <span class="o">*</span> <span class="n">code_length</span><span class="p">:</span>
+                <span class="n">is_game_ended</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">display</span><span class="p">(</span>
+                    <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;You won with </span><span class="si">{}</span><span class="s1"> guesses left!&lt;/p&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">num_guesses_left</span><span class="p">)))</span>
+                <span class="k">return</span>
+            <span class="n">is_game_ended</span> <span class="o">=</span> <span class="n">num_guesses_left</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">is_game_ended</span><span class="p">:</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Game over...&lt;/p&gt;&#39;</span><span class="p">))</span>
+                <span class="k">return</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;</span><span class="si">{}</span><span class="s1"> Guesses left.&lt;/p&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_guesses_left</span><span class="p">)))</span>
+
+    <span class="n">start_new_game_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">start_new_game</span><span class="p">)</span>
+    <span class="n">submit_guess_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">submit_guess</span><span class="p">)</span>
+
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lab3b/Big%20Number%20Conversion.html" title="previous page"><span class="section-number">5. </span>Big Number Conversion</a>
+    <a class='right-next' id="next-link" href="../Lab5/Pandas.html" title="next page"><span class="section-number">7. </span>Pandas</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

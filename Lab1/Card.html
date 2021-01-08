@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Card guessing game &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Calculators" href="../Lab2/Calculators.html" />
+    <link rel="prev" title="1. Setup" href="Setup.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   1. Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Values%20and%20Variables.html">
+   2. Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2/Expressions%20and%20Arithmetic.html">
+   3. Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   4. Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   5. Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   6. Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   7. Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   8. Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   9. More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   10. Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   11. Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   12. Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Review%20Questions.html">
+   13. Review Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Setup.html">
+   1. Setup
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   3. Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   4. Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   5. Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   6. Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   7. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   8. Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   9. Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   11. Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lab1/Card.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ltjh.cs.cityu.edu.hk/hub/user-redirect/git-pull?repo=https://github.com/ccha23/CS1302ICP&urlpath=tree/CS1302ICP/Lab1/Card.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab1/Card.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rules-of-the-game">
+   2.1. Rules of the game
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-the-computer">
+   2.2. Challenge the computer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-your-understanding">
+   2.3. Challenge your understanding
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="card-guessing-game">
+<h1><span class="section-number">2. </span>Card guessing game<a class="headerlink" href="#card-guessing-game" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rules-of-the-game">
+<h2><span class="section-number">2.1. </span>Rules of the game<a class="headerlink" href="#rules-of-the-game" title="Permalink to this headline">¶</a></h2>
+<p>Consider a deck of 52 cards:</p>
+<table>
+    <tr>
+        <td></td>
+        <th>1 (A)</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+        <th>11 (J)</th>
+        <th>12 (Q)</th>
+        <th>13 (K)</th>
+    </tr>
+    <tr>
+        <th style="transform: rotate(-90deg);">Diamond</th>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-A-Diamond.svg"><img width="50" alt="Cards-A-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Cards-A-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-2-Diamond.svg"><img width="50" alt="Cards-2-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Cards-2-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-3-Diamond.svg"><img width="50" alt="Cards-3-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Cards-3-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-4-Diamond.svg"><img width="50" alt="Cards-4-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Cards-4-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-5-Diamond.svg"><img width="50" alt="Cards-5-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Cards-5-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-6-Diamond.svg"><img width="50" alt="Cards-6-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Cards-6-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-7-Diamond.svg"><img width="50" alt="Cards-7-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Cards-7-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-8-Diamond.svg"><img width="50" alt="Cards-8-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Cards-8-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-9-Diamond.svg"><img width="50" alt="Cards-9-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Cards-9-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-10-Diamond.svg"><img width="50" alt="Cards-10-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Cards-10-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-J-Diamond.svg"><img width="50" alt="Cards-J-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Cards-J-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-Q-Diamond.svg"><img width="50" alt="Cards-Q-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Cards-Q-Diamond.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-K-Diamond.svg"><img width="50" alt="Cards-K-Diamond" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Cards-K-Diamond.svg"></a></td>
+    </tr>
+    <tr>
+        <th style="transform: rotate(-90deg);">Club</th>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-A-Club.svg"><img width="50" alt="Cards-A-Club" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Cards-A-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-2-Club.svg"><img width="50" alt="Cards-2-Club" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Cards-2-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-3-Club.svg"><img width="50" alt="Cards-3-Club" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Cards-3-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-4-Club.svg"><img width="50" alt="Cards-4-Club" src="https://upload.wikimedia.org/wikipedia/commons/6/69/Cards-4-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-5-Club.svg"><img width="50" alt="Cards-5-Club" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Cards-5-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-6-Club.svg"><img width="50" alt="Cards-6-Club" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Cards-6-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-7-Club.svg"><img width="50" alt="Cards-7-Club" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Cards-7-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-8-Club.svg"><img width="50" alt="Cards-8-Club" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Cards-8-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-9-Club.svg"><img width="50" alt="Cards-9-Club" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Cards-9-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-10-Club.svg"><img width="50" alt="Cards-10-Club" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Cards-10-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-J-Club.svg"><img width="50" alt="Cards-J-Club" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Cards-J-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-Q-Club.svg"><img width="50" alt="Cards-Q-Club" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Cards-Q-Club.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-K-Club.svg"><img width="50" alt="Cards-K-Club" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Cards-K-Club.svg"></a></td>
+    </tr>
+    <tr>
+        <th style="transform: rotate(-90deg);">Heart</th>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-A-Heart.svg"><img width="50" alt="Cards-A-Heart" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Cards-A-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-2-Heart.svg"><img width="50" alt="Cards-2-Heart" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Cards-2-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-3-Heart.svg"><img width="50" alt="Cards-3-Heart" src="https://upload.wikimedia.org/wikipedia/commons/5/57/Cards-3-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-4-Heart.svg"><img width="50" alt="Cards-4-Heart" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cards-4-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-5-Heart.svg"><img width="50" alt="Cards-5-Heart" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Cards-5-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-6-Heart.svg"><img width="50" alt="Cards-6-Heart" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Cards-6-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-7-Heart.svg"><img width="50" alt="Cards-7-Heart" src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Cards-7-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-8-Heart.svg"><img width="50" alt="Cards-8-Heart" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Cards-8-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-9-Heart.svg"><img width="50" alt="Cards-9-Heart" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Cards-9-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-10-Heart.svg"><img width="50" alt="Cards-10-Heart" src="https://upload.wikimedia.org/wikipedia/commons/7/76/Cards-10-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-J-Heart.svg"><img width="50" alt="Cards-J-Heart" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Cards-J-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-Q-Heart.svg"><img width="50" alt="Cards-Q-Heart" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Cards-Q-Heart.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-K-Heart.svg"><img width="50" alt="Cards-K-Heart" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Cards-K-Heart.svg"></a></td>
+    </tr>        
+    <tr>
+        <th style="transform: rotate(-90deg);">Spade</th>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-A-Spade.svg"><img width="50" alt="Cards-A-Spade" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Cards-A-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-2-Spade.svg"><img width="50" alt="Cards-2-Spade" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Cards-2-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-3-Spade.svg"><img width="50" alt="Cards-3-Spade" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Cards-3-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-4-Spade.svg"><img width="50" alt="Cards-4-Spade" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Cards-4-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-5-Spade.svg"><img width="50" alt="Cards-5-Spade" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Cards-5-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-6-Spade.svg"><img width="50" alt="Cards-6-Spade" src="https://upload.wikimedia.org/wikipedia/commons/6/68/Cards-6-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-7-Spade.svg"><img width="50" alt="Cards-7-Spade" src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Cards-7-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-8-Spade.svg"><img width="50" alt="Cards-8-Spade" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Cards-8-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-9-Spade.svg"><img width="50" alt="Cards-9-Spade" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Cards-9-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-10-Spade.svg"><img width="50" alt="Cards-10-Spade" src="https://upload.wikimedia.org/wikipedia/commons/6/67/Cards-10-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-J-Spade.svg"><img width="50" alt="Cards-J-Spade" src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Cards-J-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-Q-Spade.svg"><img width="50" alt="Cards-Q-Spade" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Cards-Q-Spade.svg"></a></td>
+        <td><a title="GW Simulations / Public domain" href="https://commons.wikimedia.org/wiki/File:Cards-K-Spade.svg"><img width="50" alt="Cards-K-Spade" src="https://upload.wikimedia.org/wikipedia/commons/1/18/Cards-K-Spade.svg"></a></td>
+    </tr>
+</table><ul class="simple">
+<li><p>Each card is in one of the four suits: <strong>Diamond</strong>, <strong>Club</strong>, <strong>Heart</strong>, and <strong>Spade</strong>.</p></li>
+<li><p>Each card has a value <span class="math notranslate nohighlight">\(1 \text{ (A)} &lt; 2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; 11 \text{ (J)} &lt; 12 \text{ (Q)} &lt; 13 \text{ (K)}\)</span>.</p></li>
+</ul>
+<p>The following code creates a deck of cards. (You do not need to understand the code for now.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a deck of cards</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">suits</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Diamond&quot;</span><span class="p">,</span> <span class="s2">&quot;Club&quot;</span><span class="p">,</span> <span class="s2">&quot;Heart&quot;</span><span class="p">,</span> <span class="s2">&quot;Spade&quot;</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">Card</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Card&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;suit&#39;</span><span class="p">])</span>
+
+<span class="n">deck</span> <span class="o">=</span> <span class="p">[</span><span class="n">Card</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">suit</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">for</span> <span class="n">suit</span> <span class="ow">in</span> <span class="n">suits</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To play the game, a dealer randomly pick a card without letting you know, and you’re going to guess what exactly that card is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Randomly draw a card from the deck with replacement</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">deck</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You are allowed to make an informed guess after the dealer answers some of your <strong>yes/no</strong> questions.</p>
+<p>For instance, you may ask:</p>
+<ul class="simple">
+<li><p>Is the suit club?</p></li>
+<li><p>Is the card diamond 1 (ace)?</p></li>
+<li><p>Is the value at least 10?</p></li>
+</ul>
+<p>However, you cannot ask:</p>
+<ul class="simple">
+<li><p>What is the value?</p></li>
+<li><p>What is the suite?</p></li>
+</ul>
+<p><strong>Exercise</strong> You win if you can <strong>guess the card correctly with no more than 6 questions</strong>. What is the winning strategy?</p>
+<p>YOUR ANSWER HERE</p>
+<p>Hint 1: <span style="color:white">Obviously, you should not ask whether the card is precisely certain card, e.g., Is it Diamond Ace? Is it Diamond 2? … Why not? The card may be one of the remaining <span class="math notranslate nohighlight">\(52-6=46\)</span> possibilities you did not ask.</span></p>
+<p>Hint 2: <span style="color:white">Think of each <strong>Yes/No</strong> question as splitting the set of possible cards into two smaller groups of possible cards corresponding to each possible answer <strong>Yes/No</strong>.</span></p>
+<p>Hint 3: <span style="color:white">How many questions is required to split the set of 52 cards into groups of size <span class="math notranslate nohighlight">\(1\)</span>, i.e., with only one possible card?</span></p>
+</div>
+<div class="section" id="challenge-the-computer">
+<h2><span class="section-number">2.2. </span>Challenge the computer<a class="headerlink" href="#challenge-the-computer" title="Permalink to this headline">¶</a></h2>
+<p>Play the role of the dealer and test if the program below can guess the card correctly after 6 questions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">suitIdx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="o">==</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="s2">&quot;Is the suite either heart or spade? (y/[n]) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+    <span class="n">suitIdx</span> <span class="o">+=</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="o">==</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Is the suite either club or spade? (y/[n]) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+    <span class="n">suitIdx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="o">==</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Is the number </span><span class="si">{</span><span class="n">number</span><span class="o">+</span><span class="mi">8</span><span class="si">}</span><span class="s2"> or above? (y/[n]) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">8</span>
+
+<span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="o">==</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Is the number </span><span class="si">{</span><span class="n">number</span><span class="o">+</span><span class="mi">4</span><span class="si">}</span><span class="s2"> or above? (y/[n]) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">4</span>
+
+<span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="o">==</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Is the number </span><span class="si">{</span><span class="n">number</span><span class="o">+</span><span class="mi">2</span><span class="si">}</span><span class="s2"> or above? (y/[n]) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="s2">&quot;y&quot;</span> <span class="o">==</span> <span class="nb">input</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Is the number </span><span class="si">{</span><span class="n">number</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> or above? (y/[n]) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The card is </span><span class="si">{</span><span class="n">suits</span><span class="p">[</span><span class="n">suitIdx</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Does the above program always win? Explain your answer?</p>
+<p>YOUR ANSWER HERE</p>
+</div>
+<div class="section" id="challenge-your-understanding">
+<h2><span class="section-number">2.3. </span>Challenge your understanding<a class="headerlink" href="#challenge-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>The following table gives the binary representions of unsigned decimal integers from 0 to 7.</p>
+<table>
+    <tr><th>Binary</th><th>Decimal</th></tr>
+    <tr><td>000</td><td>0</td></tr>
+    <tr><td>001</td><td>1</td></tr>
+    <tr><td>010</td><td>2</td></tr>
+    <tr><td>011</td><td>3</td></tr>
+    <tr><td><b style="color:magenta">1</b>00</td><td style="color:magenta">4</td></tr>
+    <tr><td><b style="color:magenta">1</b>01</td><td style="color:magenta">5</td></tr>
+    <tr><td><b style="color:magenta">1</b>10</td><td style="color:magenta">6</td></tr>
+    <tr><td><b style="color:magenta">1</b>11</td><td style="color:magenta">7</td></tr>
+</table><br><p>To convert binary to decimal, think of the conversion as a guessing game where</p>
+<ul class="simple">
+<li><p>the binary sequence is a sequence of <strong>yes (1)</strong> or <strong>no (0)</strong> answers to certain <strong>yes/no</strong> questions, and</p></li>
+<li><p>the informed guess is the integer represented by the binary sequence.</p></li>
+</ul>
+<p>For instance, observe that the binary representation of 4, 5, 6, and 7 actually have <b style="color:magenta">1</b> in the leftmost (most significant) bit. Therefore we can consider that bit as the answer to the following <strong>yes/no</strong> question:</p>
+<blockquote>
+<div><p>Is the integer 4 or above?</p>
+</div></blockquote>
+<p><strong>Exercise</strong> What are the <strong>yes/no</strong> questions corresponding to the 2nd bit and 3rd bit?</p>
+<p>YOUR ANSWER HERE</p>
+<h2>References</h2>
+<ul>
+    <li><a href=https://www.mathsisfun.com/binary-number-system.html>Binary Number Sytem</a></li>
+    <li><a href=https://www.purplemath.com/modules/numbbase.htm>Binary Number Conversions</a></li>
+</ul></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lab1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Setup.html" title="previous page"><span class="section-number">1. </span>Setup</a>
+    <a class='right-next' id="next-link" href="../Lab2/Calculators.html" title="next page"><span class="section-number">3. </span>Calculators</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

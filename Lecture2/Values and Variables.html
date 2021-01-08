@@ -1,0 +1,1417 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Values and Variables &#8212; CS1302</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Expressions and Arithmetic" href="Expressions%20and%20Arithmetic.html" />
+    <link rel="prev" title="1. Introduction to Computer Programming" href="../Lecture1/Introduction%20to%20Computer%20Programming.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">CS1302</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introduction to Computer Programming
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lecture notes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1/Introduction%20to%20Computer%20Programming.html">
+   1. Introduction to Computer Programming
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Values and Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Expressions%20and%20Arithmetic.html">
+   3. Expressions and Arithmetic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Conditional%20Execution.html">
+   4. Conditional Execution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3/Iteration.html">
+   5. Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Using%20Functions.html">
+   6. Using Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture4/Writing%20Functions.html">
+   7. Writing Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture5/Objects.html">
+   8. Objects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture6/More%20on%20Functions.html">
+   9. More on Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture7/Lists%20and%20Tuples.html">
+   10. Lists and Tuples
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture8/Dictionaries%20and%20Sets.html">
+   11. Dictionaries and Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture9/Monte%20Carlo%20Simulation%20and%20Linear%20Algebra.html">
+   12. Monte Carlo Simulation and Linear Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Review/Review%20Questions.html">
+   13. Review Questions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lab assignments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Setup.html">
+   1. Setup
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab1/Card.html">
+   2. Card guessing game
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab2/Calculators.html">
+   3. Calculators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3a/Improved%20Quadratic%20Equation%20Solver.html">
+   4. Improved Quadratic Equation Solver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab3b/Big%20Number%20Conversion.html">
+   5. Big Number Conversion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab4/Mastermind.html">
+   6. Mastermind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab5/Pandas.html">
+   7. Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab6/Combinatorics.html">
+   8. Combinatorics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/Cybersecurity.html">
+   9. Cybersecurity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab8/Information%20Theory.html">
+   10. Information Theory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab9/Monte%20Carlo%20and%20Root%20Finding.html">
+   11. Monte Carlo and Root Finding
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Lecture2/Values and Variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        <a class="jupyterhub-button" href="https://ltjh.cs.cityu.edu.hk/hub/user-redirect/git-pull?repo=https://github.com/ccha23/CS1302ICP&urlpath=tree/CS1302ICP/Lecture2/Values and Variables.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lecture2/Values and Variables.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integers">
+   2.1. Integers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strings">
+   2.2. Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-and-assignment">
+   2.3. Variables and Assignment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identifiers">
+   2.4. Identifiers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#user-input">
+   2.5. User Input
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-conversion">
+   2.6. Type Conversion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error">
+   2.7. Error
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#floating-point-numbers">
+   2.8. Floating Point Numbers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-formatting">
+   2.9. String Formatting
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="values-and-variables">
+<h1><span class="section-number">2. </span>Values and Variables<a class="headerlink" href="#values-and-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="integers">
+<h2><span class="section-number">2.1. </span>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to enter an <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#integer-literals">integer</a> in a program?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">15</span>  <span class="c1"># an integer in decimal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mb">0b1111</span>  <span class="c1"># a binary number</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mh">0xF</span>  <span class="c1"># hexadecimal (base 16) with possible digits 0, 1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why all outputs are the same?</strong></p>
+<ul class="simple">
+<li><p>What you have entered are <em>integer literals</em>, which are integers written out literally.</p></li>
+<li><p>All the literals have the same integer value in decimal.</p></li>
+<li><p>By default, if the last line of a code cell has a value, the jupyter notebook (<em>IPython</em>) will store and display the value as an output.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>  <span class="c1"># not the output of this cell</span>
+<span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The last line above also has the same value, <code class="docutils literal notranslate"><span class="pre">15</span></code>.</p></li>
+<li><p>It is an <em>expression</em> (but not a literal) that <em>evaluates</em> to the integer value.</p></li>
+</ul>
+<p><strong>Exercise</strong> Enter an expression that evaluates to an integer value, as big as possible.<br />
+(You may need to interrupt the kernel if the expression takes too long to evaluate.)</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There is no maximum for an integer for Python3. </span>
+<span class="c1"># See https://docs.python.org/3.1/whatsnew/3.0.html#integers</span>
+<span class="mi">11</span> <span class="o">**</span> <span class="mi">100000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strings">
+<h2><span class="section-number">2.2. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to enter a <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals">string</a> in a program?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="se">\U0001f600</span><span class="s1">: I am a string.&#39;</span>  <span class="c1"># a sequence of characters delimited by single quotes.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;😀: I am a string.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="se">\N{grinning face}</span><span class="s2">: I am a string.&quot;</span>  <span class="c1"># delimited by double quotes.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;😀: I am a string.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;\N{grinning face}: I am a string.&quot;&quot;&quot;</span>  <span class="c1"># delimited by triple single/double quotes.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;😀: I am a string.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\</span></code> is called the <em>escape symbol</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\U0001f600</span></code> and <code class="docutils literal notranslate"><span class="pre">\N{grinning</span> <span class="pre">face}</span></code> are <em>escape sequences</em>.</p></li>
+<li><p>These sequences represent the same grinning face emoji by its Unicode in hexadecimal and its name.</p></li>
+</ul>
+<p><strong>Why use different quotes?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m line #1.</span><span class="se">\n</span><span class="s1">I</span><span class="se">\&#39;</span><span class="s1">m line #2.&#39;</span><span class="p">)</span>  <span class="c1"># \n is a control code for line feed</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m line #3.</span><span class="se">\n</span><span class="s2">I&#39;m line #4.&quot;</span><span class="p">)</span>  <span class="c1"># no need to escape single quote.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;I&#39;m line #5.</span>
+<span class="s1">I&#39;m line #6.&#39;&#39;&#39;</span><span class="p">)</span>  <span class="c1"># multi-line string</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m line #1.
+I&#39;m line #2.
+I&#39;m line #3.
+I&#39;m line #4.
+I&#39;m line #5.
+I&#39;m line #6.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that:</p>
+<ul class="simple">
+<li><p>The escape sequence <code class="docutils literal notranslate"><span class="pre">\n</span></code> does not represent any symbol.</p></li>
+<li><p>It is a <em>control code</em> that creates a new line when printing the string.</p></li>
+<li><p>Another common control code is <code class="docutils literal notranslate"><span class="pre">\t</span></code> for tab.</p></li>
+</ul>
+<p>Using double quotes, we need not escape the single quote in <code class="docutils literal notranslate"><span class="pre">I'm</span></code>.</p>
+<p>Triple quotes delimit a multi-line string, so there is no need to use <code class="docutils literal notranslate"><span class="pre">\n</span></code>.<br />
+(You can copy and paste a multi-line string from elsewhere.)</p>
+<p>In programming, there are often many ways to do the same thing.<br />
+The following is a one-line code (<a class="reference external" href="https://en.wikipedia.org/wiki/One-liner_program">one-liner</a>) that prints multiple lines of strings without using <code class="docutils literal notranslate"><span class="pre">\n</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m line #1&quot;</span><span class="p">,</span> <span class="s2">&quot;I&#39;m line #2&quot;</span><span class="p">,</span> <span class="s2">&quot;I&#39;m line #3&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># one liner</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m line #1
+I&#39;m line #2
+I&#39;m line #3
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sep='\n'</span></code> is a <em>keyword argument</em> that specifies the separator of the list of strings.</p></li>
+<li><p>By default, <code class="docutils literal notranslate"><span class="pre">sep='</span> <span class="pre">'</span></code>, a single space character.</p></li>
+</ul>
+<p>In IPython, we can get the <em>docstring</em> (documentation) of a function conveniently using the symbol <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>print
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Print a cool multi-line string below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1"> (ง •̀_•́)ง </span>
+<span class="s1"> ╰(●’◡’●)╮ </span>
+<span class="s1"> (..•˘_˘•..)</span>
+<span class="s1"> (づ￣ 3￣)づ</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="c1"># See also https://github.com/glamp/bashplotlib</span>
+<span class="c1"># Star Wars via Telnet http://asciimation.co.nz/</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (ง •̀_•́)ง 
+ ╰(●’◡’●)╮ 
+ (..•˘_˘•..)
+ (づ￣ 3￣)づ
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variables-and-assignment">
+<h2><span class="section-number">2.3. </span>Variables and Assignment<a class="headerlink" href="#variables-and-assignment" title="Permalink to this headline">¶</a></h2>
+<p>It is useful to store a value and retrieve it later.<br />
+To do so, we assign the value to a variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">x</span>  <span class="c1"># output the value of x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is assignment the same as equality?</strong></p>
+<p>No because:</p>
+<ul class="simple">
+<li><p>you cannot write <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">=</span> <span class="pre">x</span></code>, but</p></li>
+<li><p>you can write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>, which increases the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> by <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+</ul>
+<p><strong>Exercise</strong> Try out the above code yourself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the effect of assignment step-by-step:</p>
+<ol class="simple">
+<li><p>Run the following cell.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Next</span> <span class="pre">&gt;</span></code> to see the next step of the execution.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 200
+x = 15
+x = x + 1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="200"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=x%20%3D%2015%0Ax%20%3D%20x%20%2B%201%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>The following <em>tuple assignment</em> syntax can assign multiple variables in one line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 200
+x, y, z = &#39;15&#39;, &#39;30&#39;, 15
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="200"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=x%2C%20y%2C%20z%20%3D%20%2715%27%2C%20%2730%27%2C%2015%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>One can also use <em>chained assignment</em> to set different variables to the same value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">mytutor</span> -h 250
+x = y = z = 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="1100"
+    height="250"
+    src="https://e-quiz.cs.cityu.edu.hk/opt/cs1302visualize.html#mode=display&code=x%20%3D%20y%20%3D%20z%20%3D%200%0A"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>Variables can be deleted using <code class="docutils literal notranslate"><span class="pre">del</span></code>. Accessing a variable before assignment raises a Name error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">7</span><span class="n">a8db3f963f3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">del</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="ne">NameError</span>: name &#39;y&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="identifiers">
+<h2><span class="section-number">2.4. </span>Identifiers<a class="headerlink" href="#identifiers" title="Permalink to this headline">¶</a></h2>
+<p><em>Identifiers</em> such as variable names are case sensitive and follow certain rules.</p>
+<p><strong>What is the syntax for variable names?</strong></p>
+<ol class="simple">
+<li><p>Must start with a letter or <code class="docutils literal notranslate"><span class="pre">_</span></code> (an underscore) followed by letters, digits, or <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
+<li><p>Must not be a <a class="reference external" href="https://docs.python.org/3.7/reference/lexical_analysis.html#keywords">keyword</a> (identifier reserved by Python):</p></li>
+</ol>
+<pre>False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield</pre><p><strong>Exercise</strong> Evaluate the following cell and check if any of the rules above is violated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="nd">@interact</span>
+<span class="k">def</span> <span class="nf">identifier_syntax</span><span class="p">(</span><span class="n">assignment</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a-number = 15&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;a_number = 15&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;15 = 15&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;_15 = 15&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;del = 15&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Del = 15&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;type = print&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;print = type&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;input = print&#39;</span><span class="p">]):</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">assignment</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ok.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "fb7b9d831ea54239b7be5912827cb940"}
+</script></div>
+</div>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a-number</span> <span class="pre">=</span> <span class="pre">15</span></code> violates Rule 1 because <code class="docutils literal notranslate"><span class="pre">-</span></code> is not allowed. <code class="docutils literal notranslate"><span class="pre">-</span></code> is interpreted as an operator.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">=</span> <span class="pre">15</span></code> violates Rule 1 because <code class="docutils literal notranslate"><span class="pre">15</span></code> starts with a digit instead of letter or _.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">=</span> <span class="pre">15</span></code> violates Rule 2 because <code class="docutils literal notranslate"><span class="pre">del</span></code> is a keyword.</p></li>
+</ol>
+<p>What can we learn from the above examples?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">del</span></code> is a keyword and <code class="docutils literal notranslate"><span class="pre">Del</span></code> is not because identifiers are case sensitive.</p></li>
+<li><p>Function/method/type names <code class="docutils literal notranslate"><span class="pre">print</span></code>/<code class="docutils literal notranslate"><span class="pre">input</span></code>/<code class="docutils literal notranslate"><span class="pre">type</span></code> are not keywords and can be reassigned.<br />
+This can useful if you want to modify the default implementations without changing their source code.</p></li>
+</ul>
+<p>To help make code more readable, additional style guides such as <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#function-and-variable-names">PEP 8</a> are available:</p>
+<ul class="simple">
+<li><p>Function names should be lowercase, with words separated by underscores as necessary to improve readability.</p></li>
+<li><p>Variable names follow the same convention as function names.</p></li>
+</ul>
+</div>
+<div class="section" id="user-input">
+<h2><span class="section-number">2.5. </span>User Input<a class="headerlink" href="#user-input" title="Permalink to this headline">¶</a></h2>
+<p><strong>How to let the user input a value at <em>runtime</em>,<br />
+i.e., as the program executes?</strong></p>
+<p>We can use the method <code class="docutils literal notranslate"><span class="pre">input</span></code>:</p>
+<ul class="simple">
+<li><p>There is no need to delimit the input string by quotation marks.</p></li>
+<li><p>Simply press <code class="docutils literal notranslate"><span class="pre">enter</span></code> after typing a string.</p></li>
+</ul>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your name is&#39;</span><span class="p">,</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input your name: &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">input</span></code> method prints its argument, if any, as a <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt">prompt</a>.</p></li>
+<li><p>It takes user’s input and <em>return</em> it as its value. <code class="docutils literal notranslate"><span class="pre">print</span></code> takes in that value and prints it.</p></li>
+</ul>
+<p><strong>Exercise</strong> Explain whether the following code prints <code class="docutils literal notranslate"><span class="pre">'My</span> <span class="pre">name</span> <span class="pre">is</span> <span class="pre">Python'</span></code>. Does <code class="docutils literal notranslate"><span class="pre">print</span></code> return a value?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My name is&#39;</span><span class="p">,</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python
+My name is None
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Unlike <code class="docutils literal notranslate"><span class="pre">input</span></code>, the function <code class="docutils literal notranslate"><span class="pre">print</span></code> does not return the string it is trying to print. Printing a string is, therefore, different from returning a string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print</span></code> actually returns a <code class="docutils literal notranslate"><span class="pre">None</span></code> object that gets printed as <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="type-conversion">
+<h2><span class="section-number">2.6. </span>Type Conversion<a class="headerlink" href="#type-conversion" title="Permalink to this headline">¶</a></h2>
+<p>The following program tries to compute the sum of two numbers from user inputs:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input an integer: &#39;</span><span class="p">)</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input another integer: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> There is a <a class="reference external" href="https://en.wikipedia.org/wiki/Software_bug">bug</a> in the above code. Can you locate the error?</p>
+<p>The two numbers are concatenated instead of added together.</p>
+<p><code class="docutils literal notranslate"><span class="pre">input</span></code> <em>returns</em> user input as a string.<br />
+E.g., if the user enters <code class="docutils literal notranslate"><span class="pre">12</span></code>, the input is</p>
+<ul class="simple">
+<li><p>not treated as the integer twelve, but rather</p></li>
+<li><p>treated as a string containing two characters, one followed by two.</p></li>
+</ul>
+<p>To see this, we can use <code class="docutils literal notranslate"><span class="pre">type</span></code> to return the data type of an expression.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input an integer: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your input is&#39;</span><span class="p">,</span> <span class="n">num1</span><span class="p">,</span> <span class="s1">&#39;with type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">num1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> <code class="docutils literal notranslate"><span class="pre">type</span></code> applies to any expressions. Try it out below on <code class="docutils literal notranslate"><span class="pre">15</span></code>, <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">input</span></code>, and even <code class="docutils literal notranslate"><span class="pre">type</span></code> itself and <code class="docutils literal notranslate"><span class="pre">type(type)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">print</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">print</span><span class="p">()),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">input</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(int, builtin_function_or_method, NoneType, method, type, type)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>So what happens when we add strings together?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;4&#39;</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="s1">&#39;6&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;456&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to fix the bug then?</strong></p>
+<p>We can convert a string to an integer using <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;5&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;6&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also convert an integer to a string using <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;456&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Fix the bug in the following cell.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input an integer: &#39;</span><span class="p">)</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input another integer: &#39;</span><span class="p">)</span>
+<span class="c1"># print(num1, &#39;+&#39;, num2, &#39;is equal to&#39;, num1 + num2)  # fix this line below</span>
+<span class="c1">### BEGIN SOLUTION</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">num2</span><span class="p">))</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="error">
+<h2><span class="section-number">2.7. </span>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
+<p>In addition to writing code, a programmer spends significant time in <em>debugging</em> code that contains errors.</p>
+<p><strong>Can an error be automatically detected by the computer?</strong></p>
+<ul class="simple">
+<li><p>You have just seen an example of <em>logical error</em>, which is due to an error in the logic.</p></li>
+<li><p>The ability to debug or even detect such error is, unfortunately, beyond Python’s intelligence.</p></li>
+</ul>
+<p>Other kinds of error may be detected automatically.<br />
+As an example, note that we can omit <code class="docutils literal notranslate"><span class="pre">+</span></code> for string concatenation, but we cannot omit it for integer summation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping + for string concatenation&#39;</span><span class="p">)</span>
+<span class="s1">&#39;4&#39;</span> <span class="s1">&#39;5&#39;</span> <span class="s1">&#39;6&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Skipping + for string concatenation
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;456&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping + for integer summation&#39;</span><span class="p">)</span>
+<span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-32-234998ea6ba8&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<span class="g g-Whitespace">    </span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span>
+      <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python interpreter detects the bug and raises a <em>syntax</em> error.</p>
+<p><strong>Why Syntax error can be detected automatically?<br />
+Why is the print statement before the error not executed?</strong></p>
+<ul class="simple">
+<li><p>The Python interpreter can easily detect syntax error even before executing the code simply because</p></li>
+<li><p>the interpreter fails to interpret the code, i.e., translates the code to lower-level executable code.</p></li>
+</ul>
+<p>The following code raises a different kind of error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evaluating &#39;4&#39; + &#39;5&#39; + 6&quot;</span><span class="p">)</span>
+<span class="s1">&#39;4&#39;</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mi">6</span>  <span class="c1"># summing string with integer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Evaluating &#39;4&#39; + &#39;5&#39; + 6
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="mi">67</span><span class="n">f2880d2e89</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evaluating &#39;4&#39; + &#39;5&#39; + 6&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="s1">&#39;4&#39;</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mi">6</span>  <span class="c1"># summing string with integer</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why Python throws a TypeError when evaluating <code class="docutils literal notranslate"><span class="pre">'4'</span> <span class="pre">+</span> <span class="pre">'5'</span> <span class="pre">+</span> <span class="pre">6</span></code>?</strong></p>
+<p>There is no default implementation of <code class="docutils literal notranslate"><span class="pre">+</span></code> operation on a value of type <code class="docutils literal notranslate"><span class="pre">str</span></code> and a value of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<ul class="simple">
+<li><p>Unlike syntax error, the Python interpreter can only detect type error at runtime (when executing the code.)</p></li>
+<li><p>Hence, such error is called a <em>runtime error</em>.</p></li>
+</ul>
+<p><strong>Why is TypeError a runtime error?</strong></p>
+<p>The short answer is that Python is a <a class="reference external" href="https://en.wikipedia.org/wiki/Strong_and_weak_typing">strongly-and-dynamically-typed</a> language:</p>
+<ul class="simple">
+<li><p>Strongly-typed: Python does not force a type conversion to avoid a type error.</p></li>
+<li><p>Dynamically-typed: Python allow data type to change at runtime.</p></li>
+</ul>
+<p>The underlying details are more complicated than required for this course. It helps if you already know the following languages:</p>
+<ul class="simple">
+<li><p>JavaScript, which is a <em>weakly-typed</em> language that forces a type conversion to avoid a type error.</p></li>
+<li><p>C, which is a <em>statically-typed</em> language that does not allow data type to change at runtime.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%javascript</span>
+<span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;4&#39;</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mf">6</span><span class="p">)</span>  <span class="c1">// no error because 6 is converted to a str automatically</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">alert('4' + '5' + 6)  // no error because 6 is converted to a str automatically
+</script></div>
+</div>
+<p>A weakly-typed language may seem more robust, but it can lead to <a class="reference external" href="https://www.oreilly.com/library/view/fluent-conference-javascript/9781449339203/oreillyvideos1220106.html">more logical errors</a>.<br />
+To improve readability, <a class="reference external" href="https://www.typescriptlang.org/">typescript</a> is a strongly-typed replacement of javascript.</p>
+<p><strong>Exercise</strong> Not all the strings can be converted into integers. Try breaking the following code by providing invalid inputs and record them in the subsequent cell. Explain whether the errors are runtime errors.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input an integer: &#39;</span><span class="p">)</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Please input another integer: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">num2</span><span class="p">,</span> <span class="s1">&#39;is equal to&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">num2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The possible invalid inputs are:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">+</span> <span class="pre">5</span> <span class="pre">+</span> <span class="pre">6</span></code>, <code class="docutils literal notranslate"><span class="pre">15.0</span></code>, <code class="docutils literal notranslate"><span class="pre">fifteen</span></code></p>
+</div></blockquote>
+<p>It raises a value error, which is a runtime error detected during execution.</p>
+<p>Note that the followings are okay</p>
+<blockquote>
+<div><p>int(‘-1’), eval(‘4 + 5 + 6’)</p>
+</div></blockquote>
+</div>
+<div class="section" id="floating-point-numbers">
+<h2><span class="section-number">2.8. </span>Floating Point Numbers<a class="headerlink" href="#floating-point-numbers" title="Permalink to this headline">¶</a></h2>
+<p>Not all numbers are integers. In Enginnering, we often need to use fractions.</p>
+<p><strong>How to enter fractions in a program?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span> <span class="c1"># decimal number</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0e-1</span> <span class="c1"># scientific notation</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="c1"># fraction</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.1, -0.1, -0.1, float, float, float)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is the type <code class="docutils literal notranslate"><span class="pre">float</span></code>?</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> corresponds to the <a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Floating-point_numbers"><em>floating point</em> representation</a>.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">float</span></code> in stored exactly the way we write it in scientific notation:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\overbrace{-}^{\text{sign}} \underbrace{1.0}_{\text{mantissa}\kern-1em}e\overbrace{-1}^{\text{exponent}\kern-1em}=-1\times 10^{-1}
+\]</div>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">truth</a> is more complicated than required for the course.</p></li>
+</ul>
+<p>Integers in mathematics may be regarded as a <code class="docutils literal notranslate"><span class="pre">float</span></code> instead of <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="mf">1e2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(float, float)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also convert an <code class="docutils literal notranslate"><span class="pre">int</span></code> or a <code class="docutils literal notranslate"><span class="pre">str</span></code> to a <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Is it better to store an integer as <code class="docutils literal notranslate"><span class="pre">float</span></code>?</strong></p>
+<p>Python stores a <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.float_info">floating point</a> with finite precision (usually as a 64bit binary fraction):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">float_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It cannot represent a number larger than the <code class="docutils literal notranslate"><span class="pre">max</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>inf
+</pre></div>
+</div>
+</div>
+</div>
+<p>The precision also affects the check for equality.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">1.0</span> <span class="o">==</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="c1"># returns true if equal</span>
+ <span class="mf">1.0</span> <span class="o">==</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False, True)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another issue with float is that it may keep more decimal places than desired.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How to <a class="reference external" href="https://docs.python.org/3/library/functions.html#round">round</a> a floating point number to the desired number of decimal places?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">2.665</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mf">2.675</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.67, 2.67)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why 2.675 rounds to 2.67 instead of 2.68?</strong></p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">float</span></code> is actually represented in binary.</p></li>
+<li><p>A decimal fraction <a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues">may not be represented exactly in binary</a>.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">round</span></code> function can also be applied to an integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(200, 200)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Why 250 rounds to 200 instead of 300?</strong></p>
+<ul class="simple">
+<li><p>Python 3 implements the default rounding method in <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=IEEE_754#Rounding_rules">IEEE 754</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="string-formatting">
+<h2><span class="section-number">2.9. </span>String Formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">¶</a></h2>
+<p><strong>Can we round a <code class="docutils literal notranslate"><span class="pre">float</span></code> or <code class="docutils literal notranslate"><span class="pre">int</span></code> for printing but not calculation?</strong></p>
+<p>This is possible with <a class="reference external" href="https://docs.python.org/3/library/string.html#format-specification-mini-language"><em>format specifications</em></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">/</span><span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x ≈ </span><span class="si">{:.2f}</span><span class="s1"> (rounded to 2 decimal places)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x ≈ 3333.33 (rounded to 2 decimal places)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3333.3333333333335
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{:.2f}</span></code> is a <em>format specification</em></p></li>
+<li><p>that gets replaced by a string</p></li>
+<li><p>that represents the argument <code class="docutils literal notranslate"><span class="pre">x</span></code> of <code class="docutils literal notranslate"><span class="pre">format</span></code></p></li>
+<li><p>as a decimal floating point number rounded to 2 decimal places.</p></li>
+</ul>
+<p><strong>Exercise</strong> Play with the following widget to learn the effect of different format specifications. In particular, print <code class="docutils literal notranslate"><span class="pre">10000/3</span></code> as <code class="docutils literal notranslate"><span class="pre">3,333.33</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;10000/3&#39;</span><span class="p">,</span>
+          <span class="n">align</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;None&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;&#39;</span><span class="p">:</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;&#39;</span><span class="p">:</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">:</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="s1">&#39;^&#39;</span><span class="p">:</span><span class="s1">&#39;^&#39;</span><span class="p">},</span>
+          <span class="n">sign</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;None&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;+&#39;</span><span class="p">:</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">:</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;SPACE&#39;</span><span class="p">:</span><span class="s1">&#39; &#39;</span><span class="p">},</span>
+          <span class="n">width</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+          <span class="n">grouping</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;None&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">:</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">:</span><span class="s1">&#39;,&#39;</span><span class="p">},</span>
+          <span class="n">precision</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">print_float</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sign</span><span class="p">,</span><span class="n">align</span><span class="p">,</span><span class="n">grouping</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">format_spec</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="s2">:</span><span class="si">{</span><span class="n">align</span><span class="si">}{</span><span class="n">sign</span><span class="si">}{</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">width</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">width</span><span class="si">}{</span><span class="n">grouping</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="s2">f</span><span class="se">}}</span><span class="s2">&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Format spec:&quot;</span><span class="p">,</span><span class="n">format_spec</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x ≈&quot;</span><span class="p">,</span><span class="n">format_spec</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "470501dd2d6648829457f8e8a28ade6a"}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10000</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3,333.33
+</pre></div>
+</div>
+</div>
+</div>
+<p>String formatting is useful for different data types other than <code class="docutils literal notranslate"><span class="pre">float</span></code>.<br />
+E.g., consider the following program that prints a time specified by some variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some specified time</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">minute</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="n">second</span> <span class="o">=</span> <span class="mi">56</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The time is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">second</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The time is 12:34:56.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Imagine you have to show also the date in different formats.<br />
+The code can become very hard to read/write because</p>
+<ul class="simple">
+<li><p>the message is a concatenation of multiple strings and</p></li>
+<li><p>the integer variables need to be converted to strings.</p></li>
+</ul>
+<p>Omitting <code class="docutils literal notranslate"><span class="pre">+</span></code> leads to syntax error. Removing <code class="docutils literal notranslate"><span class="pre">str</span></code> as follows also does not give the desired format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The time is &quot;</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>  <span class="c1"># note the extra spaces</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The time is  12 : 34 : 56 .
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make the code more readable, we can use the <code class="docutils literal notranslate"><span class="pre">format</span></code> function as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;The time is </span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span><span class="n">minute</span><span class="p">,</span><span class="n">second</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The time is 12:34:56.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can have multiple <em>place-holders</em> <code class="docutils literal notranslate"><span class="pre">{}</span></code> inside a string.</p></li>
+<li><p>We can then provide the contents (any type: numbers, strings..) using the <code class="docutils literal notranslate"><span class="pre">format</span></code> function, which</p></li>
+<li><p>substitutes the place-holders by the function arguments from left to right.</p></li>
+</ul>
+<p>According to the <a class="reference external" href="https://docs.python.org/3/library/string.html#format-string-syntax">string formatting syntax</a>, we can change the order of substitution using</p>
+<ul class="simple">
+<li><p>indices <em>(0 is the first item)</em> or</p></li>
+<li><p>names inside the placeholder <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You should </span><span class="si">{0}</span><span class="s2"> </span><span class="si">{1}</span><span class="s2"> what I say instead of what I </span><span class="si">{0}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;do&quot;</span><span class="p">,</span> <span class="s2">&quot;only&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The surname of </span><span class="si">{first}</span><span class="s2"> </span><span class="si">{last}</span><span class="s2"> is </span><span class="si">{last}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="n">last</span><span class="o">=</span><span class="s2">&quot;Doe&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You should do only what I say instead of what I do.
+The surname of John Doe is Doe.
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can even put variables inside the format specification directly and have a nested string formatting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">align</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="s2">:*</span><span class="si">{</span><span class="n">align</span><span class="si">}{</span><span class="n">width</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># note the syntax f&quot;...&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3333.3333333333335
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong> Play with the following widget to learn more about the formating specification.</p>
+<ol class="simple">
+<li><p>What happens when <code class="docutils literal notranslate"><span class="pre">align</span></code> is none but <code class="docutils literal notranslate"><span class="pre">fill</span></code> is <code class="docutils literal notranslate"><span class="pre">*</span></code>?</p></li>
+<li><p>What happens when the <code class="docutils literal notranslate"><span class="pre">expression</span></code> is a multi-line string?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="nd">@interact</span><span class="p">(</span><span class="n">expression</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;&#39;ABC&#39;&quot;</span><span class="p">,</span>
+          <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span>
+          <span class="n">align</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;None&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;&#39;</span><span class="p">:</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;&#39;</span><span class="p">:</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;=&#39;</span><span class="p">:</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="s1">&#39;^&#39;</span><span class="p">:</span><span class="s1">&#39;^&#39;</span><span class="p">},</span>
+          <span class="n">width</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">print_objectt</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span><span class="n">fill</span><span class="p">,</span><span class="n">align</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">format_spec</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="s2">:</span><span class="si">{</span><span class="n">fill</span><span class="si">}{</span><span class="n">align</span><span class="si">}{</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">width</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">width</span><span class="si">}</span><span class="se">}}</span><span class="s2">&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Format spec:&quot;</span><span class="p">,</span><span class="n">format_spec</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Print:&quot;</span><span class="p">,</span><span class="n">format_spec</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "4df2b1521bab4214bb69dd2f35389eb8"}
+</script></div>
+</div>
+<ol class="simple">
+<li><p>It returns a ValueError because align must be specified when fill is.</p></li>
+<li><p>The newline character is simply regarded a character. The formatting is not applied line-by-line. E.g., try ‘ABC\nDEF’.</p></li>
+</ol>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"033aa164dd0647bba7619fc8dcc95f54": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fb7b9d831ea54239b7be5912827cb940": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_559f17a873d44d598afb3a6995953cb9", "IPY_MODEL_c53de2d012a046e0bb982e7baf70ad4c"], "layout": "IPY_MODEL_033aa164dd0647bba7619fc8dcc95f54"}}, "dee5525d1fbb4d41a3b07078c304c0cd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dbc1f943d30a4aabbc098ae2020d041e": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "559f17a873d44d598afb3a6995953cb9": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["a-number = 15", "a_number = 15", "15 = 15", "_15 = 15", "del = 15", "Del = 15", "type = print", "print = type", "input = print"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "assignment", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_dee5525d1fbb4d41a3b07078c304c0cd", "style": "IPY_MODEL_dbc1f943d30a4aabbc098ae2020d041e"}}, "9ccf7d98f43c495894387fcd9eee0869": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c53de2d012a046e0bb982e7baf70ad4c": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_9ccf7d98f43c495894387fcd9eee0869", "msg_id": "", "outputs": [{"output_type": "error", "ename": "SyntaxError", "evalue": "can't assign to operator (<string>, line 1)", "traceback": ["\u001b[0;36m  File \u001b[0;32m\"<string>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m can't assign to operator\n"]}]}}, "f9d6c62f7a93412c802228274a4618fe": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "470501dd2d6648829457f8e8a28ade6a": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_b34d090385b64a28af68a34c366fa249", "IPY_MODEL_5d136829ef73485ca3b11c7af3259330", "IPY_MODEL_6331d4edfed94ec7834a8a334a6bd538", "IPY_MODEL_aeb6ad2260b84d849c40f649f562e5cb", "IPY_MODEL_1c8c8618fb84499eb6a777f8a9d1325d", "IPY_MODEL_8b862ad277214dd4b0f95879f2223102", "IPY_MODEL_5fe4c48dc3334ddbaf27628201d76c10"], "layout": "IPY_MODEL_f9d6c62f7a93412c802228274a4618fe"}}, "0eda68e23bf7405aa03b348d2edd2285": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "abfef8d52d934d48840bc328f3f575ae": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "b34d090385b64a28af68a34c366fa249": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_0eda68e23bf7405aa03b348d2edd2285", "placeholder": "\u200b", "style": "IPY_MODEL_abfef8d52d934d48840bc328f3f575ae", "value": "10000/3"}}, "ba6be9d079bc4679b524248d0d91ae60": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b03b38d32ba046e999b27d912698115f": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "5d136829ef73485ca3b11c7af3259330": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["None", "+", "-", "SPACE"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "sign", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_ba6be9d079bc4679b524248d0d91ae60", "style": "IPY_MODEL_b03b38d32ba046e999b27d912698115f"}}, "cd837dd4d469400fb400512dc6ebdad0": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3002122bb52c4bccbcc6b7ff392a48b6": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "6331d4edfed94ec7834a8a334a6bd538": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["None", "<", ">", "=", "^"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "align", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_cd837dd4d469400fb400512dc6ebdad0", "style": "IPY_MODEL_3002122bb52c4bccbcc6b7ff392a48b6"}}, "9eefaa7f4f9446bc972a64be1bf6d1aa": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3e3275ad5bcf4a119dfd24155dd161c1": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "aeb6ad2260b84d849c40f649f562e5cb": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["None", "_", ","], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "grouping", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_9eefaa7f4f9446bc972a64be1bf6d1aa", "style": "IPY_MODEL_3e3275ad5bcf4a119dfd24155dd161c1"}}, "61f51af697e64bf5a07e007c70dcc9a6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c124f9bee70f40aba1ec5b8d4f13d42f": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "1c8c8618fb84499eb6a777f8a9d1325d": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "width", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_61f51af697e64bf5a07e007c70dcc9a6", "max": 20, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_c124f9bee70f40aba1ec5b8d4f13d42f", "value": 0}}, "bb6b3eb322224a389de1d3efaa442990": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "52837fc0105f4e5d8fd1b483507e7057": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "8b862ad277214dd4b0f95879f2223102": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "precision", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_bb6b3eb322224a389de1d3efaa442990", "max": 20, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_52837fc0105f4e5d8fd1b483507e7057", "value": 2}}, "8e3c5a968d7d483ea2e6e251d15b1c8e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5fe4c48dc3334ddbaf27628201d76c10": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_8e3c5a968d7d483ea2e6e251d15b1c8e", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Format spec: {:.2f}\nx \u2248 3333.33\n"}]}}, "52e64165277d40c8b86f93aa43ae3889": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4df2b1521bab4214bb69dd2f35389eb8": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_70a054c0d1834cc89ae03f60da9261b0", "IPY_MODEL_fb3187f0ac234112bfb6715b5ed38a65", "IPY_MODEL_8494969c0902446db84e081c59a65df7", "IPY_MODEL_94f4f8ce699544f1a0d734c28a06085e", "IPY_MODEL_ec333122bea149b3acb1d63140bd6932"], "layout": "IPY_MODEL_52e64165277d40c8b86f93aa43ae3889"}}, "2590d131a83a4725909d0bb5bbcb8dc2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "41856738767d4f6880b329ae4f8cb42e": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "70a054c0d1834cc89ae03f60da9261b0": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "expression", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_2590d131a83a4725909d0bb5bbcb8dc2", "placeholder": "\u200b", "style": "IPY_MODEL_41856738767d4f6880b329ae4f8cb42e", "value": "'ABC'"}}, "fc32540363e64bff8a942b18a77ae4d1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bb01ce0a91ff4e7b8f2e9222b9b2c409": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "fb3187f0ac234112bfb6715b5ed38a65": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "fill", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_fc32540363e64bff8a942b18a77ae4d1", "placeholder": "\u200b", "style": "IPY_MODEL_bb01ce0a91ff4e7b8f2e9222b9b2c409", "value": "*"}}, "2a6eb12e9a1f4657910b1dabda010c35": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b5a110bf4db84045be40259c3b575f64": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "8494969c0902446db84e081c59a65df7": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["None", "<", ">", "=", "^"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "align", "description_tooltip": null, "disabled": false, "index": 4, "layout": "IPY_MODEL_2a6eb12e9a1f4657910b1dabda010c35", "style": "IPY_MODEL_b5a110bf4db84045be40259c3b575f64"}}, "031f559388cc41bd98c87e7e6481339b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e3e9a0f5b7504e5ea60df4c92c9d4446": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "94f4f8ce699544f1a0d734c28a06085e": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "width", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_031f559388cc41bd98c87e7e6481339b", "max": 20, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_e3e9a0f5b7504e5ea60df4c92c9d4446", "value": 10}}, "77397f492dff45f7af652aac3d58c04c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ec333122bea149b3acb1d63140bd6932": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_77397f492dff45f7af652aac3d58c04c", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "Format spec: {:*^10}\nPrint: ***ABC****\n"}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ccha23/CS1302ICP",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lecture2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Lecture1/Introduction%20to%20Computer%20Programming.html" title="previous page"><span class="section-number">1. </span>Introduction to Computer Programming</a>
+    <a class='right-next' id="next-link" href="Expressions%20and%20Arithmetic.html" title="next page"><span class="section-number">3. </span>Expressions and Arithmetic</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Chung Chan<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
