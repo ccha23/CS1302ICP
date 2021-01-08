@@ -78,7 +78,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">CS1302</h1>
@@ -295,6 +295,12 @@
     <div class="dropdown-buttons">
         
         
+        <a class="jupyterhub-button" href="https://ltjh.cs.cityu.edu.hk/hub/user-redirect/git-pull?repo=https://github.com/ccha23/CS1302ICP&urlpath=tree/CS1302ICP/Lecture8/Dictionaries and Sets.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lecture8/Dictionaries and Sets.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
@@ -369,7 +375,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 2 6 1 5 1 3 4 3 6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 5 5 4 2 1 5 2 2 1
 </pre></div>
 </div>
 </div>
@@ -786,7 +792,7 @@ The for loop iterates over the keys.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e b d c a
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b d c e a
 (0, &#39;a&#39;) (1, &#39;b&#39;) (2, &#39;c&#39;) (3, &#39;d&#39;) (4, &#39;e&#39;)
 </pre></div>
 </div>
@@ -1096,9 +1102,9 @@ assert len(union) == len(intersection) + len(symmetric_difference)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: update, clear, copy, pop
-dict-specific attributes: keys, get, setdefault, values, fromkeys, popitem, items
-set-specific attributes: symmetric_difference_update, difference, isdisjoint, add, difference_update, intersection, issubset, union, remove, intersection_update, issuperset, symmetric_difference, discard
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Common attributes: update, pop, clear, copy
+dict-specific attributes: items, get, popitem, fromkeys, values, keys, setdefault
+set-specific attributes: union, symmetric_difference_update, discard, difference_update, issubset, intersection_update, add, difference, remove, isdisjoint, issuperset, intersection, symmetric_difference
 </pre></div>
 </div>
 </div>
@@ -1234,10 +1240,10 @@ a.update(b,c=3)
  &quot;&lt;class &#39;builtin_function_or_method&#39;&gt;&quot;: [&lt;function print&gt;,
   &lt;function hash(obj, /)&gt;],
  &quot;&lt;class &#39;type&#39;&gt;&quot;: [int, str, float, set, dict],
- &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7fbdd8a848b8&gt;],
- &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7fbdd89959d8&gt;],
+ &quot;&lt;class &#39;generator&#39;&gt;&quot;: [&lt;generator object &lt;genexpr&gt; at 0x7f28d75c86d0&gt;],
+ &quot;&lt;class &#39;enumerate&#39;&gt;&quot;: [&lt;enumerate at 0x7f28d7547d70&gt;],
  &quot;&lt;class &#39;range&#39;&gt;&quot;: [range(0, 3)],
- &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7fbdd8986a48&gt;],
+ &quot;&lt;class &#39;zip&#39;&gt;&quot;: [&lt;zip at 0x7f28d755a730&gt;],
  &quot;&lt;class &#39;method_descriptor&#39;&gt;&quot;: [&lt;method &#39;add&#39; of &#39;set&#39; objects&gt;,
   &lt;method &#39;copy&#39; of &#39;dict&#39; objects&gt;]}
 </pre></div>

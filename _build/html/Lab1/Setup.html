@@ -78,7 +78,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">CS1302</h1>
@@ -295,6 +295,12 @@
     <div class="dropdown-buttons">
         
         
+        <a class="jupyterhub-button" href="https://ltjh.cs.cityu.edu.hk/hub/user-redirect/git-pull?repo=https://github.com/ccha23/CS1302ICP&urlpath=tree/CS1302ICP/Lab1/Setup.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <a class="colab-button" href="https://colab.research.google.com/github/ccha23/CS1302ICP/blob/main/Lab1/Setup.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
@@ -350,9 +356,26 @@
      1.2.2. How to submit a notebook
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced-usage">
+   1.3. Advanced Usage
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-to-print-or-backup-a-notebook">
-     1.2.3. How to print or backup a notebook?
+     1.3.1. How to print or backup a notebook?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-lab-and-extensions">
+     1.3.2. Jupyter Lab and extensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-studio-code">
+     1.3.3. Visual Studio Code
     </a>
    </li>
   </ul>
@@ -374,11 +397,10 @@
 <hr class="docutils" />
 <div class="section" id="jupyterhub">
 <h2><span class="section-number">1.1. </span>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h2>
-<p><strong>What is JupyterHub?</strong></p>
 <div class="section" id="how-to-access-the-jupyterhub-server">
 <h3><span class="section-number">1.1.1. </span>How to access the JupyterHub Server?<a class="headerlink" href="#how-to-access-the-jupyterhub-server" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
-<li><p>Enter the url <a class="reference external" href="https://ltjh.cs.cityu.edu.hk">ltjh.cs.cityu.edu.hk</a> in a web browser.</p></li>
+<li><p>Enter the url of the Jupyterhub server <a class="reference external" href="https://ltjh.cs.cityu.edu.hk">ltjh.cs.cityu.edu.hk</a> in a web browser.</p></li>
 <li><p>Enter your <a class="reference external" href="https://www.cityu.edu.hk/esu/eid.htm">EID</a> and Password in the fields <code class="docutils literal notranslate"><span class="pre">Username</span></code> and <code class="docutils literal notranslate"><span class="pre">Password</span></code> respectively.</p></li>
 <li><p>Click the <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span></code> button.</p></li>
 </ol>
@@ -412,12 +434,10 @@
 E.g., you can access the <code class="docutils literal notranslate"><span class="pre">Setup.ipynb</span></code> notebook as follows:</p>
 <ol class="simple">
 <li><p>Going to the <code class="docutils literal notranslate"><span class="pre">File</span></code> tab, which is the default JupyterHub homepage after login or when you click the logo on the top left-hand corner.</p></li>
-<li><p>Enter the notebook URL https://ltjh.cs.cityu.edu.hk/user-redirect/tree/cs1302/Lab1/Setup.ipynb. (See the <a class="reference external" href="https://jupyterhub.readthedocs.io/en/stable/reference/urls.html">documentation</a> for details.)</p></li>
+<li><p>Enter the notebook URL <a class="reference external" href="https://ltjh.cs.cityu.edu.hk/user-redirect/tree/cs1302/Lab1/Setup.ipynb">ltjh.cs.cityu.edu.hk/user-redirect/tree/cs1302/Lab1/Setup.ipynb</a>. (See the <a class="reference external" href="https://jupyterhub.readthedocs.io/en/stable/reference/urls.html">documentation</a> for details.)</p></li>
 </ol>
 </li>
 <li><p>If for any reason you want to Fetch <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> again, you have to first rename your <code class="docutils literal notranslate"><span class="pre">Lab1</span></code> folder to a different name such as <code class="docutils literal notranslate"><span class="pre">Lab1_orig</span></code>. You can do so by selecting the folder and click rename. You can also remove the folder by evaluating <code class="docutils literal notranslate"><span class="pre">!rm</span> <span class="pre">-rf</span> <span class="pre">~/cs1302/Lab1</span></code> in a code cell. (Be very cautious as removed folders cannot be recovered.)</p></li>
-<li><p>You may also play with the new interface called JupyterLab https://ltjh.cs.cityu.edu.hk/user-redirect/lab/.
-However, the new interface does not support all the tools we need for lectures/labs. It is currently under <a class="reference external" href="https://github.com/jupyterlab/jupyterlab">active development on GitHub</a>, so be prepared to see <a class="reference external" href="https://en.wikipedia.org/wiki/Software_bug">bugs</a>.</p></li>
 </ol>
 </div>
 </div>
@@ -430,56 +450,22 @@ However, the new interface does not support all the tools we need for lectures/l
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Help-&gt;User</span> <span class="pre">Interface</span> <span class="pre">Tour</span></code> to learn the jupyter notebook interface.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Help-&gt;Notebook</span> <span class="pre">Help</span></code> and skim through the tutorials on <code class="docutils literal notranslate"><span class="pre">Running</span> <span class="pre">Code</span></code> and <code class="docutils literal notranslate"><span class="pre">Working</span> <span class="pre">with</span> <span class="pre">Markdown</span> <span class="pre">Cells</span></code>.</p></li>
 </ol>
-<p>Note that the tutorial page is static but you can copy to this notebook to run them. Let’s run some code in this notebook.</p>
-<p><strong>Exercise</strong> Run the following cell to enable and configure the notebook extensions for this course.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%javascript</span>
-<span class="nx">IPython</span><span class="p">.</span><span class="nx">notebook</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
-  <span class="s2">&quot;load_extensions&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;validate_assignment/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;execute_time/ExecuteTime&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;init_cell/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;printview/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;skip-traceback/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;hide_input/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;codefolding/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;scratchpad/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;spellchecker/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;create_assignment/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;ruler/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;collapsible_headings/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;latex_envs/latex_envs&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;exercise/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;select_keymap/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;toc2/main&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;code_prettify/code_prettify&quot;</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;rise&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;scroll&quot;</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;toc&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;skip_h1_title&quot;</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Refresh the page for the notebook extensions to take effect.</p></li>
-<li><p>You can learn more about the extensions from the <span class="xref myst">nbextensions page</span>.</p></li>
-</ul>
-<p>Instead of evaluation a code cell, we often ask you to write a code in a particular cell. Make sure you fill in any place that says <code class="docutils literal notranslate"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR ANSWER HERE”.</p>
 <p><strong>Exercise</strong> In learning a new computer language, the first program to write is often the <a class="reference external" href="https://en.wikipedia.org/wiki/%22Hello,_World%21%22_program">“Hello, World!”</a> program, which says Hello to the world. Type the program <code class="docutils literal notranslate"><span class="pre">print('Hello,</span> <span class="pre">World!')</span></code> below and run it with <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
-<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World!
 </pre></div>
 </div>
 </div>
 </div>
+<p>We often ask you to write a code in a particular cell. Make sure you fill in any place that says <code class="docutils literal notranslate"><span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code> or “YOUR ANSWER HERE”.</p>
 <p>In order to check your work thoroughly, there will visible and hidden test cases. The following is a visible test you can run to check your answer: The test returns an assertion error only if your program does not print the correct message.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,8 +473,9 @@ However, the new interface does not support all the tools we need for lectures/l
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">io</span>
 <span class="n">old_stdout</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
 <span class="n">exec</span><span class="p">(</span><span class="n">In</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
-<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Hello, World!</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">printed</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">old_stdout</span>
+<span class="k">assert</span> <span class="n">printed</span> <span class="o">==</span> <span class="s1">&#39;Hello, World!</span><span class="se">\n</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -499,14 +486,14 @@ However, the new interface does not support all the tools we need for lectures/l
 <li><p>To assess your solution thoroughly, we often run new tests hidden from you after you have submitted your notebook. There is no partial credit for a partially correct solution that works for the visible test but fails for the hidden test. Therefore, <em>you should ensure your solution works in general rather than just the visible tests</em>.</p></li>
 <li><p>You can click the <code class="docutils literal notranslate"><span class="pre">Validate</span></code> button to run all the visible tests.</p></li>
 <li><p>If you open the same notebook multiple times in different browser windows, be careful in making changes in different windows. Inconsistent changes may lead to conflicts or loss of your data.</p></li>
-<li><p>If your notebook fails to run any code, the Kernel might have died. You can restart the kernel with <code class="docutils literal notranslate"><span class="pre">Kernel-&gt;Restart</span></code>. If restarting fails, check your code cells to see if there are unsafe code that breaks the kernel.</p></li>
+<li><p>If your notebook fails to run any code, the Kernel might have died. You can restart the kernel with <code class="docutils literal notranslate"><span class="pre">Kernel-&gt;Restart</span></code>. If restarting fails, check your code cells to see if there is any code that breaks the kernel.</p></li>
 </ol>
 </div>
 <div class="section" id="how-to-submit-a-notebook">
 <h3><span class="section-number">1.2.2. </span>How to submit a notebook<a class="headerlink" href="#how-to-submit-a-notebook" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Although this lab does not count towards your final grade, you are required to submit it, to get familiar with the procedure.</p></li>
-<li><p>Before you submit, however, make sure everything runs as expected:</p>
+<li><p>Although Lab1 does not count towards your final grade, you are required to submit it, to get familiar with the procedure.</p></li>
+<li><p>Before you submit, make sure everything runs as expected:</p>
 <ol class="simple">
 <li><p><strong>Restart the kernel</strong>: <code class="docutils literal notranslate"><span class="pre">Kernel-&gt;Restart</span></code></p></li>
 <li><p><strong>run all cells</strong>: <code class="docutils literal notranslate"><span class="pre">Cell-&gt;Run</span> <span class="pre">All</span></code></p></li>
@@ -518,17 +505,33 @@ However, the new interface does not support all the tools we need for lectures/l
 <li><p>Go to <code class="docutils literal notranslate"><span class="pre">Assignment</span></code> tab of JupyterHub where you fetched the Lab assignment.</p></li>
 <li><p>Expand the Lab1 folder and click the <code class="docutils literal notranslate"><span class="pre">validate</span></code> button next to the notebook(s) to check if all visible tests pass.</p></li>
 <li><p>Click <code class="docutils literal notranslate"><span class="pre">Submit</span></code> to submit your notebook.</p></li>
-<li><p>You may submit as many times as you wish but we will only collect your latest submission before the <a class="reference external" href="https://canvas.cityu.edu.hk/courses/36768/assignments/128315?return_to=https%3A%2F%2Fcanvas.cityu.edu.hk%2Fcalendar%3Finclude_contexts%3Dcourse_36768%23view_name%3Dmonth%26view_start%3D2020-09-01">Lab 1 due date</a> for grading.</p></li>
+<li><p>You may submit as many times as you wish before the due date as we collect your latest submission for grading.</p>
+<ul class="simple">
+<li><p><em>No late submission</em> will be collected without valid justifications.</p></li>
+<li><p><em>Double check</em> that you have submitted the correct Lab assignment.</p></li>
+<li><p>You are responsible for <em>recording your submission attempt</em> with a valid timestamp in case of technical issues.</p></li>
+</ul>
+</li>
 </ol>
 <p><strong>Tips</strong></p>
 <ol class="simple">
 <li><p>You normally have at least 5 days to work on the lab after your lab session.</p></li>
-<li><p>You can check the due dates of all the labs from the <a class="reference external" href="https://canvas.cityu.edu.hk/courses/36768">course homepage</a> or <a class="reference external" href="https://canvas.cityu.edu.hk/calendar?include_contexts=course_36768">course calendar</a>.</p></li>
-<li><p>You may seek help from us or your classmates. However, you must write your own solution and indicate who your collaborators are using the code <code class="docutils literal notranslate"><span class="pre">COLLABORATORS</span> <span class="pre">=</span> <span class="pre">'WONG</span> <span class="pre">Xiu</span> <span class="pre">Fong,</span> <span class="pre">LEE</span> <span class="pre">Man</span> <span class="pre">Kit'</span></code>.</p></li>
+<li><p>You can check the due dates of all the labs from the course homepage.</p></li>
+<li><p>You may seek help from us or your classmates. However, you must write your own solution and indicate who your collaborators are using the code:</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">COLLABORATORS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;WONG Xiu Fong&#39;</span><span class="p">,</span> <span class="s1">&#39;LEE Man Kit&#39;</span><span class="p">]</span>
+</pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h2><span class="section-number">1.3. </span>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="how-to-print-or-backup-a-notebook">
-<h3><span class="section-number">1.2.3. </span>How to print or backup a notebook?<a class="headerlink" href="#how-to-print-or-backup-a-notebook" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>How to print or backup a notebook?<a class="headerlink" href="#how-to-print-or-backup-a-notebook" title="Permalink to this headline">¶</a></h3>
 <p>To convert a notebook to pdf, we can print it to pdf instead:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">File-&gt;Print</span> <span class="pre">Preview</span></code></p></li>
@@ -544,6 +547,22 @@ However, the new interface does not support all the tools we need for lectures/l
 <li><p>remotely on other JupyHub services such as <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>.</p></li>
 </ul>
 <p>However, you would need to learn how to manage and install the additional packages required by the course.</p>
+</div>
+<div class="section" id="jupyter-lab-and-extensions">
+<h3><span class="section-number">1.3.2. </span>Jupyter Lab and extensions<a class="headerlink" href="#jupyter-lab-and-extensions" title="Permalink to this headline">¶</a></h3>
+<p>Instead of the classic notebook interface, you may also play with the new interface called JupyterLab by visiting <a class="reference external" href="https://ltjh.cs.cityu.edu.hk/user-redirect/lab/">ltjh.cs.cityu.edu.hk/user-redirect/lab/</a>.</p>
+<p>Note that the new interface does not support the validation and submission of lab assignment. It is currently under <a class="reference external" href="https://github.com/jupyterlab/jupyterlab">active development on GitHub</a>, so be prepared to see <a class="reference external" href="https://en.wikipedia.org/wiki/Software_bug">bugs</a>.</p>
+<p>You may use the <a class="reference external" href="https://github.com/jupyterlab/debugger">visual debugger</a> in JupyterLab to debug a jupyter notebook. To do you, you should open the notebook and choose XPython as the kernel.</p>
+<p>Both the notebook/lab interface is extensible. For the notebook interface, you can enable extensions from the <a class="reference external" href="https://ltjh.cs.cityu.edu.hk/user-redirect/nbextensions">nbextensions page</a>.</p>
+</div>
+<div class="section" id="visual-studio-code">
+<h3><span class="section-number">1.3.3. </span>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h3>
+<p>For a complete IDE experience, you can open VS Code as follows:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ltjh.cs.cityu.edu.hk/user-redirect/vscode/">ltjh.cs.cityu.edu.hk/user-redirect/vscode/</a></p></li>
+<li><p>In classic notebook interface: <code class="docutils literal notranslate"><span class="pre">File</span></code> tab -&gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> menu -&gt; <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code> menu item.</p></li>
+<li><p>In JupyterLab interface: <code class="docutils literal notranslate"><span class="pre">File</span></code> menu -&gt; <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Launcher</span></code> menu item -&gt; <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code> icon</p></li>
+</ul>
 </div>
 </div>
 </div>

@@ -4,7 +4,7 @@
 title: CS1302
 author                      : Chung Chan  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+logo                        : logo.svg  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 
@@ -52,10 +52,10 @@ latex:
 # Launch button settings
 launch_buttons:
   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url             : "" # https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  jupyterhub_url            : https://ltjh.cs.cityu.edu.hk  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
   thebe                     : true  # Add a thebe button to pages (requires the repository to run on Binder)
   colab_url                 : https://colab.research.google.com # The URL of Google Colab (https://colab.research.google.com)
+  binderhub_url             : "" # https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
 
 # Information about where the book exists on the web
 repository:
